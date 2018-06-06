@@ -75,8 +75,8 @@
 
     </ul>
 
-     <a id=" youtx_C01_16" href="http://www.youtx.com/profile/BookingTeam" target="_blank" class="freePublish">我要求租</a>
-    <a id="youtx_C01_11" href="http://www.youtx.com/room/new/" target="_blank" class="freePublish">发布房间</a>
+     <a id=" youtx_C01_16" href="" target="_blank" class="freePublish">我要求租</a>
+    <a id="youtx_C01_11" href="index.ftl" target="_blank" class="freePublish">发布房间</a>
         <!--头 已登录 start-->
 
     <ul class="headerLogin clearfix" style="display: none;" id="youtxlogin">
@@ -143,7 +143,7 @@
     <ul class="headerLogin clearfix" id="youtxloginw">
             <li class="dropDownLino"><a id="youtx_C01_07" href="https://passport.youtx.com/profile/passport/regist.aspx">注册就送100元</a>  </li>  
             
-        <li class="dropDownLino" style="padding-right:15px;"><a id="youtx_C01_08" href="https://passport.youtx.com/profile/passport/Login.aspx">登录</a></li>
+        <li class="dropDownLino" style="padding-right:15px;"><a id="youtx_C01_08" href="login.ftl">登录</a></li>
 
        
         <li class="dropDownLi"><a id="youtx_C01_09" href="http://www.youtx.com/help/" class="dropDownTrigger">帮助</a>
