@@ -3,7 +3,7 @@ package com.youtx.rent.entity;
 public class User {
     private Integer userId;
 
-    private Integer userPhone;
+    private String userPhone;
 
     private String userPassword;
 
@@ -25,11 +25,11 @@ public class User {
         this.userId = userId;
     }
 
-    public Integer getUserPhone() {
+    public String getUserPhone() {
         return userPhone;
     }
 
-    public void setUserPhone(Integer userPhone) {
+    public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
     }
 

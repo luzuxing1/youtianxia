@@ -3,7 +3,7 @@
 <mapper namespace="com.youtx.rent.dao.UserMapper">
   <resultMap id="BaseResultMap" type="com.youtx.rent.entity.User">
     <id column="user_id" jdbcType="INTEGER" property="userId" />
-    <result column="user_phone" jdbcType="INTEGER" property="userPhone" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
     <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
     <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
     <result column="user_nickname" jdbcType="VARCHAR" property="userNickname" />
