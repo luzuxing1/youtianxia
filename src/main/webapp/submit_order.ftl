@@ -1,14 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0125)http://www.youtx.com/payment/Booking/BookingNew.aspx?houseid=144142&livenum=1&begintime=2018-06-05&endtime=2018-06-06&rooms=1 -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+    <#assign base=request.contextPath />
+    <base id="base" href="${base}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Cache-Control" content="max-age=86400">
-    <img src="static/submit_order/countpv" width="0" height="0"><script charset="utf-8" src="static/submit_order/v.js.下载"></script><script type="text/javascript" async="" src="static/submit_order/load.min.js.下载"></script><script src="static/submit_order/jquery-1.6.2.min.js.下载" language="javascript" type="text/javascript"></script>
+    <img src="${base}/static/submit_order/countpv" width="0" height="0"><script charset="utf-8" src="${base}/static/submit_order/v.js.下载"></script><script type="text/javascript" async="" src="${base}/static/submit_order/load.min.js.下载"></script><script src="${base}/static/submit_order/jquery-1.6.2.min.js.下载" language="javascript" type="text/javascript"></script>
         
-    <link href="static/submit_order/public.css" rel="stylesheet" type="text/css">
+    <link href="${base}/static/submit_order/public.css" rel="stylesheet" type="text/css">
         
-    <script type="text/javascript" src="static/submit_order/jQuery.cookie.js.下载"></script>
+    <script type="text/javascript" src="${base}/static/submit_order/jQuery.cookie.js.下载"></script>
         
     
     
@@ -16,16 +17,16 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <script language="javascript" type="text/javascript" src="static/submit_order/Youtx.Utility.js.下载"></script>
-    <script language="javascript" type="text/javascript" src="static/submit_order/Youtx.Verification.js.下载"></script>
-    <script language="javascript" type="text/javascript" src="static/submit_order/Youtx.PassprofileNew.js.下载"></script>
-    <link href="static/submit_order/login.css" rel="stylesheet" type="text/css">
-    <script src="static/submit_order/baidu-head.js.下载" type="text/javascript"></script>
-    <link href="static/submit_order/X_NewOrder.css" rel="stylesheet" type="text/css">
+    <script language="javascript" type="text/javascript" src="${base}/static/submit_order/Youtx.Utility.js.下载"></script>
+    <script language="javascript" type="text/javascript" src="${base}/static/submit_order/Youtx.Verification.js.下载"></script>
+    <script language="javascript" type="text/javascript" src="${base}/static/submit_order/Youtx.PassprofileNew.js.下载"></script>
+    <link href="${base}/static/submit_order/login.css" rel="stylesheet" type="text/css">
+    <script src="${base}/static/submit_order/baidu-head.js.下载" type="text/javascript"></script>
+    <link href="${base}/static/submit_order/X_NewOrder.css" rel="stylesheet" type="text/css">
     <!--test-->
     
     <!--test-->
-    <script src="static/submit_order/popup_layer.js.下载" language="javascript" type="text/javascript"></script>
+    <script src="${base}/static/submit_order/popup_layer.js.下载" language="javascript" type="text/javascript"></script>
    <script type="text/javascript" language="javascript">
        var isSelf = 0;
        $(function () {
@@ -101,7 +102,7 @@
     </script>
 
    
-<script src="static/submit_order/saved_resource"></script><link rel="stylesheet" type="text/css" href="static/submit_order/Youtx_WebIM.css"></head>
+<script src="${base}/static/submit_order/saved_resource"></script><link rel="stylesheet" type="text/css" href="${base}/static/submit_order/Youtx_WebIM.css"></head>
 <body>
     <div class="wrapper">
        
@@ -138,7 +139,7 @@
     });
     //140226end
 </script>
-<script type="text/javascript" src="static/submit_order/Login_Cookie.js.下载"></script>
+<script type="text/javascript" src="${base}/static/submit_order/Login_Cookie.js.下载"></script>
 <script type="text/javascript">
     //监控代码请勿删除
     var _dctc = _dctc || {}; _dctc._account = _dctc._account || ['UA-25297079-1']; _dctc.isNorth = _dctc.isNorth || 'Y'; _dctc.bid = '27'; (function () {
@@ -155,7 +156,7 @@
 <!-- ClickTale end of Top part -->
 <div id="youtxlogin" class="header" style="">
     <p class="logo">
-        <a href="http://www.youtx.com/" id="youtx_01" target="_blank"><img src="static/submit_order/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站" title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
+        <a href="http://www.youtx.com/" id="youtx_01" target="_blank"><img src="${base}/static/submit_order/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站" title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
     </p>
     <!--2013-5-3修改-->
     <p class="btncz"><a id="A2" style="cursor:default;" target="_blank" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a></p>
@@ -171,7 +172,7 @@
     <ul class="subnav">
         <li><a target="_self" href="http://www.youtx.com/help/" rel="nofollow" id="youtx_05">帮助</a></li>
 <!--        <li class="PosRe"><a href="http://www.youtx.com/mo/" target="_blank"  rel="nofollow" id="youtx_04">手机游天下</a></li>-->
-        <li><a href="http://www.youtx.com/profile/BookingTeam" target="_blank">团队订房</a><img alt="新" src="static/submit_order/NewIco.gif" style="display:none;left:45px;" class="PosAb TN17"></li>
+        <li><a href="http://www.youtx.com/profile/BookingTeam" target="_blank">团队订房</a><img alt="新" src="${base}/static/submit_order/NewIco.gif" style="display:none;left:45px;" class="PosAb TN17"></li>
         <!--<li><a href="http://guide.youtx.com/" target="_blank" >目的地专家</a>
             <div class="HeaderTiShi"> 出行问答，游记攻略！<span>◆</span> <span class="HeaderTiShiImg">◆</span>
                  <p><img alt="关" src="http://js.youtx.com/images/QuAnTiShiColse.gif" id="imgx" /></p>
@@ -192,11 +193,11 @@
             <span class="arrowWt">◆</span>
             <dl>
             	<dt>扫描二维码安装游天下客户端</dt>
-                <dd><a href="http://www.youtx.com/mo/" target="_blank"><img src="static/submit_order/youtxapp.png" width="120" height="120"></a></dd>
+                <dd><a href="http://www.youtx.com/mo/" target="_blank"><img src="${base}/static/submit_order/youtxapp.png" width="120" height="120"></a></dd>
             </dl>
             <dl>
             	<dt><span class="ColorBlue">微信</span>扫描二维码使用游天下</dt>
-                <dd><img src="static/submit_order/ewmBNew.jpg" width="102" height="102"></dd>
+                <dd><img src="${base}/static/submit_order/ewmBNew.jpg" width="102" height="102"></dd>
                 <dd>微信公众号：游天下</dd>
             </dl>
             <dl style="border:none;">
@@ -226,7 +227,7 @@
 <div id="youtxloginw" class="header" style="display: none;">
     <p class="logo">
         <a href="http://www.youtx.com/" target="_blank" id="youtx_01">
-            <img src="static/submit_order/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站" title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
+            <img src="${base}/static/submit_order/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站" title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
     </p>
     <!--2013-5-3修改-->
     <p class="btncz"><a id="A3" style="cursor:default;" target="_blank" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a></p>
@@ -241,7 +242,7 @@
     <!--2013-5-3修改-结束-->
     <ul class="subnav">
         <li><a target="_self" href="http://www.youtx.com/help/" rel="nofollow" id="youtx_05">帮助</a></li>
-        <li><a href="http://www.youtx.com/profile/BookingTeam" target="_blank">团队订房</a><img alt="新" src="static/submit_order/NewIco.gif" style="display:none;left:45px;" class="PosAb TN17"></li>
+        <li><a href="http://www.youtx.com/profile/BookingTeam" target="_blank">团队订房</a><img alt="新" src="${base}/static/submit_order/NewIco.gif" style="display:none;left:45px;" class="PosAb TN17"></li>
         <li><a target="_blank" href="http://bang.youtx.com/">短租帮</a></li>
         <li class="HeadLanguage"><a target="_self" href="http://en.youtx.com/">English</a></li>
         <li class="ytxMob" id="mobYtx">
@@ -252,11 +253,11 @@
             <span class="arrowWt">◆</span>
             <dl>
             	<dt>扫描二维码安装游天下客户端</dt>
-                <dd><a href="http://www.youtx.com/mo/" target="_blank"><img src="static/submit_order/youtxapp.png" width="120" height="120"></a></dd>
+                <dd><a href="http://www.youtx.com/mo/" target="_blank"><img src="${base}/static/submit_order/youtxapp.png" width="120" height="120"></a></dd>
             </dl>
             <dl>
             	<dt><span class="ColorBlue">微信</span>扫描二维码使用游天下</dt>
-                <dd><img src="static/submit_order/ewmBNew.jpg" width="102" height="102"></dd>
+                <dd><img src="${base}/static/submit_order/ewmBNew.jpg" width="102" height="102"></dd>
                 <dd>微信公众号：游天下</dd>
             </dl>
             <dl style="border:none;">
@@ -290,12 +291,12 @@
     <form method="get" id="book_it_form" action="http://www.youtx.com/payment/Booking/BookingNew.aspx" target="_self">
     <div id="cboxOverlay" style="display: none; opacity: 1; z-index: 99; cursor: auto;
         height: 100%; width: 100%; background: none repeat scroll 0 0 #000000; position: absolute;">
-        <iframe frameborder="0" class="IE6iframe" src="static/submit_order/saved_resource.html"></iframe>
+        <iframe frameborder="0" class="IE6iframe" src="${base}/static/submit_order/saved_resource.html"></iframe>
     </div>
     <!--登录popup5-->
     <div style="width: 347px; display: none;" class="WishlistLogin popup5">
         <h2 class="WishlistHeader">
-            <span class="H2Font">登录</span><span class="WishlistClose"><img src="static/submit_order/WishlistClose.gif"></span></h2>
+            <span class="H2Font">登录</span><span class="WishlistClose"><img src="${base}/static/submit_order/WishlistClose.gif"></span></h2>
         <div class="Wishlist_tab">
             <div class="W_item_listxt">
                 <div class="input_passwrod passwrod_bg290">
@@ -414,10 +415,10 @@
     <div class="NewOrder">
         <div class="NewOrderLeft">
             <div class="X_order_title">
-                <img alt="" src="static/submit_order/OrderTitBg.gif"></div>
+                <img alt="" src="${base}/static/submit_order/OrderTitBg.gif"></div>
             <div class="X_order_step">
                 
-                <img alt="" src="static/submit_order/X_order_step01.gif" width="645" height="30">
+                <img alt="" src="${base}/static/submit_order/X_order_step01.gif" width="645" height="30">
                 
             </div>
             <div class="NewOrderContent">
@@ -701,7 +702,7 @@
                                     <td>
                                         <input type="text" class="text" id="txtname" name="txtname" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/name/&#39;]);}catch(e){}" disabled="disabled">
                                          <span>
-                                            <img id="imgname" style="vertical-align: middle;" src="static/submit_order/RoomCorrectBtnNew.gif"></span>
+                                            <img id="imgname" style="vertical-align: middle;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif"></span>
                                         <script language="javascript" type="text/javascript">
                                             var usName = "卢祖兴";
                                             if (usName != "" || usName == null) {
@@ -723,7 +724,7 @@
                                     <td>
                                         <input type="text" class="text" id="textUserName" name="textUserName">
                                         <span>
-                                            <img id="imgUsername" style="vertical-align: middle; *vertical-align: baseline; display: none;" src="static/submit_order/RoomCorrectBtnNew.gif"></span>
+                                            <img id="imgUsername" style="vertical-align: middle; *vertical-align: baseline; display: none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif"></span>
                                         <p class="ColorGray999 PT5">请与证件上姓名保持一致。</p>
                                         <div class="PromptErrorBox">
                                             <span class="PromptError" style="display: none">
@@ -1649,7 +1650,7 @@
                                     <td>
                                          <input type="text" class="text" id="IDNumber" name="IDNumber" onblur="CartTest(this)">
                                         <span>
-                                            <img style="vertical-align: middle;*vertical-align:baseline; display:none;" src="static/submit_order/RoomCorrectBtnNew.gif">
+                                            <img style="vertical-align: middle;*vertical-align:baseline; display:none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif">
                                         </span>
                                         <p class="ColorGray999 PT5">请您放心，身份信息不会对外公开。</p>
                                         <div class="PromptErrorBox" id="CardErrorMsg" name="CardErrorMsg">
@@ -2384,7 +2385,7 @@
                                                 <input type="text" disabled="disabled" class="text" value="+86" style="color: #333;
                                                     background-color: #ece9d8; width: 50px; margin-right: -1px;" id="telcode"><input style="width: 98px;" type="text" class="text" id="txttel" name="txttel" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/phone/&#39;]);}catch(e){}"><input name="telhide" type="hidden" id="telhide"><input name="telCodehide" type="hidden" id="telCodehide">
                                                 <span>
-                                                    <img alt="" id="imgtel" style="vertical-align: middle;" src="static/submit_order/RoomCorrectBtnNew.gif"></span>
+                                                    <img alt="" id="imgtel" style="vertical-align: middle;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif"></span>
                                                 <span class="VerificationBtn">
                                                     <input style="display: none;" type="button" id="getYanZhengMa" value="获取验证码">
                                                 </span>
@@ -2411,7 +2412,7 @@
                                         <input type="text" class="text" id="txtYanZhengMa" name="txtYanZhengMa" onchange="_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/yanzhengma/&#39;]);">
                                         <span>
                                             <img alt="" id="imgYanZhengMa" style="vertical-align: middle; *vertical-align: baseline;
-                                                display: none;" src="static/submit_order/RoomCorrectBtnNew.gif"></span>
+                                                display: none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif"></span>
                                         <div class="PromptErrorBox">
                                             <span class="PromptError" style="display: none;"></span><span class="CorrectPass" style="display: none;">验证码已发送，请正确输入</span>
                                         </div>
@@ -2428,7 +2429,7 @@
                                     <td>
                                         <input type="text" class="text" id="txtmail" name="txtmail" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/mail/&#39;]);}catch(e){}">
                                         <span>
-                                            <img alt="" id="imgmail" style="vertical-align: middle;" src="static/submit_order/RoomCorrectBtnNew.gif"></span>
+                                            <img alt="" id="imgmail" style="vertical-align: middle;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif"></span>
                                         <div class="PromptErrorBox">
                                             <span class="PromptError" style=""></span> <span class="PromptError02" style="display: none;">该邮箱已注册，请<a href="javascript:void(0);" onclick="mailSighIn()">登录</a>或<a style="cursor: pointer" onclick="window.open(&#39;/profile/Passport/EditPassword.aspx?Email=&#39;+$(&#39;#txtmail&#39;).val())">找回密码</a></span></div>
                                     </td>
@@ -2451,7 +2452,7 @@
                                     <td>
                                         <input type="text" class="text" id="txtcheckinname" name="txtcheckinname" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/othername/&#39;]);}catch(e){}">
                                         <span>
-                                            <img id="imgcheckinname" style="vertical-align: middle; display: none;" src="static/submit_order/RoomCorrectBtnNew.gif"></span>
+                                            <img id="imgcheckinname" style="vertical-align: middle; display: none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif"></span>
                                         <div class="PromptErrorBox">
                                             <span class="PromptError" style="display: none">请输入姓名</span></div>
                                     </td>
@@ -3376,7 +3377,7 @@
                                     <td>
                                          <input type="text" class="text" id="IDOtherNumber" name="IDOtherNumber" onblur="CartTest(this)">
                                         <span>
-                                            <img style="vertical-align: middle;*vertical-align:baseline; display:none;" src="static/submit_order/RoomCorrectBtnNew.gif">
+                                            <img style="vertical-align: middle;*vertical-align:baseline; display:none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif">
                                         </span>
                                         <p class="ColorGray999 PT5">请您放心，身份信息不会对外公开。</p>
                                         <div class="PromptErrorBox" name="CardErrorMsg" id="CardErrorOtherMsg">
@@ -4111,7 +4112,7 @@
                                             </div>
                                             <div>
                                                 <input type="text" disabled="disabled" class="text" value="+86" style="color:#333;background-color:#ece9d8;width:50px;margin-right:-1px;" id="telOthercode"><input style="width:100px;" type="text" class="text" id="txtOthertel" name="txtOthertel" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/phone/&#39;]);}catch(e){}"><input name="telhide" type="hidden" id="Hidden1"><input name="telCodehide" type="hidden" id="Hidden2">
-                                                <span><img alt="" id="imgOthertel" style="vertical-align: middle; *vertical-align: baseline; display: none;" src="static/submit_order/RoomCorrectBtnNew.gif"></span>
+                                                <span><img alt="" id="imgOthertel" style="vertical-align: middle; *vertical-align: baseline; display: none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif"></span>
                                                 <span class="VerificationBtn"><input style="display:none;" type="button" id="Button1" value="获取验证码"></span>
                                             </div>
                                             <div id="Div2" class="PromptErrorBox">
@@ -4194,7 +4195,7 @@
                             <a target="_blank" href="http://www.youtx.com/room/144142/" onclick="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/title/&#39;]);}catch(e){}">
                                 市中心公寓 7号线长寿路站温馨一居室</a></p>
                         <div>
-                            <img alt="市中心公寓 7号线长寿路站温馨一居室" src="static/submit_order/210x140c.jpg"></div>
+                            <img alt="市中心公寓 7号线长寿路站温馨一居室" src="${base}/static/submit_order/210x140c.jpg"></div>
                         <input name="houseID" type="hidden" value="144142">
                         
                             <p>
@@ -5897,7 +5898,7 @@
         var LyUrl = escape(encodeURI(document.referrer));
         var Post1Url = "/payment/ajax/AjaxBookingAccessLog.ashx?uid=2600363&hid=144142&lyurl=" + LyUrl + "&w=" + ScrW + "&h=" + ScrH + "&type=1&r=0.958618575222147"
         document.write("<scri" + "pt src='" + Post1Url + "'></scr" + "ipt>"); 
-    </script><script src="static/submit_order/AjaxBookingAccessLog.ashx"></script>
+    </script><script src="${base}/static/submit_order/AjaxBookingAccessLog.ashx"></script>
     <!--Cps页面布码Begin-->
     <script type="text/javascript">
         var ScrW = window.screen.width;     //宽
@@ -5907,10 +5908,10 @@
         var CpsSite = 'http://dlps.youtx.com/'; //CPS站点
         var PostUrl = CpsSite + 'Cps/CpsViewRecord.aspx?ScrW=' + ScrW + '&ScrH=' + ScrH + "&LyUrl=" + LyUrl + "&VPType=" + VPType;
         document.write("<scri" + "pt src='" + PostUrl + "'></scr" + "ipt>"); 
-    </script><script src="static/submit_order/CpsViewRecord.aspx"></script>
+    </script><script src="${base}/static/submit_order/CpsViewRecord.aspx"></script>
     <!--Cps页面布码End-->
     
-    <script type="text/javascript" src="static/submit_order/HouseHitLog.aspx"></script>
+    <script type="text/javascript" src="${base}/static/submit_order/HouseHitLog.aspx"></script>
     
     
 
@@ -5968,7 +5969,7 @@
       <li class="footer_link_space">|</li>
       <li><a href="http://www.youtx.com/feedback/" target="_blank" rel="nofollow" id="youtx_34">意见反馈</a></li>
       <li class="footer_link_space">|</li>
-      <li class="footer_link_grey footer_link_space" style="margin: 0;">客服热线：400-630-0088，客服邮箱：<span>service</span> <img src="static/submit_order/at.jpg"> <span>youtx.com</span></li>
+      <li class="footer_link_grey footer_link_space" style="margin: 0;">客服热线：400-630-0088，客服邮箱：<span>service</span> <img src="${base}/static/submit_order/at.jpg"> <span>youtx.com</span></li>
     </ul>
     <ul class="footer_link02">
       <li class="FooterDesktop"><a href="http://www.youtx.com/downloadshortcut/" target="_blank" rel="nofollow">下载桌面游天下</a> | <a href="http://www.youtx.com/mo/" target="_blank" rel="nofollow">手机游天下</a> | <a href="http://www.youtx.com/star/" target="_blank" rel="nofollow">明星房东</a> | <a href="http://www.youtx.com/" target="_blank">日租房</a> | <a href="http://blog.youtx.com/" target="_blank" rel="nofollow">博客</a> | <a href="http://www.youtx.com/jifen/exchange/" target="_blank" rel="nofollow">积分换礼</a> | </li>
@@ -5978,9 +5979,9 @@
     <ul class="FooterNet">
       <li class="FontArial02">Copyright © 2017 Youtx.com, All Rights Reserved<br>
         <a href="http://js.youtx.com/icp.jpg" target="_blank" rel="nofollow" style="font-family:&#39;宋体&#39;">京ICP证041065号</a> <span style="font-family:&#39;宋体&#39;">京公网安备11010602010093号-2</span></li>
-      <li><a target="_blank" href="https://trustsealinfo.verisign.com/splash?form_file=fdf%2Fsplash.fdf&amp;sap=&amp;dn=passport.youtx.com&amp;zoneoff=&amp;lang=zh_CN" rel="nofollow"><img src="static/submit_order/VerisignYoutx.gif" height="35" width="60"></a></li>
-      <li><a href="https://www.itrust.org.cn/yz/pjwx.asp?wm=1766253730" rel="nofollow" target="_blank"><img src="static/submit_order/FooterNetPic.gif"></a></li>
-      <li><a target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e12032211010015160307708&amp;ct=df&amp;pa=318891" rel="nofollow"><img src="static/submit_order/TrustYoutx.gif" width="100" height="35px"></a></li>
+      <li><a target="_blank" href="https://trustsealinfo.verisign.com/splash?form_file=fdf%2Fsplash.fdf&amp;sap=&amp;dn=passport.youtx.com&amp;zoneoff=&amp;lang=zh_CN" rel="nofollow"><img src="${base}/static/submit_order/VerisignYoutx.gif" height="35" width="60"></a></li>
+      <li><a href="https://www.itrust.org.cn/yz/pjwx.asp?wm=1766253730" rel="nofollow" target="_blank"><img src="${base}/static/submit_order/FooterNetPic.gif"></a></li>
+      <li><a target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e12032211010015160307708&amp;ct=df&amp;pa=318891" rel="nofollow"><img src="${base}/static/submit_order/TrustYoutx.gif" width="100" height="35px"></a></li>
     </ul>
   
 <!--2013-6-26修改-->
@@ -6007,7 +6008,7 @@
 <script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Feb4b7b326a601c545c14e8b6b965e4a0' type='text/javascript'%3E%3C/script%3E"));
-</script><script src="static/submit_order/h.js.下载" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=eb4b7b326a601c545c14e8b6b965e4a0" target="_blank"><img border="0" src="static/submit_order/21.gif" width="20" height="20"></a>
+</script><script src="${base}/static/submit_order/h.js.下载" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=eb4b7b326a601c545c14e8b6b965e4a0" target="_blank"><img border="0" src="${base}/static/submit_order/21.gif" width="20" height="20"></a>
 
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -6019,7 +6020,7 @@ var google_conversion_label = "yFTtCPvC6gMQzfb-yQM";
 var google_conversion_value = 0;
 /* ]]> */
 </script>
-<script type="text/javascript" src="static/submit_order/conversion.js.下载">
+<script type="text/javascript" src="${base}/static/submit_order/conversion.js.下载">
 </script>
 <noscript>
 &lt;div style="display:inline;"&gt;
@@ -6030,7 +6031,7 @@ var google_conversion_value = 0;
 <script type="text/javascript">
     var bd_cpro_rtid = "nWnknWD";
 </script>
-<script type="text/javascript" src="static/submit_order/rt.js.下载"></script>
+<script type="text/javascript" src="${base}/static/submit_order/rt.js.下载"></script>
 <noscript>
 &lt;div style="display:none;"&gt;
 &lt;img height="0" width="0" style="border-style:none;" src="http://eclick.baidu.com/rt.jpg?t=noscript&amp;rtid=nWnknWD" /&gt;
@@ -6039,15 +6040,15 @@ var google_conversion_value = 0;
 </div>
 <!-- ClickTale Bottom part -->
 <div id="ClickTaleDiv" style="display: none;"></div>
-<script src="static/submit_order/clicktale.js.下载" type="text/javascript"></script><script src="http://s.clicktale.net/WRd.js" type="text/javascript"></script>
+<script src="${base}/static/submit_order/clicktale.js.下载" type="text/javascript"></script><script src="http://s.clicktale.net/WRd.js" type="text/javascript"></script>
 <script type="text/javascript">
     if (typeof ClickTale == 'function') ClickTale(12600, 0.0005, "www14");
 </script>
 <!-- ClickTale end of Bottom part -->
-<script src="static/submit_order/Youtx_WebIM_HTML.js.下载" type="text/javascript"></script><script src="static/submit_order/youtx_mi_query.js.下载" type="text/javascript"></script><script src="static/submit_order/WebIM.js.下载" type="text/javascript"></script><script src="static/submit_order/WebIM.Query.js.下载" type="text/javascript"></script>
+<script src="${base}/static/submit_order/Youtx_WebIM_HTML.js.下载" type="text/javascript"></script><script src="${base}/static/submit_order/youtx_mi_query.js.下载" type="text/javascript"></script><script src="${base}/static/submit_order/WebIM.js.下载" type="text/javascript"></script><script src="${base}/static/submit_order/WebIM.Query.js.下载" type="text/javascript"></script>
 
 <!--尾部2011-9-6修改 end-->        
     
 
 
-<div id="feedbackbox" class="feedbackbox"><div class="feedback"><div class="FeedBackColseImg"><img class="FeedBackColse" title="关闭" src="static/submit_order/FeedBackClose.gif"></div><a class="feedbackA1" href="http://www.youtx.com/feedback/" target="_blank">意见反馈</a><a href="http://www.youtx.com/mo/" target="_blank"><img src="static/submit_order/ewm.png"></a><a class="feedbackA2" href="http://www.youtx.com/mo/" target="_blank">游天下手机客户端<br>扫描或点击下载</a></div></div><div id="TalkBox_Youtx_ID" class="TalkBox" style="display: none;"><div class="Talk  PosRe" id="Talk"><div class="UserMenu" id="UserBox"><div class="UserMain" id="UserM" style="cursor: move;"><ul class="TabHeader" id="UserNr" style="top:0px;"></ul></div><div class="UserScroll" id="UserScroll" style="display: none;"><span class="UserBar" id="UserBar" style="display:block; top:0px;"></span></div></div><div class="Talk_center"><span class="DownArrow" style="display:none;"><img src="static/submit_order/dowearrow.gif" width="16" height="16"></span><ul class="Yichu" style="display:none;"></ul><div id="TalkBox_Youtx_ID_s" style=" width:480px;height:26px; cursor: move;"><span class="RentName"></span><span class="Chat_min"><img src="static/submit_order/SIcon.png" width="25" height="25"></span></div><div class="clear"></div><div id="youtx_ch_webim"></div></div><div class="Talk_right"> </div><div class="HouseRe PosAb" style="display:none;"></div></div></div><div style="display:none;"> <ul id="youtx_none_li"></ul><div id="youtx_none_div"></div> </div><div id="house_webim_s" style="display:none;"></div> <div id="soundContainer" style=" width:10px; height:10px ;"><embed id="soundplayer" name="soundplayer" allowscriptaccess="always" wmode="window" src="http://js.youtx.com/profile/message.swf" loop="false" menu="false" quality="high" align="middle" allowfullscreen="true" width="0" height="0" flashvars="" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></div><div id="OutBox" class="OutBox" style="top: 729.4px; left: 759.5px;"><div class="OutBoxbg" id="OutBoxbg"></div><a href="http://www.youtx.com/payment/Booking/javascript;;" class="CloseBtn" id="CloseBtn"></a><img id="OutBoxPic" class="OutBoxPic" src="http://www.youtx.com/payment/Booking/BookingNew.aspx?houseid=144142&amp;livenum=1&amp;begintime=2018-06-05&amp;endtime=2018-06-06&amp;rooms=1" style="top: 0px;"></div><div class="ChatSmall"><div><ul id="ChatSmallUl"><li id="ChatMes" class="ChatMes">短消息（0）</li></ul><div class="ChatMes_C_T"><h2><span class="Mes_h2">短消息</span><span class="Mes_min" title="最小化"></span></h2><p class="All_mes"><a target="blank" href="http://www.youtx.com/profile/User/MailBox/MyMailBox.aspx?type=All">查看全部历史消息&gt;&gt;</a></p><ul class="Mes_main" id="IDUlMes_main"></ul></div></div></div></body></html>
+<div id="feedbackbox" class="feedbackbox"><div class="feedback"><div class="FeedBackColseImg"><img class="FeedBackColse" title="关闭" src="${base}/static/submit_order/FeedBackClose.gif"></div><a class="feedbackA1" href="http://www.youtx.com/feedback/" target="_blank">意见反馈</a><a href="http://www.youtx.com/mo/" target="_blank"><img src="${base}/static/submit_order/ewm.png"></a><a class="feedbackA2" href="http://www.youtx.com/mo/" target="_blank">游天下手机客户端<br>扫描或点击下载</a></div></div><div id="TalkBox_Youtx_ID" class="TalkBox" style="display: none;"><div class="Talk  PosRe" id="Talk"><div class="UserMenu" id="UserBox"><div class="UserMain" id="UserM" style="cursor: move;"><ul class="TabHeader" id="UserNr" style="top:0px;"></ul></div><div class="UserScroll" id="UserScroll" style="display: none;"><span class="UserBar" id="UserBar" style="display:block; top:0px;"></span></div></div><div class="Talk_center"><span class="DownArrow" style="display:none;"><img src="${base}/static/submit_order/dowearrow.gif" width="16" height="16"></span><ul class="Yichu" style="display:none;"></ul><div id="TalkBox_Youtx_ID_s" style=" width:480px;height:26px; cursor: move;"><span class="RentName"></span><span class="Chat_min"><img src="${base}/static/submit_order/SIcon.png" width="25" height="25"></span></div><div class="clear"></div><div id="youtx_ch_webim"></div></div><div class="Talk_right"> </div><div class="HouseRe PosAb" style="display:none;"></div></div></div><div style="display:none;"> <ul id="youtx_none_li"></ul><div id="youtx_none_div"></div> </div><div id="house_webim_s" style="display:none;"></div> <div id="soundContainer" style=" width:10px; height:10px ;"><embed id="soundplayer" name="soundplayer" allowscriptaccess="always" wmode="window" src="http://js.youtx.com/profile/message.swf" loop="false" menu="false" quality="high" align="middle" allowfullscreen="true" width="0" height="0" flashvars="" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></div><div id="OutBox" class="OutBox" style="top: 729.4px; left: 759.5px;"><div class="OutBoxbg" id="OutBoxbg"></div><a href="http://www.youtx.com/payment/Booking/javascript;;" class="CloseBtn" id="CloseBtn"></a><img id="OutBoxPic" class="OutBoxPic" src="http://www.youtx.com/payment/Booking/BookingNew.aspx?houseid=144142&amp;livenum=1&amp;begintime=2018-06-05&amp;endtime=2018-06-06&amp;rooms=1" style="top: 0px;"></div><div class="ChatSmall"><div><ul id="ChatSmallUl"><li id="ChatMes" class="ChatMes">短消息（0）</li></ul><div class="ChatMes_C_T"><h2><span class="Mes_h2">短消息</span><span class="Mes_min" title="最小化"></span></h2><p class="All_mes"><a target="blank" href="http://www.youtx.com/profile/User/MailBox/MyMailBox.aspx?type=All">查看全部历史消息&gt;&gt;</a></p><ul class="Mes_main" id="IDUlMes_main"></ul></div></div></div></body></html>
