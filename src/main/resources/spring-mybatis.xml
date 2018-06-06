@@ -22,6 +22,12 @@
         <!-- 需要配置mybatis.cfg.xml -->
         <property name="configLocation" value="classpath:mybatis.cfg.xml"/>
     </bean>
+    <!--修改扫描包,修改人lxp 6/6 14:25-->
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 ,包下的类需要使用@MapperScan注解,否则容器注入会失败 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.youtx.rent" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
     <!-- 声明式事务配置 -->
 
     <!-- 配置事务管理器 -->
