@@ -9,7 +9,7 @@ public class LivePerson {
 
     private Integer personPhone;
 
-    private Integer scheduleId;
+    private Schedule schedule;
 
     public Integer getPersonId() {
         return personId;
@@ -43,11 +43,11 @@ public class LivePerson {
         this.personPhone = personPhone;
     }
 
-    public Integer getScheduleId() {
-        return scheduleId;
+    public Schedule getSchedule() {
+        return schedule;
     }
 
-    public void setScheduleId(Integer scheduleId) {
-        this.scheduleId = scheduleId;
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 }

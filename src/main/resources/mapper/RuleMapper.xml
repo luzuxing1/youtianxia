@@ -7,7 +7,7 @@
     <result column="rule_percent" jdbcType="VARCHAR" property="rulePercent" />
     <result column="rule_before_live" jdbcType="INTEGER" property="ruleBeforeLive" />
     <result column="rule_order_days" jdbcType="INTEGER" property="ruleOrderDays" />
-    <result column="room_id" jdbcType="INTEGER" property="roomId" />
+    <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     rule_id, rule_type, rule_percent, rule_before_live, rule_order_days, room_id

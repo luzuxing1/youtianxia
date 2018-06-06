@@ -17,7 +17,7 @@ public class Price {
 
     private Integer priceInvoice;
 
-    private Integer roomId;
+    private Room room;
 
     public Integer getPriceId() {
         return priceId;
@@ -83,11 +83,11 @@ public class Price {
         this.priceInvoice = priceInvoice;
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

@@ -17,7 +17,7 @@ public class Room {
 
     private Date roomTime;
 
-    private Integer userId;
+    private User user;
 
     public Integer getRoomId() {
         return roomId;
@@ -75,11 +75,11 @@ public class Room {
         this.roomTime = roomTime;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -11,7 +11,7 @@ public class Calendar {
 
     private String calendarRoom;
 
-    private Integer roomId;
+    private Room room;
 
     public Integer getCalendarId() {
         return calendarId;
@@ -45,11 +45,11 @@ public class Calendar {
         this.calendarRoom = calendarRoom == null ? null : calendarRoom.trim();
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

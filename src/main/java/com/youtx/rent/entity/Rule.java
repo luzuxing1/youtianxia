@@ -11,7 +11,7 @@ public class Rule {
 
     private Integer ruleOrderDays;
 
-    private Integer roomId;
+    private Room room;
 
     public Integer getRuleId() {
         return ruleId;
@@ -53,11 +53,11 @@ public class Rule {
         this.ruleOrderDays = ruleOrderDays;
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

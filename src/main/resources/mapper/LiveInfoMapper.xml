@@ -5,7 +5,7 @@
     <id column="live_id" jdbcType="INTEGER" property="liveId" />
     <result column="live_starttime" jdbcType="DATE" property="liveStarttime" />
     <result column="live_endtime" jdbcType="DATE" property="liveEndtime" />
-    <result column="schedule_id" jdbcType="INTEGER" property="scheduleId" />
+    <association property="schedule" column="schedule_id" select="com.youtx.rent.dao.ScheduleMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     live_id, live_starttime, live_endtime, schedule_id

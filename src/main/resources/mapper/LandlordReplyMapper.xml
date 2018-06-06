@@ -3,9 +3,9 @@
 <mapper namespace="com.youtx.rent.dao.LandlordReplyMapper">
   <resultMap id="BaseResultMap" type="com.youtx.rent.entity.LandlordReply">
     <id column="landlord_reply_id" jdbcType="INTEGER" property="landlordReplyId" />
-    <result column="opinion_id" jdbcType="INTEGER" property="opinionId" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="reply_content" jdbcType="VARCHAR" property="replyContent" />
+    <association property="lodgerOpinion" column="opinion_id" select="com.youtx.rent.dao.LodgerOpinionMapper.selectByPrimaryKey" />
+    <association property="user" column="user_id" select="com.youtx.rent.dao.UserMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     landlord_reply_id, opinion_id, user_id, reply_content

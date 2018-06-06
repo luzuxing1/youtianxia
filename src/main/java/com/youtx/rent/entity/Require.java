@@ -15,7 +15,7 @@ public class Require {
 
     private String reqForeign;
 
-    private Integer roomId;
+    private Room room;
 
     public Integer getReqId() {
         return reqId;
@@ -73,11 +73,11 @@ public class Require {
         this.reqForeign = reqForeign == null ? null : reqForeign.trim();
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

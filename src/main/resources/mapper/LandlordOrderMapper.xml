@@ -7,9 +7,9 @@
     <result column="order_time" jdbcType="TIMESTAMP" property="orderTime" />
     <result column="order_status" jdbcType="VARCHAR" property="orderStatus" />
     <result column="order_reason" jdbcType="VARCHAR" property="orderReason" />
-    <result column="room_id" jdbcType="INTEGER" property="roomId" />
-    <result column="schedule_id" jdbcType="INTEGER" property="scheduleId" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
+    <association property="schedule" column="schedule_id" select="com.youtx.rent.dao.ScheduleMapper.selectByPrimaryKey" />
+    <association property="user" column="user_id" select="com.youtx.rent.dao.UserMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     landlord_order_id, order_num, order_time, order_status, order_reason, room_id, schedule_id, 

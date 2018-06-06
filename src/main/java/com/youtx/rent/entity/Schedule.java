@@ -5,9 +5,9 @@ public class Schedule {
 
     private Integer schedulePrice;
 
-    private Integer userId;
+    private User user;
 
-    private Integer roomId;
+    private Room room;
 
     public Integer getScheduleId() {
         return scheduleId;
@@ -25,19 +25,19 @@ public class Schedule {
         this.schedulePrice = schedulePrice;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

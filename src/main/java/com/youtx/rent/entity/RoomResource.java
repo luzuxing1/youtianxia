@@ -7,7 +7,7 @@ public class RoomResource {
 
     private String resourceSign;
 
-    private Integer roomId;
+    private Room room;
 
     public Integer getResourceId() {
         return resourceId;
@@ -33,11 +33,11 @@ public class RoomResource {
         this.resourceSign = resourceSign == null ? null : resourceSign.trim();
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

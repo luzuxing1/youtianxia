@@ -5,11 +5,11 @@ public class LodgerOpinion {
 
     private String opinionContent;
 
-    private Integer roomId;
+    private Room room;
 
-    private Integer lodgerId;
+    private User lodgerUser;
 
-    private Integer landlordId;
+    private User landlordUser;
 
     public Integer getLodgerOpinionId() {
         return lodgerOpinionId;
@@ -27,27 +27,27 @@ public class LodgerOpinion {
         this.opinionContent = opinionContent == null ? null : opinionContent.trim();
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
-    public Integer getLodgerId() {
-        return lodgerId;
+    public User getLodgerUser() {
+        return lodgerUser;
     }
 
-    public void setLodgerId(Integer lodgerId) {
-        this.lodgerId = lodgerId;
+    public void setLodgerUser(User lodgerUser) {
+        this.lodgerUser = lodgerUser;
     }
 
-    public Integer getLandlordId() {
-        return landlordId;
+    public User getLandlordUser() {
+        return landlordUser;
     }
 
-    public void setLandlordId(Integer landlordId) {
-        this.landlordId = landlordId;
+    public void setLandlordUser(User landlordUser) {
+        this.landlordUser = landlordUser;
     }
 }
