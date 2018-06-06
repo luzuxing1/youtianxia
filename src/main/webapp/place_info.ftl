@@ -1427,7 +1427,7 @@
 <!--排期日历弹窗部分-->
 <div class="Scheduling-box" style="width: 1519px; height: 759px;">
 </div>
-<form id="dingfang" method="get" action="http://www.youtx.com/payment/Booking/BookingNew.aspx">
+<form id="dingfang" method="get" action="${base}/book/present">
     <input type="hidden" name="houseid" value="144142">
     <input type="hidden" id="df_livenum" name="livenum" value="1">
     <input type="hidden" id="df_begintime" name="begintime" value="2018-06-05">

@@ -14,4 +14,6 @@ public interface RoomSituationMapper {
     int updateByPrimaryKeySelective(RoomSituation record);
 
     int updateByPrimaryKey(RoomSituation record);
+
+    RoomSituation selectByRoomId(Integer roomId);
 }

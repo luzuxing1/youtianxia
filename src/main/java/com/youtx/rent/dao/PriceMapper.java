@@ -14,4 +14,10 @@ public interface PriceMapper {
     int updateByPrimaryKeySelective(Price record);
 
     int updateByPrimaryKey(Price record);
+
+    /**
+     * 根据房间ID查价格
+     *
+     */
+    Price selectByRoomId(Integer roomId);
 }
