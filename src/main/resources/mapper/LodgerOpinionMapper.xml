@@ -4,9 +4,9 @@
   <resultMap id="BaseResultMap" type="com.youtx.rent.entity.LodgerOpinion">
     <id column="lodger_opinion_id" jdbcType="INTEGER" property="lodgerOpinionId" />
     <result column="opinion_content" jdbcType="VARCHAR" property="opinionContent" />
-    <result column="room_id" jdbcType="INTEGER" property="roomId" />
-    <result column="lodger_id" jdbcType="INTEGER" property="lodgerId" />
-    <result column="landlord_id" jdbcType="INTEGER" property="landlordId" />
+    <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
+    <association property="lodgerUser" column="lodger_id" select="com.youtx.rent.dao.UserMapper.selectByPrimaryKey" />
+    <association property="landlordUser" column="landlord_id" select="com.youtx.rent.dao.UserMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     lodger_opinion_id, opinion_content, room_id, lodger_id, landlord_id

@@ -11,7 +11,7 @@
     <result column="desc_view" jdbcType="VARCHAR" property="descView" />
     <result column="desc_other" jdbcType="VARCHAR" property="descOther" />
     <result column="desc_tag" jdbcType="VARCHAR" property="descTag" />
-    <result column="room_id" jdbcType="INTEGER" property="roomId" />
+    <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     desc_id, desc_title, desc_remark, desc_introduce, desc_traffic, desc_life, desc_view, 

@@ -5,7 +5,7 @@
     <id column="resource_id" jdbcType="INTEGER" property="resourceId" />
     <result column="resource_address" jdbcType="VARCHAR" property="resourceAddress" />
     <result column="resource_sign" jdbcType="VARCHAR" property="resourceSign" />
-    <result column="room_id" jdbcType="INTEGER" property="roomId" />
+    <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     resource_id, resource_address, resource_sign, room_id

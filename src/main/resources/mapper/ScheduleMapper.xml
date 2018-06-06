@@ -4,8 +4,8 @@
   <resultMap id="BaseResultMap" type="com.youtx.rent.entity.Schedule">
     <id column="schedule_id" jdbcType="INTEGER" property="scheduleId" />
     <result column="schedule_price" jdbcType="INTEGER" property="schedulePrice" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
-    <result column="room_id" jdbcType="INTEGER" property="roomId" />
+    <association property="user" column="user_id" select="com.youtx.rent.dao.UserMapper.selectByPrimaryKey" />
+    <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     schedule_id, schedule_price, user_id, room_id

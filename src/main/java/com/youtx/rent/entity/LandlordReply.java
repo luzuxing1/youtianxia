@@ -3,9 +3,9 @@ package com.youtx.rent.entity;
 public class LandlordReply {
     private Integer landlordReplyId;
 
-    private Integer opinionId;
+    private LodgerOpinion lodgerOpinion;
 
-    private Integer userId;
+    private User user;
 
     private String replyContent;
 
@@ -17,20 +17,20 @@ public class LandlordReply {
         this.landlordReplyId = landlordReplyId;
     }
 
-    public Integer getOpinionId() {
-        return opinionId;
+    public LodgerOpinion getLodgerOpinion() {
+        return lodgerOpinion;
     }
 
-    public void setOpinionId(Integer opinionId) {
-        this.opinionId = opinionId;
+    public void setLodgerOpinion(LodgerOpinion lodgerOpinion) {
+        this.lodgerOpinion = lodgerOpinion;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getReplyContent() {

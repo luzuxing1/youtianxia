@@ -9,7 +9,7 @@
     <result column="room_sale" jdbcType="INTEGER" property="roomSale" />
     <result column="room_opinion_num" jdbcType="INTEGER" property="roomOpinionNum" />
     <result column="room_time" jdbcType="DATE" property="roomTime" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <association property="user" column="user_id" select="com.youtx.rent.dao.UserMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     room_id, room_city, room_name, room_price, room_sale, room_opinion_num, room_time, 

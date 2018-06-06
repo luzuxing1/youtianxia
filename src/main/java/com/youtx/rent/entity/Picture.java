@@ -5,7 +5,7 @@ public class Picture {
 
     private String picName;
 
-    private Integer roomId;
+    private Room room;
 
     private String picDesc;
 
@@ -27,12 +27,12 @@ public class Picture {
         this.picName = picName == null ? null : picName.trim();
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     public String getPicDesc() {

@@ -6,7 +6,7 @@
     <result column="person_name" jdbcType="VARCHAR" property="personName" />
     <result column="person_cid" jdbcType="INTEGER" property="personCid" />
     <result column="person_phone" jdbcType="INTEGER" property="personPhone" />
-    <result column="schedule_id" jdbcType="INTEGER" property="scheduleId" />
+    <association property="schedule" column="schedule_id" select="com.youtx.rent.dao.ScheduleMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     person_id, person_name, person_cid, person_phone, schedule_id

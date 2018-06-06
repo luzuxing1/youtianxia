@@ -9,7 +9,7 @@
     <result column="req_end_time" jdbcType="VARCHAR" property="reqEndTime" />
     <result column="req_check_time" jdbcType="VARCHAR" property="reqCheckTime" />
     <result column="req_foreign" jdbcType="VARCHAR" property="reqForeign" />
-    <result column="room_id" jdbcType="INTEGER" property="roomId" />
+    <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     req_id, req_rule, req_days, req_start_time, req_end_time, req_check_time, req_foreign, 

@@ -29,7 +29,7 @@ public class RoomSituation {
 
     private Integer situOtherResource;
 
-    private Integer roomId;
+    private Room room;
 
     public Integer getSituId() {
         return situId;
@@ -143,11 +143,11 @@ public class RoomSituation {
         this.situOtherResource = situOtherResource;
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

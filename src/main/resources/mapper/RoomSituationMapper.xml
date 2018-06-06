@@ -16,7 +16,7 @@
     <result column="situ_toilet_type" jdbcType="VARCHAR" property="situToiletType" />
     <result column="situ_master" jdbcType="VARCHAR" property="situMaster" />
     <result column="situ_other_resource" jdbcType="INTEGER" property="situOtherResource" />
-    <result column="room_id" jdbcType="INTEGER" property="roomId" />
+    <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     situ_id, situ_type, situ_rent, situ_floor, situ_room_num, situ_bed_num, situ_bed_type, 

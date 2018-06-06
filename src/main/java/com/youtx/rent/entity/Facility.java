@@ -67,7 +67,7 @@ public class Facility {
 
     private String facSmoke;
 
-    private Integer roomId;
+    private Room room;
 
     public Integer getFacId() {
         return facId;
@@ -333,11 +333,11 @@ public class Facility {
         this.facSmoke = facSmoke == null ? null : facSmoke.trim();
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

@@ -10,7 +10,7 @@
     <result column="price_clean" jdbcType="INTEGER" property="priceClean" />
     <result column="price_deposit" jdbcType="INTEGER" property="priceDeposit" />
     <result column="price_invoice" jdbcType="INTEGER" property="priceInvoice" />
-    <result column="room_id" jdbcType="INTEGER" property="roomId" />
+    <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     price_id, price_day, price_week, price_month, price_weekend, price_clean, price_deposit, 

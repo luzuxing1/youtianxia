@@ -19,7 +19,7 @@ public class RoomDesc {
 
     private String descTag;
 
-    private Integer roomId;
+    private Room room;
 
     public Integer getDescId() {
         return descId;
@@ -93,11 +93,11 @@ public class RoomDesc {
         this.descTag = descTag == null ? null : descTag.trim();
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

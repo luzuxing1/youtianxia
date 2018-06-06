@@ -35,7 +35,7 @@
     <result column="fac_extra_bed" jdbcType="VARCHAR" property="facExtraBed" />
     <result column="fac_proxy" jdbcType="VARCHAR" property="facProxy" />
     <result column="fac_smoke" jdbcType="VARCHAR" property="facSmoke" />
-    <result column="room_id" jdbcType="INTEGER" property="roomId" />
+    <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     fac_id, fac_bath, fac_slippers, fac_hotwater, fac_bathtub, fac_shower, fac_tv, fac_fridge, 

@@ -4,9 +4,9 @@
   <resultMap id="BaseResultMap" type="com.youtx.rent.entity.Picture">
     <id column="pic_id" jdbcType="INTEGER" property="picId" />
     <result column="pic_name" jdbcType="VARCHAR" property="picName" />
-    <result column="room_id" jdbcType="INTEGER" property="roomId" />
     <result column="pic_desc" jdbcType="VARCHAR" property="picDesc" />
     <result column="pic_type" jdbcType="VARCHAR" property="picType" />
+    <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     pic_id, pic_name, room_id, pic_desc, pic_type

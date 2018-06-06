@@ -9,7 +9,7 @@ public class LiveInfo {
 
     private Date liveEndtime;
 
-    private Integer scheduleId;
+    private Schedule schedule;
 
     public Integer getLiveId() {
         return liveId;
@@ -35,11 +35,11 @@ public class LiveInfo {
         this.liveEndtime = liveEndtime;
     }
 
-    public Integer getScheduleId() {
-        return scheduleId;
+    public Schedule getSchedule() {
+        return schedule;
     }
 
-    public void setScheduleId(Integer scheduleId) {
-        this.scheduleId = scheduleId;
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 }
