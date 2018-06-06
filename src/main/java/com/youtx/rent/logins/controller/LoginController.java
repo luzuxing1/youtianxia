@@ -5,6 +5,7 @@ import com.youtx.rent.logins.result.JsonResult;
 import com.youtx.rent.logins.service.LoginService;
 import com.youtx.rent.logins.utils.SystemParm;
 import com.youtx.rent.logins.utils.SystemTool;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,6 @@ public class LoginController {
     @ResponseBody
     @RequestMapping("/login")
     public Object login(String phoneOrEmail,String password, Boolean rememberMe){
-        System.out.println("============================="+phoneOrEmail);
-        System.out.println("============================="+password);
         User user = null;
         JsonResult jsonResult =null;
         try {
@@ -37,6 +36,15 @@ public class LoginController {
             e.printStackTrace();
             jsonResult = SystemTool.formJsonResule(SystemParm.Login.CODE_INCORRECT_PASSWORD,SystemParm.Login.MSG_INCORRECT_PASSWORD);
         }
+        SecurityUtils.getSubject().getSession().setAttribute("user",user);
         return jsonResult;
+    }
+    @RequestMapping("/lo")
+    public String lo(){
+        return "login";
+    }
+    @RequestMapping("/los")
+    public String los(){
+        return "index";
     }
 }
