@@ -16,6 +16,14 @@
     from ytx_room_resource
     where resource_id = #{resourceId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectByRoomId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_room_resource
+    where room_id = #{roomId}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ytx_room_resource
     where resource_id = #{resourceId,jdbcType=INTEGER}
