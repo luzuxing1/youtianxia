@@ -18,7 +18,7 @@
     where pic_id = #{picId,jdbcType=INTEGER}
   </select>
 
-  <select id="selectByRoomId" parameterType="java.lang.Integer">
+  <select id="selectByRoomId" parameterType="java.lang.Integer" resultType="java.lang.String">
     select
     pic_name
     from ytx_picture

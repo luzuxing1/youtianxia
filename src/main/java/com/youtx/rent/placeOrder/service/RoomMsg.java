@@ -19,13 +19,13 @@ public class RoomMsg {
     @Resource
     private RoomSituationMapper roomSituationMapper;
 
-    List<String> findPics(Integer roomId){
+    public List<String> findPics(Integer roomId){
         return pictureMapper.selectByRoomId ( roomId );
     }
-    RoomResource findAdress(Integer roomId){
+    public RoomResource findAdress(Integer roomId){
         return roomResourceMapper.selectByRoomId ( roomId );
     }
-    RoomSituation findRoomInfo(Integer roomId){
+    public RoomSituation findRoomInfo(Integer roomId){
         return roomSituationMapper.selectByRoomId ( roomId );
     }
 }

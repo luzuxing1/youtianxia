@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <#assign base=request.contextPath />
     <base id="base" href="${base}">
+    <meta name="referrer" content="no-referrer">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Cache-Control" content="max-age=86400">
     <img src="${base}/static/submit_order/countpv" width="0" height="0"><script charset="utf-8" src="${base}/static/submit_order/v.js.下载"></script><script type="text/javascript" async="" src="${base}/static/submit_order/load.min.js.下载"></script><script src="${base}/static/submit_order/jquery-1.6.2.min.js.下载" language="javascript" type="text/javascript"></script>
@@ -4193,19 +4194,19 @@
                     <div class="X_OrderRoom_info">
                         <p class="X_OrderRoom_title">
                             <a target="_blank" href="http://www.youtx.com/room/144142/" onclick="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/title/&#39;]);}catch(e){}">
-                                市中心公寓 7号线长寿路站温馨一居室</a></p>
+                                ${roomInfo.room.roomName}</a></p>
                         <div>
-                            <img alt="市中心公寓 7号线长寿路站温馨一居室" src="${base}/static/submit_order/210x140c.jpg"></div>
+                            <img style="width: 210px;height: 140px;" alt="${roomInfo.room.roomName}" src="${imagesPath}/${pics[0]}"></div>
                         <input name="houseID" type="hidden" value="144142">
                         
                             <p>
                                 
-                                <span class="FwB">房间编号：</span>144142</p>
+                                <span class="FwB">房间编号：</span>${roomInfo.room.roomId}</p>
                             
                             <p>
-                                公寓，整套出租，双人床</p>
+                            ${roomInfo.situType}，${roomInfo.situRent}，${roomInfo.situBedType}</p>
                             <p>
-                                中国上海市静安区人民广场 南京路步行街 近静安寺 普陀区 外滩</p>
+                            ${roomMsgAdress.resourceAddress}</p>
                     </div>
                 </div>
             </div>
