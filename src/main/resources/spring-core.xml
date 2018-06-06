@@ -9,9 +9,14 @@
     <!-- 需要导入的.xml文件 -->
     <import resource="spring-mybatis.xml"/>
     <import resource="spring-redis.xml"/>
-    <!--<import resource="spring-shiro.xml"/>-->
+    <import resource="spring-shiro.xml"/>
 
-    <!-- 下行和<context:component-scan base-package=""/>作用一样，可省略，为防止无法注入最好加入 -->
+
+    <!--修改扫描包,修改人lxp 6/6 13:17-->
+    <!-- 扫描包下面的所有的类是否受spring的管理，需要spring创建对象 -->
+    <context:component-scan base-package="com.youtx.rent"/>
+
+
     <context:annotation-config/>
     <!-- 采取默认注解驱动 -->
     <mvc:annotation-driven/>
@@ -19,7 +24,7 @@
     <mvc:default-servlet-handler/>
 
     <!-- 交给spring管理创建的Bean对象，写到包名即可 -->
-    <context:component-scan base-package="com.youtx.rent"/>
+    <!--<context:component-scan base-package="com.youtx.rent"/>-->
     
     <!-- Freemarker配置 -->
     <bean id="freemarkerConfig"
@@ -58,5 +63,30 @@
         <property name="suffix" value=".ftl" />
         <property name="order" value="0"/>
     </bean>
+    <!-- name的取值必须要和web.xml中的filter的名称一致，因为过滤器代理是通过filter的名称查找spring容器中的代理对象-->
+    <bean name="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <!--指定登录界面，按实际更改路径，如  /login.jsp  -->
+        <property name="loginUrl" value=""/>
 
+        <property name="filterChainDefinitions">
+            <value>
+                <!--anon不需要登录，注意路径-->
+                <!-- /user/login=anon -->
+
+                <!--静态资源不拦截，注意路径-->
+                <!-- /css/**=anon -->
+
+                <!--authc需要登录才能访问-->
+                <!--user配合rememberMe使用有效，authc不能配合rememberMe使用-->
+                <!-- /**=user -->
+            </value>
+        </property>
+
+    </bean>
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 ,包下的类需要使用@MapperScan注解,否则容器注入会失败 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.youtx.rent.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
 </beans>

@@ -9,6 +9,6 @@
     </settings>
     <!-- 配置Mybatis Mapper文件 -->
     <mappers>
-        <!-- <mapper resource="mapper/user.mapper.xml"/> -->
+         <!--<mapper resource="mapper/UserMapper.xml"/>-->
     </mappers>
 </configuration>
