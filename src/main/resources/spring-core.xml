@@ -35,7 +35,7 @@
             <map>
                 <entry key="webRoot" value="/rent"></entry>
                 <entry key="jsRoot" value="js/"></entry>
-                <entry key="imagesPath" value="http//120.79.225.238/images"></entry>
+                <entry key="imagesPath" value="http://120.79.225.238/images"></entry>
             </map>
         </property>
 
