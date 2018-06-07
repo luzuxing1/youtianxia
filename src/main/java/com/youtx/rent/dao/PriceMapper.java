@@ -20,4 +20,6 @@ public interface PriceMapper {
      *
      */
     Price selectByRoomId(Integer roomId);
+
+    Integer selectCleanPriceByRoomId(Integer roomId);
 }

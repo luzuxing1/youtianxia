@@ -6,7 +6,7 @@
     <result column="calendar_price" jdbcType="INTEGER" property="calendarPrice" />
     <result column="calendar_date" jdbcType="DATE" property="calendarDate" />
     <result column="calendar_room" jdbcType="VARCHAR" property="calendarRoom" />
-    <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
+    <!--<association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />-->
   </resultMap>
   <sql id="Base_Column_List">
     calendar_id, calendar_price, calendar_date, calendar_room, room_id
@@ -90,4 +90,12 @@
       room_id = #{roomId,jdbcType=INTEGER}
     where calendar_id = #{calendarId,jdbcType=INTEGER}
   </update>
+
+  <select id="selectPriceByDate" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_calendar
+    where calendar_date &gt;=#{begintime} and calendar_date  &lt; #{endtime}
+  </select>
+
 </mapper>

@@ -1,11 +1,13 @@
 package com.youtx.rent.placeOrder.controller;
 
+import com.youtx.rent.entity.Calendar;
 import com.youtx.rent.entity.RoomResource;
 import com.youtx.rent.entity.RoomSituation;
 import com.youtx.rent.placeOrder.service.RoomMsg;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -25,7 +27,29 @@ public class Book {
         model.addAttribute ( "roomInfo" ,roomInfo);
         model.addAttribute ( "roomMsgAdress",roomMsgAdress );
         model.addAttribute ( "pics",pics );
-
+        model.addAttribute ( "livenum",livenum );
+        model.addAttribute ( "begintime",begintime );
+        model.addAttribute ( "endtime",endtime );
+        model.addAttribute ( "rooms",rooms );
+        String beginWeek = roomMsg.dateToWeek ( begintime );
+        String endWeek = roomMsg.dateToWeek ( endtime );
+        model.addAttribute ( "beginWeek",beginWeek );
+        model.addAttribute ( "endWeek",endWeek );
+        Integer days = roomMsg.days ( begintime,endtime );
+        model.addAttribute ( "days",days );
+        Integer cleanPrice = roomMsg.cleanPrice ( Integer.parseInt ( houseid ) );
+        model.addAttribute ( "cleanPrice",cleanPrice );
         return "submit_order";
+    }
+
+    @RequestMapping("/calPrice")
+    @ResponseBody
+    public List<Calendar> calPrice(String begintime, String endtime,Model model){
+        List<Calendar> calendars = roomMsg.selectPriceByDate ( begintime, endtime );
+        Integer price = 0;
+        for (Calendar calendar : calendars) {
+            price += calendar.getCalendarPrice ();
+        }
+        return calendars;
     }
 }

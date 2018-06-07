@@ -11,7 +11,7 @@
     <link href="${base}/static/submit_order/public.css" rel="stylesheet" type="text/css">
         
     <script type="text/javascript" src="${base}/static/submit_order/jQuery.cookie.js.下载"></script>
-        
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     
     
     <title>订单确认-游天下</title>
@@ -446,24 +446,24 @@
                         </tr>
                         <tr>
                             <td>
-                                2018-06-05
-                                &nbsp;（星期二）
-                                <input name="begintime" type="hidden" value="2018-06-05">
+                                ${begintime}
+                                &nbsp;（${beginWeek}）
+                                <input name="begintime" type="hidden" value="${begintime}">
                             </td>
                             <td>
-                                2018-06-06&nbsp;（星期三）
-                                <input name="endtime" type="hidden" value="2018-06-06">
+                            ${endtime}&nbsp;（${endWeek}）
+                                <input name="endtime" type="hidden" value="${endtime}">
                             </td>
                             <td>
-                                1天
+                            ${days}天
                             </td>
                             <td>
-                                1人<input name="livenum" type="hidden" value="1">
+                            ${livenum}人<input name="livenum" type="hidden" value="${livenum}">
                             </td>
                             <td>
-                                1
+                            ${rooms}
                                 套
-                                <input type="hidden" id="rooms" name="rooms" value="1">
+                                <input type="hidden" id="rooms" name="rooms" value="${rooms}">
                             </td>
                         </tr>
                     </tbody></table>
@@ -508,8 +508,71 @@
                                     账单明细</a></span>
                                     <div class="Billpop_up" style="display: none">
                                         <div class="Billpop_Table">
-                                            <table width="390" border="0" cellspacing="0" cellpadding="0" class="Billpop_up_table"><tbody><tr><td width="68"><div class="Date_pay_gray"><p class="X_Date_order">06-05</p><p><span class="jiaqianFU">￥</span>348</p></div></td><td width="68"></td><td width="68"></td><td width="68"></td><td width="68"></td></tr></tbody></table>
+                                            <table width="390" border="0" cellspacing="0" cellpadding="0" class="Billpop_up_table"><tbody id="datePrices">
+                                            </tbody></table>
                                         </div>
+                                        <script type="text/javascript">
+                                            Date.prototype.Format = function(fmt)
+                                            { //author: meizz
+                                                var o = {
+                                                    "M+" : this.getMonth()+1,                 //月份
+                                                    "d+" : this.getDate(),                    //日
+                                                    "h+" : this.getHours(),                   //小时
+                                                    "m+" : this.getMinutes(),                 //分
+                                                    "s+" : this.getSeconds(),                 //秒
+                                                    "q+" : Math.floor((this.getMonth()+3)/3), //季度
+                                                    "S"  : this.getMilliseconds()             //毫秒
+                                                };
+                                                if(/(y+)/.test(fmt))
+                                                    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+                                                for(var k in o)
+                                                    if(new RegExp("("+ k +")").test(fmt))
+                                                        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+                                                return fmt;
+                                            }
+                                            $(function () {
+                                                $.post("${base}/book/calPrice",
+                                                        {
+                                                        "begintime":$("input[name='begintime']").val(),
+                                                        "endtime":$("input[name='endtime']").val()
+                                                        }
+                                                        ,function (data) {
+                                                    $.each(data, function (index, obj) {
+                                                        if(index % 5 == 0){
+                                                            $("#datePrices").append(
+                                                                    "<tr>" +
+                                                                    "</tr>"
+                                                            );
+                                                            $("#datePrices").append(
+                                                                    "<td width=\"68\">" +
+                                                                    "<div class=\"Date_pay_blue\">" +
+                                                                    "<p class=\"X_Date_order\">"+new Date(obj.calendarDate).Format("MM-dd")+"</p>" +
+                                                                    "<p>" +
+                                                                    "<span class=\"jiaqianFU\">￥</span>" +
+                                                                    obj.calendarPrice +
+                                                                    "</p>" +
+                                                                    "</div>" +
+                                                                    "</td>"
+                                                            );
+                                                        }else{
+                                                            $("#datePrices").append(
+                                                                    "<td width=\"68\">" +
+                                                                    "<div class=\"Date_pay_blue\">" +
+                                                                    "<p class=\"X_Date_order\">"+new Date(obj.calendarDate).Format("MM-dd")+"</p>" +
+                                                                    "<p>" +
+                                                                    "<span class=\"jiaqianFU\">￥</span>" +
+                                                                    obj.calendarPrice +
+                                                                    "</p>" +
+                                                                    "</div>" +
+                                                                    "</td>"
+                                                            );
+                                                        }
+                                                    });
+                                                });
+                                            })
+                                        </script>
+
+
                                         <div class="X_orderpageBox">
                                             <ul>
                                                 <li><span class="notoColorBl"></span><span>
@@ -547,10 +610,10 @@
                                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="Order_pay_info">
                                             <tbody><tr>
                                                 <td class="Pay_line" align="right" width="30%">
-                                                    房价总额：
+                                                    房价总额：<span id="roomPrice"></span>
                                                 </td>
                                                 <td class="Pay_line" align="left">
-                                                    ￥348
+                                                    ￥${price}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -566,7 +629,7 @@
                                                     清洁费：
                                                 </td>
                                                 <td align="left">
-                                                    ￥0
+                                                    ￥${cleanPrice}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -575,7 +638,7 @@
                                                 </td>
                                                 <td class="Pay_line" align="left">
                                                     <span class="Orange FwB">
-                                                        ￥348</span>
+                                                        ￥${price}+${cleanPrice}</span>
                                                 </td>
                                             </tr>
                                         </tbody></table>
@@ -5898,7 +5961,7 @@
         var ScrH = window.screen.height;
         var LyUrl = escape(encodeURI(document.referrer));
         var Post1Url = "/payment/ajax/AjaxBookingAccessLog.ashx?uid=2600363&hid=144142&lyurl=" + LyUrl + "&w=" + ScrW + "&h=" + ScrH + "&type=1&r=0.958618575222147"
-        document.write("<scri" + "pt src='" + Post1Url + "'></scr" + "ipt>"); 
+//        document.write("<scri" + "pt src='" + Post1Url + "'></scr" + "ipt>");
     </script><script src="${base}/static/submit_order/AjaxBookingAccessLog.ashx"></script>
     <!--Cps页面布码Begin-->
     <script type="text/javascript">
@@ -5908,7 +5971,7 @@
         var VPType = "4";                   //***** 0.列表页、1.详情页、2.注册 3.登录 4.国内房源预定页面 5.国外房源预定页面 6.国内房源支付页面 7.国内房源租客取消页面 8.国外房源租客取消页面
         var CpsSite = 'http://dlps.youtx.com/'; //CPS站点
         var PostUrl = CpsSite + 'Cps/CpsViewRecord.aspx?ScrW=' + ScrW + '&ScrH=' + ScrH + "&LyUrl=" + LyUrl + "&VPType=" + VPType;
-        document.write("<scri" + "pt src='" + PostUrl + "'></scr" + "ipt>"); 
+//        document.write("<scri" + "pt src='" + PostUrl + "'></scr" + "ipt>");
     </script><script src="${base}/static/submit_order/CpsViewRecord.aspx"></script>
     <!--Cps页面布码End-->
     
