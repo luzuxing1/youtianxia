@@ -91,11 +91,11 @@
     where calendar_id = #{calendarId,jdbcType=INTEGER}
   </update>
 
-  <select id="selectPriceByDate" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectPriceByDate" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from ytx_calendar
-    where calendar_date &gt;=#{begintime} and calendar_date  &lt; #{endtime}
+    where calendar_date &gt;=#{begintime} and calendar_date  &lt; #{endtime} and room_id = #{roomid}
   </select>
 
 </mapper>

@@ -24,6 +24,7 @@ public class Book {
         RoomSituation roomInfo = roomMsg.findRoomInfo ( Integer.parseInt ( houseid ) );
         RoomResource roomMsgAdress = roomMsg.findAdress ( Integer.parseInt ( houseid ) );
         List<String> pics = roomMsg.findPics ( Integer.parseInt ( houseid ) );
+        model.addAttribute ( "roomid",houseid );
         model.addAttribute ( "roomInfo" ,roomInfo);
         model.addAttribute ( "roomMsgAdress",roomMsgAdress );
         model.addAttribute ( "pics",pics );
@@ -39,17 +40,19 @@ public class Book {
         model.addAttribute ( "days",days );
         Integer cleanPrice = roomMsg.cleanPrice ( Integer.parseInt ( houseid ) );
         model.addAttribute ( "cleanPrice",cleanPrice );
+        List<Calendar> calendars = roomMsg.selectPriceByDate ( begintime, endtime ,Integer.parseInt ( houseid ));
+        Integer price = 0;
+        for (Calendar calendar : calendars) {
+            price += calendar.getCalendarPrice ();
+        }
+        model.addAttribute ( "price",price );
         return "submit_order";
     }
 
     @RequestMapping("/calPrice")
     @ResponseBody
-    public List<Calendar> calPrice(String begintime, String endtime,Model model){
-        List<Calendar> calendars = roomMsg.selectPriceByDate ( begintime, endtime );
-        Integer price = 0;
-        for (Calendar calendar : calendars) {
-            price += calendar.getCalendarPrice ();
-        }
+    public List<Calendar> calPrice(String begintime, String endtime,String roomid){
+        List<Calendar> calendars = roomMsg.selectPriceByDate ( begintime, endtime ,Integer.parseInt ( roomid ));
         return calendars;
     }
 }

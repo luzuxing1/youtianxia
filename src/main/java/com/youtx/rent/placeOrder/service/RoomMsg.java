@@ -91,8 +91,8 @@ public class RoomMsg {
         }
         return 0;
     }
-    public List<com.youtx.rent.entity.Calendar> selectPriceByDate(String begintime, String endtime){
-        return calendarMapper.selectPriceByDate ( begintime,endtime );
+    public List<com.youtx.rent.entity.Calendar> selectPriceByDate(String begintime, String endtime,Integer roomid){
+        return calendarMapper.selectPriceByDate ( begintime,endtime ,roomid);
     }
 
     public Integer cleanPrice(Integer roomId){

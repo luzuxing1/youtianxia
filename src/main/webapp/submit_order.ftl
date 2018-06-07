@@ -13,7 +13,7 @@
     <script type="text/javascript" src="${base}/static/submit_order/jQuery.cookie.js.下载"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     
-    
+
     <title>订单确认-游天下</title>
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
@@ -108,7 +108,7 @@
     <div class="wrapper">
        
    
-        
+
                 <!--头 已登录 start-->
 <script type="text/javascript">
     var HostUrl = 'http://www.youtx.com';
@@ -501,7 +501,7 @@
                                 <li class="OrderToTxt01">
                                     订单总金额：</li>
                                 <li class="OrderToTxt02"><span class="Orange">
-                                    ￥348</span></li>
+                                    ￥<span id="allPrice02"></span></span></span></li>
                                 
                                 
                                 <li class="OrderToTxt_pop"><span class="NewOrderLink" id="billDetail"><a href="javascript:void(0);" class="Billpop">
@@ -534,7 +534,8 @@
                                                 $.post("${base}/book/calPrice",
                                                         {
                                                         "begintime":$("input[name='begintime']").val(),
-                                                        "endtime":$("input[name='endtime']").val()
+                                                        "endtime":$("input[name='endtime']").val(),
+                                                        "roomid":${roomid}
                                                         }
                                                         ,function (data) {
                                                     $.each(data, function (index, obj) {
@@ -610,10 +611,10 @@
                                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="Order_pay_info">
                                             <tbody><tr>
                                                 <td class="Pay_line" align="right" width="30%">
-                                                    房价总额：<span id="roomPrice"></span>
+                                                    房价总额：
                                                 </td>
                                                 <td class="Pay_line" align="left">
-                                                    ￥${price}
+                                                    ￥<span id="roomPrice">${price}</span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -638,14 +639,21 @@
                                                 </td>
                                                 <td class="Pay_line" align="left">
                                                     <span class="Orange FwB">
-                                                        ￥${price}+${cleanPrice}</span>
+                                                        ￥<span id="allPrice"></span></span>
                                                 </td>
                                             </tr>
                                         </tbody></table>
                                     </div>
                                 </li>
-                                
-                                
+                                <script type="text/javascript">
+                                    $(function () {
+                                        var roomPrice = ${price};
+                                        var cleanPrice = ${cleanPrice};
+                                        $("#allPrice").text(roomPrice+cleanPrice);
+                                        $("#allPrice01").text(roomPrice+cleanPrice);
+                                        $("#allPrice02").text(roomPrice+cleanPrice);
+                                    })
+                                </script>
                             </ul>
                             <script type="text/javascript">
                                 var m = 0;
@@ -685,7 +693,7 @@
                                 <li class="OrderToTxt01">
                                     线上应付金额：</li>
                                 <li class="OrderToTxt02"><span class="Orange">
-                                    ￥348</span></li>
+                                    ￥<span id="allPrice01"></span></span></li>
                                 
                                 <li><span class="ML5" style="color: #666;">
                                     （房款总额 + 额外客人费用）*
@@ -764,15 +772,15 @@
                                         <b>*</b>用户名：
                                     </td>
                                     <td>
-                                        <input type="text" class="text" id="txtname" name="txtname" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/name/&#39;]);}catch(e){}" disabled="disabled">
+                                        <input type="text" class="text" id="txtname" name="txtname" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/name/&#39;]);}catch(e){}" disabled="disabled" value="">
                                          <span>
                                             <img id="imgname" style="vertical-align: middle;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif"></span>
                                         <script language="javascript" type="text/javascript">
-                                            var usName = "卢祖兴";
+                                            var usName = '${user.userRealname}';
                                             if (usName != "" || usName == null) {
                                                 $("#txtname").val(usName);
                                                 $("#txtname").attr("disabled", "disabled");
-                                            }                                            
+                                            }
                                         </script>
                                         <div class="PromptErrorBox">
                                             <span class="PromptError" style="display:none;">包含不正确的字符，请重新输入
@@ -4293,10 +4301,10 @@
         <script type="text/javascript">
             var remark = "选填，告诉房东您的特殊需求";
             var loginID = "2600363";
-            var userName = "卢祖兴";
+            var userName = "${user.userRealname}";
             var mail = "";
             var phoneCheck = "1";
-            var tel = "17602172096";
+            var tel = "${user.userPhone}";
             var telcodeshow = "44_86";
             var fangdongID = "7302";
             var userIDNum = "";

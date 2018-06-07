@@ -18,5 +18,5 @@ public interface CalendarMapper {
 
     int updateByPrimaryKey(Calendar record);
 
-    List<Calendar> selectPriceByDate(@Param ( "begintime" ) String begintime, @Param ( "endtime" )String endtime);
+    List<Calendar> selectPriceByDate(@Param ( "begintime" ) String begintime, @Param ( "endtime" )String endtime, @Param ( "roomid" )Integer roomid);
 }
