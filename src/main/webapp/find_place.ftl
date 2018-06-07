@@ -747,7 +747,21 @@ $(function(){
                         var keys = $("#txtLocation").val();
                         var thiscity = $("#txtCity").val();
                         var btw = $(obj).attr("data");
-                        $(obj).attr("href","rent/screen/all?all=" + btw + "-" + keys + "-" + thiscity);
+                        var iii = new Array();
+                        var ggg = new Array();
+                        $(".curFac").each(function () {
+                            iii.push($(this).attr("data"));
+                        })
+                        $(".curPlace").each(function () {
+                            ggg.push($(this).attr("data"));
+                        })
+                        if (iii == "") {
+                            iii = "*";
+                        }
+                        if (ggg == "") {
+                            ggg = "*";
+                        }
+                        $(obj).attr("href","rent/screen/all?all=" + btw + "-" + keys + "-" + thiscity + "-" + ggg + "-" + iii);
                         return true;
                     }
                     $(function () {
@@ -757,7 +771,6 @@ $(function(){
                             $("#" + pid).css("font-weight", "bold");
                             $("#10000").removeClass("active");
                             $("#" + pid).addClass("curPrice");
-                            alert($(".curPrice").attr("data"));
                         } else {
                             $("#10000").addClass("active");
                             $("#10000").addClass("curPrice");
@@ -1265,16 +1278,23 @@ $(function(){
 //
 //        goUrl();
             var kkk = new Array();
+            var rrr = new Array();
             var key = $("#txtLocation").val();
             var city = $("#txtCity").val();
             var curprice1 = $(".curPrice").attr("data");
             $(".curPlace").each(function () {
                 kkk.push($(this).attr("data"));
             })
+            $(".curFac").each(function () {
+                rrr.push($(this).attr("data"));
+            })
             if (kkk == "") {
                 kkk.push("*");
             }
-            $("#submit_location").attr("href","rent/screen/all?all=" + curprice1 + "-" + key + "-" + city + "-" + kkk);
+            if (rrr == "") {
+                rrr.push("*");
+            }
+            $("#submit_location").attr("href","rent/screen/all?all=" + curprice1 + "-" + key + "-" + city + "-" + kkk + "-" + rrr);
             return true;
 
 
