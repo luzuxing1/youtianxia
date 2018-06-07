@@ -21,7 +21,12 @@
     from ytx_user
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
-
+  <select id="selectByPhone"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_user
+    where user_phone = #{userPhone}
+  </select>
   <select id="checkPhoneAndEmail"  resultMap="BaseResultMap">
     select * from ytx_user WHERE user_phone = #{phoneOrEmail}
   </select>
@@ -37,6 +42,10 @@
     values (#{userId,jdbcType=INTEGER}, #{userPhone,jdbcType=INTEGER}, #{userPassword,jdbcType=VARCHAR}, 
       #{userEmail,jdbcType=VARCHAR}, #{userNickname,jdbcType=VARCHAR}, #{userHeadimg,jdbcType=VARCHAR}, 
       #{userPid,jdbcType=VARCHAR}, #{userRealname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertuser" parameterType="com.youtx.rent.entity.User">
+    insert into ytx_user (user_phone, user_password,user_realname)
+    values (#{userPhone},#{userPassword},#{userRealname})
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.User">
     insert into ytx_user

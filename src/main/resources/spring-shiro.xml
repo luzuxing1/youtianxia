@@ -51,7 +51,7 @@
     <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
         <constructor-arg value="rememberMe"/>
         <property name="httpOnly" value="true"/> <!--避免XSS攻击-->
-        <property name="maxAge" value="30000"/><!-- 失效时间 -->
+        <property name="maxAge" value="300000"/><!-- 失效时间 -->
     </bean>
 
     <!--不需要多表登录，配置单一realm-->

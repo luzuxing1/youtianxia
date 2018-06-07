@@ -153,13 +153,13 @@
             </div>
         </li>
         <li class="first firstNew">
-              <span class="FirstSpan FirstSpan02"><a href="http://www.youtx.com/home/dashboard/" rel="nofollow">Hi,<span id="liname">游天下</span></a><span class="JianTouIco"></span></span>
+              <span class="FirstSpan FirstSpan02"><a href="" rel="nofollow">Hi,<span id="liname">游天下</span></a><span class="JianTouIco"></span></span>
               <div class="UlName UlName02">
-                   <div><a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" rel="nofollow">已预订的房间</a><span id="RoomsNumSpan" class="font_red">(0)</span></div>
-                   <div><a href="http://www.youtx.com/User/MyMailBox/" rel="nofollow">站内信</a><span id="MsgNumSpan" class="font_red">(0)</span></div>
-                   <div><a href="https://passport.youtx.com/profile/User/MailBox/SystemMail.aspx" rel="nofollow">系统通知</a><span id="SysMsgNumSpan" class="font_red">(0)</span></div>
-                   <div id="FavNumLi"><a href="https://passport.youtx.com/payment/User/MyCollection/Collection.aspx" title="查看我收藏的房间" rel="nofollow">收藏夹</a></div>
-                   <div style="border:none;"><a href="http://www.youtx.com/user/logout/" rel="nofollow">退出</a></div>
+                   <div><a href="" rel="nofollow">已预订的房间</a><span id="RoomsNumSpan" class="font_red">(0)</span></div>
+                   <div><a href="" rel="nofollow">站内信</a><span id="MsgNumSpan" class="font_red">(0)</span></div>
+                   <div><a href="" rel="nofollow">系统通知</a><span id="SysMsgNumSpan" class="font_red">(0)</span></div>
+                   <div id="FavNumLi"><a href="" title="查看我收藏的房间" rel="nofollow">收藏夹</a></div>
+                   <div style="border:none;"><a href="" rel="nofollow">退出</a></div>
               </div>
         </li>
     </ul>
@@ -173,11 +173,11 @@
     </p>
     <p class="btncz"><a id="A3" style="cursor:default;" target="_blank" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a></p>
     <ul class="HeadLandlord">
-        <li class="HeadLandlordNew"><a target="_blank" href="http://www.youtx.com/mallshop/mallabout/">我要开店</a></li>
-        <li><a target="_blank" href="http://www.youtx.com/room/new/">我要出租</a></li>
-        <li><a target="_blank" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx">订单管理</a></li>
-        <li><a target="_blank" href="http://www.youtx.com/publish/DateMnage/">排期管理</a></li>
-        <li><a target="_blank" href="http://www.youtx.com/User/Myroom/">房源管理</a></li>
+        <li class="HeadLandlordNew"><a target="_blank" href="">我要开店</a></li>
+        <li><a target="_blank" href="">我要出租</a></li>
+        <li><a target="_blank" href="">订单管理</a></li>
+        <li><a target="_blank" href="">排期管理</a></li>
+        <li><a target="_blank" href="">房源管理</a></li>
         <li style="border:none;"><a target="_blank" href="http://bang.youtx.com/DateManage/DateManage.aspx">我的短租帮</a></li>
     </ul>
     <ul class="subnav">
@@ -246,10 +246,10 @@ body{ background:url("/profile/images/loginBg.jpg") no-repeat center 70px ;}
                 <!--普通登录-->
                 <div id="Member">
                     <div class="logInAccount">
-                        <input class="logInInput" id="signin_email" type="text" value="13545270885">
+                        <input class="logInInput" id="signin_email" type="text" placeholder="手机号">
                     </div>
                     <div class="logInPwd PosRe">
-                        <input class="logInInput" type="password" id="signin_password" value="123456">
+                        <input class="logInInput" type="password" id="signin_password" placeholder="密码">
                         <div class="logInPwdTip">
                             </div>
                     </div>
@@ -272,13 +272,13 @@ body{ background:url("/profile/images/loginBg.jpg") no-repeat center 70px ;}
                 </div>
                 <div class="logInOper">
                     <label class="saveLogInTime" for="">
-                        <input type="checkbox" value="false" id="remember_me" name="remember_me">两周内免登录</label>
+                        <input type="checkbox" value="true" id="rememberMe" >两周内免登录</label>
                     <a href="javascript:;;" id="forgetpw" class="forgetPwd">忘记密码？</a>
                 </div>
                 <!--<input id="bSignIn" type="button" value="登录" class="logInBtn">-->
                 <a href="javascript:login()" id="bSignIn" class="logInBtn">登录</a>
                 <div class="rigLoginLink clearfix">
-                    <a href="https://passport.youtx.com/profile/passport/regist.aspx?fromurl=http%3a%2f%2fwww.youtx.com%2fhome%2fdashboard%2f&amp;mail=" onclick="this.href=&#39;/profile/passport/regist.aspx?fromurl=http%3a%2f%2fwww.youtx.com%2fhome%2fdashboard%2f&amp;mail=&#39;+$(&#39;#signin_email&#39;).val()" class="FL">立即注册</a> <a href="javascript:void(0);" class="FR" id="logOverSeas">境外手机号登录</a>
+                    <a href="${base}/reg/register"  class="FL">立即注册</a> <a href="javascript:void(0);" class="FR" id="logOverSeas">境外手机号登录</a>
                     <a href="javascript:void(0);" class="FR" id="logMember" style="display: none;">返回普通登录</a>
                 </div>
             </div>
@@ -306,11 +306,16 @@ body{ background:url("/profile/images/loginBg.jpg") no-repeat center 70px ;}
 
 <!--denglu 2016-6-6 14:53-->
 <script type="text/javascript">
+
     function login() {
         var phoneOrEmail = $("#signin_email").val();
         var password = $("#signin_password").val();
-//        alert(password);
-        var remember = "true";
+        var remember = $("#rememberMe:checked").val();
+        if(remember == "true"){
+        }
+        else {
+            remember = "false";
+        }
         $.post(
                 "${base}/user/login",
                 {"phoneOrEmail":phoneOrEmail,"password":password,"rememberMe":remember},

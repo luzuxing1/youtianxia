@@ -268,8 +268,10 @@
                            <option value="103_39">意大利 +39</option>
                            <option value="43_56">智利 +56</option>
                         </select>
-                        <input type="text" value="请输入你的手机号" class="input" id="CellphoneNumber" style="width:154px; margin-left:122px;">
+                        <input type="text" placeholder="请输入你的手机号" class="input" id="CellphoneNumber" style="width:154px; margin-left:122px;">
+
                     </div>
+                    <span id="title" style="visibility: visible;"></span>
                      <!--2015-12-14End-->
                     <p class="item_listxt_error" style="padding: 0 0 0 20px;">
                         电子邮箱不能为空/电子邮箱地址无效</p>
@@ -294,7 +296,7 @@
                                                  <img src="${base}/static/register/Display.aspx" 1257571139="" id="imgcode" name="imgcode" style="cursor: pointer; width:150px;height:80px;">
                                         </div>
                                         <!--<div class="s1">-->
-                                            <a href="javascript:void(0);" id="resh">换一题</a>
+                                            <#--<a href="javascript:void(0);" id="resh">换一题</a>-->
                                        <!-- </div>-->
                                         <!--<div class="s2">
                                             请输入答案</div>-->
@@ -303,10 +305,13 @@
                             </div>
                         </div>
                         <span class="input115 input93">
-                            <input type="text" value="验证码" class="input" id="CheckCode">
+                            <input type="text" placeholder="验证码" style="border:1px solid #78c2f5; class="input" id="check_codes">
+
                         </span>
+
                         <p>
-                            <input class="btn128x36" type="button" value="免费获得验证码" name="" id="CheckTelephone"></p>
+                            <input class="btn128x36" type="button" style="border:1px solid #78c2f5;" value="免费获得验证码" name="" id="checkPhone"></p>
+                        <span id="i_checkCodes" style="display: block"></span>
                     </div>
                     <p class="item_listxt_error">
                         验证码错误</p>
@@ -317,24 +322,22 @@
                     </div>
                     <!--2014-4-4修改-结束-->
                     <div class="input_passwrod passwrod_bg290">
-                        <label class="input_labelBlur input02" for="user_password" style="display: inline">
+                        <label class="input_labelBlur input02" id="user_password" for="user_password" style="display: inline">
                             密码</label>
-                        <input type="password" class="input" id="user_password2" size="30">
+                        <input type="password" class="input" style="border:1px solid #78c2f5;" id="user_password2" size="30">
                     </div>
                     <p class="item_listxt_error">
                         密码不能为空</p>
                     <div class="input_passwrod passwrod_bg290">
-                        <label class="input_labelBlur input02" for="user_password" style="display: inline">
+                        <label class="input_labelBlur input02" for="user_password" style="border:1px;" >
                             确认密码</label>
                         <input type="password" class="input" id="user_password_confirmation2">
                     </div>
                     <p class="item_listxt_error">
                         两次输入不一致</p>
                     <div class="input_two">
-                        <span class="input93">
-                            <input type="text" value="姓氏" class="input" id="user_first_name2">
-                        </span><span class="input187">
-                            <input type="text" value="名字" class="input" id="user_last_name2">
+                        <span class="input187">
+                            <input type="text" placeholder="名字" class="input" id="user_last_name2">
                         </span>
                     </div>
                     <p class="item_listxt_error">
@@ -345,9 +348,9 @@
                             我已阅读并同意<a href="http://www.youtx.com/profile/Introduction/ServiceAgreement.aspx" target="_blank">服务协议</a></label>
                     </p>
                     <div class="Registration_btn pt25">
-                        <input name="" type="button" class="btn152 fl" value="创建账户" id="bCreateAccount2">
+                        <input name="" type="button" class="btn152 fl" style="background-color: #5faee3" value="创建账户" id="commit">
                         <p class="fl">
-                            已经是游天下会员？<a href="https://passport.youtx.com/user/login/">立即登录</a></p>
+                            已经是游天下会员？<a href="${base}/user/lo">立即登录</a></p>
                         <div style="clear: both; height: 0px; overflow: hidden;">
                         </div>
                     </div>
@@ -764,8 +767,13 @@
     </script>
     <!--表单js-end -->
 </div>
+
 <script type="text/javascript">
         var b = false;
+//        var codes =$("#check_codes").val();
+
+        var code = "1";
+
 
         $(document).ready(function () {
             //add by zhangyanke 0326
@@ -909,7 +917,7 @@
             });
             //重新发送邮件
             $("#reSendEmail").click(function () {
-                var code=$("#saveCode").val();
+//                var code=$("#saveCode").val();
                 var rmail=$("#saveMail").val();
                 $.getJSON("/profile/Ajax/ReSendEmail.ashx", { Modify:"ReSend", code: code,rmail:rmail, r: Math.random()}, function (json) {
                 if (json.Result=="1") {
@@ -1020,7 +1028,7 @@
                 }
                 //验证邮箱和验证码2015-04-20begin
                if (stateYzMail=="su"&&stateYzCode=="su") {
-                   var code=$("#saveCode").val();
+//                   var code=$("#saveCode").val();
                    var rmail= $("#txtEmail").val();
                    $.getJSON("/profile/Ajax/ReSendEmail.ashx", { Modify:"Modify", code: code, rmail: rmail, r: Math.random()}, function (json) {
                       if (json.Result=="1") {
@@ -1266,7 +1274,7 @@
                 var CellphoneNumber = $('#CellphoneNumber').val();
                 var user_last_name = $("#user_last_name2").val();
                 var CheckCode = $('#CheckCode').val();
-                var countryAreaCode=$("#telSel").val();
+//                var countryAreaCode=$("#telSel").val();
                 if (!isUserName($("#user_last_name2").val())) {
                     checkL2 = false;
                 }
@@ -1305,10 +1313,10 @@
                                     $("#notice2").html("密码长度不符合");
                                     $("#notice2").css('visibility', 'visible');
                                     break;
-                                case "5":
-                                    $("#notice2").html("手机号码已被绑定,请选择其它号码");
-                                    $("#notice2").css('visibility', 'visible');
-                                    break;
+//                                case "5":
+//                                    $("#notice2").html("手机号码已被绑定,请选择其它号码");
+//                                    $("#notice2").css('visibility', 'visible');
+//                                    break;
                                 case "10":
                                     if ($.cookie("LN") == "en-US") {
                                         //Within 30 minutes you can only register 5 times 
@@ -1325,10 +1333,10 @@
                                     $("#notice2").html("已被禁止注册，如有问题请联系客服");
                                     $("#notice2").css('visibility', 'visible');
                                     break;
-                                case "20":
-                                    $("#notice2").html("已经绑定过用户");
-                                    $("#notice2").css('visibility', 'visible');
-                                    break;
+//                                case "20":
+//                                    $("#notice2").html("已经绑定过用户");
+//                                    $("#notice2").css('visibility', 'visible');
+//                                    break;
                                 case "21":
                                     $("#notice2").html("上传头像时出错");
                                     $("#notice2").css('visibility', 'visible');
@@ -1392,21 +1400,55 @@
                 }else {
                     ismobiles=Youtx.Verification.isOverSeasMobile($(this).val());
                 }
+
+
+
                 if (ismobiles) {
                     $(this).parent().next().html('');
-                    CheckMobileExit($(this).val());
-                    if (b) {
-                        $(this).parent().next().css('visibility', 'hidden');
-                    }
-                    else {
-                        $(this).parent().next().html('手机号码已被绑定,请选择其它号码.');
-                        $(this).parent().next().css('visibility', 'visible');
-                    }
+                    $("#checkPhone").click(function () {
+                        var phone = $("#CellphoneNumber").val();
+                        $.post(
+                                "${base}/reg/checkPhone",
+                                {"phone":phone},
+                                function (data) {
+                                    var msgs = data.msg;
+                                    code = data.msg;
+                                    if(data.code != "6"){
+                                      $("#title").text(data.msg);
+                                    }else {
+                                        $("#title").text("");
+                                    }
+                                }
+                        );
+
+                    })
                 }
                 else {
                     $(this).parent().next().html('手机号码格式不正确');
                     $(this).parent().next().css('visibility', 'visible');
                 }
+            });
+            $("#check_codes").blur(function () {
+                var codes =$("#check_codes").val();
+                if(codes != code){
+                    $("#i_checkCodes").text("验证码不一致,请重新输入");
+                }else {
+                    $("#i_checkCodes").text("");
+                }
+            });
+            $("#commit").click(function () {
+                var userName = $("#user_last_name2").val();
+                var userPassword = $("#user_password2").val();
+                var phone = $("#CellphoneNumber").val();
+                $.post(
+                        "${base}/reg/addUser",
+                        {"userPhone":phone,"password":userPassword,"userRealname":userName},
+                        function (data) {
+                            if(data.code == "4"){
+                                window.location.href = "${base}/user/lo";
+                            }
+                        }
+                );
             });
             var cktel = false;
             $('#CheckTelephone').click(function () {
@@ -1490,7 +1532,6 @@
         });
     }
      function SendCode (Mobile,Code) {
-      // alert('sdf');
         var telcode="44_86";
         telcode=$("#telSel").val();
         $('#btn_mathcode').attr('disabled', true);

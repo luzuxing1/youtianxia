@@ -1,6 +1,7 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.User;
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 
 @MapperScan
@@ -21,4 +22,12 @@ public interface UserMapper {
      * 登录方法
      */
     User checkPhoneAndEmail(String phoneOrEmail) throws Exception;
+    /**
+     * 添加注册方法userPhone,userPassword
+     */
+    void insertuser(@Param("userPhone") String userPhone, @Param("userPassword") String userPassword,@Param("userRealname") String userRealname);
+    /**
+     * 验证注册手机号是否存在
+     */
+    User selectByPhone(String userPhone);
 }
