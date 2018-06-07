@@ -39,6 +39,9 @@ public class KeywordServiceImpl implements KeywordService {
         if (keyword == null || keyword.equals("")) {
             return null;
         }
+        if (keyword.equals("请输入地址、商圈、地标、店铺名等")) {
+            keyword = "*";
+        }
         query.setQuery("keys:" + keyword);
         QueryResponse response = null;
         try {
