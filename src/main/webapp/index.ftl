@@ -79,11 +79,48 @@
 
      <a id=" youtx_C01_16" href="" target="_blank" class="freePublish">我要求租</a>
     <a id="youtx_C01_11" href="index.ftl" target="_blank" class="freePublish">发布房间</a>
-        <!--头 已登录 start-->
+<#if user=null>
+    <#--<h3>没有user</h3>-->
+    <!--头 未登录 start-->
+    <ul class="headerLogin clearfix" id="youtxloginw">
+        <li class="dropDownLino"><a id="youtx_C01_07" href="https://passport.youtx.com/profile/passport/regist.aspx">注册就送100元</a>  </li>
 
-    <ul class="headerLogin clearfix" style="display: none;" id="youtxlogin">
+        <li class="dropDownLino" style="padding-right:15px;"><a id="youtx_C01_08" href="${base}/user/lo">登录</a></li>
+
+
+        <li class="dropDownLi"><a id="youtx_C01_09" href="http://www.youtx.com/help/" class="dropDownTrigger">帮助</a>
+            <dl class="TopullDown">
+                <dd><a href="http://www.youtx.com/help/Manage/">房东指南</a></dd>
+                <dd><a href="http://www.youtx.com/help/serchroom/">租客指南</a></dd>
+                <dd><a href="http://www.youtx.com/help/contact/">联系我们</a></dd>
+            </dl>
+        </li>
+        <li class="dropDownPhone">
+            <a id="youtx_C01_10" href="http://www.youtx.com/#" class="dropDownTrigger"></a>
+            <div class="TopMobCon">
+                <dl>
+                    <dt>扫描二维码安装游天下客户端</dt>
+                    <dd><a target="_blank" href="http://www.youtx.com/mo/"><img width="120" height="120" src="${base}/static/index/youtxapp.png"></a></dd>
+                </dl>
+                <dl>
+                    <dt><span class="colorLkBlue">微信</span>扫描二维码使用游天下</dt>
+                    <dd><img width="102" height="102" src="${base}/static/index/ewmBNew.jpg"></dd>
+                    <dd>微信号：游天下短租</dd>
+                </dl>
+                <dl style="border: none;">
+                    <dt>手机浏览器访问游天下</dt>
+                    <dd style="margin-top: 45px;"><a class="mbUrl" target="_blank" href="http://m.youtx.com/">m.YouTX.com</a></dd>
+                </dl>
+            </div>
+        </li>
+    </ul>
+    <!--头 未登录 end-->
+<#else>
+    <#--<h3>有user对象</h3>--><!--头 已登录 start-->
+
+    <ul class="headerLogin clearfix" style="" id="youtxlogin2">
         <li class="dropDownLi">
-            <a href="http://www.youtx.com/home/dashboard/" target="_blank" class="dropDownTrigger" id="NameA">游天下网友</a>
+            <a href="${base}/userCenter/jumpPage" target="_blank" class="dropDownTrigger" id="NameA">Hi,<span id="liname">${user.userNickname}</span></a>
             <dl class="TopullDown">
                 <dd><a href="http://www.youtx.com/User/MyMailBox/" id="MsgNumA" target="_self"><span>消息</span></a></dd>
                 <dd><a href="http://www.youtx.com/User/MyWealth/" target="_self">我的积分</a></dd>
@@ -140,41 +177,11 @@
     </ul>
 
     <!--头 已登录 end-->
-    
-     <!--头 未登录 start-->
-    <ul class="headerLogin clearfix" id="youtxloginw">
-            <li class="dropDownLino"><a id="youtx_C01_07" href="https://passport.youtx.com/profile/passport/regist.aspx">注册就送100元</a>  </li>  
-            
-        <li class="dropDownLino" style="padding-right:15px;"><a id="youtx_C01_08" href="${base}/user/lo">登录</a></li>
 
-       
-        <li class="dropDownLi"><a id="youtx_C01_09" href="http://www.youtx.com/help/" class="dropDownTrigger">帮助</a>
-            <dl class="TopullDown">
-                <dd><a href="http://www.youtx.com/help/Manage/">房东指南</a></dd>
-                <dd><a href="http://www.youtx.com/help/serchroom/">租客指南</a></dd>
-                <dd><a href="http://www.youtx.com/help/contact/">联系我们</a></dd>
-            </dl>
-        </li>
-        <li class="dropDownPhone">
-            <a id="youtx_C01_10" href="http://www.youtx.com/#" class="dropDownTrigger"></a>
-            <div class="TopMobCon">
-                <dl>
-                    <dt>扫描二维码安装游天下客户端</dt>
-                    <dd><a target="_blank" href="http://www.youtx.com/mo/"><img width="120" height="120" src="${base}/static/index/youtxapp.png"></a></dd>
-                </dl>
-                <dl>
-                    <dt><span class="colorLkBlue">微信</span>扫描二维码使用游天下</dt>
-                    <dd><img width="102" height="102" src="${base}/static/index/ewmBNew.jpg"></dd>
-                    <dd>微信号：游天下短租</dd>
-                </dl>
-                <dl style="border: none;">
-                    <dt>手机浏览器访问游天下</dt>
-                    <dd style="margin-top: 45px;"><a class="mbUrl" target="_blank" href="http://m.youtx.com/">m.YouTX.com</a></dd>
-                </dl>
-            </div>
-        </li>
-    </ul>
-    <!--头 未登录 end-->
+</#if>
+
+    
+
 </div>
 <!--banner-->
 <div class="banner">

@@ -26,8 +26,8 @@
     
     
     <div class="wrapper">
-        
-                <!--头 已登录 start-->
+<#if user!=null>
+        <!--头 已登录 start-->
 <script type="text/javascript">
     var HostUrl = 'http://www.youtx.com';
     var HostUrl_En = 'http://en.youtx.com';
@@ -73,7 +73,7 @@
     var WRInitTime = (new Date()).getTime();
 </script>
 <!-- ClickTale end of Top part -->
-<div id="youtxlogin" class="header" style="">
+<div id="youtxlogin1" class="header" style="">
     <p class="logo">
         <a href="http://www.youtx.com/" id="youtx_01" target="_blank"><img src="${base}/static/personCenter/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站" title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
     </p>
@@ -107,7 +107,7 @@
         <li class="HeadLanguage"><a href="http://en.youtx.com/" target="_self">English</a></li>
          <li class="ytxMob" id="mobYtx2">
       	<a href="http://www.youtx.com/mo/" target="_blank" rel="nofollow" id="A4">手机游天下</a>
-        <div class="ytxMobCon" style="display:none">
+        <div class="ytxMobCon" style="">
         	<span class="arrowGy">◆</span>
             <span class="arrowWt">◆</span>
             <dl>
@@ -128,7 +128,7 @@
 
         <!--2013-5-3修改-->
         <li class="first firstNew">
-              <span class="FirstSpan FirstSpan02"><a target="_self" href="http://www.youtx.com/home/dashboard/" rel="nofollow">Hi,<span id="liname">卢 祖兴</span></a><span class="JianTouIco"></span></span>
+              <span class="FirstSpan FirstSpan02"><a target="_self" href="http://www.youtx.com/home/dashboard/" rel="nofollow">Hi,<span id="liname">${user.userNickname}</span></a><span class="JianTouIco"></span></span>
               <div class="UlName UlName02">
                    <div><a target="_self" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" rel="nofollow">已预订的房间</a><span id="RoomsNumSpan" class="font_red">(0)</span></div>
                    <div><a target="_self" href="http://www.youtx.com/User/MyMailBox/" rel="nofollow">站内信</a><span id="MsgNumSpan" class="font_red">(0)</span></div>
@@ -142,6 +142,7 @@
     </ul>
 </div>
 <!--头 已登录 end-->
+    <#else >
 <!--头 未登录 start-->
 <div id="youtxloginw" class="header" style="display: none;">
     <p class="logo">
@@ -196,6 +197,7 @@
     </ul>
 </div>
 <!--头 未登录 end-->
+    </#if>
 <script type="text/javascript">
     var _bdhm_top = 0;
     var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
@@ -220,7 +222,7 @@
     <li class="NewSubNavCur"><a href="http://www.youtx.com/home/dashboard/">账户首页</a></li>
     <li class=""><a href="http://www.youtx.com/User/MyMailBox/"> 收件箱 </a></li>
     <li class=""><a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx">我是房东</a></li>
-    <li class=""><a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx">我是租客</a></li>
+    <li class=""><a href="${base}/userCenter/jumpLodgerPage">我是租客</a></li>
     <li class=""><a href="http://www.youtx.com/user/remind">账户管理</a></li>
     <li class=""><a href="http://www.youtx.com/judges/">评价管理</a>
     </li><li class="" style="position:relative;z-index:2"><a href="http://www.youtx.com/profile/cashaccount/">我的资产</a>
@@ -247,13 +249,15 @@
                   <div class="pm_shadow_inner t"> </div>
                   <div class="pm_shadow_inner b"> </div>
                           <a title="查看资料" href="http://www.youtx.com/user/show/2600363/">
-                                        <img width="209" height="209" title=" 卢祖兴" src="${base}/static/personCenter/225_2600363_851.jpg" alt=" 卢祖兴"></a> </div>
+                              <img width="209" height="209"  src="${imagesPath}/3.jpg" alt=" 卢祖兴">
+                          </a>
+                </div>
               </div>
             </div>
           </div>
           <div class="EditInfor">
             <p><a href="http://www.youtx.com/Basic/">编辑资料</a></p>
-            <p class="EditInfor_name"><a title="查看资料" href="http://www.youtx.com/user/show/2600363/"> 卢祖兴</a></p>
+            <p class="EditInfor_name"><a title="查看资料" href="http://www.youtx.com/user/show/2600363/">${user.userRealname}</a></p>
           </div>
           <div class="NewsAut">
             <ul style="display:none;">
