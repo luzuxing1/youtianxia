@@ -145,4 +145,11 @@
       room_id = #{roomId,jdbcType=INTEGER}
     where price_id = #{priceId,jdbcType=INTEGER}
   </update>
+
+  <select id="selectCleanPriceByRoomId" resultType="java.lang.Integer">
+    select
+    price_clean
+    from ytx_price
+    where room_id = #{roomId}
+  </select>
 </mapper>
