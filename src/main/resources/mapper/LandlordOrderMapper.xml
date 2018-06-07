@@ -3,17 +3,21 @@
 <mapper namespace="com.youtx.rent.dao.LandlordOrderMapper">
   <resultMap id="BaseResultMap" type="com.youtx.rent.entity.LandlordOrder">
     <id column="landlord_order_id" jdbcType="INTEGER" property="landlordOrderId" />
-    <result column="order_num" jdbcType="INTEGER" property="orderNum" />
+    <result column="order_num" jdbcType="VARCHAR" property="orderNum" />
     <result column="order_time" jdbcType="TIMESTAMP" property="orderTime" />
     <result column="order_status" jdbcType="VARCHAR" property="orderStatus" />
     <result column="order_reason" jdbcType="VARCHAR" property="orderReason" />
+    <result column="order_people_num" jdbcType="INTEGER" property="orderPeopleNum" />
+    <result column="order_room_num" jdbcType="INTEGER" property="orderRoomNum" />
+    <result column="order_day" jdbcType="INTEGER" property="orderDay" />
+
     <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
     <association property="schedule" column="schedule_id" select="com.youtx.rent.dao.ScheduleMapper.selectByPrimaryKey" />
     <association property="user" column="user_id" select="com.youtx.rent.dao.UserMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
     landlord_order_id, order_num, order_time, order_status, order_reason, room_id, schedule_id, 
-    user_id
+    user_id,order_people_num,order_room_num,order_day
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 

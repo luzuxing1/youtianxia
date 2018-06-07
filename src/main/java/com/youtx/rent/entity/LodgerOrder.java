@@ -5,13 +5,43 @@ import java.util.Date;
 public class LodgerOrder {
     private Integer lodgerOrderId;
 
-    private Integer orderNum;
+    private String orderNum;
 
     private Date orderTime;
 
     private String orderStatus;
 
     private String orderReason;
+
+    private Integer orderPeopleNum;
+
+    private Integer orderRoomNum;
+
+    private Integer orderDay;
+
+    public Integer getOrderDay() {
+        return orderDay;
+    }
+
+    public void setOrderDay(Integer orderDay) {
+        this.orderDay = orderDay;
+    }
+
+    public Integer getOrderPeopleNum() {
+        return orderPeopleNum;
+    }
+
+    public void setOrderPeopleNum(Integer orderPeopleNum) {
+        this.orderPeopleNum = orderPeopleNum;
+    }
+
+    public Integer getOrderRoomNum() {
+        return orderRoomNum;
+    }
+
+    public void setOrderRoomNum(Integer orderRoomNum) {
+        this.orderRoomNum = orderRoomNum;
+    }
 
     private Room room;
 
@@ -27,11 +57,11 @@ public class LodgerOrder {
         this.lodgerOrderId = lodgerOrderId;
     }
 
-    public Integer getOrderNum() {
+    public String getOrderNum() {
         return orderNum;
     }
 
-    public void setOrderNum(Integer orderNum) {
+    public void setOrderNum(String orderNum) {
         this.orderNum = orderNum;
     }
 
