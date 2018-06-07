@@ -1,10 +1,10 @@
-package com.youtx.rent.solr.service.impl;
+package com.youtx.rent.screen.service.impl;
 
 import com.youtx.rent.dao.PriceMapper;
 import com.youtx.rent.dao.RoomSituationMapper;
 import com.youtx.rent.dao.UserMapper;
 import com.youtx.rent.entity.*;
-import com.youtx.rent.solr.service.KeywordService;
+import com.youtx.rent.screen.service.ScreenService;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class KeywordServiceImpl implements KeywordService {
+public class ScreenServiceImpl implements ScreenService {
 
     @Resource
     private UserMapper userDAO;
@@ -28,21 +28,31 @@ public class KeywordServiceImpl implements KeywordService {
     @Resource
     private RoomSituationMapper roomSituationDAO;
 
-
-
     @Override
-    public List<Object[]> findInfoByKeyword(String keyword, String city) {
+    public List<Object[]> findAllByInfo(String key, String city, String min, String max, String[] place, String[] facs) {
         HttpSolrClient client = new HttpSolrClient.Builder()
                 .withBaseSolrUrl("http://118.31.63.199:8081/solr7/new_core")
                 .build();
         SolrQuery query = new SolrQuery();
-        if (keyword == null || keyword.equals("")) {
-            return null;
+        if (key.equals("请输入地址、商圈、地标、店铺名等")) {
+            key = "*";
         }
-        if (keyword.equals("请输入地址、商圈、地标、店铺名等")) {
-            keyword = "*";
+        StringBuilder params = new StringBuilder("");
+        params.append("keys:" + key);
+        params.append(" AND rcity:" + city);
+        params.append(" AND rprice:[" + min + " TO " + max + "]");
+        for (String s : place) {
+            params.append(" AND situtype:" + s);
         }
-        query.setQuery("keys:" + keyword);
+
+        for (String fac : facs) {
+            if (!fac.equals("*")) {
+                params.append(" AND " + fac + ":1");
+            }
+        }
+
+        System.out.println(params.toString());
+        query.setQuery(params.toString());
         QueryResponse response = null;
         try {
             response = client.query(query);
