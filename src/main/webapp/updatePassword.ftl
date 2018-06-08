@@ -210,16 +210,16 @@
           <div class="Registration_tab pt20">
             <div class="item_listxt ">
              <!--2012-12-12-->
-        <div class="X_itemPhone"><input name="" type="button" value="67秒后重发" id="CodeSend" disabled="disabled"><input name="" type="button" value="修改手机号码" onclick="javascript:location.href=&#39;/profile/Passport/EditPassword.aspx?Email=&#39;"><span class="PL15">验证码已发送到</span><span class="ColorPink">17602172096<input type="hidden" value="17602172096" id="forgot_emailOrPhone"><input type="hidden" value=""></span>
+        <div class="X_itemPhone"><input name="" type="button" value="67秒后重发" id="CodeSend" disabled="disabled"><input name="" type="button" value="修改手机号码" onclick="javascript:location.href=${base}/user/phoneCheck;"><span class="PL15">验证码已发送到</span><span class="ColorPink">${userPhone}<input type="hidden" value="${userPhone}" id="forgot_emailOrPhone"><input type="hidden" value=""></span>
         <p class="X_itemPhone_no CL" style="margin:10px 0 0 0;display:none;">错误次数已达最大值，为保障账号安全，半小时内不能使用手机找回密码</p>
         <div class=" CB"></div>
         </div>
         <!--2012-12-12-->
               <div class="input266">
               <p class="text">手机收的到验证码</p>
-                <span> <input id="TelVnum" name="TelVnum" type="text" value="输入手机验证码" class="input" onfocus="hideerr();"></span>
+                <span> <input id="phonecode" name="TelVnum" type="text" value="输入手机验证码" class="input" ></span>
               </div>
-              <p id="VtxtErrorMsg" class="item_listxt_error_r">验证码错误</p>
+              <p id="VtxtErrorMsgs" class="item_code" style="color: #00cc66;height: 14px"></p>
               <!--2014-4-4修改-->
               <div class="TelVerify" style="display: block;">若90秒内收不到验证码，请点击
                   <span class="VerifBtn"><input type="button" id="CodeSendByTel" value="67秒后获取语音验证码" disabled="disabled"></span>
@@ -242,7 +242,7 @@
               </div>
               <p id="pswError02" class="item_listxt_error_r">密码输入格式错误</p>
               <div class="Registration_btn" style="text-align:center">
-                <input name="ctl00$ctl00$body$ContentBody$EditPsw" type="submit" id="EditPsw" class="btn152" value="确认修改">
+                <input name="" type="submit" id="EditPsw" class="btn152" value="确认修改" style="color: #fff3cf;background-color: #4c9300">
                 <p id="sendErrorMsg" class="item_listxt_error_r" style="display:none">修改错误！请重试...</p>
               </div>
             </div>
@@ -288,8 +288,18 @@
                         return;
                     }
                 });
-
-                //确认修改事件
+                //验证码验证 6/8 lxp
+                $("#phonecode").blur(function () {
+                   var phonecodes = $("#phonecode").val();
+                    var checkMsgs = ${checkMsg};
+//                    alert(checkMsgs);
+                    if(checkMsgs != phonecodes){
+                        $("#VtxtErrorMsgs").text("验证码不一致，请重新输入");
+                        return;
+                    }else {
+                        $("#VtxtErrorMsgs").text("");
+                    }
+                });
                 $("#EditPsw").click(function () {
                     $("#sendErrorMsg").css('display', 'none');
                     $("#pswError02").html('密码输入格式错误');
@@ -297,12 +307,6 @@
                     $("#VtxtErrorMsg").css('visibility', 'hidden');
                     var psw01 = $.trim($("#psw01").val());
                     var psw02 = $.trim($("#psw02").val());
-                    var TelVnum = $.trim($("#TelVnum").val());
-
-                    if (!CheckVtxtNum(TelVnum)) {
-                        $("#VtxtErrorMsg").css('visibility', 'visible');
-                        return;
-                    }
                     if (GetStrLength(psw01) <= 5 || GetStrLength(psw01) >= 21) {
                         $("#pswError01").css('visibility', 'visible');
                         return;
@@ -316,48 +320,25 @@
                         $("#pswError02").css('visibility', 'visible');
                         return;
                     }
+                    var telphone = ${userPhone};
+                    $.post(
+                            "${base}/update/updatePassword",
+                            { "password":psw01,"phone":telphone }, function (data) {
+                            if(data.code == "7"){
+                                if( "" == $("#VtxtErrorMsgs").text()){
+                                    alert("修改成功");
+                                    window.location.href = "${base}/user/lo";
+                                }else {
+                                    alert("请输入正确的验证码");
+                                }
 
-                    var telphone = "17602172096";
-
-                    $.post("/profile/Ajax/EditPasswordByTelPost.aspx", { "telphone": telphone, "TelVnum": TelVnum, "psw01": psw01, "psw02": psw02 }, function (data) {
-                        switch (data) {
-                            case "success":
-                                window.location.href = "http://www.youtx.com/home/dashboard/";
-                                break;
-                            case "loginerror":
-                                //跳转登录失败
-                                window.location.href = "/user/login/";
-                                break;
-                            case "editerror":
-                                //更新密码失败
-                                $("#sendErrorMsg").css('display', 'block');
-                                break;
-                            case "noyizhi":
-                                //密码不一致
-                                $("#pswError02").html('密码输入不一致！');
-                                $("#pswError02").css('visibility', 'visible');
-                                break;
-                            case "pswnull":
-                                //密码为空或格式不正确
-                                $("#pswError02").css('visibility', 'visible');
-                                break;
-                            case "vtxterror":
-                                //验证码不正确
-                                $("#VtxtErrorMsg").css('visibility', 'visible');
-                                break;
-                            case "beyondtimes":
-                                $(".X_itemPhone_no").html('错误次数已达最大值，为保障账号安全，半小时内不能使用手机找回密码');
-                                $(".X_itemPhone_no").show();
-                                $("#TelVnum").attr("disabled", "disabled");
-                                $("#CodeSend").attr("disabled", "disabled");
-                                $("#CodeSendByTel").attr("disabled", "disabled");
-                                $('#EditPsw').attr("disabled", "disabled");
-                                break;
-                            default:
-                                break;
-                        }
+                            }else {
+                                alert("修改失败");
+                            }
                     });
                 });
+
+
             })
             function hideerr() {
                 $('#VtxtErrorMsg').css('visibility', '');
@@ -409,7 +390,7 @@
                     if (data == "sendfive") {
                         $("#CodeSend").attr("disabled", "disabled");
                         $("#CodeSendByTel").attr("disabled", "disabled");
-                        $("#TelVnum").attr("disabled", "disabled");
+//                        $("#TelVnum").attr("disabled", "disabled");
                         $("#EditPsw").attr("disabled", "disabled");
                         $(".X_itemPhone_no").html('不能继续发送短信，如有问题请致电客服400-630-0088;');
                         $(".X_itemPhone_no").show();

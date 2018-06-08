@@ -23,18 +23,27 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping("/login")
-    public Object login(String phoneOrEmail,String password, Boolean rememberMe){
+    public Object login(String phoneOrEmail,String password, Boolean rememberMe,String vcode){
         User user = null;
         JsonResult jsonResult =null;
-        try {
-            user = loginService.login(phoneOrEmail,password,rememberMe);
-            jsonResult = SystemTool.formJsonResule(SystemParm.Login.CODE_SUCCESS,SystemParm.Login.MSG_SUCCESS);
-        } catch (UnknownAccountException e) {
-            e.printStackTrace();
-            jsonResult = SystemTool.formJsonResule(SystemParm.Login.CODE_UNKOWN_ACCOUNT,SystemParm.Login.MSG_UNKOWN_ACCOUNT);
-        }catch (IncorrectCredentialsException e){
-            e.printStackTrace();
-            jsonResult = SystemTool.formJsonResule(SystemParm.Login.CODE_INCORRECT_PASSWORD,SystemParm.Login.MSG_INCORRECT_PASSWORD);
+//        System.out.println("vcode:"+vcode);
+        String code = (String) SecurityUtils.getSubject().getSession().getAttribute("vcode");
+//        System.out.println("code:"+code);
+        if(vcode.equalsIgnoreCase(code)){
+            try {
+//                System.out.println("------------");
+                user = loginService.login(phoneOrEmail,password,rememberMe);
+                jsonResult = SystemTool.formJsonResule(SystemParm.Login.CODE_SUCCESS,SystemParm.Login.MSG_SUCCESS);
+            } catch (UnknownAccountException e) {
+                e.printStackTrace();
+                jsonResult = SystemTool.formJsonResule(SystemParm.Login.CODE_UNKOWN_ACCOUNT,SystemParm.Login.MSG_UNKOWN_ACCOUNT);
+            }catch (IncorrectCredentialsException e){
+                e.printStackTrace();
+                jsonResult = SystemTool.formJsonResule(SystemParm.Login.CODE_INCORRECT_PASSWORD,SystemParm.Login.MSG_INCORRECT_PASSWORD);
+            }
+
+        }else {
+            jsonResult = SystemTool.formJsonResule(SystemParm.Login.SUCESS,SystemParm.Login.SUCESS_MSG);
         }
         SecurityUtils.getSubject().getSession().setAttribute("user",user);
         return jsonResult;
@@ -47,4 +56,19 @@ public class LoginController {
     public String los(){
         return "index";
     }
+    @RequestMapping("/lols")
+    public String lols(){
+        SecurityUtils.getSubject().getSession().setAttribute("user","");
+        return "index";
+    }
+    @RequestMapping("/phoneCheck")
+    public String check(){
+        return "findMyPassword";
+    }
+    @RequestMapping("/updatepassword")
+    public String updatepassword(){
+        return "updatePassword";
+    }
+
+
 }

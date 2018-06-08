@@ -30,4 +30,5 @@ public interface UserMapper {
      * 验证注册手机号是否存在
      */
     User selectByPhone(String userPhone);
+    void updateByPhone(@Param("userPassword") String userPassword,@Param("userPhone") String userPhone);
 }

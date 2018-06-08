@@ -197,43 +197,21 @@
         </li>
     </ul>
 </div>
-
-    
       <div class="Registration_main">
         <div class="Registration_left" style="background:url(/profile/images/Passport/RegistrationBg.gif) no-repeat 5px bottom;"></div>
         <div class="Registration_right">
           <span class="Registration_You_z">找回密码</span>
           <div class="Registration_tab pt20">
-            <p style=" color:#000">请输入您的注册邮箱或已验证的手机号，我们将向您发送用于找回密码的信息</p>
+            <p style=" color:#000">请输入您的已验证的手机号，我们将向您发送用于找回密码的信息</p>
             <p style=" color:#000">境外手机号请联系客服，客服热线：400-630-0088（8：00-24:00），客服邮箱：service@youtx.com</p>
             <div class="item_listxt">
               <div class="input290">
-                <input type="text" id="forgot_emailOrPhone" value="输入邮箱/已绑定的手机" class="input">
+                <input type="text" id="forgot_emailOrPhone" value="已绑定的手机" class="input" style="height: 30px;border-color: #4c3000">
               </div>
-                <p class="item_listxt_error" id="ErrorMsg">请输入有效的邮箱地址，或已验证的手机</p>
-                <div style="position: absolute; padding-left: 185px; top: -115px;display:none;" id="yanzhengmatanceng">
-                    <div class="yzbox" id="div_mathcode" style="">
-                    <div class="yzboxa">
-                    <div class="yzboxa01">
-                        <div class="s1">
-                            <img width="78" height="25" src="${base}/static/findPassword/ValidCode.aspx" id="imgcode" name="imgcode" style="cursor:pointer;">
-                        </div>
-                        <div class="s2">
-                            <input type="text" value="" maxlength="4" class="yzboxa01inp" id="txt_vcode">
-                            <input id="queding" type="button" class="yzboxa01but" value="确认" onclick="queDing()">
-                        </div>
-                    </div>
-                    <div class="yzboxa02"><div class="s1">
-                        <a href="javascript:void(0);" id="resh">换一题</a>
-                    </div>
-                    <div class="s2">请输入答案</div>
-                    </div>
-                    </div>
-                    <div class="yzboxb"></div>
-                    </div>
-                </div>
+                <p class="item_listxt_error" id="ErrorMsg">请输入已验证的手机</p>
+
               <div class="Registration_btn">
-                <input name="" type="button" class="btn152" value="确认发送" onclick="sendEmailNew()">
+                <input name="" type="button" class="btn152" id="sendphone" value="确认发送" onclick="sendEmailNew()"style="background-color: #4c9300;color: #fff3cf">
                 <p id="sendErrorMsg" class="item_listxt_error" style="display:none">发送失败，请重新发送！</p>
               </div>
             </div>
@@ -275,103 +253,93 @@
                 $("#imgcode").attr("src", s);
             }
 
+
+
+
             function sendEmailNew() {
-                $("#yanzhengmatanceng").css('display', 'none');
+//                $("#yanzhengmatanceng").css('display', 'none');
                 $("#sendErrorMsg").css('display', 'none');
                 $("#ErrorMsg").css('visibility', 'hidden');
                 var emailOrPhone = $.trim($("#forgot_emailOrPhone").val());
-                emailOrPhone = (emailOrPhone == '输入邮箱/已绑定的手机') ? '' : emailOrPhone
-                var regEmail = new RegExp("^\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$");
                 var regPhone = /^(((1[3-7]{1}[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
                 var regV = new RegExp("^[\\A-Za-z0-9]{4}$");
                 if (emailOrPhone.length <= 0) {
-                    $("#ErrorMsg").html('请填写注册邮箱/手机');
-                    $("#ErrorMsg").css('visibility', 'visible');
-                    return;
-                }
-                if ((!regEmail.test(emailOrPhone)) && (!regPhone.test(emailOrPhone))) {
-                    $("#ErrorMsg").html('邮箱/手机格式不正确');
+                    $("#ErrorMsg").html('请填写注册手机');
                     $("#ErrorMsg").css('visibility', 'visible');
                     return;
                 }
                 VerificationCode();
                 $("#yanzhengmatanceng").css('display', 'block');
-            }
+                var userPhone = $("#forgot_emailOrPhone").val();
+                $.post(
+                        "${base}/reg/checkPhone2",
+                        {"phone":userPhone},
+                        function (data) {
+//                            alert(data.code);
+                            if(data.code == "6"){
+//                                alert(data.msg);
+//                                alert("0");
+                                window.location.href="${base}/user/updatepassword";
+                            }else if(data.code == "9"){
+                                alert("1");
+                                alert(data.msg);
+                            }else {
+                                alert("2");
+                                alert(data.msg);
+                            }
+                        }
+                );
 
+            }
             var isEmailOrPhone = "0";
             function queDing() {
-                $("#yanzhengmatanceng").css('display', 'none');
+//                $("#yanzhengmatanceng").css('display', 'none');
                 $("#sendErrorMsg").css('display', 'none');
                 $("#ErrorMsg").css('visibility', 'hidden');
                 var emailOrPhone = $.trim($("#forgot_emailOrPhone").val());
-                emailOrPhone = (emailOrPhone == '输入邮箱/已绑定的手机') ? '' : emailOrPhone
-                var regEmail = new RegExp("^\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$");
                 var regPhone = /^(((1[3-7]{1}[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
                 var regV = new RegExp("^[\\A-Za-z0-9]{4}$");
                 if (emailOrPhone.length <= 0) {
-                    $("#ErrorMsg").html('请填写注册邮箱/手机');
+                    $("#ErrorMsg").html('请填写手机');
                     $("#ErrorMsg").css('visibility', 'visible');
                     return;
                 }
-                if ((!regEmail.test(emailOrPhone)) && (!regPhone.test(emailOrPhone))) {
-                    $("#ErrorMsg").html('邮箱/手机格式不正确');
+                if (!regPhone.test(emailOrPhone)) {
+                    $("#ErrorMsg").html('手机格式不正确');
                     $("#ErrorMsg").css('visibility', 'visible');
                     return;
-                }
-                if (regEmail.test(emailOrPhone)) {
-                    isEmailOrPhone = '1'; //邮箱
                 }
                 else if (regPhone.test(emailOrPhone)) {
                     isEmailOrPhone = '2'; //手机
                 }
-                if (Number($("#txt_vcode").val()) > 0) {
-                    $("#ErrorMsg").css('visibility', 'hidden');
-                    //前端js验证码正确
-                    setTimeout(function () { SendCode($('#forgot_emailOrPhone').val(), isEmailOrPhone, $('#txt_vcode').val()) }, 10);
-                }
-                else {
-                    $("#ErrorMsg").html('验证码错误');
-                    $("#ErrorMsg").css('visibility', 'visible');
-                }
-            }
 
-            function SendCode(emailOrPhone, isEmailOrPhone, Vtxt) {
-                $.post("/profile/Ajax/EditPwdPost.aspx", { "username": emailOrPhone, "isEmailOrPhone": isEmailOrPhone, "Vtxt": Vtxt, "r": Math.random() }, function (data) {
-                    switch (data) {
-                        case "verror":
-                            $("#ErrorMsg").html('验证码错误');
-                            $("#ErrorMsg").css('visibility', 'visible');
-                            VerificationCode();
-                            break;
-                        case "sendMsgsuccess":
-                            window.location.href = "/profile/Passport/EditPasswordByTel.aspx?Telphone=" + emailOrPhone;
-                            break;
-                        case "noexistemail":
-                            $("#ErrorMsg").html('该邮箱未注册！');
-                            $("#ErrorMsg").css('visibility', 'visible');
-                            break;
-                        case "noexistphone":
-                            $("#ErrorMsg").html('手机未注册或不存在！');
-                            $("#ErrorMsg").css('visibility', 'visible');
-                            break;
-                        case "success":
-                            window.location.href = "http://www.youtx.com/profile/Passport/LookMailPwd.aspx?username=" + emailOrPhone;
-                            break;
-                        case "failed":
-                            $("#sendErrorMsg").css('display', 'block');
-                            break;
-                        case "sendfive":
-                            $("#sendErrorMsg").html('此号码今天已经发送5次了，请明天再发吧');
-                            $("#sendErrorMsg").css('display', 'block');
-                            break;
-                        case "beyondtimes":
-                            $("#sendErrorMsg").html('错误次数已达最大值，为保障账号安全，半小时内不能使用手机找回密码');
-                            $("#sendErrorMsg").css('display', 'block');
-                        default:
-                            break;
-                    }
-                })
             }
+            <#--function SendCode(Phone) {-->
+                <#--var userPhone = $("#").val();-->
+                <#--$.post(-->
+                        <#--"${base}/reg/checkPhone",-->
+                        <#--{ "Phone": Phone},-->
+                        <#--function (data) {-->
+                        <#--switch (data) {-->
+                            <#--case "verror":-->
+                                <#--$("#ErrorMsg").html('验证码错误');-->
+                                <#--$("#ErrorMsg").css('visibility', 'visible');-->
+                                <#--VerificationCode();-->
+                                <#--break;-->
+                            <#--case "sendMsgsuccess":-->
+                            <#--window.location.href = "/profile/Passport/EditPasswordByTel.aspx?Telphone=" + emailOrPhone;-->
+                            <#--break;-->
+                        <#--case "noexistphone":-->
+                            <#--$("#ErrorMsg").html('手机未注册或不存在！');-->
+                            <#--$("#ErrorMsg").css('visibility', 'visible');-->
+                            <#--break;-->
+                    <#--}-->
+                <#--})-->
+            <#--}-->
+             $(function () {
+
+
+             });
          </script>
       <!--表单js -end--> 
       <!--2012-2-24注册end--> 

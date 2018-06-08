@@ -125,9 +125,8 @@
                 <dd><a href="http://www.youtx.com/User/MyMailBox/" id="MsgNumA" target="_self"><span>消息</span></a></dd>
                 <dd><a href="http://www.youtx.com/User/MyWealth/" target="_self">我的积分</a></dd>
                 <dd><a href="http://www.youtx.com/user/remind" target="_self">账户管理</a></dd>
-                <dd><a href="http://www.youtx.com/user/logout/" target="_self">退出</a></dd>
+                <dd><a href="${base}/user/lols" target="_self">退出</a></dd>
             </dl>
-
         </li>
         <li class="dropDownLi">
             <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" class="dropDownTrigger" id="MyZuKe">我是租客</a>
