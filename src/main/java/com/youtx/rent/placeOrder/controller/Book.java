@@ -61,7 +61,7 @@ public class Book {
     public Boolean isbook(String begintime, String endtime,String roomid){
         List<Calendar> calendars = roomMsg.selectPriceByDate ( begintime, endtime ,Integer.parseInt ( roomid ));
         for (Calendar calendar : calendars) {
-            if(calendar.getCalendarRoom ()!=null && calendar.getCalendarRoom ().equals ( "已租" )){
+            if(calendar.getCalendarRoom ()!=null && calendar.getCalendarRoom ().equals ( "yz" )){
                 return false;
             }
         }
@@ -70,7 +70,8 @@ public class Book {
 
     @RequestMapping("/order")
     public String order(Model model,String roomtitle,String roomaddress,String begintime,String endtime
-            ,String houseid,String allprices,String livenum,String rooms,String roomdays){
+            ,String houseid,String allprices,String livenum,String rooms,String roomdays,String txtcheckinname
+            ,String IDOtherNumber,String txtOthertel){
         model.addAttribute ( "roomtitle",roomtitle );
         model.addAttribute ( "roomaddress",roomaddress );
         String beginWeek = roomMsg.dateToWeek ( begintime );
@@ -109,7 +110,21 @@ public class Book {
         lodgerOrder.setOrderPeopleNum ( Integer.parseInt ( livenum ) );
         lodgerOrder.setOrderRoomNum ( Integer.parseInt ( rooms ) );
         lodgerOrder.setOrderDay ( Integer.parseInt ( roomdays ) );
+//        roomMsg.saveLodgerOrder ( lodgerOrder );
         //存lodgerorder表 ---end
+        //修改calendar表 已租状态---start
+//        roomMsg.updateCalendarStatus ( "yz",livestarttime,liveendtime );
+        //修改calendar表 已租状态---end
+        //存livePerson表 ---start
+        if(!"".equals ( IDOtherNumber )&&!"".equals ( txtcheckinname )&&!"".equals ( txtOthertel )){
+            LivePerson livePerson = new LivePerson ();
+            livePerson.setPersonName ( txtcheckinname );
+            livePerson.setPersonCid (  IDOtherNumber  );
+            livePerson.setPersonPhone (  txtOthertel  );
+            livePerson.setSchedule ( schedule );
+            roomMsg.saveLivePerson ( livePerson );
+        }
+        //存livePerson表 ---end
         return "ordersusscess";
     }
 }

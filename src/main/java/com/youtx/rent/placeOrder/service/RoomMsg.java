@@ -1,10 +1,7 @@
 package com.youtx.rent.placeOrder.service;
 
 import com.youtx.rent.dao.*;
-import com.youtx.rent.entity.LodgerOrder;
-import com.youtx.rent.entity.RoomResource;
-import com.youtx.rent.entity.RoomSituation;
-import com.youtx.rent.entity.Schedule;
+import com.youtx.rent.entity.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -30,6 +27,8 @@ public class RoomMsg {
     private ScheduleMapper scheduleMapper;
     @Resource
     private LodgerOrderMapper lodgerOrderMapper;
+    @Resource
+    private LivePersonMapper livePersonMapper;
 
     public List<String> findPics(Integer roomId){
         return pictureMapper.selectByRoomId ( roomId );
@@ -129,5 +128,13 @@ public class RoomMsg {
 
     public void saveLodgerOrder(LodgerOrder lodgerOrder){
         lodgerOrderMapper.insert ( lodgerOrder );
+    }
+
+    public void updateCalendarStatus(String calendarRoom,String begintime, String endtime){
+        calendarMapper.updateByDate ( calendarRoom,begintime,endtime);
+    }
+
+    public void saveLivePerson(LivePerson livePerson){
+        livePersonMapper.insert ( livePerson );
     }
 }

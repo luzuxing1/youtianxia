@@ -4,8 +4,8 @@
   <resultMap id="BaseResultMap" type="com.youtx.rent.entity.LivePerson">
     <id column="person_id" jdbcType="INTEGER" property="personId" />
     <result column="person_name" jdbcType="VARCHAR" property="personName" />
-    <result column="person_cid" jdbcType="INTEGER" property="personCid" />
-    <result column="person_phone" jdbcType="INTEGER" property="personPhone" />
+    <result column="person_cid" jdbcType="VARCHAR" property="personCid" />
+    <result column="person_phone" jdbcType="VARCHAR" property="personPhone" />
     <association property="schedule" column="schedule_id" select="com.youtx.rent.dao.ScheduleMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -24,8 +24,8 @@
   <insert id="insert" parameterType="com.youtx.rent.entity.LivePerson">
     insert into ytx_live_person (person_id, person_name, person_cid, 
       person_phone, schedule_id)
-    values (#{personId,jdbcType=INTEGER}, #{personName,jdbcType=VARCHAR}, #{personCid,jdbcType=INTEGER}, 
-      #{personPhone,jdbcType=INTEGER}, #{scheduleId,jdbcType=INTEGER})
+    values (#{personId,jdbcType=INTEGER}, #{personName,jdbcType=VARCHAR}, #{personCid,jdbcType=VARCHAR},
+      #{personPhone,jdbcType=VARCHAR}, #{schedule.scheduleId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.LivePerson">
     insert into ytx_live_person
@@ -54,10 +54,10 @@
         #{personName,jdbcType=VARCHAR},
       </if>
       <if test="personCid != null">
-        #{personCid,jdbcType=INTEGER},
+        #{personCid,jdbcType=VARCHAR},
       </if>
       <if test="personPhone != null">
-        #{personPhone,jdbcType=INTEGER},
+        #{personPhone,jdbcType=VARCHAR},
       </if>
       <if test="scheduleId != null">
         #{scheduleId,jdbcType=INTEGER},
@@ -71,10 +71,10 @@
         person_name = #{personName,jdbcType=VARCHAR},
       </if>
       <if test="personCid != null">
-        person_cid = #{personCid,jdbcType=INTEGER},
+        person_cid = #{personCid,jdbcType=VARCHAR},
       </if>
       <if test="personPhone != null">
-        person_phone = #{personPhone,jdbcType=INTEGER},
+        person_phone = #{personPhone,jdbcType=VARCHAR},
       </if>
       <if test="scheduleId != null">
         schedule_id = #{scheduleId,jdbcType=INTEGER},
@@ -85,8 +85,8 @@
   <update id="updateByPrimaryKey" parameterType="com.youtx.rent.entity.LivePerson">
     update ytx_live_person
     set person_name = #{personName,jdbcType=VARCHAR},
-      person_cid = #{personCid,jdbcType=INTEGER},
-      person_phone = #{personPhone,jdbcType=INTEGER},
+      person_cid = #{personCid,jdbcType=VARCHAR},
+      person_phone = #{personPhone,jdbcType=VARCHAR},
       schedule_id = #{scheduleId,jdbcType=INTEGER}
     where person_id = #{personId,jdbcType=INTEGER}
   </update>

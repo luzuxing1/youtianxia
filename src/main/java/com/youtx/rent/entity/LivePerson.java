@@ -5,9 +5,9 @@ public class LivePerson {
 
     private String personName;
 
-    private Integer personCid;
+    private String personCid;
 
-    private Integer personPhone;
+    private String personPhone;
 
     private Schedule schedule;
 
@@ -27,19 +27,19 @@ public class LivePerson {
         this.personName = personName == null ? null : personName.trim();
     }
 
-    public Integer getPersonCid() {
+    public String getPersonCid() {
         return personCid;
     }
 
-    public void setPersonCid(Integer personCid) {
+    public void setPersonCid(String personCid) {
         this.personCid = personCid;
     }
 
-    public Integer getPersonPhone() {
+    public String getPersonPhone() {
         return personPhone;
     }
 
-    public void setPersonPhone(Integer personPhone) {
+    public void setPersonPhone(String personPhone) {
         this.personPhone = personPhone;
     }
 

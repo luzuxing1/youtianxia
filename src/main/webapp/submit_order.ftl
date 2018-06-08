@@ -91,7 +91,7 @@
 
 
            if (reg.test(card) == false) {
-               $(data).html("证件格式不正确");
+               //$(data).html("证件格式不正确");
                //$(data).parent().parent().find("div[name='CardErrorMsg'] span").show();
                $(data).show();
                return;
@@ -3452,7 +3452,7 @@
                                     <td>
                                          <input type="text" class="text" id="IDOtherNumber" name="IDOtherNumber" onblur="CartTest(this)">
                                         <span>
-                                            <img style="vertical-align: middle;*vertical-align:baseline; display:none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif">
+                                            <img id="imgcardid" style="vertical-align: middle;*vertical-align:baseline; display:none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif">
                                         </span>
                                         <p class="ColorGray999 PT5">请您放心，身份信息不会对外公开。</p>
                                         <div class="PromptErrorBox" name="CardErrorMsg" id="CardErrorOtherMsg">
@@ -4186,7 +4186,11 @@
                                             <div id="Div1" style="padding-left: 207px; top: -110px; position: absolute;display:none;">
                                             </div>
                                             <div>
-                                                <input type="text" disabled="disabled" class="text" value="+86" style="color:#333;background-color:#ece9d8;width:50px;margin-right:-1px;" id="telOthercode"><input style="width:100px;" type="text" class="text" id="txtOthertel" name="txtOthertel" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/phone/&#39;]);}catch(e){}"><input name="telhide" type="hidden" id="Hidden1"><input name="telCodehide" type="hidden" id="Hidden2">
+                                                <input type="text" disabled="disabled" class="text" value="+86" style="color:#333;background-color:#ece9d8;width:50px;margin-right:-1px;" id="telOthercode"><input style="width:100px;" type="text" class="text" id="txtOthertel" name="txtOthertel" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/phone/&#39;]);}catch(e){}"><span>
+                                            <img id="imgphoneid" style="vertical-align: middle;*vertical-align:baseline; display:none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif">
+                                        </span><div class="PromptErrorBox" name="CardErrorMsg" id="CardErrorOtherMsg1">
+                                                <span class="PromptError" style="display:none">信息错误，请重新填写</span>
+                                            </div><input name="telhide" type="hidden" id="Hidden1"><input name="telCodehide" type="hidden" id="Hidden2">
                                                 <span><img alt="" id="imgOthertel" style="vertical-align: middle; *vertical-align: baseline; display: none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif"></span>
                                                 <span class="VerificationBtn"><input style="display:none;" type="button" id="Button1" value="获取验证码"></span>
                                             </div>
@@ -4554,6 +4558,15 @@
                 $("#txtcheckintel").blur(function () {
                     checkTxtCheckInTel();
                 });
+                //身份证号码
+                $("#IDOtherNumber").blur(function () {
+                    checkCardId();
+                });
+                //手机号
+                $("#txtOthertel").blur(function () {
+                    checkphoneId();
+                });
+
                 $("#txttel").focus(function () {
                     $("#teltip").children(".PromptError").hide();
                     $("#teltip").children(".PromptError02").hide();
@@ -5214,6 +5227,7 @@
                         result = data.result;
                     }
                 });
+                result = '1';
                 return result;
             }
 
@@ -5305,6 +5319,7 @@
                         var nationalities_Other = $("#NationOtherOption").val();
                         var papertype_Other = $("#CartOtherOption").val();
                         var idcode_Other = $("#IDOtherNumber").val();
+                        var txtOthertel = $("#txtOthertel").val();
                         var msg_Other = CheckCard(realusername_Other, countryid2_Other, nationalities_Other, papertype_Other, idcode_Other, isSelf);
                         if (msg_Other != "1") {
                             if (CheckLeftCount > 0) {
@@ -5317,6 +5332,16 @@
                                 $("#CardErrorOtherMsg span").show();
                                 return false;
                             }
+                        }
+                        if(idcode_Other==""){
+                            $("#CardErrorOtherMsg span").html("证件号码不能为空");
+                            $("#CardErrorOtherMsg span").show();
+                            return false;
+                        }
+                        if(txtOthertel==""){
+                            $("#CardErrorOtherMsg1 span").html("手机号码不能为空");
+                            $("#CardErrorOtherMsg1 span").show();
+                            return false;
                         }
                     }
                 
@@ -5543,6 +5568,27 @@
                     checkciname = false;
                 }
             }
+
+            function checkCardId() {
+                var txtcheckcardid = $("#IDOtherNumber").val();
+                if (txtcheckcardid != "") {
+                    $("#imgcardid").show();
+                    $("#CardErrorOtherMsg").find(".PromptError").hide();
+                }else{
+                    $("#imgcardid").hide();
+                }
+            }
+            function checkphoneId() {
+                var txtcheckphoneid = $("#txtOthertel").val();
+                if (txtcheckphoneid != "") {
+                    $("#imgphoneid").show();
+                    $("#CardErrorOtherMsg1").find(".PromptError").hide();
+                }else{
+                    $("#CardErrorOtherMsg1 span").show();
+                    $("#imgphoneid").hide();
+                }
+            }
+
             function checkTxtCheckInTel() {
                 if ($("#txtcheckintel").val() != "") {
                     //objExp = new RegExp(/^(0|[1-9]\d*)$/g);

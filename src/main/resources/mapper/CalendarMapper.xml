@@ -91,6 +91,13 @@
     where calendar_id = #{calendarId,jdbcType=INTEGER}
   </update>
 
+  <update id="updateByDate">
+    update ytx_calendar
+    set
+    calendar_room = #{calendarRoom,jdbcType=VARCHAR}
+    where calendar_date &gt;=#{begintime} and calendar_date  &lt; #{endtime}
+  </update>
+
   <select id="selectPriceByDate" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
