@@ -62,10 +62,11 @@
   <insert id="insert" parameterType="com.youtx.rent.entity.LodgerOrder">
     insert into ytx_lodger_order (lodger_order_id, order_num, order_time, 
       order_status, order_reason, room_id, 
-      schedule_id, user_id)
+      schedule_id, user_id,order_people_num,order_room_num,order_day)
     values (#{lodgerOrderId,jdbcType=INTEGER}, #{orderNum,jdbcType=INTEGER}, #{orderTime,jdbcType=TIMESTAMP}, 
-      #{orderStatus,jdbcType=VARCHAR}, #{orderReason,jdbcType=VARCHAR}, #{roomId,jdbcType=INTEGER}, 
-      #{scheduleId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER})
+      #{orderStatus,jdbcType=VARCHAR}, #{orderReason,jdbcType=VARCHAR}, #{room.roomId,jdbcType=INTEGER},
+      #{schedule.scheduleId,jdbcType=INTEGER}, #{user.userId,jdbcType=INTEGER}, #{orderPeopleNum,jdbcType=INTEGER}
+      , #{orderRoomNum,jdbcType=INTEGER}, #{orderDay,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.LodgerOrder">
     insert into ytx_lodger_order

@@ -1,0 +1,695 @@
+﻿@charset "utf-8";
+.red{ color:#e00}
+.orange{ color:#FF6600}
+.font14{ font-size:14px;}
+.font16{ font-size:16px;}
+.mt5{ margin-top:5px;}
+.mt10{ margin-top:10px;}
+.mt15{ margin-top:15px;}
+.aglinr{ text-align:right}
+.padl28{ padding-left:28px;}
+.clear {clear: both;font-size: 0;height: 1px;line-height: 0;overflow: hidden;}
+.more_info{ float:right; font-size:12px; margin:10px 10px 0 0; font-family:inherit; font-style:inherit}
+
+.wrapper{ width:980px; margin:0 auto;}
+/*notice*/
+#notice{padding:14px 8px;line-height:18px;margin:10px 0 10px 0;border:1px solid #ecd89b;text-align:center;font-size:12px;font-weight:bold;color:#393c3d;background:#fff9e6;text-shadow:0 1px 1px #fff;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;box-shadow:inset 0 0 0 1px white,0 0 0 transparent,0 0 0 transparent,0 0 0 transparent,0 0 0 transparent;-moz-box-shadow:inset 0 0 0 1px white,0 0 0 transparent,0 0 0 transparent,0 0 0 transparent,0 0 0 transparent;-webkit-box-shadow:inset 0 0 0 1px white,0 0 0 transparent,0 0 0 transparent,0 0 0 transparent,0 0 0 transparent;background:#fff3ce;background:-webkit-gradient(linear,center top,center bottom,from(#fff9e5),to(#fff3ce));background:-moz-linear-gradient(top,#fff9e5,#fff3ce);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff9e5',endColorstr='#fffff3ce',GradientType=0);font-family:"HelveticaNeue","Helvetica Neue","HelveticaNeueRoman","HelveticaNeue-Roman","Helvetica Neue Roman",'TeXGyreHerosRegular',"Helvetica","Tahoma","Geneva","Arial",sans-serif
+}#notice a{color:#1d95cb}
+#notice li{font-weight:normal}
+/*book it*/
+.relative {position: relative;}
+.narrow_page_bg {background: none repeat scroll 0 0 #F2F2EB;padding: 24px 0; width: 980px;} 
+.txt_title{ text-align:center;color: #33332F;font-size:18px;font-weight: bold\9;letter-spacing: -1px;margin-bottom:20px;}
+.rounded_most {border-radius: 20px 20px 20px 20px;}
+#book_it {background: none repeat scroll 0 0 #FFFFFF;color: #5F5F57;margin: 0 auto;padding: 20px;width: 620px;}
+.drop_shadow_standard {box-shadow: 0 2px 10px #AAAAAA;}
+.rounded_more {border-radius: 10px 10px 10px 10px;}
+#book_it input {color: #A7A7A7;margin: 0 0 10px;}
+.book_it_section {width: 620px;overflow:hidden}
+.book_it_section1 {width: 620px;}
+#book_it h1 {color: #33332F;font-size: 24px;font-weight: bold\9;letter-spacing: -1px;margin-top: 20px;}
+/* #book_it h2 {color: #33332F;font-size: 15px;font-weight:bold;letter-spacing: -1px;} */ /*20110923*/ 
+#book_it h2 { font-size:13px;}  /*2015-09-15修改*/
+#book_it .title{ text-align:center;color: #33332F;font-size:24px; font-weight: bold\9;letter-spacing: -1px; }
+#book_it #how_it_works h1 {margin-top: 5px;}
+.content_box {background: none repeat scroll 0 0 #F8F8F8; border: 1px solid #D1D1C9;border-radius: 10px 10px 10px 10px; margin-top: 10px;padding: 11px; }
+.content_box1{* padding: 11px 11px 0px;}
+#how_it_works .content_box { background: none repeat scroll 0 0 #E7FFBC !important;  }
+#book_it #how_it_works p {color: #494949;float: left;font-size: 13px;letter-spacing: -0.1px;}
+#property_details .main_photo {display: block;float: left;height: 140px;margin-right: 21px; width: 210px;}
+#property_details #hosting_details {float: left;width: 360px;}
+#property_details #hosting_details h2 { font-size: 16px;padding: 0 5px 6px 7px;}
+#property_details #hosting_details #hosting_address {background: none repeat scroll 0 0 #FFFFFF;border: 1px solid #D1D1C9;float: left;padding: 10px 16px 14px;}
+.rounded_more {border-radius: 10px 10px 10px 10px;}
+#property_details #hosting_details p {padding: 4px 0 1px 7px;}
+.dashed_table {float: left;margin-top: 10px;}
+.dashed_table li {-moz-border-bottom-colors: none;-moz-border-image: none;-moz-border-left-colors:none;-moz-border-right-colors:none;-moz-border-top-colors: none;border-color:#D1D1C9;border-style:solid;border-width:0 1px;float:left;padding-top:0;width:618px;border-bottom:1px dashed #CBCBCB;background:#F8F8F8;}/*20110908*/ 
+.dashed_table li.top {border-top-left-radius: 10px;border-top-right-radius: 10px;border-top:1px solid #CBCBCB;}/*20110908*/ 
+.dashed_table span {display: block;float: left; }
+.dashed_table .optional_usd {color: #C0C0B2;display: inline;float: none;line-height: 16px;}
+span.optional_usd {display: none !important;}
+.dashed_table li.top span.label {border-top-left-radius: 10px;}
+.dashed_table .label { background: none repeat scroll 0 0 #F8F8F8; width: 200px;}
+.dashed_table span.inner {padding: 10px 20px 10px 11px; font-size: 17px; float:left}
+.dashed_table span.inner_input {padding: 9px 20px 0px 11px;}
+.check_in_out_time {color:#7F7F77;font-size:14px;font-weight:normal;font-style:normal;}/*20110905*/
+.checkout_icon {background:url(http://js.youtx.com/payment/images/checkout_icons1.png) no-repeat scroll 0 0 transparent; height: 16px; margin: 2px 10px 0 0;overflow: hidden;width: 16px;}
+.checkout_icon1 {height: 16px; margin: 2px 10px 0 0; margin: 0px 10px 0 0\9; overflow: hidden;width: 16px;}
+#icon_cal { background-position: 0 0;}
+#icon_person {background-position: 0 -16px;}
+#icon_check {background-position: 0 -48px;}
+.icon_star {background-position: 0 -96px;}
+#icon_calc {background-position: 0 -32px;}
+#icon_crossed_out {background-position: 0 -64px;}
+#icon_house {background-position: 0 -80px;}
+
+#total span.label, #total span.data {line-height: 36px !important;background:#FFFDBC;}
+#total span.data span.inner, #total span.data span.optional_usd {font-size: 30px !important;font-weight: bold;}
+a.tooltip {cursor:pointer;}
+a.tooltip img {height: 16px;vertical-align: top;width: 16px;}
+
+.dashed_table .data{border-left:1px solid #D1D1C9;width:416px;background:#fff;}/*20110908*/ 
+.dashed_table .label, .dashed_table li .data {line-height:20px;}/*20110908*/ 
+.dashed_table li.bottom {border-bottom-left-radius: 10px;border-bottom-right-radius: 10px; border-bottom:1px solid #CBCBCB;}/*20110908*/
+.dashed_table li.bottom span {/*height: 34px;*/
+    border-bottom-style: none;
+    border-bottom-color: inherit;
+    border-bottom-width: 0;
+}
+.dashed_table li.bottom span.label { border-bottom-left-radius: 10px;}
+.dashed_table li.bottom span.data {border-bottom-right-radius: 10px;
+    /*height: 39px;*/
+}
+#total .checkout_icon { margin-top: 10px !important;}
+
+#verification_options .content_box.tip {background: none repeat scroll 0 0 #E7FFBC !important;color: #494949;font-size: 13px;letter-spacing: -0.1px;}
+#lwlb_contact_phone, #lwlb_contact_profile {margin-bottom: 10px;}
+textarea { font-family: Arial,Helvetica,Tahoma;}
+#verification_options textarea {-moz-border-bottom-colors: none;-moz-border-image: none;-moz-border-left-colors: none;-moz-border-right-colors: none;-moz-border-top-colors: none;border-color: -moz-use-text-color #DDDDDD #DDDDDD; border-right: 1px solid #DDDDDD;border-style: none solid solid;border-width: 0 1px 1px;box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.8) inset;display: block;margin-bottom: 10px;width: 590px;}
+
+
+#payment_options {overflow: hidden;}
+#security_seals {position: absolute;right: 0;text-align: center;width: 160px;}
+#security_seals span#siteseal, img#paypal_seal {display: block;margin: 20px auto;}
+.payment_tabs_live {float: left;margin-top: 1em;overflow: hidden;padding: 10px 0 0;width: 620px;}
+ul.payment_methods_nav {
+    border-bottom: 1px solid #D1D1C9;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0;
+    padding: 3px 0 8px;
+}
+ul.payment_methods_nav li {
+    display: inline;
+    list-style: none outside none;
+    margin: 0;
+}
+ul.payment_methods_nav li a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #E0E0E0;
+    border-color: #D1D1C9 #D1D1C9 -moz-use-text-color;
+    border-style: solid solid none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-width: 1px 1px medium;
+    margin-right: 3px;
+    padding: 10px 13px 8px;
+    text-decoration: none;
+}
+ul.payment_methods_nav li.payment_method_active a {
+    background-color: #F8F8F8;
+    border-bottom: 1px solid #F8F8F8;
+    box-shadow: none;
+    color: #000000;
+}
+
+ul.payment_methods_nav li a:link {
+    box-shadow: 0 3px 7px 1px #C9C9C9 inset;
+    color: #5F5F56;
+}
+.payment_tabs_live .payment_method_content {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F8F8F8;
+    border-color: -moz-use-text-color #D1D1C9 #D1D1C9;
+    border-radius: 0 0 10px 10px;
+    border-right: 1px solid #D1D1C9;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+    padding: 19px 9px 20px;
+}
+.payment_tabs_live .payment_method_content h2 {
+    display: none;
+}
+#payment_options div.currency_alert {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #D1D1C9;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 0 22px;
+    padding: 6px 10px;
+    width: 578px;
+}
+#payment_options #cc_address {
+    float: left;
+    padding: 0 0 0 13px;
+    width: 300px;
+}
+#payment_options #cc_details {
+    background: url("http://js.youtx.com/payment/images/payment/v3/cc_logos.png") no-repeat scroll 30px 0 transparent;
+    float: left;
+    padding: 30px 0 0 30px;
+    width: 255px;
+}
+.payment_tabs_live .payment_method_content {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F8F8F8;
+    border-color: -moz-use-text-color #D1D1C9 #D1D1C9;
+    border-radius: 0 0 10px 10px;
+    border-right: 1px solid #D1D1C9;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+    padding: 19px 9px 20px;
+}
+#payment_options div.currency_alert {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #D1D1C9;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 0 22px;
+    padding: 6px 10px;
+    width: 578px;
+}
+#book_it #extras label {
+    float: left;
+    font-size: 13px;
+    margin-top: 2px;
+    padding-right: 14px;
+    width: 250px;
+}
+#book_it #extras input {
+    margin: 0;
+    width: 140px;
+}
+#book_it input.active {
+    color: #333333;
+}
+.thin_line {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color -moz-use-text-color #D1D1C9;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    clear: both;
+    margin: 11px -11px;
+}
+
+p#book_it_fine_print {
+    color: #A2A29C;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 10px 10px 0;
+    padding: 5px 0 0 5px;
+}
+input#p4_book_it_button {
+    width: auto !important;
+}
+span#book_it_click_message {
+    margin-left: 5px;
+}
+
+.v3_button,.v3_blue,.v3_orange,.v3_red,.v3_pink {background:url(http://js.youtx.com/payment/images/suoyin2.png) repeat-x scroll 0 0 transparent; border: 1px solid #85AA40;border-radius: 7px 7px 7px 7px;color: #FFFFFF !important;cursor: pointer;font-family: Arial,Helvetica,Tahoma; font-size: 18px;font-weight: bold; height: 42px;padding: 5px 28px; text-align: center;text-shadow: 0 -1px 1px #797979;width: auto;}
+.v3_button:hover,.v3_blue:hover,.v3_orange:hover,.v3_red:hover,.v3_pink:hover,.v3_button:hover  { box-shadow: 0 0 6px #B9B9B9;}
+.v3_button:active { background-color: #748E2B;background-image: none;color: #EEEEEE !important;}
+.v3_blue{background-position:0 -42px!important;border-color:#679bbc!important}
+.v3_blue:active{background-color:#4689bb}
+.v3_orange{background-position:0 -126px!important;border-color:#fc8300!important}
+.v3_orange:active{background-color:#d07a1d}
+.v3_red{background-position:0 -168px!important;border-color:#c63e3c!important}
+.v3_red:active{background-color:#d43937}
+.v3_pink{background-position:0 -210px!important;border-color:#bf0265!important}
+.v3_pink:active{background-color:#ed1d89}
+.v3_fixed_width{padding:5px 0!important}
+a.v3_button{display:block;line-height:22px;text-decoration:none;height:22px;padding:10px 28px;float:right}
+a.v3_button_small{font-size:15px;padding:8px 18px;line-height:14px;height:14px}
+a.v3_fixed_width{padding:10px 0!important}
+.v3_button[disabled],.v3_button[disabled="disabled"],.disabled{cursor:auto;-webkit-box-shadow:none!important;-moz-box-shadow:none!important;background-position:0 -84px!important;border-color:#999!important;color:#e9e9e9!important}
+/*booking payment*/
+.order_pay {background: none repeat scroll 0 0 #fff; border: 1px solid #D1D1C9;border-radius: 10px 10px 10px 10px; margin-top: 10px;padding: 11px; }
+.order_pay input {vertical-align: middle;}
+.order_pay ul li {padding-bottom: 20px;}
+.order_pay ul * {vertical-align: middle;}
+.order_pay ol {margin-bottom: 30px;}
+.order_pay ol cite {display: block;padding-bottom: 20px; font-family:""}
+.order_pay ol cite img {vertical-align: middle;}
+.order_pay ol li {float: left;width: 148px;}
+.order_pay ol li em { background: none repeat scroll 0 0 #FFB366;color: #FFFFFF;float: right; font-style: normal; height: 24px;line-height: 12px;padding: 4px 2px 2px 4px;width: 12px;}
+.order_pay ol li img {width:90px; border:1px solid #fff; height:22px; margin:4px 0 0 4px;}
+.order_pay ol li span {border: 1px solid #DDDDDD;display: inline-block;overflow: hidden;vertical-align: middle;width: 120px;}
+.order_pay dl {border-top: 1px dashed #CCCCCC;clear: both;}
+/*zhifuchenggong*/
+.pay_suf{ background:url(http://js.youtx.com/payment/images/ok.png) no-repeat 30px 25px #FDFEBA;  border: 1px solid #D1D1C9;border-radius: 10px 10px 10px 10px; margin-top:10px;padding: 20px 10px 20px 100px ; overflow: hidden;width:508px;color:#333}/*140422*/
+.pay_suf .title1 {color: #33332F;font-size:21px;font-weight: bold\9;}/*140422*/
+.dashed_table li.top span.label1 {border-top-left-radius: 10px; border-top-right-radius: 10px; background:#F8F8F8; width: 618px; }
+.label1 .title3{ text-align:center;color: #33332F;font-size:24px; font-weight: bold\9;letter-spacing: -1px;margin:10px 0 10px 20px; display:inline; }
+.bordertop1{ border-top: 1px dashed #CBCBCB;}
+.bordertop2{ border-top: 1px solid #CBCBCB;}
+.pay_imginfo{ width:150px; margin:10px 25px 20px ; float:left; display:inline}
+.pay_imginfo dt img{ width:150px; height:140px; overflow:hidden;}
+.pay_imginfo dd{ font:normal 16px/18px ""; color:#b2b2b2; text-align:center;}
+.pay_info{ width:400px; margin:5px 8px; font:normal 16px/32px "";}
+.pay_info dt{color:#b2b2b2; padding-bottom:5px; background:url(http://js.youtx.com/payment/images/dot.gif) repeat-x 0 bottom;}
+.pay_info dd{ padding:5px; color:#666;}
+.pay_send{  text-align:right; margin-top:10px;}
+.pay_send a{ margin-right:10px;}
+.floatr{ float:right}
+.floatl{ float:left}
+/*zhifu qingqiu*/
+.request_info{ width:200px; text-align:center; color:#9B9B9B; padding:5px 0 10px;}
+.request_info dt{ font-size:12px;}
+.request_info dd{ font-size:28px; font-weight:bold; margin-top:5px;}
+
+.guset_btn{ margin:10px 0 0 10px; float:left; display:inline; height:42px;}
+/*button*/
+.btn_green{ background:url(http://js.youtx.com/payment/images/btn_green.jpg) no-repeat; width:118px; height:38px; color: #FFFFFF !important;cursor: pointer; font-size: 18px;font-weight: bold;text-shadow: 0 -1px 1px #797979; border:none;float:left;}
+.btn_red{ background:url(http://js.youtx.com/payment/images/btn_red.jpg) no-repeat; width:118px; height:38px; color: #FFFFFF !important;cursor: pointer; font-size: 18px;font-weight: bold;text-shadow: 0 -1px 1px #797979; border:none;float:left}
+.btn_blue{ background:url(http://js.youtx.com/payment/images/btn_blue.jpg) no-repeat; width:118px; height:38px; color: #FFFFFF !important;cursor: pointer; font-size: 18px;font-weight: bold;text-shadow: 0 -1px 1px #797979; border:none;float:left}
+.btn_down{ background:url(http://js.youtx.com/payment/images/btn_down.gif) no-repeat; color:#88887F; width:118px; height:42px; cursor: pointer; font-size: 18px;font-weight: bold; border:none;float:left ;position:relative; top:0px; z-index:100000;}
+/*jieshou tanchuceng*/
+.dbox{width:372px; position:absolute; top:41px; left:0; z-index:99999; background:#F6F6F6; border:1px solid #B1B1B1}
+
+.dbox .top{ background:url(http://js.youtx.com/payment/images/dot.gif) repeat-x 0 bottom; float:left; width:350px; padding:5px 11px 2px;}
+.dbox .top dt{ float:left; width:350px; margin-top:5px;}
+.dbox .top dd{ float:left; width:350px; font-size:14px; font-weight:bold; margin-bottom:5px;}
+
+.dbox .accept{ width:350px; float:left; margin:10px; display:inline;}
+.dbox .accept dt{ width:350px; float:left}
+.dbox .accept dt textarea{ width:330px; border:1px solid #dadada; padding:10px; font-size:12px;}
+.dbox .accept dd{ text-align:right}
+
+.dbox .refuse{ width:350px; float:left; margin:10px; display:inline;}
+.dbox .refuse dt{ width:350px; float:left}
+.dbox .refuse dt textarea{ width:330px; border:1px solid #dadada; padding:10px; font-size:12px;}
+.dbox .refuse dd{ text-align:right}
+
+.dbox .other{ width:350px; float:left; margin:10px; display:inline;}
+.dbox .other .bg{ background:url(http://js.youtx.com/payment/images/right.gif) no-repeat 5px 50%; padding-left:20px; width:330px;}
+.dbox .other dt{ float:left}
+.dbox .other dt textarea{ width:330px; border:1px solid #dadada; padding:10px; font-size:12px;}
+.dbox .other dd{ text-align:right}
+
+.guest_info{ border:1px solid #D1D1C9; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; width:620px; padding-bottom:10px; }
+/*.guest_img_info{ width:200px; margin:10px;}*/      /*2015-08-10注释*/
+.guest_img_info dt{width: 80px; height: 80px; border:1px solid #b9b9b9;padding:3px 5px 5px 3px; overflow:hidden; float:left; margin:20px 10px;}/*2015-08-10修改*/
+.guest_img_info dt img{ border:1px solid #e4e4e4; width:100%; height:100%}
+.guest_img_info dd{ float:left; margin:20px 0px 0px 5px; width:490px; font-size:14px; color:#333333; font-family:Microsoft yahei;}/*2015-08-10修改*/
+/*.guest_img_info dd p{font-size:13px; color:#333333; margin-top:3px;}*/ /*2015-08-10zj*/ 
+.guest_img_info dd p{margin-top:6px;line-height:28px;} /*2015-09-15修改*/
+/* .CreditTitle{ padding-bottom:5px;} */ /*2015-08-10zj*/ /*2015-09-15注释*/
+.CreditName{ display:inline-block;font-size:20px; font-weight:normal; line-height:24px;}/*2015-08-10zj*/
+.CreditScroe{ display:inline-block;margin-left:35px; font-weight:normal; line-height:24px; background:url(http://js.youtx.com/payment/images/CustomInfoIcon.png) no-repeat 0px 4px; padding-left:22px;}/*2015-08-10zj*/
+.CreditAdd{ background:url(http://js.youtx.com/payment/images/CustomInfoIcon.png) no-repeat 0px -41px; padding-left:22px; line-height:28px; }/*2015-08-10zj*/
+.CreditTxt{ background-position:0px -134px;}/*2015-08-10zj*/
+
+/*
+.zhifu_info{ border:1px solid #f4f4f4; background:url(http://js.youtx.com/payment/images/right_ico23.gif) 160px 50% no-repeat; font-weight:bold; width:150px;margin:10px; padding:15px 0 15px 50px;}
+.zhifu_info_loginup{ border:1px solid #f4f4f4;  font-weight:bold; width:185px;margin:10px; padding:15px 0 15px 15px;}
+*/      /*2015-08-10注释*/
+
+.guest_txt_info{ width:360px;_width:360px; background:#F0FAFF; border:1px solid #E0E3E4;border-radius: 10px 10px 10px 10px;float:left; margin:10px 0 0 25px;_margin:10px 0 0 15px; position:relative;*position:inherit;}
+.guest_txt_info img{left: -21px; position:absolute; top:10px;z-index:2;}
+.guest_txt_info p { color: #A6A1A8;font-family: 'helvetica neue','helvetica','arial',sans-serif;font-size: 13px;line-height: 1.3em;padding:10px 12px;text-shadow: 0 1px 0 #FFFFFF; width:334px;_width:324px;}
+.guest_info .more{ float:right; margin:5px 30px 0 0}
+
+/*.guest_info .p{ background:url(http://js.youtx.com/payment/images/guest_info_map.gif) 0 0 no-repeat; float:left;font-weight:bold\9; font-size:14px; margin:10px 0 0 10px;_margin:10px 0 0 0px; padding:2px 0px 0px 15px; width:360px ;}
+
+.guest_info .about{ background:url(http://js.youtx.com/payment/images/about.gif) 0 0 no-repeat; float:left;font-weight:bold\9; font-size:14px; margin:10px 0 0 5px;_margin:10px 0 0 -5px; padding-left:20px; width:350px ;}
+*/      /*2015-08-10注释*/
+
+
+.comment{border:1px solid #D1D1C9; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; width:620px; padding-bottom:20px;}
+.comment ul {width: 600px; margin:10px; float:left; display:inline}
+.comment li{ color: #298DD8;font-size:18px;font-weight: bold;line-height: 28px; padding: 0 13px;float:left; margin-right:8px; cursor:pointer;border:1px solid #fff;}
+.comment li:hover{ border-radius: 15px 15px 15px 15px; border:1px solid #efefef; background:#efefef;}
+.comment .li_on { color:#fff;border-radius: 15px 15px 15px 15px; margin-right:8px;text-shadow: 2px 2px #AFAFA6; background:#BFBFB5;box-shadow: 1px 1px 10px #888888 inset;}
+.comment .li_on:hover{ color:#fff;border-radius: 15px 15px 15px 15px; margin-right:8px;text-shadow: 2px 2px #AFAFA6; background:#BFBFB5;box-shadow: 1px 1px 10px #888888 inset;}
+
+.comment .info{ width:580px; margin:0px 20px 10px; float:left; display:inline}
+.comment .info .pic {border: 1px solid #DFDFDF;border-radius: 3px 3px 3px 3px;padding: 3px 3px 0;  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1), 0 0 1px transparent inset; width:70px; float:left}
+.comment .info .pic dt img {border: 1px solid #DDDDDD; height: 68px;width: 68px;}
+.comment .info .pic dd{margin-top: -3px;padding: 2px 0;text-align: center;width: 70px;word-wrap: break-word;}
+.comment .info .info_txt {background:#EBEBEA;border: 1px solid #E5E5E0;box-shadow: 1px 1px 3px #D7D7D5 inset;float: right;position: relative;width: 480px;_width: 470px;border-radius: 10px 10px 10px 10px;}
+.comment .info .info_txt img{left: -10px; position: absolute; top: 10px;z-index: 1;} /*2012-6-7 董禄宁 修改z-index: 2-->1,解决房东接受页面遮盖不了最下面的好友推荐下面的箭头的问题*/
+.comment .info .info_txt p { color: #3E4041;font-family: 'helvetica neue','helvetica','arial',sans-serif;font-size: 13px;line-height: 1.3em;padding:10px 12px;text-shadow: 0 1px 0 #FFFFFF; width:466px;_width:456px;  overflow: hidden}
+
+
+.error {background: -moz-linear-gradient(center top , #F8BFBE, #F5A1A0) repeat;border: 1px solid #FD7270;border-radius: 5px 5px 5px 5px; color: #FFFFFF;margin-left: 10px; padding: 2px 4px;  *padding: 1px 4px 2px; margin-top:-2px;text-shadow: 0 -1px 0 #EE9292; float:left; background:#F5A1A0; }
+/* 2011-8-21by zhangchen */
+.lbytck{display:block;}
+.lbytck .lbytckContent{border:2px solid #000;padding:20px;background:#fff;overflow:visible;background:-moz-linear-gradient(center top , white, #EFEFEF) repeat scroll 0 0 transparent;border-radius:6px 6px 6px 6px;box-shadow:0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 -1px 0 rgba(255, 255, 255, 0.4) inset, 0 2px 8px 0 rgba(0, 0, 0, 0.9), 0 0 0 transparent, 0 0 0 transparent;}
+.lbytckContent{position:relative;}
+.lbytck_close{cursor:pointer;position:absolute;width:26px;height:27px;left:-10px;top:-11px;background:url(http://js.youtx.com/payment/images/outclose.png) no-repeat;}
+.lbytck_close a{display:block;width:26px;height:27px;}
+.lbytck_width_01{width:434px;}
+.wyfk_com{width:390px;overflow:hidden;}
+.lbytck_title_03{color:#333;font-size:20px;font-weight:bold;border-bottom:1px dotted #D1D1D1;font-weight:bold;font-size:14px;color:#333;padding-bottom:7px;}
+.lbytck_title_04{width:355px;height:auto!important;height:27px;min-height:27px;line-height:27px;padding:9px 10px 9px 25px;background-image:url(http://js.youtx.com/payment/images/alert_exclamation_point.png);background-position:5px 15px;background-repeat:no-repeat;font-size:14px;verflow:hidden;}
+.wyfk_com1{width:365px;margin-left:25px;overflow:hidden;}
+.wyfk_com1 li{height:20px;line-height:20px;margin-top:5px;overflow:hidden;}
+.wyfk_com1 li a{margin:0 3px;}
+
+/*20110831*/
+.dashed_table span.inner_input{padding: 9px 20px 0px 11px;*padding: 7px 20px 0px 11px;padding: 8px 20px 0px 11px\9;}
+.dashed_table li .data p,.dashed_table li .label p{clear:both;display:block;line-height:20px;height:20px;font-size:12px;margin:0 10px 10px 10px;text-indent:20px;color:#999;}
+.dashed_table li .data p.no{background:url(http://js.youtx.com/payment/images/alert_exclamation_point.png) 5px 2px no-repeat;}
+.dashed_table li .data p.ok{background:url(http://js.youtx.com/payment/images/zficon.gif) 0 0 no-repeat;}
+#book_it input.btnstyle {color:#666;}
+.dashed_table li .data input.btnstyle{margin-left:10px;padding:0px 5px;*padding:0px;color:#333;}
+.ptlink{font-size:12px;padding-left:10px;}
+/*lisongfenggande*/
+
+.dashed_table li .data span.no{background:url(http://js.youtx.com/payment/images/alert_exclamation_point.png) 5px 2px no-repeat;}
+.dashed_table li .data span.ok{background:url(http://js.youtx.com/payment/images/zficon.gif) 0 0 no-repeat;}
+
+/*20110914*/
+span.sfok{float:left;background:url(http://js.youtx.com/payment/images/zficon.gif) 0 0 no-repeat;margin-left:6px;margin-top:2px;display:inline;font-size:12px;padding-left:20px;color:#999;}
+span.sfno{float:left;background:url(http://js.youtx.com/payment/images/sfno.gif) 0 0 no-repeat;margin-left:6px;margin-top:2px;display:inline;font-size:12px;padding-left:20px;color:#999;}
+
+/*20110915*/
+.zftx{float:right;width:220px;line-height:16px;padding:6px;background:#fefef4;border:1px solid #d7bf99;margin:10px;display:inline;border-radius:5px;}
+li.yellowbg{background:#FFFDBC;}
+li.yellowbg span.label, li.yellowbg span.data {background:#FFFDBC;}
+li.yellowbg span.data .inner{font-size:30px !important;font-weight: bold;}
+.qxbox{border:1px solid #CBCBCB;padding:10px;border-radius:10px;}
+#book_it .qxbox h2{padding-bottom:5px;font-weight:bold;font-size:16px;}
+.qxbox h3{padding:5px 0 5px 18px;font-weight:bold;font-size:12px;color:#333;background:url(http://js.youtx.com/payment/images/dg_icon.gif) 2px 6px no-repeat;}
+.qxbox p{padding-left:18px;line-height:20px;color:#666;}
+.lctbox{height:150px;width:270px;float:left;background:#fefef4;border:1px solid #d7bf99;border-radius:5px;padding:5px;}
+.lctbox h3{padding:5px 10px;font-weight:bold;font-size:12px;margin-bottom:5px;}
+.lcword{float:left;width:300px;padding:5px 0 0 10px;}
+.lcword p{padding-bottom:5px;line-height:18px;word-wrap:break-word;word-break:break-all;}
+.lcword .tel{font-size:16px;font-weight:800;}
+
+#book_it #how_it_works .tjok h1{clear:both;padding:5px 0 10px 0;padding-left:50px;font-size:20px;font-weight:normal;background:url(http://js.youtx.com/payment/images/success_bg.gif) 10px 0 no-repeat;}
+#book_it #how_it_works .tjok p{clear:both;padding-left:50px;font-size:12px;color:#666;line-height:20px;}
+#book_it #how_it_works .tjok p span{font-size:14px;font-weight:bold;}
+#book_it .okother h2{font-size:20px;color:#000;font-weight:800;margin-top:30px;}
+#book_it .okother p.iaddren{padding:5px 0;}
+.check_information{margin-top:10px;padding:10px;border:1px solid #ddd;border-radius:5px;width:500px;}
+.check_information h3{font-size:16px;font-weight:800;color:#777;padding-bottom:6px;}
+.check_information p{padding-top:6px;}
+.check_information p em{font-size:12px;font-style:normal;color:#999;}
+
+
+/*20110922*/
+
+.conleft{float:left;width:178px;background:#fefef4;border:1px solid #d7bf99;border-radius:5px;padding:10px;}
+.conleft p{float:none;width:178px;line-height:22px;}
+#book_it #how_it_works .conleft p{font-size:14px;}
+.contright{float:right;width:200px;line-height:22px;font-size:14px;}
+.contright dt{font-weight:bold;margin-bottom:5px;font-size:14px;}
+.contright dd.bline{border-bottom:1px solid #e1e1e1;padding-bottom:5px;margin-bottom:5px;}
+span.del{text-decoration:line-through;}
+.dbox .accept dt{ width:350px; float:left}
+.dbox .accept dt span.dtitle{display:block;float:left;width:100px;height:26px;}
+.dbox .accept dt span.dcontent{display:block;float:left;width:250px;height:26px;}
+.textstyle{vertical-align:middle;width:80px;}
+dt.dttopline{border-top:1px dotted #e1e1e1;padding:5px 0;margin-top:5px;}
+
+
+/*20110926*/
+span.inner.del{font-size:12px;}
+.gray{color:#999;}
+.link0yuan{display:inline-block;font-size:12px;color:#;background:#fff;border:1px solid #ff7f27;margin-left:6px;padding:0px 4px;line-height:18px;color:#880015;font-weight:bold;}
+.link0yuan:hover,.link0yuan:visited{color:#880015;text-decoration:none;}
+.box0yuan{border-radius:10px;border:1px solid #CBCBCB;margin-top:15px;padding:10px;background:#e8febd;}
+.box0yuan dt{font-size:16px;font-weight:bold;padding:5px 0 10px 0;color:#f00;}
+.box0yuan dd{font-size:14px;line-height:24px;padding-left:1em;}
+
+.box0yuan2{border-radius:10px;border:1px solid #CBCBCB;margin-top:15px;padding:10px;background:#fdfeba url(images/qiang.gif) 5px 5px no-repeat}
+.box0yuan2 dt{font-size:16px;font-weight:bold;padding:15px 0 20px 15px;color:#f00;}
+.box0yuan2 dd{font-size:14px;line-height:24px;padding-left:2em;}
+.box0yuan2 dd.more{text-align:right;}
+/*2011 10 08*/
+a.tooltip img {height: 16px;vertical-align:middle;width: 16px;} 
+.dashed_table span.inner {padding: 10px 10px 10px 11px; font-size: 17px; float:left} 
+
+/*2011 10 14*/
+.dashed_table .calculate{float:right;padding:10px 10px 0 0;cursor:pointer;color:#0087d2;}/*2013-08-21修改*/
+.zftx2{border:1px solid #dedbd4;background-color:#fdfeba;}
+.dashed_table span.inner2{text-decoration:line-through;font-size:14px;}
+.inner4{padding:10px 0 0 5px;}
+.red2{color:#e9197b;font-size:14px!important;}
+#book_it .red2{color:#e9197b;width:55px;text-align:center;margin-bottom:0;}
+.infro_total{width:416px;overflow:hidden;}
+.infro_total strong{float:left;padding:10px 0 0 10px;font-weight:normal;font-size:14px;}
+.warning{width:185px;text-align:left;padding-right:10px;position:absolute;z-index:2;top:32px;left:-10px;color:#e9197b;}
+.addspan{position:relative;}
+body{font:75%/1.25 Arial,Helvetica,sans-serif;color:#333;margin:0;padding:0;}
+div,form,img,ul,ol,li,dl,dt,dd,p{margin:0;padding:0;border:0;}
+.warn_window{border-left:1px solid #d7d7d7;border-top:1px solid #d7d7d7;width:518px;position:relative;}
+.warn_window tr td{border-right:1px solid #d7d7d7;border-bottom:1px dashed #d7d7d7;padding:2px 0 2px 10px;height:56px;font-size:14px;line-height:22px;color:#5a5a5a;}
+.warn_window tr .frist{text-align:center;background-color:#f8f8f8;padding:0;font-weight:bold;}
+.warn_window .bottom td{border-bottom:1px solid #d7d7d7;}
+.warn_window .blue{color:#0087d2;}
+.window_close{position:absolute;top:10px;right:15px;cursor:pointer;}
+
+/*2011 10 18*/
+/*.warn_window2{z-index:2;left:350px;top:745px;width:520px;position:absolute;} 请将这行代码删掉 2013-08-21修改*/
+.warn_window{background-color:#fff;border-left:1px solid #0087d2;border-top:1px solid #0087d2;width:518px;position:relative;}
+.warn_window tr td{border-right:1px solid #0087d2;border-bottom:1px dashed #d7d7d7;padding:2px 0 2px 10px;height:56px;font-size:14px;line-height:22px;color:#5a5a5a;}
+.warn_window tr .frist{text-align:center;background-color:#f8f8f8;padding:0;font-weight:bold;border-right:1px solid #d7d7d7!important;}
+.warn_window .bottom td{border-bottom:1px solid #0087d2;}
+.warn_window .blue{color:#0087d2;}
+.window_close{position:absolute;top:10px;right:15px;cursor:pointer;}
+
+/*2011-10-26*/
+.warn_window{border:1px solid #ffcc66;border-radius:5px 5px 5px 5px;background-color:#fefef3;}
+.warn_window2{position:absolute;z-index:2;left:363px;top:689px;width:420px;}/*2013-08-21修改*/
+.warn_window tr .frist{background-color:#fffee9;text-align:left;padding-left:12px;}
+.warn_window .bottom td{border-bottom:none;padding-bottom:5px;}
+.warn_window tr td{border-right:none;font-size:13px;}
+#book_it .red2{width:auto;}
+#book_it .red3{width:55px;}
+.mycenter_smalltitle2{background:none!important;}
+.dashed_table span.inner_02{padding-bottom:5px!important;border-bottom:1px dashed #CBCBCB;}
+.more_info{margin:5px 10px 5px 0;}
+.tool_help{cursor:help;}
+.conleft{width:275px;}
+.contright{width:240px;}
+/*2011-11-8*/
+.add_Contact{border-left:1px solid #d1d1c9;width:416px;float:left;position:relative;min-height:50px;_height:50px;}
+.add_Contact_tit{width:110px;height:32px;background:url(http://js.youtx.com/payment/images/error_label_arrow_cio.gif) no-repeat;line-height:32px; cursor:pointer;padding-left:31px;font-weight:bold;position:absolute;right:39px;bottom:10px;z-index:100;}
+.add_Contact_tit2{background:url(http://js.youtx.com/payment/images/error_label_arrow_cio2.gif) no-repeat;}
+.add_Contact_text{height:150px;border:1px solid #e3e3e3;width:365px;position:absolute;bottom:-156px;left:0;z-index:99;background-color:#fff;padding:0 5px 15px;display:none;}
+.add_Contact_text_imftit{font-weight:bold;border-bottom:1px dashed #dcdcdc;height:44px;line-height:44px;text-align:center;}
+.add_Contact_text_imftit span{float:none!important;display:inline!important;color:#003399;}
+.book_it_section_li{width: 620px;}
+.add_Contact_text_imftxt{padding-top:15px;}
+.add_Contact_text_imftxt tr td{text-align:center;padding-bottom:10px;}
+.add_Contact_text_imftxt tr td .add_Contact_name,.add_Contact_text_imftxt tr td .add_Contact_phone{width:70px;border:1px solid #d6d6d6;padding:2px 3px;margin-bottom:0!important;color:#666!important;font-size:12px;height:20px;}
+.add_Contact_text_imftxt tr td .add_Contact_phone{width:130px;}
+.add_Contact_text_btn{padding-left:132px;}
+.add_Contact_text_btn_a{color:#004499!important;line-height:25px;padding-left:20px;cursor:pointer;}
+.error3{background:url(http://js.youtx.com/payment/images/alert_exclamation_ico.gif) right no-repeat;padding:0 15px 0 29px;float:left;}
+.add_Contact_table{padding:10px 10px 45px 10px;background-color:#fff;}
+.add_Contact_table tr td{border-bottom:1px dashed #dcdcdc;line-height:30px;color:#333;}
+.add_Contact_table .end td{border-bottom:none;}
+.add_Contact_dltext{width:136px;position:absolute;z-index:101;top:88px;left:219px;background-color:#fff; border:1px solid #E3E3E3;border-radius:3px 3px 3px 3px;}
+.add_Contact_dltext dt{border-bottom: 1px dotted #BDBDBD;height: 24px;line-height: 24px;padding: 0 5px;width:126px;}
+.add_Contact_dltext dd{height: 24px;line-height: 24px;padding: 0 5px;width:126px;}
+.add_Contact_dltext .ddcur{background-color:#E0EDFE;}
+ .private_phone_span input{border:none;padding:0 5px;}
+ .private_phone_span{display:block;background:url(http://js.youtx.com/payment/images/phone_rightbg.gif) right no-repeat;height:26px;float:left;}
+ .private_phone_span{float:right;}
+.private_phone_btn{background:url(http://js.youtx.com/payment/images/phone_leftbg.gif) left no-repeat; border:none;height:26px;padding:0 5px;color:#fff!important;cursor:pointer;font-weight:bold;font-size:12px;margin-bottom:0!important;}
+/*2011-11-21修改*/
+.dashed_table .dataReward{width:160px;}
+.dataPrompt{background-color:#FDFEBA;border:1px solid #DEDBD4;float:right;height:18px;line-height:20px;display:inline;margin:10px 13px 0 0;padding:1px 2px;}
+.dataPrompt b{color:red;font-weight:normal;}
+.dashed_table li .data p.ok{*margin-top:10px;}
+/*2011-12-19*/
+.bigpay{margin:20px auto 5px;padding:10px;border:1px solid #DEDBD4;background-color:#e9e9e9;}
+.bigpay p{font-size:14px;font-weight:bold;padding-bottom:10px;}
+.bigpay ul{width:575px;}
+.bigpay ul li{list-style:decimal outside none;padding-bottom:5px;margin-left:20px; }
+/*2011-12-21付款成功详情文字重排版*/
+.pay_suf{background-position:20px 25px;padding: 20px 10px 20px 20px;width:588px;}/*140422*/
+.PaySufTitle{padding:10px 0 0 45px;}/*140422*/
+.mt6{padding-top:20px;}
+.pay_suf_tel{background:url(http://js.youtx.com/payment/images/tel_icon.gif) left no-repeat;margin-top:20px;height:22px;padding-left:30px;line-height:22px;}
+/*2011-12-21添加使用抵值劵*/
+.order_pay h3 strong{font-size:14px;}
+.order_pay h3{padding:15px 0;color:#333;}
+.PaymentTit h4,.PaymentTit h4{width:130px;background:url(http://js.youtx.com/payment/images/Payment_btn.gif) 0 -152px no-repeat;background-color:#fff;float:left;padding-left:25px;color:#669900;font-weight:bold;font-size:14px;border-radius:5px 5px 0 0; cursor:pointer;}
+.PaymentTitCur h4{background:url(http://js.youtx.com/payment/images/Payment_btn.gif) 0 -184px no-repeat;}
+.Payment{background-color:#f5f5f5;}
+.PaymentTit{width:100%;overflow:hidden;height:26px;line-height:26px;padding-top:10px;border-top:1px dashed #D1D1C9;}
+.PaymentTitInfor{float:left; color:#000;padding-left:15px;}
+.PaymentMain{padding:15px 0 10px 25px;background-color:#fff;border-radius:0 0 6px 6px;display:none;}
+.PaymentMainTit .PaymentTxtClose{float:right;background:url(http://js.youtx.com/payment/images/Payment_btn.gif) 0 -46px no-repeat;width:20px; height:20px;margin-right:15px;cursor:pointer;}
+.PaymentMainTit{color:#666;padding-bottom:10px;border-bottom:1px dashed #D1D1C9;width:490px;} 
+.PaymentMainTxt{width:490px;border-bottom:1px dashed #D1D1C9;padding:10px 0;}
+.PaymentMainTxt h5{font-weight:bold;font-size:14px;color:#333;}
+.PaymentMainTxtTable{padding:10px 0 0 35px;}
+.PaymentMainTxtTable tr td{padding:0 5px;height:25px;}
+.PaymentMainTxtTable .CoinTxtbox_CenterTableTd{text-align:right;font-size:12px;font-family:Microsoft yahei;vertical-align:middle;}
+.PaymentMainTxtTable tr td input{border:1px solid #E0E0E0;height:18px;padding:3px 5px;font-size:12px;width:200px;border-radius:5px 5px 5px 5px;}
+#book_it .PaymentMainTxtTable tr td input{margin-bottom:0;color:#666;}
+#book_it .PaymentMainTxtTable tr td .button{color:#fff;width:57px;height:25px;border:none;}
+
+.button{border:none;background:url(http://js.youtx.com/payment/images/Payment_btn.gif) no-repeat;color:#fff;cursor:pointer;font-weight:bold;}
+.PaymentMainTxtTable tr td .TableRadio{width:auto;border:none;cursor:pointer;}
+.TableTime{padding-left:5px;}
+.querenBtn{text-align:right;width:495px;}
+#book_it .querenBtn input{color:#fff;width:74px;height:28px;margin-bottom:0;border:none;background:url(http://js.youtx.com/payment/images/Payment_btn.gif) 0 -114px no-repeat; cursor:pointer;font-weight:bold;}
+.TotalDetail{float:right;font-size:12px;color:#666;}
+.TotalDetail img{vertical-align:middle;}
+.PaymentTotal{background:url(http://js.youtx.com/payment/images/Payment_mainbg.gif) bottom no-repeat;width:620px;padding-bottom:8px;margin-top:10px;}
+.PaymentTotalTxt{background:url(http://js.youtx.com/payment/images/Payment_mainbg.gif) no-repeat;width:590px;padding:23px 15px 15px;font-size:16px;color:#333;line-height:20px;}
+#book_it .querenBtn input{margin:0 0 0 15px;}
+.submitTit{width:595px;overflow:hidden;padding:15px 0 0 5px;color:#666;display:none;}
+#book_it #how_it_works .submitTit p{line-height:18px;font-size:12px;}
+/*2012年1月6日修改(确认支付-订金支付)*/
+.payDeposit{background:#fff; border:1px solid #D1D1C9; border-radius:10px 10px 10px 10px; margin-top:10px; padding: 11px; font-size:14px; color:#333}
+.payDeposit .cashBalance{ margin:0 0 15px 30px; padding:20px 0 15px 0; border-bottom:1px dashed #ccc; width:485px; }
+.payDeposit .cashBalance span{ font-size:18px; font-family:Arial; color:#690}
+.payDeposit .accountBalance{ margin:0 0 0 60px}
+.payDeposit .accountBalance input.checkbox{ vertical-align:-2px; width:30px}
+.payDeposit .accountBalance span{ font-family:Arial; color:#690}
+.payDeposit .v3_button{ _padding: 5px 9px; }
+.rechargeFailBg {background:url(http://js.youtx.com/payment/images/pay_fail.gif) no-repeat 10px 9% #FDFEBA;}
+.rechargeFailContext {margin:20px 70px; line-height:24px;}
+#book_it input.btnRFailBack{margin:0 30px 0 70px;}
+.cboxContentNew2{background-color:#fff;border:2px solid #333;border-radius:6px 6px 6px 6px;box-shadow:0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 -1px 0 rgba(255, 255, 255, 0.4) inset, 0 2px 8px 0 rgba(0, 0, 0, 0.9), 0 0 0 transparent, 0 0 0 transparent;overflow:visible;padding: 20px; position: relative;}
+.closeNew_btn{background:url(http://js.youtx.com/images/outclose.png) no-repeat;cursor:pointer;height:27px;left:-10px;position:absolute;text-indent:-99999px;top:-11px;width:26px;}
+.cboxContentNew2 h2{font-weight:bold;font-size:18px;font-family:"";color:#343434;padding-left:45px;background:url(http://js.youtx.com/payment/images/right_ico23.gif) left no-repeat;height:32px;line-height:32px;margin-left:55px;}
+.ReceiveScu h3{font-size:14px;color:red;line-height:30px;font-weight:normal;}
+.ReceiveScu p{font-size:14px;color:#666;}
+.ReceiveScu{padding:30px 0 0 100px;border-top:1px dashed #abaca6;margin-top:15px;}
+.ScuTangchuBtn input{background:url(http://js.youtx.com/payment/images/shoukuangfashiBtn.gif) no-repeat;width:127px;height:37px;border:none;cursor:pointer;margin-left:40px;vertical-align:middle;}
+.ScuTangchuBtn{padding-top:25px;}
+.ScuTangchuBtn a{text-decoration:none;color:#2291dd;text-decoration:none;font-size:14px;}
+.tck_success_width {width: 514px;}
+/* 2012-3-2 财富码相关 */
+.DiscountCode{border-left: 1px solid #D1D1C9;float:left;min-height:50px;_height:50px;width:396px;padding:10px;}
+.DiscountTit a{float:right;}
+.DiscountTit{line-height:25px;}
+#book_it .DiscountInput{float:left;border:1px solid #CCCCCC;padding:2px 4px;width:80px;margin-right:5px;}
+.DiscRecord b{font-weight:normal;color:#0000ff;cursor:pointer;}
+
+
+/* 2012-04-20临修改交易规则 */
+.GusetBtn{margin:10px 0 10px 10px;padding:0px 10px;float:left;display:inline;height:30px;cursor:pointer;}
+.NewRules {background:url(http://js.youtx.com/payment/images/RulesBg.gif) no-repeat 20px 10px;height:41px;width:81px; padding-top:10px;line-height:21px;padding-left:30px;}
+/* 2012-05-23提交预订请求页面 */
+.NewContentMore{border-radius:2px;display:inline-block;background-color:#e8e3d2;padding:0px 5px;margin-left:20px;}
+.NewContentBox{background:#FFF6DB;border:1px solid #D1D1C9;border-radius:10px;padding:10px;}
+.NewBox0yuan{border-radius:10px; border:1px solid #CBCBCB; margin-top:20px; padding:10px 10px 10px 60px; background:#FFF6DB; }
+.Ncheck_information{padding:20px;width:500px;margin:0px auto;}
+.Ncheck_information h3{font-size:16px;font-weight:800;padding-bottom:6px;}
+.Ncheck_information p{padding-top:6px;}
+.Ncheck_information p em{font-size:12px;font-style:normal;color:#999;}
+.NewcheckBox{width: 520px;margin:0px auto;}
+.OrderButton{background:url(http://js.youtx.com/payment/images/OrderButton.gif) no-repeat 0px 0px;height:42px;width:134px;border:none 0px;cursor:pointer;}
+.OrderButton02{background:url(http://js.youtx.com/payment/images/OrderButton02.gif) no-repeat 0px 0px;height:42px;width:134px;border:none 0px;cursor:pointer;}
+.NewcheckBox .check_information{margin:0px;padding:10px;border:1px solid #ddd;border-radius:5px;width:500px;}
+/* 2012-06-01支付返回页面 */
+.PaySuccess { width:938px;padding: 20px 10px 20px 30px;border: 1px solid #D1D1C9;border-radius:10px 10px 10px 10px;margin-top:10px;overflow: hidden; background:#FDFEBA}
+.PaySuccess h2 { font: bold 18px "微软雅黑"; background: url(http://js.youtx.com/payment/images/CheckMarkBtn.gif) no-repeat 0px 0px; height:35px; line-height:35px; padding-left:45px;}
+.LookButtonYes{ font: 12px/36px "宋体";text-align: center; height: 36px; width: 113px; background: url(http://js.youtx.com/payment/images/LookButtonBg.gif) no-repeat 0px 0px; text-decoration: none; display: inline-block; }
+.LookButtonYes:hover{text-decoration: none;} 
+.LookButtonNO { font: bold 12px/36px "宋体"; color:#C5C5C5 !important; text-align: center; height: 36px; width: 113px; background: url(http://js.youtx.com/payment/images/LookButtonBg.gif) no-repeat 0px -36px; text-decoration: none; display:inline-block; cursor:default; }
+.LookButtonNO:hover{text-decoration: none; color:#C5C5C5} 
+
+/* 2012-05-30修改 */
+.label{float:left}
+.data{float:left}
+.Caption{background:url(http://js.youtx.com/payment/images/CaptionHeader.gif) no-repeat 0px 0px;width:399px;padding-top:4px;margin:10px auto 0px;}
+.CaptionMain{background:#FFF6DB;width:377px;border-right:1px solid #D1D1C9;border-left:1px solid #D1D1C9;padding:0px 10px;}
+.CaptionBottom01{background:url(http://js.youtx.com/payment/images/CaptionBottom01.gif) no-repeat 0px 0px;height:14px;width:399px;}
+.CaptionBottom{background:url(http://js.youtx.com/payment/images/CaptionBottom.gif) no-repeat 0px 0px;height:14px;width:399px;}
+
+/* 2012-08-28返现 */
+.FanxMes{width:165px;position:absolute;border-radius:10px;padding:10px;background:#FFF7BC;border:1px solid #D4C79A;color:#666;top:10px;right:10px;}
+
+/*2013-1-28修改*/
+.ShanDing a{display:inline-block;padding-right:30px;background:url(http://js.youtx.com/payment/images/ShanDing.gif) right center no-repeat;line-height:18px;}
+.SDFailBtn span{background:url(http://js.youtx.com/payment/images/SDFailBtn.gif) left no-repeat;line-height:44px;padding-left:10px;display:inline-block;}
+.SDFailBtn span input{overflow:visible;color:#fff;background:url(http://js.youtx.com/payment/images/SDFailBtn.gif) right no-repeat;height:44px;line-height:44px;padding-right:10px;border:none;cursor:pointer;font-weight:bold;font-size:14px;}
+#book_it .SDFailBtn span input{margin:0;color:#fff;}
+#book_it #how_it_works .Fail h1{background:url(http://js.youtx.com/payment/images/fail_bg.gif) 10px 1px no-repeat;}
+/*2013-08-21修改*/
+.warn_windownew{width:420px;position:relative;background:#FFF; border:1px solid #9BC3DA; }
+.warn_windownew .window_close{right:9px;}
+.Orange { color:#ea1a7a; }
+.Billpop_up {width:390px;z-index:5; padding:5px; background:#FFF; }
+.Billpop_up_table td { padding:5px; }
+.Billpop_up_table td p { line-height:26px; text-align:center; font-family:Arial; font-size:14px; }
+.Date_pay_gray { width:64px; border:1px solid #D3D3D3 }
+.Date_pay_gray .X_Date_order { background:#E9E9E9; }
+.Date_pay_blue { width:64px; border:1px solid #008BDA }
+.Date_pay_blue .X_Date_order { background:#008BDA; color:#FFF; }
+.Date_pay_red { width:64px; border:1px solid #EF4C94 }
+.Date_pay_red .X_Date_order { background:#EF4C94; color:#FFF; }
+.Date_pay_green { width:64px; border:1px solid #60B935 }
+.Date_pay_green .X_Date_order { background:#60B935; color:#FFF; }
+.X_order_Prompt { height:28px; background:#FCEBF4; border:1px solid #F2A4CD; line-height:28px; padding-left:10px; margin-bottom:5px; }
+.X_order_rules { line-height:22px; }
+.submit_buttonNew { text-align:center; padding-top:15px; }
+.submit_buttonNew a { background:url(http://js.youtx.com/images/PaymentBtn2.gif) no-repeat 0 0; border:none 0; color:#FFF; cursor: pointer; font-family:Microsoft yahei; font-size:16px; height:32px; width:117px; display:inline-block; line-height:30px; text-decoration:none; }
+.X_formActions {padding-top:5px; line-height:20px; overflow:hidden;color:#999;}/*2013-6-24修改*/
+.X_formActions a { background:url(https://passport.youtx.com/profile/images/loginIcons.gif) 0 0 no-repeat; padding-left:20px; margin:0 2px 0; display:inline-block}/*2013-6-24修改*/
+.X_formActions .ActionsXin { background-position:0 -24px; }
+.X_formActions .ActionsRen { background-position:0 -47px; }
+.X_formActions .ActionsTao { background-position:0 -70px; }
+.X_formActions .ActionsSou { background-position:0 -95px; }
+.middle_radio {padding:5px 0; }/*2013-1-23修改*/
+.middle_radio span { float:left; padding-left:5px; padding-right:15px; }
+.inputcheckbox { float:left; *margin-top:-4px;}/*2013-1-23修改*/
+.jiaqianFU { font-family:"微软雅黑"; font-size:14px; }
+.X_orderpageBox { padding:0 5px;height:30px;}
+.X_orderpageBox li { float:left }
+.X_orderpageBox li span { float:left; display:block; margin-right:5px; line-height:22px;}
+.notoColorBl { width:10px; height:10px;background:#008BDA; margin-top:7px;font-size:0;}
+.notoColorGr { width:10px; height:10px; background:#60B935; margin-top:7px;font-size:0;}
+.notoColorRe { width:10px; height:10px; background:#EF4C94; margin-top:7px;font-size:0;}
+.X_Datepage { float:right }
+.X_Datepage li { height:23px; line-height:23px; background:url(http://js.youtx.com/payment/images/OrderNextBg.gif) no-repeat; margin-left:10px;cursor:pointer }
+.X_Datepage .pageUp { background-position:0 0; padding-left:22px; width:46px; }
+.X_Datepage .pageDown { background-position:0 -23px; padding-left:8px; width:61px; }
+.X_Datepage li a { color:#666 !important; text-decoration:none }
+.Order_pay_info { font-family:"微软雅黑"; font-size:14px; }
+.Order_pay_info td { height:30px; }
+.Pay_line { border-top:1px solid #DEDEDE; }
+.PromptCorrect02 { display:inline-block;color:#333; line-height:22px; }
+
+/*140422*/
+.PaySufTitle .ColorPink,.orderDetals div.floatl .ColorPink{font-family:"Microsoft yahei";}
+.orderDetals{overflow:hidden;}
+.pay_suf p{padding-left:10px;}
+p.pay_suf_tel{padding-left:30px;margin-left:10px;}
+p.PaySufTitle{padding:10px 0 0 45px}
+.orderDetalsBg{background:#FBFBAB;width:565px;padding:10px 10px 10px 0;margin-top:15px;}
+.orderDetals{padding-top:10px;}
+.orderDetals ul{padding:2px 10px;border:solid 3px #fde59c;border-radius:6px;background:#fff;margin-left:10px;text-align:center;}
+.orderDetals li{padding:2px 0;}
+.orderDetals img{ vertical-align:middle;}
+.orderDetals div.floatl{padding-left:10px;line-height:24px;}
+
+/*140424*/
+.padt10{margin-top:10px;}
+.padt10Ul li{padding-bottom:5px; text-align:center;}
+.padt10Ul{background-color:#fff;border-radius:5px;padding:5px 5px 0;border:4px solid #fde59b;}

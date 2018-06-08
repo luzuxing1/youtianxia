@@ -31,11 +31,11 @@
     delete from ytx_schedule
     where schedule_id = #{scheduleId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.youtx.rent.entity.Schedule">
+  <insert id="insert" parameterType="com.youtx.rent.entity.Schedule" useGeneratedKeys="true" keyProperty="scheduleId">
     insert into ytx_schedule (schedule_id, schedule_price, user_id, 
-      room_id)
-    values (#{scheduleId,jdbcType=INTEGER}, #{schedulePrice,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
-      #{roomId,jdbcType=INTEGER})
+      room_id,live_starttime,live_endtime)
+    values (#{scheduleId,jdbcType=INTEGER}, #{schedulePrice,jdbcType=INTEGER}, #{user.userId,jdbcType=INTEGER},
+      #{room.roomId,jdbcType=INTEGER}, #{liveStarttime,jdbcType=DATE}, #{liveEndtime,jdbcType=DATE})
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.Schedule">
     insert into ytx_schedule
