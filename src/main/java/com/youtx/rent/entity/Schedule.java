@@ -1,9 +1,31 @@
 package com.youtx.rent.entity;
 
+import java.util.Date;
+
 public class Schedule {
     private Integer scheduleId;
 
     private Integer schedulePrice;
+
+    private Date liveStarttime;
+
+    private Date liveEndtime;
+
+    public Date getLiveStarttime() {
+        return liveStarttime;
+    }
+
+    public void setLiveStarttime(Date liveStarttime) {
+        this.liveStarttime = liveStarttime;
+    }
+
+    public Date getLiveEndtime() {
+        return liveEndtime;
+    }
+
+    public void setLiveEndtime(Date liveEndtime) {
+        this.liveEndtime = liveEndtime;
+    }
 
     private User user;
 

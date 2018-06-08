@@ -4,11 +4,14 @@
   <resultMap id="BaseResultMap" type="com.youtx.rent.entity.Schedule">
     <id column="schedule_id" jdbcType="INTEGER" property="scheduleId" />
     <result column="schedule_price" jdbcType="INTEGER" property="schedulePrice" />
+    <result column="live_starttime" jdbcType="DATE" property="liveStarttime"/>
+    <result column="live_endtime" jdbcType="DATE" property="liveEndtime"/>
+
     <association property="user" column="user_id" select="com.youtx.rent.dao.UserMapper.selectByPrimaryKey" />
     <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
-    schedule_id, schedule_price, user_id, room_id
+    schedule_id, schedule_price, user_id, room_id,live_starttime,live_endtime
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -16,6 +19,14 @@
     from ytx_schedule
     where schedule_id = #{scheduleId,jdbcType=INTEGER}
   </select>
+  <select id="selectByRoomId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_schedule
+    where room_id = #{roomId}
+  </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ytx_schedule
     where schedule_id = #{scheduleId,jdbcType=INTEGER}

@@ -1,7 +1,6 @@
 package com.youtx.rent.userCenter.controller;
 
 import com.youtx.rent.entity.LodgerOrder;
-import com.youtx.rent.entity.RoomResource;
 import com.youtx.rent.entity.User;
 import com.youtx.rent.placeOrder.service.RoomMsg;
 import com.youtx.rent.userCenter.service.LodgerOrders;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -29,27 +27,39 @@ public class UserCenterController {
     }
 
     @RequestMapping("jumpLodgerPage")
-    public String userCenter2(HttpSession session, Model model){
+    public String userCenter2(HttpSession session, Model model,String status){
+//        System.out.println(status+"00000");
+
         User user = (User) session.getAttribute("user");
         Integer userId = user.getUserId();
         int countAllOrder = lodgerOrderImpl.CountAllOrder(userId);
-        List<LodgerOrder> lodgerOrderList = lodgerOrderImpl.findLodgerOrder(userId);
-        List<String> picList = new ArrayList<>();
-        List<RoomResource> resourceList = new ArrayList<>();
 
-//        Map<LodgerOrder,List<String>> maps = new LinkedHashMap<>();
+        int dfk = lodgerOrderImpl.CountStatusOrder(userId, "dfk");
+        int drz = lodgerOrderImpl.CountStatusOrder(userId, "drz");
+        int dqr = lodgerOrderImpl.CountStatusOrder(userId, "dqr");
+        int dpj = lodgerOrderImpl.CountStatusOrder(userId, "dpj");
+        model.addAttribute("dfk",dfk);
+        model.addAttribute("dqr",dqr);
+        model.addAttribute("drz",drz);
+        model.addAttribute("dpj",dpj);
+
+        List<LodgerOrder> lodgerOrderList = lodgerOrderImpl.findLodgerOrder(userId,status);
+
         for (LodgerOrder lodgerOrder : lodgerOrderList) {
-            List<String> pics = roomMsg.findPics(lodgerOrder.getRoom().getRoomId());
-//            maps.put(lodgerOrder,pics);
-            picList.add(pics.get(0));
+            System.out.println( "-------SchedulePrice"+lodgerOrder.getSchedule().getSchedulePrice());
+            System.out.println(lodgerOrder.getRoom().getRoomName());
+//            List<String> pics = roomMsg.findPics(lodgerOrder.getRoom().getRoomId());
+//            System.out.println(pics.size());
+            System.out.println(lodgerOrder.getRoom().getPictureList().size());
+            System.out.println(lodgerOrder.getRoom().getRoomResource().getResourceAddress());
         }
 
-
-//        System.out.println(user.getUserId()+"---user"+countAllOrder+"count");
-//        model.addAttribute("maps",maps);
         model.addAttribute("countAllOrder",countAllOrder);
         model.addAttribute("lodgerOrderList",lodgerOrderList);
 //        System.out.println(lodgerOrderList.size());
         return "room_manageOrder";
     }
+
+
+
 }

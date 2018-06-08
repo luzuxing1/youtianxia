@@ -15,12 +15,22 @@ public class LodgerOrderImpl implements LodgerOrders{
     private LodgerOrderMapper lodgerOrderDAO;
 
     @Override
-    public List<LodgerOrder> findLodgerOrder(int userId) {
-        return lodgerOrderDAO.selectByUserId(userId);
+    public List<LodgerOrder> findLodgerOrder(int userId,String status) {
+        if (status == null){
+            return lodgerOrderDAO.selectByUserId(userId);
+        }else {
+            return lodgerOrderDAO.selectByStatus(userId,status);
+        }
+
     }
 
     @Override
     public int CountAllOrder(Integer userId) {
         return lodgerOrderDAO.CountAllOrder(userId);
+    }
+
+    @Override
+    public int CountStatusOrder(Integer userId, String orderStatus) {
+        return lodgerOrderDAO.CountStatusOrder(userId,orderStatus);
     }
 }

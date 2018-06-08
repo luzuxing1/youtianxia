@@ -273,12 +273,11 @@
             <!--2012-7-20修改-结束-->
             <div class="TravelTs" id="accountPrompt">
 
-                <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=${countAllOrder}" style="padding-left:0px;" class="LinkA">所有订单(<span>${countAllOrder}</span>)</a>
-
-                <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=0&amp;SelectState=ss2" class="LinkA">待付款(<span>0</span>)</a>
-                <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=0&amp;SelectState=ss1" class="LinkA">待确认(<span>0</span>)</a>
-                <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=0&amp;SelectState=ss4" class="LinkA">待入住(<span>0</span>)</a>
-                <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=0&amp;SelectState=ss48" class="LinkA">待评价(<span>0</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage" style="padding-left:0px;" class="LinkA">所有订单(<span>${countAllOrder}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?status=dfk" class="LinkA">待付款(<span>${dfk}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?status=dqr" class="LinkA">待确认(<span>${dqr}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?status=drz" class="LinkA">待入住(<span>${drz}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?status=dpj" class="LinkA">待评价(<span>${dpj}</span>)</a>
 
                 <div class="TravelTSeacher">
                     <input class="TravelTSeacherText" style="color: #666; float:left;*margin-top:4px;" id="TravelTSeacherText" value="请输入订单号" type="text">
@@ -394,7 +393,7 @@
                                 <div style="position: absolute; top: 22px; left: -1px; z-index: 9; border: 1px solid #C3C3C3;
                                     background: none repeat scroll 0% 0% rgb(255, 255, 255); display: none;" class="m_m_t_l_05">
                                     <div class="m_m_t_l_06">
-                                        <a id="all" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=0">所有订单</a></div>
+                                        <a id="all" href="${base}/userCenter/jumpLodgerPage">所有订单</a></div>
                                     <div class="m_m_t_l_06">
                                         <a id="ss1" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=ss1&amp;category=0">待处理</a></div>
                                     <div class="m_m_t_l_06">
@@ -454,28 +453,27 @@
                 </tr>
                 </tbody></table>
                 <div class="NewTravelTable" id="tr87348647">
-                    <#list maps?keys as key>
+                    <#list lodgerOrderList as orderlist>
                     <table>
                         <tbody><tr>
                             <!--订单号-->
                             <td width="90" style="padding-left: 20px;">
-                               ${key.orderNum}
+                               ${orderlist.orderNum}
                             </td>
                             <!--房源或者酒店图片名称以及地址 start-->
                             <td class="NewTravelTdImg" width="190">
                                 <a href="">
-                                    <img src="${imagesPath}/${maps["key"].get(0)}" alt="光谷地铁口赏樱花 青年公寓男生床位" height="48" width="48">
+                                    <img src="${imagesPath}/${orderlist.room.pictureList[0]}" alt="光谷地铁口赏樱花 青年公寓男生床位" height="48" width="48">
                                 </a>
                                 <div class="NewTravelTdTxt">
                                     <p>
                                         <a target="_blank" href="">
-                                            ${key.roomName}
+                                            ${orderlist.room.roomName}
                                         </a>
                                     </p>
                                     <p>
                                         <!--订单状态为：等待接受（待处理）1、拒绝3、过期10、接受（待付款）2、取消(5、6、11)时，展示小区名-->
-                                        中国湖北省武汉市洪山区光谷关山光谷步行街双塘小区
-
+                                        ${orderlist.room.roomResource.resourceAddress}
                                     </p>
                                 </div>
 
@@ -484,18 +482,17 @@
                             <!--入住时间 start-->
                             <td width="130">
                                 <p class="ColorBlack01">
-                                    1天*1套
-
+                                ${orderlist.orderDay} 天*${orderlist.orderRoomNum} 套
                                 </p>
 
                                 <p>
-                                    2018-06-13入住
+                                ${orderlist.schedule.liveStarttime?string('yyyy-MM-dd')}入住
                                 </p>
                                 <p>
-                                    2018-06-14退房
+                                ${orderlist.schedule.liveEndtime?string('yyyy-MM-dd')}退房
                                 </p>
                                 <p>
-                                    共1人</p>
+                                    共${orderlist.orderPeopleNum}人</p>
 
                             </td>
                             <!--入住时间 end-->
@@ -504,11 +501,11 @@
 
                                 <p class="ColorBlack01">
                                     订单总金额
-                                    ￥ 25
+                                    ￥ ${orderlist.schedule.schedulePrice}
                                 </p>
                                 <p>
                                     线上支付订金：
-                                    ￥ 25
+                                    ￥ ${orderlist.schedule.schedulePrice}
                                 </p>
 
                                 <p>
@@ -528,13 +525,18 @@
 
                                 <p class="btn014">
                                     <a target="_blank" href="http://www.youtx.com/user/show/2534082/">
-                                        gs3gs3</a> <a target="_blank" title="查看消息记录" href="http://www.youtx.com/profile/User/MailBox/MailDialog.aspx?HouseID=300669" class="chakan"></a>
+                                        ${orderlist.room.user.userRealname}
+                                    </a>
+                                    <a target="_blank" title="查看消息记录" href="http://www.youtx.com/profile/User/MailBox/MailDialog.aspx?HouseID=300669" class="chakan">
+
+                                    </a>
                                 </p>
                             </td>
                             <td style="text-align: center;" width="130">
                                 <span class="NewTravelYellowbg">等待接受</span><br>
 
-                                <span class="spanTime" lltime="86395" pid="87348647" oid="752544">23:58:53</span>
+                                <span class="spanTime" lltime="10" pid="87348647" oid="752544">
+                                    23:58:53</span>
                             </td>
                             <td style="text-align: center; vertical-align: middle;" width="90">
                                 <div class="btn015">
@@ -865,45 +867,45 @@
 
             if (conditionCount > 0) {
                 $(".no_orderbox").hide();
-                if (recentCount > 0 && historyCount > 0) {
-
-                    if ($("#TravelTSeacherText").val() != "" && $("#TravelTSeacherText").val() == "请输入订单号") {
-                        if (category == 0) {
-                            if (pageIndex == pageCount) {
-                                $("#HistoryMsg").html("默认显示近期订单，<a href='/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=1'>查看历史订单</a>");
-                                $("#HistoryOrder").show();
-                                $("#RecentOrder").hide();
-                                $(".no_orderbox").hide();
-                            }
-                        }
-                        else {
-                            $("#HistoryMsg").html("以下为所有历史订单，<a href='/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=0'>点击返回</a>");
-                            $("#HistoryOrder").hide();
-                            $("#RecentOrder").show();
-                            $(".no_orderbox").hide();
-                        }
-                    }
-                }
-                else if (recentCount > 0 && historyCount == 0) {
-
-                }
-                else if (recentCount == 0 && historyCount > 0) {
-                    if ($("#TravelTSeacherText").val() != "" || $("#TravelTSeacherText").val() != "请输入订单号") {
-                        if (category == 0) {
-                            //                    $("#HistoryMsg").html("您近期没有订单，<a href='/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=1'>可查看历史订单</a>");
-                            $("#HistoryOrder").hide();
-                            $("#RecentOrder").hide();
-                            $(".no_orderbox h1").html("您近期没有订单，<a href='/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=1'>可查看历史订单</a>");
-                            $(".no_orderbox").show();
-                        }
-                        else {
-                            $("#HistoryOrder").hide();
-                            $("#RecentOrder").show();
-                            $(".no_orderbox").hide();
-                            $("#RecentMsg").html("以下为所有历史订单，<a href='/payment/User/MyroomEn/OrderManageEn.aspx?category=0'>点击返回</a>");
-                        }
-                    }
-                }
+//                if (recentCount > 0 && historyCount > 0) {
+//
+//                    if ($("#TravelTSeacherText").val() != "" && $("#TravelTSeacherText").val() == "请输入订单号") {
+//                        if (category == 0) {
+//                            if (pageIndex == pageCount) {
+//                                $("#HistoryMsg").html("默认显示近期订单，<a href='/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=1'>查看历史订单</a>");
+//                                $("#HistoryOrder").show();
+//                                $("#RecentOrder").hide();
+//                                $(".no_orderbox").hide();
+//                            }
+//                        }
+//                        else {
+//                            $("#HistoryMsg").html("以下为所有历史订单，<a href='/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=0'>点击返回</a>");
+//                            $("#HistoryOrder").hide();
+//                            $("#RecentOrder").show();
+//                            $(".no_orderbox").hide();
+//                        }
+//                    }
+//                }
+//                else if (recentCount > 0 && historyCount == 0) {
+//
+//                }
+//                else if (recentCount == 0 && historyCount > 0) {
+//                    if ($("#TravelTSeacherText").val() != "" || $("#TravelTSeacherText").val() != "请输入订单号") {
+//                        if (category == 0) {
+//                            //                    $("#HistoryMsg").html("您近期没有订单，<a href='/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=1'>可查看历史订单</a>");
+//                            $("#HistoryOrder").hide();
+//                            $("#RecentOrder").hide();
+//                            $(".no_orderbox h1").html("您近期没有订单，<a href='/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=1'>可查看历史订单</a>");
+//                            $(".no_orderbox").show();
+//                        }
+//                        else {
+//                            $("#HistoryOrder").hide();
+//                            $("#RecentOrder").show();
+//                            $(".no_orderbox").hide();
+//                            $("#RecentMsg").html("以下为所有历史订单，<a href='/payment/User/MyroomEn/OrderManageEn.aspx?category=0'>点击返回</a>");
+//                        }
+//                    }
+//                }
 //                else if (recentCount == 0 && historyCount == 0) {
 //                    //您目前没有订单
 //                    $("#HistoryOrder").hide();
@@ -1065,11 +1067,11 @@
                 var time = $("#checkin").val();
 //                if (code != "" && !isNaN(code)) {
                     if ($("#checkin").val() != "入住时间") {
-                        location.href = "/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=0&paycode=" + code + "&time=" + time;
+                        location.href = "${base}/userCenter/jumpLodgerPage?paycode=" + code + "&time=" + time;
                     }
                     else
                     {
-                        location.href = "/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=0&paycode=" + code;
+                        location.href = "${base}/userCenter/jumpLodgerPage?paycode=" + code;
                     }
 //                }
 //                else {

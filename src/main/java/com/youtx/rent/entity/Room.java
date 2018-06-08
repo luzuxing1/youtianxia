@@ -1,6 +1,7 @@
 package com.youtx.rent.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Room {
     private Integer roomId;
@@ -18,6 +19,34 @@ public class Room {
     private Date roomTime;
 
     private User user;
+
+    private List<String> pictureList;
+    private RoomResource roomResource;
+    private Schedule schedule;
+
+    public List<String> getPictureList() {
+        return pictureList;
+    }
+
+    public void setPictureList(List<String> pictureList) {
+        this.pictureList = pictureList;
+    }
+
+    public RoomResource getRoomResource() {
+        return roomResource;
+    }
+
+    public void setRoomResource(RoomResource roomResource) {
+        this.roomResource = roomResource;
+    }
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
+    }
 
     public Integer getRoomId() {
         return roomId;
