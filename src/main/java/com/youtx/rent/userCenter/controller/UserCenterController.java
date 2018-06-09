@@ -58,10 +58,11 @@ public class UserCenterController {
         return "room_manageOrder";
     }
     @RequestMapping("/cancelOrder")
-    public String cancelOrder(Integer lodgerOrderId){
+    public String cancelOrder(Integer lodgerOrderId,String beginTime,String endTime,Integer roomId){
 //        LodgerOrder lodgerOrder = lodgerOrderImpl.findById(lodgerOrderId);
 //        lodgerOrder.setOrderStatus("yqx");
         lodgerOrderImpl.updateStatusById(lodgerOrderId,"yqx");
+        roomMsg.updateCalendarStatus("",beginTime,endTime,roomId);
         return "redirect:/userCenter/jumpLodgerPage";
     }
     @RequestMapping("/deleteOrder")

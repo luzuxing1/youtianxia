@@ -542,7 +542,7 @@
                             </td>
                             <td style="text-align: center; vertical-align: middle;" width="90">
                                 <div class="caozuo">
-                                    <a target="_self" href="${base}/userCenter/cancelOrder?lodgerOrderId=${orderlist.lodgerOrderId}">
+                                    <a target="_self" href="${base}/userCenter/cancelOrder?lodgerOrderId=${orderlist.lodgerOrderId}&roomId=${orderlist.room.roomId}&beginTime=${orderlist.schedule.liveStarttime?string('yyyy-MM-dd')}&endTime=${orderlist.schedule.liveEndtime?string('yyyy-MM-dd')}">
                                         <span id="caozuo1">取消订单</span></a>
                                 </div>
                                 <div class="caozuo">
