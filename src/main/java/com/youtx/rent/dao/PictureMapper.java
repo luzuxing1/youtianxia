@@ -1,9 +1,10 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.Picture;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface PictureMapper {
     int deleteByPrimaryKey(Integer picId);
 

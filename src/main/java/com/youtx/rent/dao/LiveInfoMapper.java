@@ -1,7 +1,9 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.LiveInfo;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface LiveInfoMapper {
     int deleteByPrimaryKey(Integer liveId);
 

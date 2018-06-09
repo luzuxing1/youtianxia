@@ -97,7 +97,7 @@ public class Book {
         schedule.setRoom ( schRoom );
         schedule.setLiveStarttime ( timeStart );
         schedule.setLiveEndtime ( timeEnd );
-//        roomMsg.saveSchedule ( schedule );
+        roomMsg.saveSchedule ( schedule );
         //存schedule表 ---end
         //存lodgerorder表 ---start
         LodgerOrder lodgerOrder = new LodgerOrder ();
@@ -110,10 +110,10 @@ public class Book {
         lodgerOrder.setOrderPeopleNum ( Integer.parseInt ( livenum ) );
         lodgerOrder.setOrderRoomNum ( Integer.parseInt ( rooms ) );
         lodgerOrder.setOrderDay ( Integer.parseInt ( roomdays ) );
-//        roomMsg.saveLodgerOrder ( lodgerOrder );
+        roomMsg.saveLodgerOrder ( lodgerOrder );
         //存lodgerorder表 ---end
         //修改calendar表 已租状态---start
-//        roomMsg.updateCalendarStatus ( "yz",livestarttime,liveendtime );
+        roomMsg.updateCalendarStatus ( "yz",livestarttime,liveendtime ,Integer.parseInt ( houseid ));
         //修改calendar表 已租状态---end
         //存livePerson表 ---start
         if(!"".equals ( IDOtherNumber )&&!"".equals ( txtcheckinname )&&!"".equals ( txtOthertel )){
