@@ -218,7 +218,7 @@
     <li class=""><a href="http://www.youtx.com/home/dashboard/">账户首页</a></li>
     <li class=""><a href="http://www.youtx.com/User/MyMailBox/">收件箱</a></li>
     <li class=""><a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx">我是房东</a></li>
-    <li class="NewSubNavCur"><a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx">我是租客</a></li>
+    <li class=""><a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx">我是租客</a></li>
     <li class=""><a href="http://www.youtx.com/user/remind">账户管理</a></li>
     <li class=""><a href="http://www.youtx.com/judges/">评价管理</a></li>
     <li class=""><a href="http://www.youtx.com/profile/cashaccount/">我的资产</a></li>
@@ -273,56 +273,56 @@
             <!--2012-7-20修改-结束-->
             <div class="TravelTs" id="accountPrompt">
 
-                <a href="${base}/userCenter/jumpLodgerPage" style="padding-left:0px;" class="LinkA">所有订单(<span>${countAllOrder}</span>)</a>
-                <a href="${base}/userCenter/jumpLodgerPage?status=dfk" class="LinkA">待付款(<span>${dfk}</span>)</a>
-                <a href="${base}/userCenter/jumpLodgerPage?status=dqr" class="LinkA">待确认(<span>${dqr}</span>)</a>
-                <a href="${base}/userCenter/jumpLodgerPage?status=drz" class="LinkA">待入住(<span>${drz}</span>)</a>
-                <a href="${base}/userCenter/jumpLodgerPage?status=dpj" class="LinkA">待评价(<span>${dpj}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?num=2" style="padding-left:0px;" class="LinkA">所有订单(<span>${countAllOrder}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=dfk" class="LinkA">待付款(<span>${dfk}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=dqr" class="LinkA">待确认(<span>${dqr}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=drz" class="LinkA">待入住(<span>${drz}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=dpj" class="LinkA">待评价(<span>${dpj}</span>)</a>
 
                 <div class="TravelTSeacher">
                     <input class="TravelTSeacherText" style="color: #666; float:left;*margin-top:4px;" id="TravelTSeacherText" value="请输入订单号" type="text">
                       <div id="abcde" style="float:left; margin-left:10px; *margin-left:5px;">
-                        <input type="text" id="checkin" class="textstyle" readonly="readonly">
+                        <input type="text" id="checkin" class="textstyle" ><#--readonly="readonly"/-->
                         <div id="diyige" style="display: none; position: absolute; right:0px; top:24px;*top:28px; z-index:9999;">
-                            <div type="text" id="datepicker" class="hasDatepicker">
-                                <div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;">
-                                    <div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">
-                                        <a class="ui-datepicker-prev ui-corner-all" onclick="DP_jQuery_1528117373744.datepicker._adjustDate(&#39;#datepicker&#39;, -1, &#39;M&#39;);" title="">
-                                            <span class="ui-icon ui-icon-circle-triangle-w"></span>
-                                        </a>
-                                        <a class="ui-datepicker-next ui-corner-all" onclick="DP_jQuery_1528117373744.datepicker._adjustDate(&#39;#datepicker&#39;, +1, &#39;M&#39;);" title="">
-                                            <span class="ui-icon ui-icon-circle-triangle-e"></span>
-                                        </a>
-                                        <div class="ui-datepicker-title">
-                                            <span class="ui-datepicker-year">2018</span>年&nbsp;<span class="ui-datepicker-month">六月</span>
-                                        </div>
-                                    </div><table class="ui-datepicker-calendar">
-                                    <thead><tr>
-                                        <th><span title="星期一">一</span></th>
-                                        <th><span title="星期二">二</span></th>
-                                        <th><span title="星期三">三</span></th>
-                                        <th><span title="星期四">四</span></th>
-                                        <th><span title="星期五">五</span></th>
-                                        <th class="ui-datepicker-week-end">
-                                            <span title="星期六">六</span></th>
-                                        <th class="ui-datepicker-week-end">
-                                            <span title="星期日">日</span>
-                                        </th>
-                                    </tr></thead>
-                                    <tbody><tr>
-                                        <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;
-                                        </td>
-                                        <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;
-                                        </td>
-                                        <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;
-                                        </td>
-                                        <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;
-                                        </td>
-                                        <td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;">
-                                            <a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">1</a>
-                                        </td>
-                                        <td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;">
-                                            <a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">2</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">3</a></td></tr><tr><td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today" onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default ui-state-highlight ui-state-active ui-state-hover" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">4</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">5</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">6</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">7</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">8</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">9</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">10</a></td></tr><tr><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">11</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">12</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">13</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">14</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">15</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">16</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">17</a></td></tr><tr><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">18</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">19</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">20</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">21</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">22</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">23</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">24</a></td></tr><tr><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">25</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">26</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">27</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">28</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">29</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">30</a></td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table><div class="ui-datepicker-buttonpane ui-widget-content" style="cursor: pointer;color: #298DD8;" onclick="cleardate()">清除日期</div></div></div>
+                            <#--<div type="text" style="display: none" id="datepicker" class="hasDatepicker">-->
+                                <#--<div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;">-->
+                                    <#--<div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">-->
+                                        <#--<a class="ui-datepicker-prev ui-corner-all" onclick="DP_jQuery_1528117373744.datepicker._adjustDate(&#39;#datepicker&#39;, -1, &#39;M&#39;);" title="">-->
+                                            <#--<span class="ui-icon ui-icon-circle-triangle-w"></span>-->
+                                        <#--</a>-->
+                                        <#--<a class="ui-datepicker-next ui-corner-all" onclick="DP_jQuery_1528117373744.datepicker._adjustDate(&#39;#datepicker&#39;, +1, &#39;M&#39;);" title="">-->
+                                            <#--<span class="ui-icon ui-icon-circle-triangle-e"></span>-->
+                                        <#--</a>-->
+                                        <#--<div class="ui-datepicker-title">-->
+                                            <#--<span class="ui-datepicker-year">2018</span>年&nbsp;<span class="ui-datepicker-month">六月</span>-->
+                                        <#--</div>-->
+                                    <#--</div><table class="ui-datepicker-calendar">-->
+                                    <#--<thead><tr>-->
+                                        <#--<th><span title="星期一">一</span></th>-->
+                                        <#--<th><span title="星期二">二</span></th>-->
+                                        <#--<th><span title="星期三">三</span></th>-->
+                                        <#--<th><span title="星期四">四</span></th>-->
+                                        <#--<th><span title="星期五">五</span></th>-->
+                                        <#--<th class="ui-datepicker-week-end">-->
+                                            <#--<span title="星期六">六</span></th>-->
+                                        <#--<th class="ui-datepicker-week-end">-->
+                                            <#--<span title="星期日">日</span>-->
+                                        <#--</th>-->
+                                    <#--</tr></thead>-->
+                                    <#--<tbody><tr>-->
+                                        <#--<td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;-->
+                                        <#--</td>-->
+                                        <#--<td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;-->
+                                        <#--</td>-->
+                                        <#--<td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;-->
+                                        <#--</td>-->
+                                        <#--<td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;-->
+                                        <#--</td>-->
+                                        <#--<td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;">-->
+                                            <#--<a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">1</a>-->
+                                        <#--</td>-->
+                                        <#--<td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;">-->
+                                            <#--<a class="ui-state-default" href="">2</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">3</a></td></tr><tr><td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today" onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default ui-state-highlight ui-state-active ui-state-hover" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">4</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">5</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">6</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">7</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">8</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">9</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">10</a></td></tr><tr><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">11</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">12</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">13</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">14</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">15</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">16</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">17</a></td></tr><tr><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">18</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">19</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">20</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">21</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">22</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">23</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">24</a></td></tr><tr><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">25</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">26</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">27</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">28</a></td><td class=" " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">29</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1528117373744.datepicker._selectDay(&#39;#datepicker&#39;,5,2018, this);return false;"><a class="ui-state-default" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx#">30</a></td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table><div class="ui-datepicker-buttonpane ui-widget-content" style="cursor: pointer;color: #298DD8;" onclick="cleardate()">清除日期</div></div></div>-->
 
                         </div>
                     </div>
@@ -454,8 +454,10 @@
                 </tbody></table>
                 <div class="NewTravelTable" id="tr87348647">
                     <#list lodgerOrderList as orderlist>
-                    <table>
-                        <tbody><tr>
+                        <#if orderlist.orderStatus != "ysc">
+                        <table>
+                        <tbody>
+                        <tr>
                             <!--订单号-->
                             <td width="90" style="padding-left: 20px;">
                                ${orderlist.orderNum}
@@ -532,28 +534,49 @@
                                     </a>
                                 </p>
                             </td>
-                            <td style="text-align: center;" width="130">
+                            <td class="eachzhuangtai" style="text-align: center;" width="130">
                                 <span class="NewTravelYellowbg">等待接受</span><br>
 
-                                <span class="spanTime" lltime="10" pid="87348647" oid="752544">
-                                    23:58:53</span>
+                                <#--<span class="spanTime" lltime="60" pid="87348647" oid="752544"></span><br>-->
+                                <span id="zhuangtai" style="display: none">${orderlist.orderStatus}</span>
                             </td>
                             <td style="text-align: center; vertical-align: middle;" width="90">
-                                <div class="btn015">
-
-                                    <a target="_blank" href="http://www.youtx.com/payment/User/Travel/OrderCancel.aspx?paycode=87348647">
-                                        取消订单</a>
-
+                                <div class="caozuo">
+                                    <a target="_self" href="${base}/userCenter/cancelOrder?lodgerOrderId=${orderlist.lodgerOrderId}&roomId=${orderlist.room.roomId}&beginTime=${orderlist.schedule.liveStarttime?string('yyyy-MM-dd')}&endTime=${orderlist.schedule.liveEndtime?string('yyyy-MM-dd')}">
+                                        <span id="caozuo1">取消订单</span></a>
                                 </div>
-
+                                <div class="caozuo">
+                                    <a target="_self" href="${base}/userCenter/deleteOrder?lodgerOrderId=${orderlist.lodgerOrderId}">
+                                        <span id="caozuo2">删除订单</span></a>
+                                </div>
                                 &nbsp;
                             </td>
 
                         </tr>
                         </tbody></table>
+                        </#if>
                     </#list>
-                </div>
 
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $(".eachzhuangtai").each(function () {
+                            if ($(this).find("#zhuangtai").text() == "yqx"){
+                                $(this).find(".NewTravelYellowbg").css("display","none");
+                                $(this).find("#zhuangtai").css("display","block");
+                                $(this).find(".spanTime").css("display","block");
+                                $(this).find(".spanTime").removeClass();
+                                $(this).find("#zhuangtai").text("已取消").addClass("NewTravelRedbg");
+
+                                $(this).next().find("#caozuo1").css("display","none");
+
+                            }else {
+                                $(this).next().find("#caozuo2").css("display","none");
+                            }
+                        })
+
+                    })
+                </script>
             </div>
              <div class="clearfix HistoryOrder" style="display:none;" id="HistoryOrder">
              	<div class="more_msg" id="HistoryMsg">默认显示近期订单，<a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=1">查看历史订单</a></div>
@@ -569,6 +592,7 @@
 
         </div>
     </div>
+
     <!--2012-04-20 交易规则改变 支付的时候弹窗提示 租客-->
     <div style="display: none;" id="pop1">
     </div>
@@ -787,7 +811,6 @@
     <script language="javascript" src="${base}/static/room_manageOrder/popupLayer.js.下载" type="text/javascript"></script>
     <script language="javascript" type="text/javascript">
         $(function () {
-
 
             var popup1 = new PopupLayer("#pop1", "#TemporarilyModify", "#goonpay,#close", true, true);
             var popup2 = new PopupLayer("#pop2", "#popCancel", "#pop5", true, true);
@@ -1014,19 +1037,23 @@
             $("span.spanTime").trigger("setMyInterval");
             //删除订单js
             $("div.NewTravelTable").delegate("a.Unl", "click", function () {
-                var ppid = $(this).attr("pid");
+
+
+
+//                var ppid = $(this).attr("pid");
                 if (window.confirm("确定要删除此订单？\r\n删除后，您可以在订单回收站还原该订单。")) {
-                    $.getJSON("/payment/Ajax/AjaxOrdersTrash.aspx", { "type": "trash", "category": category, "paycode": ppid, "r": Math.random() }, function (data) {
-                        if (data.result == "0") {
-                            //alert("删除订单成功");
-                            $("#tr" + ppid).fadeTo(400, 0, function () {
-                                $(this).slideUp(400);
-                                $("#tr" + ppid).remove();
-                            });
-                        } else {
-                            alert("删除订单失败");
-                        }
-                    });
+//                    $.getJSON("/payment/Ajax/AjaxOrdersTrash.aspx", { "type": "trash", "category": category, "paycode": ppid, "r": Math.random() }, function (data) {
+//                        if (data.result == "0") {
+//                            //alert("删除订单成功");
+//                            $("#tr" + ppid).fadeTo(400, 0, function () {
+//                                $(this).slideUp(400);
+//                                $("#tr" + ppid).remove();
+//                            });
+//                        } else {
+//                            alert("删除订单失败");
+//
+//                        }
+//                    });
                 }
             });
             $(".orderModi").click(function () {
@@ -1067,11 +1094,11 @@
                 var time = $("#checkin").val();
 //                if (code != "" && !isNaN(code)) {
                     if ($("#checkin").val() != "入住时间") {
-                        location.href = "${base}/userCenter/jumpLodgerPage?paycode=" + code + "&time=" + time;
+                        location.href = "${base}/userCenter/jumpLodgerPage?num=0"+"&paycode=" + code + "&time=" + time;
                     }
                     else
                     {
-                        location.href = "${base}/userCenter/jumpLodgerPage?paycode=" + code;
+                        location.href = "${base}/userCenter/jumpLodgerPage?num=1"+"&paycode=" + code;
                     }
 //                }
 //                else {

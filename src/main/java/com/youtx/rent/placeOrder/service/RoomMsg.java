@@ -130,8 +130,8 @@ public class RoomMsg {
         lodgerOrderMapper.insert ( lodgerOrder );
     }
 
-    public void updateCalendarStatus(String calendarRoom,String begintime, String endtime){
-        calendarMapper.updateByDate ( calendarRoom,begintime,endtime);
+    public void updateCalendarStatus(String calendarRoom,String begintime, String endtime,Integer roomid){
+        calendarMapper.updateByDate ( calendarRoom,begintime,endtime,roomid);
     }
 
     public void saveLivePerson(LivePerson livePerson){

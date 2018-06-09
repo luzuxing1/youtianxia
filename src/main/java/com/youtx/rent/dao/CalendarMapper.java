@@ -21,7 +21,7 @@ public interface CalendarMapper {
 
     List<Calendar> selectPriceByDate(@Param ( "begintime" ) String begintime, @Param ( "endtime" )String endtime, @Param ( "roomid" )Integer roomid);
 
-    void updateByDate(@Param ( "calendarRoom" )String calendarRoom,@Param ( "begintime" )String begintime,@Param ( "endtime" )String endtime);
+    void updateByDate(@Param ( "calendarRoom" )String calendarRoom,@Param ( "begintime" )String begintime,@Param ( "endtime" )String endtime, @Param ( "roomid" )Integer roomid);
 
     List<Calendar> selectByRoomId(Integer roomId);
 }
