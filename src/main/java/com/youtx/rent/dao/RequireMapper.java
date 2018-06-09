@@ -1,7 +1,9 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.Require;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RequireMapper {
     int deleteByPrimaryKey(Integer reqId);
 
