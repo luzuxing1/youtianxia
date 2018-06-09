@@ -40,6 +40,12 @@
   </select>
 
 
+  <select id="selectByOrderNum"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_lodger_order
+    where user_id = #{userId} AND order_num = #{orderNum}
+  </select>
 
   <select id="selectByStatus"  resultMap="BaseResultMap">
   select
@@ -123,6 +129,15 @@
       </if>
     </trim>
   </insert>
+
+<update id="updateStatusById">
+  update ytx_lodger_order
+  <set>
+    order_status = #{orderStatus}
+  </set>
+  where lodger_order_id = #{lodgerOrderId}
+</update>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.youtx.rent.entity.LodgerOrder">
     update ytx_lodger_order
     <set>

@@ -26,6 +26,12 @@
     where room_id = #{roomId}
   </select>
 
+  <select id="selectByTime"  resultType="java.lang.Integer">
+    select
+    schedule_id
+    from ytx_schedule
+    where live_starttime = #{time}
+  </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ytx_schedule
