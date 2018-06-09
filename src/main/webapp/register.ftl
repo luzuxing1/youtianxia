@@ -268,13 +268,11 @@
                            <option value="103_39">意大利 +39</option>
                            <option value="43_56">智利 +56</option>
                         </select>
-                        <input type="text" placeholder="请输入你的手机号" class="input" id="CellphoneNumber" style="width:154px; margin-left:122px;">
-
+                        <input type="text" placeholder="请输入你的手机号" class="input" id="CellphoneNumber" style="width:154px; margin-left:144px;height: 35px;margin-top: -10px">
                     </div>
-                    <span id="title" style="visibility: visible;"></span>
+                    <span id="title" style="height: 24px;margin-top: 4px" >暂时只支持大陆手机</span>
                      <!--2015-12-14End-->
-                    <p class="item_listxt_error" style="padding: 0 0 0 20px;">
-                        电子邮箱不能为空/电子邮箱地址无效</p>
+                    <p class="item_listxt_error"  style="padding: 0 0 0 20px;"></p>
                     <div class="input_two">
                         <div style="position: absolute; padding-left: 193px; top: 6px;z-index:99; display: none;" id="yanzhengmatanceng">
                             <div class="yzbox" id="div_mathcode">
@@ -291,8 +289,6 @@
                                     </div>
                                     <div class="yzboxa02">
                                     	<div class="s1">
-                                            
-                                            
                                                  <img src="${base}/static/register/Display.aspx" 1257571139="" id="imgcode" name="imgcode" style="cursor: pointer; width:150px;height:80px;">
                                         </div>
                                         <!--<div class="s1">-->
@@ -305,13 +301,15 @@
                             </div>
                         </div>
                         <span class="input115 input93">
-                            <input type="text" placeholder="验证码" style="border:1px solid #78c2f5; class="input" id="check_codes">
+                            <input type="text" placeholder="验证码" style="border:1px solid #78c2f5;height: 36px;margin-top: -8px" class="input" id="check_codes" >
 
                         </span>
 
                         <p>
                             <input class="btn128x36" type="button" style="border:1px solid #78c2f5;" value="免费获得验证码" name="" id="checkPhone"></p>
-                        <span id="i_checkCodes" style="display: block"></span>
+                        <input class="btn128x36" type="button" style="border:1px solid #78c2f5;" value="" name="" id="checkPhone2"></p>
+
+                        <span id="i_checkCodes" style="display: block;color: red;margin-top: 8px"></span>
                     </div>
                     <p class="item_listxt_error">
                         验证码错误</p>
@@ -322,22 +320,18 @@
                     </div>
                     <!--2014-4-4修改-结束-->
                     <div class="input_passwrod passwrod_bg290">
-                        <label class="input_labelBlur input02" id="user_password" for="user_password" style="display: inline">
-                            密码</label>
-                        <input type="password" class="input" style="border:1px solid #78c2f5;" id="user_password2" size="30">
+                        <input type="password" class="input" placeholder="密码" style="border:3px solid #78c2f5;height: 30px" id="user_password2" size="30">
                     </div>
-                    <p class="item_listxt_error">
+                    <p class="item_listxt_error" style="margin-top: 9px">
                         密码不能为空</p>
                     <div class="input_passwrod passwrod_bg290">
-                        <label class="input_labelBlur input02" for="user_password" style="border:1px;" >
-                            确认密码</label>
-                        <input type="password" class="input" id="user_password_confirmation2">
+                        <input type="password" class="input"  placeholder="确认密码" id="user_password_confirmation2" style="border:3px solid #78c2f5;height: 30px">
                     </div>
-                    <p class="item_listxt_error">
+                    <p class="item_listxt_error" style="margin-top: 8px">
                         两次输入不一致</p>
                     <div class="input_two">
                         <span class="input187">
-                            <input type="text" placeholder="名字" class="input" id="user_last_name2">
+                            <input type="text" placeholder="名字" class="input" id="user_last_name2" style="border:3px solid #78c2f5;height: 30px">
                         </span>
                     </div>
                     <p class="item_listxt_error">
@@ -393,15 +387,7 @@
                         <span class="input146">
                             <input type="text" value="输入下图答案" class="input" id="txtReg" style="display: block;">
                         </span>
-                        <div class="verifyBox">
-                            <!--                            <img class="VerifyImage" src="images/verifyImg.jpg" id="regEmail"
-                                width="150" height="80"  style="cursor: pointer; "/>-->
-                          
-                                
-                                
-                                 <img src="${base}/static/register/Display.aspx" 1469968792="" id="regEmail" name="imgcode" style="cursor: pointer; float: left; padding:3px 0px 3px 3px;">
-                            <a class="ChangeQuestion" href="javascript:void(0);" id="regResh">换一题</a>
-                        </div>
+
                     </div>
                     <!--2015-06-26end-->
                     <p class="item_listxt_error" id="error_tips_reg">
@@ -518,153 +504,6 @@
             </ul>
             </form>
         </div>
-        <script type="text/javascript">
-            $(function () {
-                //点击修改Email出现弹出层
-                $("#verify_outbox").click(function () {
-                    $(".mask_bg").show();
-                    $(".modify_email").show();
-                    var mail = $("#saveMail").val();
-                    $("#txtEmail").val(mail);
-                    $("#txtEmail").css("color", "Gray");
-                    $("#stateYzMail").val("");
-                    $("#stateYzCode").val("");
-                    $("#error_tips_mail").text("");
-                    $("#error_tips_yz").text("");
-                    $("#txtYZ").val("");
-                    VerificationCodeEmail();
-                });
-                $("#outtitle_btn").click(function () {
-                    $(".mask_bg").hide();
-                    $(".modify_email").hide();
-                });
-                //添加2015-04-16验证邮箱和验证验证码begin
-                //验证邮箱
-                $("#txtEmail").focus(function () {
-                    if ($("#txtEmail").val() == $("#saveMail").val()) {
-                        $("#txtEmail").val("");
-                    }
-                    $("#error_tips_mail").text("");
-                    $("#error_tips_mail").css("display", "none");
-                }).blur(function () {
-                    var mail = $("#saveMail").val();
-                    var updateMail = $("#txtEmail").val();
-                    var resu = 0;
-                    var check1 = 0;
-                    if ($("#txtEmail").val().length > 0) {
-                        if (mail == updateMail) {
-                            $("#error_tips_mail").text("该Email与上一次输入的Email地址重复，请更换其他Email");
-                            $("#stateYzMail").val("fa");
-                            $("#error_tips_mail").css("display", "block");
-                        } else if (mail == null || mail == "") {
-                            $("#error_tips_mail").text("请输入Email");
-                            $("#stateYzMail").val("fa");
-                            $("#error_tips_mail").css("display", "block");
-                        } else {
-                            $("#txtEmail").css("color", "black");
-                            $.getJSON("/profile/Ajax/CheckMailExists.ashx", { mail: updateMail, r: Math.random() }, function (json) {
-                                if (json.Result == "1") {
-                                    resu = 1;
-                                } else {
-                                    resu = 0;
-                                }
-                                if (json.check == "1") {
-                                    check1 = 1;
-                                } else {
-                                    check1 = 0;
-                                }
-                                if (resu == 1) {
-                                    $("#error_tips_mail").text("该Email已与其他账号绑定，请更换其他Email");
-                                    $("#stateYzMail").val("fa");
-                                    $("#error_tips_mail").css("display", "block");
-                                } else if (check1 == 1) {
-                                    $("#error_tips_mail").text("Email格式错误");
-                                    $("#stateYzMail").val("fa");
-                                    $("#error_tips_mail").css("display", "block");
-                                } else {
-                                    $("#stateYzMail").val("su");
-                                    $("#error_tips_mail").text("");
-                                    $("#error_tips_mail").css("display", "none");
-                                    VerificationCodeEmail();
-                                    $("#txtYZ").val("");
-                                }
-                            });
-                        }
-                    } else {
-                        $("#txtEmail").val(mail);
-                        $("#txtEmail").css("color", "Gray");
-                        $("#error_tips_mail").text("该Email与上一次输入的Email地址重复，请更换其他Email");
-                        $("#stateYzMail").val("fa");
-                        $("#error_tips_mail").css("display", "block");
-                    }
-                });
-
-                //验证码验证
-                $("#txtYZ").focus(function () {
-                    $("#error_tips_yz").val("");
-                    $("#error_tips_yz").css("display", "none");
-                }).blur(function () {
-                    var mail = $("#saveMail").val();
-                    var eMail = $("#txtEmail").val();
-                    var txtYZ = $("#txtYZ").val();
-                    if (txtYZ == "") {
-                        $("#error_tips_yz").text("请输入验证码");
-                        $("#stateYzCode").val("fa");
-                        $("#error_tips_yz").css("display", "block");
-                    } else {
-                        $.getJSON("/profile/Ajax/AjaxReg.aspx", { "type": "checkMailAndYZcode", "mail": eMail, "txtYZ": txtYZ, 't': Math.random() }, function (data) {
-                            if (data.result == "6") {
-                                $("#error_tips_yz").text(data.text);
-                                $("#stateYzCode").val("fa");
-                                $("#error_tips_yz").css("display", "block");
-                            } else if (data.result == "7") {
-                                $("#error_tips_yz").text("");
-                                $("#stateYzCode").val("su");
-                                $("#error_tips_yz").css("display", "none");
-                            } else {
-                                $("#error_tips_yz").text("未知错误");
-                                $("#stateYzCode").val("fa");
-                                $("#error_tips_yz").css("display", "block");
-                            }
-                        });
-                    }
-                });
-                //添加2015-04-16验证邮箱和验证验证码end 
-                //2015-06-11begin
-                $("#txtReg").focus(function () {
-                    $("#error_tips_reg").val("");
-                    //$("#error_tips_reg").css("display", "none");
-                }).blur(function () {
-                    var eMail = $("#user_email").val();
-                    var txtReg = $("#txtReg").val();
-                    $.getJSON("/profile/Ajax/AjaxReg.aspx", { "type": "checkMailAndYZcode", "mail": eMail, "txtYZ": txtReg, 't': Math.random() }, function (data) {
-                        if (data.result == "6") {
-                            if (txtReg == "") {
-                                $("#error_tips_reg").text("请输入问题的答案");
-                                $("#error_tips_reg").css("visibility", "visible");
-                            } else {
-                                $("#error_tips_reg").text(data.text);
-                                $("#error_tips_reg").css("visibility", "visible");
-                            }
-                            $("#stateYzReg").val("fa");
-                            //$("#error_tips_reg").css("display", "block");
-                            $("#error_tips_reg").css("visibility", "visible");
-                        } else if (data.result == "7") {
-                            $("#error_tips_reg").text("");
-                            $("#stateYzReg").val("su");
-                            //$("#error_tips_reg").css("display", "none");
-                            $("#error_tips_reg").css("visibility", "hidden");
-                        } else {
-                            $("#error_tips_reg").text("未知错误");
-                            $("#stateYzReg").val("fa");
-                            //$("#error_tips_reg").css("display", "block");
-                            $("#error_tips_reg").css("visibility", "visible");
-                        }
-                    });
-                });
-                //2015-06-11end
-            });
-        </script>
         <!--Email弹出层end-->
         
     </div>
@@ -701,24 +540,6 @@
             var r = Math.random();
             $('#imgEmail').attr('src', '/Captcha/Display.aspx?r=' + r);
         }
-        //添加2015-04-16begin邮箱验证
-        function VerificationCodeEmail() {
-            var r = Math.random();
-            var s = $("#imgEmail").attr("src");
-            s = s.split('?')[0] + "?r=" + r + "&mailYZ=" + $('#txtEmail').val();
-            $("#imgEmail").attr("src", s);
-            $("#stateYzCode").val("");
-            $("#error_tips_yz").css("display", "none");
-        }
-        //添加2015-04-16end邮箱验证
-        $(document).ready(function () {
-            $("#imgcode").bind("click", function () { VerificationCode(); });
-            $("#resh").bind("click", function () { VerificationCode(); });
-            $("#imgEmail").bind("click", function () { VerificationCodeEmail(); });
-            $("#regEmail").bind("click", function () { VerificationCodeRegEmail(); });
-            $("#regResh").bind("click", function () { VerificationCodeRegEmail(); });
-            $("#regResh2").bind("click", function () { VerificationCodeRegEmail2(); });
-        });
 
         function VerificationCode1() {
             var codefor = $("#txttel").val();
@@ -727,54 +548,31 @@
             $("#imgcode").attr("src", s);
         }
     </script>
-    <script type="text/javascript">
-        //注册切换2012-02-24
-        $(function () {
-            $('.item_Listit li').click(function () {
-                $(this).addClass("item_Listit_cur").siblings().removeClass("item_Listit_cur");
-                var i = $(".item_Listit li").index(this);
-                $(".item_listxt").css('display', "none").eq(i).css('display', "block");
-            })
 
-            $(".item_listxt").eq(0).css('display', "block")
-            $(".item_listxt").eq(1).css('display', "none");
-        })
-    </script>
-    <!--表单js -->
-    <script type="text/javascript">
-        $(function () {
-            $(".input").focus(function () {
-                $(this).addClass("color000");
-                if ($(this).val() == this.defaultValue) {
-                    $(this).val("");
-                }
-                $(this).siblings().attr("style", "display:none");
-                $("#telSel").css("display", "block");
-            }).blur(function () {
-                $(this).removeClass("color000");
-                if ($(this).val() == '') {
-                    $(this).val(this.defaultValue);
-                }
-                $(this).siblings().attr("style", "display:none");
-                $("#telSel").css("display", "block");
-            });
-
-            $(".input02").click(function () {
-                $(this).hide();
-                $(this).siblings().focus()
-            });
-        })
-    </script>
-    <!--表单js-end -->
 </div>
 
 <script type="text/javascript">
+    $("#checkPhone2").css("display","none");
+    $("#checkPhone").click(function () {
+        $("#checkPhone2").val(60);
+        $("#checkPhone").css("display","none");
+        $("#checkPhone2").css("display","block");
+        tt = setInterval("ssss()",1000);
+
+    });
+    function ssss() {
+        if($("#checkPhone2").val() > 0){
+           var se =  $("#checkPhone2").val()-1;
+            $("#checkPhone2").val(se);
+        }else {
+            $("#checkPhone").css("display","block");
+            $("#checkPhone2").css("display","none");
+        }
+    }
+
+    $("#checkPhone").css("display","block");
         var b = false;
-//        var codes =$("#check_codes").val();
-
         var code = "1";
-
-
         $(document).ready(function () {
             //add by zhangyanke 0326
             var rquestVal = $.trim('') ;
@@ -786,28 +584,6 @@
             if(isTel =="true" || isTel=="True"){
                 $("#CellphoneNumber").val(rquestVal);
             }
-            
-            $("#CheckCode").blur(function(){
-                $("#CheckCode").parent().parent().next().css('visibility', 'hidden');    
-            });
-            $("#user_email").blur(function () {
-                var v = $("#user_email").parent().next();
-                if (Youtx.Verification.isEmail($(this).val())) {
-                    $("#user_email").parent().next().html('');
-                    $("#user_email").parent().next().css('visibility', 'hidden');
-                    CheckMailExists();
-                    VerificationCodeRegEmail();
-                    $("#txtReg").css("display","block");
-                    $("#regEmail").css("display","block");
-                    $("#regResh").css("display","block");
-                }
-                else {
-                    $("#user_email").parent().next().html(' 电子邮箱不能为空/电子邮箱地址无效');
-                    $("#user_email").parent().next().css('visibility', 'visible');
-                }
-                //$("[for='user_email'].labelBlur").parent().next().hide();
-            });
-
             $("#user_password").blur(function () {
                 var reg = new RegExp("^[\\A-Za-z0-9\\!\\#\\$\\%\\^\\&\\*\\.\\~]{5,18}$");
                 var user_password = $(this).val();
@@ -818,7 +594,6 @@
                     $(this).parent().next().css('visibility', 'visible');
                 }
             });
-
             $("#user_password_confirmation").blur(function () {
                 if ($(this).val() != $('#user_password').val()) {
                     $(this).parent().next().css('visibility', 'visible');
@@ -827,41 +602,13 @@
                     $(this).parent().next().css('visibility', 'hidden');
                 }
             });
-
-            $("#user_first_name").blur(function () {
-                if (!isUserName($(this).val())) {
-                    $(this).parent().parent().next()
-                    $(this).parent().parent().next().css('visibility', 'visible');
-                }
-                else {
-                    if ($(this).val() == '姓氏') {
-                        $(this).parent().parent().next().css('visibility', 'visible');
-                    }
-                    else {
-                        $(this).parent().parent().next().css('visibility', 'hidden');
-                    }
-                }
-            });
-
-            $("#user_last_name").blur(function () {
-                if (!isUserName($(this).val())) {
-                    $(this).parent().parent().next().css('visibility', 'visible');
-                }
-                else {
-                    if ($(this).val() == '名字') {
-                        $(this).parent().parent().next().css('visibility', 'visible');
-                    } else {
-                        $(this).parent().parent().next().css('visibility', 'hidden');
-                    }
-                }
-            });
-
             $("#user_password2").blur(function () {
                 var reg = new RegExp("^[\\A-Za-z0-9\\!\\#\\$\\%\\^\\&\\*\\.\\~]{5,18}$");
                 var user_password = $(this).val();
                 if(user_password=='')
                 {
                     $(this).parent().next().html('密码不能为空');
+                    //$(this).parent().next().css("margin-top","6px").css("size","8px");
                     $(this).parent().next().css('visibility', 'visible');
                 }
                 else if (reg.test(user_password)) {
@@ -882,68 +629,7 @@
                 }
             });
 
-            $("#user_first_name2").blur(function () {
-                if (!isUserName($(this).val())) {
-                    $(this).parent().parent().next().css('visibility', 'visible');
-                }
-                else {
-                    if ($(this).val() == '姓氏') {
-                        $(this).parent().parent().next().css('visibility', 'visible');
-                    } else {
-                        $(this).parent().parent().next().css('visibility', 'hidden');
-                    }
-                }
-            });
-
-            $("#user_last_name2").blur(function () {
-                if (!isUserName($(this).val())) {
-                    $(this).parent().parent().next().css('visibility', 'visible');
-                }
-                else {
-                    if ($(this).val() == '名字') {
-                        $(this).parent().parent().next().css('visibility', 'visible');
-                    } else {
-                        $(this).parent().parent().next().css('visibility', 'hidden');
-                    }
-                }
-            });
-            //添加2015-04-15begin
-            //验证邮箱
-            $("#EmailYZ").click(function () {
-                var email=$("#sp2").text();
-                var emailsp=email.split('@');
-                emailsp=emailsp[1].split('.');
-                window.open("http://mail."+emailsp[0]+".com");
-            });
-            //重新发送邮件
-            $("#reSendEmail").click(function () {
-//                var code=$("#saveCode").val();
-                var rmail=$("#saveMail").val();
-                $.getJSON("/profile/Ajax/ReSendEmail.ashx", { Modify:"ReSend", code: code,rmail:rmail, r: Math.random()}, function (json) {
-                if (json.Result=="1") {
-                     var sec = 60;
-                     var intervalId = setInterval(function () {
-                         sec--;
-                         if (sec > 0) {
-                             $("#reSendEmail").val( sec + "s后可重新发送");
-                             $('#reSendEmail').attr('disabled', true);
-                             $('#reSendEmail').css("cursor", "default");
-                         }
-                         else {
-                             $("#reSendEmail").val("重新发送邮件");
-                             $("#reSendEmail").removeAttr("disabled");
-                             $('#reSendEmail').css("cursor", "pointer");
-                             clearInterval(intervalId);
-                         }
-                     }, 1000);
-                }else {
-                     $("#notice").html("邮件发送失败");
-                     $("#notice").css('visibility', 'visible');
-                }
-                });
-            });
-            //修改邮箱后重新发送
-            $("#reSendEmail2").click(function () {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            $("#reSendEmail2").click(function () {
                 var stateYzMail=  $("#stateYzMail").val();
                 var stateYzCode= $("#stateYzCode").val();
                 //验证邮箱和验证码2015-04-20begin
@@ -1000,32 +686,7 @@
                         $("#error_tips_mail").css("display", "block");
                     }
                 }
-                if (stateYzCode=="") {
-                    var mail = $("#saveMail").val();
-                    var eMail = $("#txtEmail").val();
-                    var txtYZ = $("#txtYZ").val();
-                    if (txtYZ == "") {
-                        $("#error_tips_yz").text("请输入验证码");
-                        $("#stateYzCode").val("fa");
-                        $("#error_tips_yz").css("display", "block");
-                    }else{
-                        $.getJSON("/profile/Ajax/AjaxReg.aspx", { "type": "checkMailAndYZcode", "mail": eMail, "txtYZ": txtYZ, 't': Math.random() }, function (data) {
-                           if (data.result == "6") {
-                               $("#error_tips_yz").text(data.text);
-                               $("#stateYzCode").val("fa");
-                               $("#error_tips_yz").css("display", "block");
-                           } else if (data.result == "7") {
-                               $("#error_tips_yz").text("");
-                               $("#stateYzCode").val("su");
-                               $("#error_tips_yz").css("display", "none");
-                           } else {
-                               $("#error_tips_yz").text("未知错误");
-                               $("#stateYzCode").val("fa");
-                               $("#error_tips_yz").css("display", "block");
-                           }
-                        });
-                    }
-                }
+
                 //验证邮箱和验证码2015-04-20begin
                if (stateYzMail=="su"&&stateYzCode=="su") {
 //                   var code=$("#saveCode").val();
@@ -1402,7 +1063,7 @@
                 }
 
 
-
+                $("#checkPhone2").css("display","none");
                 if (ismobiles) {
                     $(this).parent().next().html('');
                     $("#checkPhone").click(function () {
@@ -1421,13 +1082,19 @@
                                 }
                         );
 
+
                     })
                 }
                 else {
                     $(this).parent().next().html('手机号码格式不正确');
-                    $(this).parent().next().css('visibility', 'visible');
+                    $(this).parent().next().css("margin-top","4px").css("color","red");
+
                 }
+
             });
+            
+
+            
             $("#check_codes").blur(function () {
                 var codes =$("#check_codes").val();
                 if(codes != code){
@@ -1581,7 +1248,6 @@
                     $('#CheckTelephone').removeAttr("disabled");
                     $('#CheckTelephone').val('重新发送');
                     $('#CheckTelephoneByTel').removeAttr("disabled");
-                    $('#CheckTelephoneByTel').val('电话验证');
 //                    $('#CheckTelephone').click(function () {
 //                       SendCode($('#CellphoneNumber').val());
 //                    });

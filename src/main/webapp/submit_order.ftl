@@ -91,7 +91,7 @@
 
 
            if (reg.test(card) == false) {
-               $(data).html("证件格式不正确");
+               //$(data).html("证件格式不正确");
                //$(data).parent().parent().find("div[name='CardErrorMsg'] span").show();
                $(data).show();
                return;
@@ -289,7 +289,7 @@
 
     </script>
     
-    <form method="get" id="book_it_form" action="http://www.youtx.com/payment/Booking/BookingNew.aspx" target="_self">
+    <form method="get" id="book_it_form" action="${base}/book/order" target="_self">
     <div id="cboxOverlay" style="display: none; opacity: 1; z-index: 99; cursor: auto;
         height: 100%; width: 100%; background: none repeat scroll 0 0 #000000; position: absolute;">
         <iframe frameborder="0" class="IE6iframe" src="${base}/static/submit_order/saved_resource.html"></iframe>
@@ -396,7 +396,7 @@
                     电话
                     <input type="text" id="MobileNumber" class="text01" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;,&#39;/virtual/order/beiyong-phone/&#39;]);}catch(e){}" maxlength="20">
                     <input id="AddorChange" class="ScuDet" value="确 定" type="button">
-                    <input type="hidden" id="MobileState" name="MobileState" value="Add">
+                    <#--<input type="hidden" id="MobileState" name="MobileState" value="Add">-->
                 </p>
                 <p>
                     <span id="ErrorIco" class="ErrorIco" style="display: none"></span>
@@ -425,7 +425,7 @@
             <div class="NewOrderContent">
                 <div class="NewOrderTit">
                     基本信息</div>
-                <div class="NewOrderTxt">
+                <div class="NewOrderTxt" id="roomprices">
                     <table width="645" border="0" cellspacing="0" cellpadding="0" class="X_Order_Basic">
                         <tbody><tr>
                             <th width="220" scope="col">
@@ -457,6 +457,7 @@
                             <td>
                             ${days}天
                             </td>
+                            <input type="hidden" id="roomdays" name="roomdays" value="${days}">
                             <td>
                             ${livenum}人<input name="livenum" type="hidden" value="${livenum}">
                             </td>
@@ -467,7 +468,7 @@
                             </td>
                         </tr>
                     </tbody></table>
-                    <input type="hidden" id="validator" name="validator" value="89D6BC4F60257ECB4CDA40BCAD1B0036134968D1534ACE1019238AB7DEB48B05">
+                    <#--<input type="hidden" id="validator" name="validator" value="89D6BC4F60257ECB4CDA40BCAD1B0036134968D1534ACE1019238AB7DEB48B05">-->
                     <input type="hidden" id="othersLinker" name="othersLinker" value="">
                 </div>
             </div>
@@ -649,9 +650,11 @@
                                     $(function () {
                                         var roomPrice = ${price};
                                         var cleanPrice = ${cleanPrice};
+                                        var allprices = roomPrice + cleanPrice;
                                         $("#allPrice").text(roomPrice+cleanPrice);
                                         $("#allPrice01").text(roomPrice+cleanPrice);
                                         $("#allPrice02").text(roomPrice+cleanPrice);
+                                        $("#roomprices").append("<input type=\"hidden\" id=\"allprices\" name=\"allprices\" value=\""+allprices+"\">");
                                     })
                                 </script>
                             </ul>
@@ -2455,7 +2458,7 @@
                                             </div>
                                             <div>
                                                 <input type="text" disabled="disabled" class="text" value="+86" style="color: #333;
-                                                    background-color: #ece9d8; width: 50px; margin-right: -1px;" id="telcode"><input style="width: 98px;" type="text" class="text" id="txttel" name="txttel" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/phone/&#39;]);}catch(e){}"><input name="telhide" type="hidden" id="telhide"><input name="telCodehide" type="hidden" id="telCodehide">
+                                                    background-color: #ece9d8; width: 50px; margin-right: -1px;" id="telcode"><input style="width: 98px;" type="text" class="text" id="txttel" name="txttel" value="${user.userPhone}" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/phone/&#39;]);}catch(e){}"><input name="telhide" type="hidden" id="telhide"><input name="telCodehide" type="hidden" id="telCodehide">
                                                 <span>
                                                     <img alt="" id="imgtel" style="vertical-align: middle;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif"></span>
                                                 <span class="VerificationBtn">
@@ -3449,7 +3452,7 @@
                                     <td>
                                          <input type="text" class="text" id="IDOtherNumber" name="IDOtherNumber" onblur="CartTest(this)">
                                         <span>
-                                            <img style="vertical-align: middle;*vertical-align:baseline; display:none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif">
+                                            <img id="imgcardid" style="vertical-align: middle;*vertical-align:baseline; display:none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif">
                                         </span>
                                         <p class="ColorGray999 PT5">请您放心，身份信息不会对外公开。</p>
                                         <div class="PromptErrorBox" name="CardErrorMsg" id="CardErrorOtherMsg">
@@ -4183,7 +4186,11 @@
                                             <div id="Div1" style="padding-left: 207px; top: -110px; position: absolute;display:none;">
                                             </div>
                                             <div>
-                                                <input type="text" disabled="disabled" class="text" value="+86" style="color:#333;background-color:#ece9d8;width:50px;margin-right:-1px;" id="telOthercode"><input style="width:100px;" type="text" class="text" id="txtOthertel" name="txtOthertel" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/phone/&#39;]);}catch(e){}"><input name="telhide" type="hidden" id="Hidden1"><input name="telCodehide" type="hidden" id="Hidden2">
+                                                <input type="text" disabled="disabled" class="text" value="+86" style="color:#333;background-color:#ece9d8;width:50px;margin-right:-1px;" id="telOthercode"><input style="width:100px;" type="text" class="text" id="txtOthertel" name="txtOthertel" onchange="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/phone/&#39;]);}catch(e){}"><span>
+                                            <img id="imgphoneid" style="vertical-align: middle;*vertical-align:baseline; display:none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif">
+                                        </span><div class="PromptErrorBox" name="CardErrorMsg" id="CardErrorOtherMsg1">
+                                                <span class="PromptError" style="display:none">信息错误，请重新填写</span>
+                                            </div><input name="telhide" type="hidden" id="Hidden1"><input name="telCodehide" type="hidden" id="Hidden2">
                                                 <span><img alt="" id="imgOthertel" style="vertical-align: middle; *vertical-align: baseline; display: none;" src="${base}/static/submit_order/RoomCorrectBtnNew.gif"></span>
                                                 <span class="VerificationBtn"><input style="display:none;" type="button" id="Button1" value="获取验证码"></span>
                                             </div>
@@ -4266,9 +4273,10 @@
                         <p class="X_OrderRoom_title">
                             <a target="_blank" href="http://www.youtx.com/room/144142/" onclick="try{_gaq.push([&#39;t0._trackPageview&#39;, &#39;/virtual/order/title/&#39;]);}catch(e){}">
                                 ${roomInfo.room.roomName}</a></p>
+                        <input type="hidden" id="roomtitle" name="roomtitle" value="${roomInfo.room.roomName}">
                         <div>
                             <img style="width: 210px;height: 140px;" alt="${roomInfo.room.roomName}" src="${imagesPath}/${pics[0]}"></div>
-                        <input name="houseID" type="hidden" value="144142">
+                        <input name="houseid" type="hidden" value="${roomInfo.room.roomId}">
                         
                             <p>
                                 
@@ -4278,6 +4286,7 @@
                             ${roomInfo.situType}，${roomInfo.situRent}，${roomInfo.situBedType}</p>
                             <p>
                             ${roomMsgAdress.resourceAddress}</p>
+                        <input type="hidden" id="roomaddress" name="roomaddress" value="${roomMsgAdress.resourceAddress}">
                     </div>
                 </div>
             </div>
@@ -4549,6 +4558,15 @@
                 $("#txtcheckintel").blur(function () {
                     checkTxtCheckInTel();
                 });
+                //身份证号码
+                $("#IDOtherNumber").blur(function () {
+                    checkCardId();
+                });
+                //手机号
+                $("#txtOthertel").blur(function () {
+                    checkphoneId();
+                });
+
                 $("#txttel").focus(function () {
                     $("#teltip").children(".PromptError").hide();
                     $("#teltip").children(".PromptError02").hide();
@@ -4656,7 +4674,7 @@
                 ///提交我的订单按钮单击事件
                 $("#btnConfirmOrder").click(function () {
                     if (!haveClick) {
-                        haveClick = true;
+//                        haveClick = true;
                         $("#btnConfirmOrder").val('提交中...').addClass("OrderCoBtn02");
                         return btnConfirmOrderClick();
                     }
@@ -5068,11 +5086,11 @@
                     //end
                
 
-                if (!checkname || !checktel || !checkremark || !cardCheck || !cardOtherCheck || !checkUsername) {
-                    haveClick = false;
-                    $("#btnConfirmOrder").val("提交我的订单").removeClass("OrderCoBtn02");
-                    return false;
-                }
+//                if (!checkname || !checktel || !checkremark || !cardCheck || !cardOtherCheck || !checkUsername) {
+//                    haveClick = false;
+//                    $("#btnConfirmOrder").val("提交我的订单").removeClass("OrderCoBtn02");
+//                    return false;
+//                }
                 if (!isNaN(loginID) && loginID != "0") {
                     ///信息有改动，则更新成功后提交
                     //2015-12-21 如果是已登录的已身份验证的用户，无需对比身份信息是否一致
@@ -5169,7 +5187,24 @@
                             return false;
                         } else {
                             regist = 1;
-                            IsSubmit();
+                            //判断房间是否是否已经被预订 start lzx
+                            $.post("${base}/book/isbook",
+                                    {
+                                        "begintime":$("input[name='begintime']").val(),
+                                        "endtime":$("input[name='endtime']").val(),
+                                        "roomid":${roomid}
+
+                                    },function (data) {
+                                        if(data==false){
+                                            alert("该时间段房间已被预订，请重新选择！");
+                                            $("#btnConfirmOrder").val("提交我的订单").removeClass("OrderCoBtn02");
+//                                            return false;
+                                        }else{
+                                            IsSubmit();
+                                        }
+                                    });
+                            //判断房间是否是否已经被预订 end
+//                            IsSubmit();
                         }
                     }
                 }
@@ -5192,6 +5227,7 @@
                         result = data.result;
                     }
                 });
+                result = '1';
                 return result;
             }
 
@@ -5283,6 +5319,7 @@
                         var nationalities_Other = $("#NationOtherOption").val();
                         var papertype_Other = $("#CartOtherOption").val();
                         var idcode_Other = $("#IDOtherNumber").val();
+                        var txtOthertel = $("#txtOthertel").val();
                         var msg_Other = CheckCard(realusername_Other, countryid2_Other, nationalities_Other, papertype_Other, idcode_Other, isSelf);
                         if (msg_Other != "1") {
                             if (CheckLeftCount > 0) {
@@ -5295,6 +5332,16 @@
                                 $("#CardErrorOtherMsg span").show();
                                 return false;
                             }
+                        }
+                        if(idcode_Other==""){
+                            $("#CardErrorOtherMsg span").html("证件号码不能为空");
+                            $("#CardErrorOtherMsg span").show();
+                            return false;
+                        }
+                        if(txtOthertel==""){
+                            $("#CardErrorOtherMsg1 span").html("手机号码不能为空");
+                            $("#CardErrorOtherMsg1 span").show();
+                            return false;
                         }
                     }
                 
@@ -5346,7 +5393,7 @@
                     //                    } else {
                     //                        $("#book_it_form").submit();
                     //                    }
-                    //判断代金券是否已使用 end                    
+                    //判断代金券是否已使用 end
                     $("#book_it_form").submit();
                 }
                 else {
@@ -5521,6 +5568,27 @@
                     checkciname = false;
                 }
             }
+
+            function checkCardId() {
+                var txtcheckcardid = $("#IDOtherNumber").val();
+                if (txtcheckcardid != "") {
+                    $("#imgcardid").show();
+                    $("#CardErrorOtherMsg").find(".PromptError").hide();
+                }else{
+                    $("#imgcardid").hide();
+                }
+            }
+            function checkphoneId() {
+                var txtcheckphoneid = $("#txtOthertel").val();
+                if (txtcheckphoneid != "") {
+                    $("#imgphoneid").show();
+                    $("#CardErrorOtherMsg1").find(".PromptError").hide();
+                }else{
+                    $("#CardErrorOtherMsg1 span").show();
+                    $("#imgphoneid").hide();
+                }
+            }
+
             function checkTxtCheckInTel() {
                 if ($("#txtcheckintel").val() != "") {
                     //objExp = new RegExp(/^(0|[1-9]\d*)$/g);

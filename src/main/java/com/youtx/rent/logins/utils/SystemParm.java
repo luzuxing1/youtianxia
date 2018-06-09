@@ -22,7 +22,21 @@ public class SystemParm {
         public static int ADD_Fail= 5;
         public static String ADD_FAILD="添加失败";
 
-        public static int CODES= 6;
+        public static int CODES= 6;//成功返回值
+
+        public static int CODES_UPDATE_SUCESS= 7;
+        public static String UPDATE_SUCESS="修改成功";
+
+        public static int CODES_UPDATE_fAIL= 8;
+        public static String UPDATE_FAIL="修改失败";
+
+        public static String REGISTER_FAIL="该账号暂未被注册";
+
+        public static int BUSINESS_LIMIT_CONTROL= 9;
+        public static String LIMIT_SEND="短信发送过于频繁,请1小时收后再试";
+
+        public static int SUCESS= 10;
+        public static String SUCESS_MSG="验证码有误,请重新输入";
     }
 
 }

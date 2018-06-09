@@ -1,8 +1,7 @@
 package com.youtx.rent.placeOrder.service;
 
 import com.youtx.rent.dao.*;
-import com.youtx.rent.entity.RoomResource;
-import com.youtx.rent.entity.RoomSituation;
+import com.youtx.rent.entity.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,6 +23,12 @@ public class RoomMsg {
     private CalendarMapper calendarMapper;
     @Resource
     private PriceMapper priceMapper;
+    @Resource
+    private ScheduleMapper scheduleMapper;
+    @Resource
+    private LodgerOrderMapper lodgerOrderMapper;
+    @Resource
+    private LivePersonMapper livePersonMapper;
 
     public List<String> findPics(Integer roomId){
         return pictureMapper.selectByRoomId ( roomId );
@@ -97,5 +102,39 @@ public class RoomMsg {
 
     public Integer cleanPrice(Integer roomId){
         return priceMapper.selectCleanPriceByRoomId ( roomId );
+    }
+
+    public String orderNum(){
+        Date date = new Date ();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyMMddHHmmss");
+        String dateString = formatter.format(date);
+        return  dateString;
+    }
+
+    public Date timeToDate(String time){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date parse = dateFormat.parse ( time );
+            return parse;
+        } catch (ParseException e) {
+            e.printStackTrace ();
+        }
+        return null;
+    }
+
+    public void saveSchedule(Schedule schedule){
+        scheduleMapper.insert ( schedule );
+    }
+
+    public void saveLodgerOrder(LodgerOrder lodgerOrder){
+        lodgerOrderMapper.insert ( lodgerOrder );
+    }
+
+    public void updateCalendarStatus(String calendarRoom,String begintime, String endtime){
+        calendarMapper.updateByDate ( calendarRoom,begintime,endtime);
+    }
+
+    public void saveLivePerson(LivePerson livePerson){
+        livePersonMapper.insert ( livePerson );
     }
 }

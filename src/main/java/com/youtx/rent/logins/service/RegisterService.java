@@ -91,10 +91,38 @@ public class RegisterService {
 
         return sendSmsResponse;
     }
+    public JsonResult checks2(String phone){
+        User user = userMapper.selectByPhone(phone);
+        JsonResult jsonResult = new JsonResult();
+        if(null != user ){
+            System.out.println("userId:"+user.getUserId());
+            String random = Integer.toString((int)((Math.random()*9+1)*100000));
+            System.out.println("check2----code:"+random);
+            SendSmsResponse response = sendSms(phone,random);
+            if(null!=response.getCode() && ("OK").equals(response.getCode())) {
+                //失败返回code为0，返回验证码
+                jsonResult.setCode(SystemParm.Login.CODES);
+                jsonResult.setMsg(random);
+            }else {
+                //频繁发送信息，1小时上限为5条，返回code为9
+                jsonResult.setCode(SystemParm.Login.BUSINESS_LIMIT_CONTROL);
+                jsonResult.setMsg(SystemParm.Login.LIMIT_SEND);
+            }
+        }else {
+            //失败返回code为3
+            jsonResult.setCode(SystemParm.Login.CODE_REGISTER);
+            jsonResult.setMsg(SystemParm.Login.REGISTER_FAIL);
+
+        }
+        return jsonResult;
+    }
+
+
     public JsonResult checks(String phone){
         User user = userMapper.selectByPhone(phone);
         JsonResult jsonResult = new JsonResult();
         if(null == user ){
+
             //生成6位随机数
             String random = Integer.toString((int)((Math.random()*9+1)*100000));
             //返回给客户端的数据

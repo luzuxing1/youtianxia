@@ -270,12 +270,19 @@ body{ background:url("/profile/images/loginBg.jpg") no-repeat center 70px ;}
                         </div>
                     </div>
                 </div>
+                <!--验证码-->
+                <div class = "check" style="float:left">
+                        <input class="phone"  id="phone1" type="text" placeholder="请输入验证码" name="vcode" style="width:175px;height: 38px;margin-top: 10px">
+                </div>
+                        <input value="${vcode}" type="hidden">
+                <div class = "check1" style="float:left;margin-left: 10px;border:1px solid black ;margin-top: 10px">
+                    <img  src="${base}/vcode/msg"  id="rrr" name="vcode" onclick="change(this)" >
+                </div>
                 <div class="logInOper">
                     <label class="saveLogInTime" for="">
                         <input type="checkbox" value="true" id="rememberMe" >两周内免登录</label>
-                    <a href="javascript:;;" id="forgetpw" class="forgetPwd">忘记密码？</a>
+                    <a href="${base}/user/phoneCheck" id="forgetpassword" class="forgetPwd">忘记密码？</a>
                 </div>
-                <!--<input id="bSignIn" type="button" value="登录" class="logInBtn">-->
                 <a href="javascript:login()" id="bSignIn" class="logInBtn">登录</a>
                 <div class="rigLoginLink clearfix">
                     <a href="${base}/reg/register"  class="FL">立即注册</a> <a href="javascript:void(0);" class="FR" id="logOverSeas">境外手机号登录</a>
@@ -304,13 +311,26 @@ body{ background:url("/profile/images/loginBg.jpg") no-repeat center 70px ;}
     <input type="hidden" value="1" id="loginState">
 </div>
 
-<!--denglu 2016-6-6 14:53-->
+        <!--验证码 lxp 2016-6-8 14:53-->
 <script type="text/javascript">
+    function change(){
+        vcode.src = "${base}/vcode/msg?"+Math.random();
 
+    };
+   // $(function () {
+    //    $("#phone1").blur(function () {
+    //        var s = "${vcode}";
+   //     });
+   // });
+
+</script>
+        <!--denglu lxp 2016-6-6 14:53-->
+<script type="text/javascript">
     function login() {
         var phoneOrEmail = $("#signin_email").val();
         var password = $("#signin_password").val();
         var remember = $("#rememberMe:checked").val();
+        var vcode = $("#phone1").val();
         if(remember == "true"){
         }
         else {
@@ -318,10 +338,9 @@ body{ background:url("/profile/images/loginBg.jpg") no-repeat center 70px ;}
         }
         $.post(
                 "${base}/user/login",
-                {"phoneOrEmail":phoneOrEmail,"password":password,"rememberMe":remember},
+                {"phoneOrEmail":phoneOrEmail,"password":password,"rememberMe":remember,"vcode":vcode},
                 function (data) {
                     if(data.code == 0){
-//                        alert(data.code);
                         window.location.href = "${base}/user/los";
                     }else {
                         alert(data.msg);
@@ -329,6 +348,7 @@ body{ background:url("/profile/images/loginBg.jpg") no-repeat center 70px ;}
                 }
         );
     };
+
 </script>
 <script type="text/javascript">
 
