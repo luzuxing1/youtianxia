@@ -1,9 +1,9 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.RoomDesc;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
+@Repository
 public interface RoomDescMapper {
     int deleteByPrimaryKey(Integer descId);
 

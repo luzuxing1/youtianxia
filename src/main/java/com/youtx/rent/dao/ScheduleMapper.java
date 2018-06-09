@@ -1,7 +1,9 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.Schedule;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ScheduleMapper {
     int deleteByPrimaryKey(Integer scheduleId);
 

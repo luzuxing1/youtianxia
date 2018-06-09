@@ -1,9 +1,10 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.LodgerOpinion;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface LodgerOpinionMapper {
     int deleteByPrimaryKey(Integer lodgerOpinionId);
 

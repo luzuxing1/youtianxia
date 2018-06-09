@@ -16,11 +16,11 @@
     from ytx_landlord_reply
     where landlord_reply_id = #{landlordReplyId,jdbcType=INTEGER}
   </select>
-  <select id="selectByRoomId" resultMap="BaseResultMap">
+  <select id="selectByOpinionId" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from ytx_lordland_reply
-    where room_id = #{roomId}
+    from ytx_landlord_reply
+    where opinion_id = #{opinionId}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ytx_landlord_reply

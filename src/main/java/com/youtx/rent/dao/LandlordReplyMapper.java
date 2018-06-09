@@ -1,7 +1,9 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.LandlordReply;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface LandlordReplyMapper {
     int deleteByPrimaryKey(Integer landlordReplyId);
 
@@ -15,5 +17,5 @@ public interface LandlordReplyMapper {
 
     int updateByPrimaryKey(LandlordReply record);
 
-    LandlordReply selectByRoomId(Integer roomId);
+    LandlordReply selectByOpinionId(Integer opinionId);
 }

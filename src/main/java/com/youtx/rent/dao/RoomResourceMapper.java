@@ -1,7 +1,9 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.RoomResource;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RoomResourceMapper {
     int deleteByPrimaryKey(Integer resourceId);
 

@@ -2,9 +2,10 @@ package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.LodgerOrder;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface LodgerOrderMapper {
     int deleteByPrimaryKey(Integer lodgerOrderId);
 

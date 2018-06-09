@@ -1,7 +1,9 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.Facility;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface FacilityMapper {
     int deleteByPrimaryKey(Integer facId);
 

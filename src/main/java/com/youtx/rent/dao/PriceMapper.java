@@ -1,7 +1,9 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.Price;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface PriceMapper {
     int deleteByPrimaryKey(Integer priceId);
 

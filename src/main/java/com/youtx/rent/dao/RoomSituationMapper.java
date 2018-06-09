@@ -1,7 +1,9 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.RoomSituation;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RoomSituationMapper {
     int deleteByPrimaryKey(Integer situId);
 

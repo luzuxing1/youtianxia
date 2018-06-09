@@ -1,7 +1,9 @@
 package com.youtx.rent.dao;
 
 import com.youtx.rent.entity.Rule;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RuleMapper {
     int deleteByPrimaryKey(Integer ruleId);
 
