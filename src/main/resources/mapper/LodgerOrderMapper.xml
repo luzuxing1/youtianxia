@@ -39,7 +39,12 @@
     where user_id = #{userId} AND order_status = #{status}
   </select>
 
-
+  <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_lodger_order
+    where user_id = #{userId}
+  </select>
   <select id="selectByOrderNum"  resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -54,12 +59,57 @@
   where user_id = #{userId} AND order_status = #{status}
 </select>
 
-  <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByScheduleId"  resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from ytx_lodger_order
-    where user_id = #{userId}
+    where user_id = #{userId} AND schedule_id = #{scheduleId}
   </select>
+
+
+
+
+
+  <select id="CountAllOrderByRoomId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select COUNT(*)
+    from ytx_lodger_order
+    where room_id = #{roomId}
+  </select>
+  <select id="CountStatusOrderByRoomId" resultType="java.lang.Integer">
+    select COUNT(*)
+    from ytx_lodger_order
+    where room_id = #{roomId} AND order_status = #{status}
+  </select>
+
+  <select id="selectByRoomId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_lodger_order
+    where room_id = #{roomId}
+  </select>
+
+  <select id="selectByOrderNumAndRoomId"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_lodger_order
+    where room_id = #{roomId} AND order_num = #{orderNum}
+  </select>
+
+  <select id="selectByStatusAndRoomId"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_lodger_order
+    where room_id = #{roomId} AND order_status = #{status}
+  </select>
+
+  <select id="selectByScheduleIdAndRoomId"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_lodger_order
+    where room_id = #{roomId} AND schedule_id = #{scheduleId}
+  </select>
+
+
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ytx_lodger_order

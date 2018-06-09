@@ -21,12 +21,12 @@ public class UserCenterController {
     private RoomMsg roomMsg;
 
 
-    @RequestMapping("jumpPage")
+    @RequestMapping("/jumpPage")
     public String userCenter(){
         return "person_center";
     }
 
-    @RequestMapping("jumpLodgerPage")
+    @RequestMapping("/jumpLodgerPage")
     public String userCenter2(HttpSession session, Model model,String status,String paycode,String time,String num){
 
         User user = (User) session.getAttribute("user");
@@ -60,7 +60,8 @@ public class UserCenterController {
     @RequestMapping("/cancelOrder")
     public String cancelOrder(Integer lodgerOrderId,String beginTime,String endTime,Integer roomId){
 //        LodgerOrder lodgerOrder = lodgerOrderImpl.findById(lodgerOrderId);
-//        lodgerOrder.setOrderStatus("yqx");
+//        lodgerOrder.setOrderStatus("yqx");'
+
         lodgerOrderImpl.updateStatusById(lodgerOrderId,"yqx");
         roomMsg.updateCalendarStatus("",beginTime,endTime,roomId);
         return "redirect:/userCenter/jumpLodgerPage";

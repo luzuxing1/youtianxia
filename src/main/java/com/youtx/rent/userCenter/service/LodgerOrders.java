@@ -11,4 +11,9 @@ public interface LodgerOrders {
     LodgerOrder findById(Integer lodgerOrderId);
     void updateStatusById(Integer lodgerOrderId ,String status);
     void deleteOrderById(Integer lodgerOrderId);
+
+    List<Integer> findRoomId(Integer userId);
+    Integer CountAllOrderByRoomId(Integer roomId);
+    Integer CountStatusOrderByRoomId(Integer roomId, String orderStatus);
+    List<LodgerOrder> findLodgerOrderByRoomId(int roomId,String status,String paycode,String time,String num);
 }

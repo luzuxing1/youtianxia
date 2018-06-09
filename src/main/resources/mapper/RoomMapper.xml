@@ -25,6 +25,15 @@
     from ytx_room
     where room_id = #{roomId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectRoomId"  parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    SELECT
+    room_id
+    FROM ytx_room
+    WHERE user_id = #{userId}
+  </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ytx_room
     where room_id = #{roomId,jdbcType=INTEGER}

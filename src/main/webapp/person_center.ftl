@@ -219,13 +219,13 @@
 .mycenter .NewSubNav,.wrapper .mycenter{overflow:visible;}
 </style>
 <ul class="NewSubNav">
-    <li class="NewSubNavCur"><a href="http://www.youtx.com/home/dashboard/">账户首页</a></li>
-    <li class=""><a href="http://www.youtx.com/User/MyMailBox/"> 收件箱 </a></li>
-    <li class=""><a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx">我是房东</a></li>
+    <li class="NewSubNavCur"><a href="">账户首页</a></li>
+    <li class=""><a href=""> 收件箱 </a></li>
+    <li class=""><a href="${base}/landlordOrder/jumpLandlordOrder">我是房东</a></li>
     <li class=""><a href="${base}/userCenter/jumpLodgerPage">我是租客</a></li>
-    <li class=""><a href="http://www.youtx.com/user/remind">账户管理</a></li>
-    <li class=""><a href="http://www.youtx.com/judges/">评价管理</a>
-    </li><li class="" style="position:relative;z-index:2"><a href="http://www.youtx.com/profile/cashaccount/">我的资产</a>
+    <li class=""><a href="">账户管理</a></li>
+    <li class=""><a href="">评价管理</a>
+    </li><li class="" style="position:relative;z-index:2"><a href="">我的资产</a>
        
     </li>
     <li class=""><a href="http://www.youtx.com/profile/user/ask/MyAsk.aspx">我是专家</a></li>
