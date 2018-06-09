@@ -17,6 +17,12 @@
     from ytx_calendar
     where calendar_id = #{calendarId,jdbcType=INTEGER}
   </select>
+  <select id="selectByRoomId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_calendar
+    where room_id = #{roomId}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ytx_calendar
     where calendar_id = #{calendarId,jdbcType=INTEGER}

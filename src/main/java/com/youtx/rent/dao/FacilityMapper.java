@@ -14,4 +14,6 @@ public interface FacilityMapper {
     int updateByPrimaryKeySelective(Facility record);
 
     int updateByPrimaryKey(Facility record);
+
+    Facility selectByRoomId(Integer roomId);
 }

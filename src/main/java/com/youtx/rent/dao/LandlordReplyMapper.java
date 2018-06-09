@@ -14,4 +14,6 @@ public interface LandlordReplyMapper {
     int updateByPrimaryKeySelective(LandlordReply record);
 
     int updateByPrimaryKey(LandlordReply record);
+
+    LandlordReply selectByRoomId(Integer roomId);
 }
