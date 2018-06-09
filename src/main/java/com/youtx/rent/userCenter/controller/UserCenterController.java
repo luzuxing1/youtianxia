@@ -27,8 +27,7 @@ public class UserCenterController {
     }
 
     @RequestMapping("jumpLodgerPage")
-    public String userCenter2(HttpSession session, Model model,String status){
-//        System.out.println(status+"00000");
+    public String userCenter2(HttpSession session, Model model,String status,String paycode,String time,String num){
 
         User user = (User) session.getAttribute("user");
         Integer userId = user.getUserId();
@@ -42,16 +41,15 @@ public class UserCenterController {
         model.addAttribute("dqr",dqr);
         model.addAttribute("drz",drz);
         model.addAttribute("dpj",dpj);
+        List<LodgerOrder> lodgerOrderList = lodgerOrderImpl.findLodgerOrder(userId,status,paycode,time,num);
 
-        List<LodgerOrder> lodgerOrderList = lodgerOrderImpl.findLodgerOrder(userId,status);
+
 
         for (LodgerOrder lodgerOrder : lodgerOrderList) {
-            System.out.println( "-------SchedulePrice"+lodgerOrder.getSchedule().getSchedulePrice());
-            System.out.println(lodgerOrder.getRoom().getRoomName());
-//            List<String> pics = roomMsg.findPics(lodgerOrder.getRoom().getRoomId());
-//            System.out.println(pics.size());
-            System.out.println(lodgerOrder.getRoom().getPictureList().size());
-            System.out.println(lodgerOrder.getRoom().getRoomResource().getResourceAddress());
+//            System.out.println( "-------SchedulePrice"+lodgerOrder.getSchedule().getSchedulePrice());
+            System.out.println(lodgerOrder.getOrderStatus());
+//            System.out.println(lodgerOrder.getRoom().getPictureList().size());
+//            System.out.println(lodgerOrder.getRoom().getRoomResource().getResourceAddress());
         }
 
         model.addAttribute("countAllOrder",countAllOrder);
@@ -59,7 +57,17 @@ public class UserCenterController {
 //        System.out.println(lodgerOrderList.size());
         return "room_manageOrder";
     }
-
-
-
+    @RequestMapping("/cancelOrder")
+    public String cancelOrder(Integer lodgerOrderId){
+//        LodgerOrder lodgerOrder = lodgerOrderImpl.findById(lodgerOrderId);
+//        lodgerOrder.setOrderStatus("yqx");
+        lodgerOrderImpl.updateStatusById(lodgerOrderId,"yqx");
+        return "redirect:/userCenter/jumpLodgerPage";
+    }
+    @RequestMapping("/deleteOrder")
+    public String deleteOrder(Integer lodgerOrderId){
+        lodgerOrderImpl.updateStatusById(lodgerOrderId,"ysc");
+//        lodgerOrderImpl.deleteOrderById(lodgerOrderId);
+        return "redirect:/userCenter/jumpLodgerPage";
+    }
 }
