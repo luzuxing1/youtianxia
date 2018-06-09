@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0033)http://www.youtx.com/room/144142/ -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><img src="${base}/static/place_info/default.ashx" width="0" height="0"><script src="${base}/static/place_info/push.js.下载"></script><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>
-	市中心公寓7号线长寿路站温馨一居室_上海静安区短租房_游天下
+	${detail[0].roomName}_${detail[0].roomCity}短租房_游天下
 </title>
 <#assign base=request.contextPath />
     <base id="base" href="${base}">
@@ -411,15 +411,15 @@
                         
                         <!--路径-->
                         <div class="detailPath">
-                            <a target="_blank" id="youtxxq_B01_17" href="http://www.youtx.com/">游天下短租网</a><span></span><a target="_blank" id="youtxxq_B01_18" href="http://www.youtx.com/shanghai/">上海短租房</a><span></span><a target="_blank" id="youtxxq_B01_19" href="http://www.youtx.com/shanghai-jingan/">静安区短租房</a><span></span>房源编号:144142
+                            <a target="_blank" id="youtxxq_B01_17" href="http://www.youtx.com/">游天下短租网</a><span></span><a target="_blank" id="youtxxq_B01_18" href="http://www.youtx.com/shanghai/">${detail[0].roomCity}短租房</a><span></span>房源编号:${detail[0].roomId}
                         </div>
                         
                         <div class="top">
                             <div class="sec-1 clearfix">
-                                <h2 title="市中心公寓 7号线长寿路站温馨一居室">市中心公寓 7号线长寿路站温馨一居室</h2>
+                                <h2 title="${detail[0].roomName}">${detail[0].roomName}</h2>
                                 <div class="bigStars fiveStar"></div>
                                 <div class="judge">(<span>10</span>人评价)</div>
-                                
+
                                 <a href="javascript:void(0)" class="collect" id="youtxxq_B02_04"><span></span><i>收藏</i></a>
                                 
                                 <div href="javascript:;" class="share" id="youtxxq_B02_05">
@@ -440,8 +440,8 @@
                             <div class="sec-2 clearfix">
                                 <div class="position">
                                     <span></span>
-                                    <i title="上海市静安区人民广场 南京路步行街 近静安寺 普陀区 外滩">
-                                      上海静安区人民广场 南京路步行街 近静安寺 普陀区...</i><i title="地理位置优越：毗邻长寿路商圈，步行5分钟即可到地铁7号线长寿路站，到静安寺商业中心、南京西路商业中心以及淮海中路车程均在10分钟左右。">（地理位置优越：毗邻长...）</i>
+                                    <i title="${detail[2].resourceAddress}">
+                                    ${detail[2].resourceAddress}</i><i title="${detail[1].descIntroduce}。">（${detail[1].descIntroduce}）</i>
                                 </div>
                                 <a href="javascript:;" class="showmap" id="youtxxq_B02_01">显示地图</a>
                                 
@@ -477,112 +477,6 @@
 
                                         
                                     <img src="${base}/static/place_info/140x88c.jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(1).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(2).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(3).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(4).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(5).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(6).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(7).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(8).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(9).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(10).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(11).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(12).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(13).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(14).jpg" alt="" picdesc="" pictype=""></li>
-                                    
-                                    <li><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c(15).jpg" alt="" picdesc="" pictype=""></li>
-                                    
                                 </ul>
                             </div>
                         </div>
@@ -615,7 +509,18 @@
                                         <p>便利设施</p>
                                     </h4>
                                     <div class="lists clearfix">
-                                        <p><span class="si-5"></span><i>24小时热水</i></p><p><span class="si-7"></span><i>淋浴</i></p><p><span class="si-8"></span><i>电视</i></p><p><span class="si-9"></span><i>电冰箱</i></p><p><span class="si-11"></span><i>洗衣机</i></p><p><span class="si-12"></span><i>空调</i></p><p><span class="si-14"></span><i>有线网络</i></p><p><span class="si-15"></span><i>无线网络</i></p><p><span class="si-17"></span><i>电梯</i></p><p><span class="si-19"></span><i>保安</i></p><p><span class="si-21"></span><i>停车位，20元/小时</i></p><p><span class="si-22"></span><i>对讲门禁系统</i></p><p><span class="si-25"></span><i>可以接待家庭/孩子</i></p><p><span class="si-27"></span><i>可用厨房</i></p><p><span class="si-32"></span><i>可以吸烟</i></p><p class="active"><span class="si-3 active"></span><i>洗浴用品</i></p><p class="active"><span class="si-4 active"></span><i>拖鞋</i></p><p class="active"><span class="si-6 active"></span><i>热水浴缸</i></p><p class="active"><span class="si-10 active"></span><i>电脑</i></p><p class="active"><span class="si-13 active"></span><i>暖气</i></p><p class="active"><span class="si-16 active"></span><i>饮水机</i></p><p class="active"><span class="si-18 active"></span><i>无障碍设施</i></p><p class="active"><span class="si-20 active"></span><i>自动麻将桌</i></p><p class="active"><span class="si-1 active"></span><i>免费健身房</i></p><p class="active"><span class="si-2 active"></span><i>免费游泳池</i></p><p class="active"><span class="si-23 active"></span><i>可以接送</i></p><p class="active"><span class="si-24 active"></span><i>免费早餐</i></p><p class="active"><span class="si-26 active"></span><i>适合举办活动</i></p><p class="active"><span class="si-28 active"></span><i>可以携带宠物</i></p><p class="active"><span class="si-29 active"></span><i>行李寄存</i></p><p class="active"><span class="si-30 active"></span><i>加床服务</i></p><p class="active"><span class="si-31 active"></span><i>票务代理</i></p>
+                                        <#list facilityInfo.keySet() as facility>
+                                            <#if facility.param == 1>
+                                            <p><span class="${facilityInfo.get(facility)}"></span><i>${facility.name}</i></p>
+                                            </#if>
+
+                                        </#list>
+                                        <#list facilityInfo.keySet() as facility>
+                                            <#if facility.param == 0>
+                                                <p><span class="${facilityInfo.get(facility)} active"></span><i>${facility.name}</i></p>
+                                            </#if>
+
+                                        </#list>
                                     </div>
                                     <span class="showall" id="youtxxq_B06_1">查看全部<i></i></span>
                                     <span class="closeall" id="youtxxq_B06_2">收起<i></i></span>
@@ -627,17 +532,17 @@
                                         <p>房屋信息</p>
                                     </h4>
                                     <div class="lists clearfix">
-                                        <p>房屋类型：<span>公寓</span></p>
+                                        <p>房屋类型：<span>${detail[3].situType}</span></p>
                                         <p>
-                                            卫生间数量：<span>1个（独立卫生间）</span>
+                                            卫生间数量：<span>${detail[3].situToiletNum}个（${detail[3].situToiletType}）</span>
                                         </p>
-                                        <p>出租类型：<span>整套出租（35㎡）</span></p>
-                                        <p>标准可住人数：<span>2</span></p>
-                                        <p>卧室数量：<span>1</span></p>
+                                        <p>出租类型：<span>${detail[3].situRent}（${detail[3].situRoomArea}㎡）</span></p>
+                                        <p>标准可住人数：<span>${detail[3].situStandardPeople}</span></p>
+                                        <p>卧室数量：<span>${detail[3].situRoomNum}</span></p>
                                         
-                                        <p>床位数量：<span>1张（双人床）</span></p>
-                                        <p>楼层：<span>13/23</span></p>
-                                        <p>类似房间数量：<span>2</span></p>
+                                        <p>床位数量：<span>${detail[3].situBedNum}张（${detail[3].situBedType}）</span></p>
+                                        <p>楼层：<span>${detail[3].situFloor}</span></p>
+                                        <p>类似房间数量：<span>${detail[3].situOtherResource}</span></p>
                                         
                                     </div>
                                 </li>
@@ -649,7 +554,7 @@
                                     </h4>
                                     <div class="lists clearfix" style="height: 120px;">
                                         <p>
-                                            </p><p>需要咨询请直接通过右侧的400电话找到我，</p><p>暂时不接受一天的预定，请理解</p><p>房间照片真实，描述详尽，请客户耐心了解，放心预定</p><p>公寓位于一幢23层酒店式公寓</p><p>大厦设施：大型监控系统，24小时保安，车位，五部电梯，门禁系统</p><p>房间配备：双人床，双开门衣橱，衣架若干，沙发茶几，电视机，有线电视，免费宽带WIFI，写字桌椅，洗衣机，冰箱，阳台，3.5kg滚筒式洗衣机、24小时中央供热水系统。并提供台灯，吹风机等</p><p>厨房：消毒柜、脱排油烟机、电磁灶，大理石台面，菜池及冷热水龙头，冰箱，微波炉，电水壶，提供全套厨具餐具满足做饭需求。</p><p>卫生间：24H淋浴，洗漱面盆，座便，梳妆镜。</p><p>服务：提供全套纯棉床上用品，一客一换，每周免费保洁，免费代收发快递等服务</p>
+                                            </p><p>${detail[1].descIntroduce}</p>
                                         <p></p>
                                     </div>
                                     <span class="showall" id="youtxxq_B06_3" style="display: inline;">查看全部<i></i></span>
@@ -664,7 +569,7 @@
                                     <div class="lists clearfix">
                                         
                                         <div id="trafficdiv" style="height: 120px; overflow: hidden;">
-                                            <p></p><p>公寓在7号线长寿路5号出口。7号线途经静安寺，转乘方便，去任何一处景点及商业区都非常方便。</p><p></p><p>各 机场 和 火车站 到达 公寓 具体路线：</p><p></p><p>◆7号线长寿路站：地铁7号线在长寿路站下，5号出口出来，出来后左转直走到尽头，我们在如家酒店正对面，即到楼下圣天地酒店式公寓5号楼为我们办公室，有24小时值班人员，整个步行时间在5至10分钟左右。</p><p></p><p>◆上海火车站：打车起步费 （14元）</p><p></p><p>◆浦东机场：方法1：机场五线到上海火车站下车，换乘出租车，起步费14元即可到达。方法2：在机场乘地铁2号线到龙阳路，换地铁7号线到长寿路站（行走路线同上）。</p><p></p><p>◆虹桥机场和地铁：方法1：出租车费用50元左右。方法2：地铁2号线到静安寺站换地铁7号线到长寿路站（行走路线同上）</p><p></p>
+                                            <p></p>${detail[1].descTraffic}<p></p>
                                         </div>
                                         
                                     </div>
@@ -682,9 +587,9 @@
 
                                     <div class="lists clearfix" style="height: 120px;">
                                         
-                                        <p></p><p>◆超市：大型超市乐购，家乐福，中型超市家得利，24小时便利店：罗森，屈臣氏，全家，喜士多，好德，农工商，迪亚天天</p><p></p><p>◆商场：巴黎春天陕西北路店，亚新生活广场，梅陇镇广场等</p><p></p><p>◆银行：工行，建行，交行，浦发，上海银行，中行。</p><p>◆写字楼：嘉里中心、恒隆广场、中信泰富广场、梅陇镇广场、上海商城等等 </p><p></p><p>◆医院：上海普陀人民医院，上海普陀妇幼保健院，长征医院，华山医院，儿童医院</p><p></p><p>◆学校：上海市经济管理学校，培训学校</p><p></p><p>◆ 餐馆：公寓周边近百家大小不同类型餐馆，著名玉佛斋菜馆</p><p></p><p>◆家常菜推荐：巴黎春天5楼外婆家</p><p></p>
+                                        <p></p><p>${detail[1].descLife}</p><p></p>
                                         
-                                        <p>小区对面就是长寿公园，适合休憩散步。临近小区的上海名刹“玉佛寺”为佛门弟子提供了方便的礼佛之处。</p>
+                                        <p>${detail[1].descView}</p>
                                         
                                     </div>
                                     <span class="showall" id="youtxxq_B06_7">查看全部<i></i></span>
@@ -698,7 +603,7 @@
                                     </h4>
                                     <div class="lists clearfix" style="height: 120px;">
                                         <p>
-                                            </p><p>沙发可作床使用。不接受聚会</p><p></p><p>开票额外支付5%发票税点</p><p></p><p>对于周租和月租的价格不包含水电费，入住和退房抄表，还请合理使用，通常一个月200左右。</p><p>入住接待时间中午12：00后至晚21：00点前（如果房间提前打扫好，可以早至10点左右入住）</p><p></p><p>退房办理时间上午08：00后至午12：00点前（如果下一位房客不着急入住可以晚一点退房）</p><p></p><p>白天基本都在5号楼办公或者各个房间里溜达，其它早住晚退的时间请先与我沟通哦，当然，我也会提前询问好您的入住时间和退房时间啦，基本能保证10分钟内出现哒，敬请谅解</p>
+                                            </p><p>${detail[1].descOther}</p>
                                         <p></p>
                                     </div>
                                     <span class="showall" id="youtxxq_B06_9">查看全部<i></i></span>
@@ -732,13 +637,13 @@
                                 <li>退房时间：<span>12:00 之前<img width="12" height="12" style="cursor: help; margin-left: 5px;" title="请在此时间之前退房" alt="请在此时间之前退房" src="${base}/static/place_info/questionmark_hover.png"></span></li>
                                 <li>押金：<span>￥500<img width="12" height="12" style="cursor: help; margin-left: 5px;" title="房东要求线下支付该数额的押金，并在入住结束时退还。" alt="房东要求线下支付该数额的押金，并在入住结束时退还。" src="${base}/static/place_info/questionmark_hover.png"></span></li>
                                 <li>发票：<span>提供<img width="12" height="12" style="cursor: help; margin-left: 5px;" title="房东是否提供发票" alt="房东是否提供发票" src="${base}/static/place_info/questionmark_hover.png"></span></li>
-                                <li>是否与房东共住：<span>否</span></li>
+                                <li>是否与房东共住：<span>${detail[3].situMaster}</span></li>
                             </ul>
                         </div>
                         <div class="userules">
                             <h5>房屋使用规则</h5>
                             <ul>
-                                <p>1. 我们的地址是江宁路1145弄5号楼630室内，但是您需要从江宁路走进来，入口在江宁路上的如家酒店对面，如果您乘坐7号线或者13号线，请从7号线的5号口走出沿着江宁路一直往东走。</p><p></p><p>2. 我们的接待室在5号楼630室，您可以直接通过电话或者到我们的办公室寻求帮助；</p><p></p><p>3. 常规的入驻时间在14：00，如果需要早于这个时间入驻，需要提前预约，我们会根据房间的 实际情况为您进行安排</p><p></p><p>4.退房的时间一般在12:00,如果您需要延长退房的时间，请提前一个晚上的时间通知我们，我们会根据下一位客人的到店时间进行安排。</p><p>5.入住请带好您的身份证件；</p>
+                                <p>${detail[9].reqRule}</p>
                             </ul>
                         </div>
                         

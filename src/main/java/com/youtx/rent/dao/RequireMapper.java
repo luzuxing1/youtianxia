@@ -16,4 +16,6 @@ public interface RequireMapper {
     int updateByPrimaryKeySelective(Require record);
 
     int updateByPrimaryKey(Require record);
+
+    Require selectByRoomId(Integer roomId);
 }
