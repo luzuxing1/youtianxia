@@ -747,13 +747,23 @@ $(function(){
                         var keys = $("#txtLocation").val();
                         var thiscity = $("#txtCity").val();
                         var btw = $(obj).attr("data");
+                        var sort3 = $(".c2b98dd").attr("data");
                         var iii = new Array();
                         var ggg = new Array();
+                        var ffff = new Array();
+                        var gggg = new Array();
+
                         $(".curFac").each(function () {
                             iii.push($(this).attr("data"));
                         })
                         $(".curPlace").each(function () {
                             ggg.push($(this).attr("data"));
+                        })
+                        $(".curRoom").each(function () {
+                            ffff.push($(this).attr("data"));
+                        })
+                        $(".curType").each(function () {
+                            gggg.push($(this).attr("data"));
                         })
                         if (iii == "") {
                             iii = "*";
@@ -761,7 +771,13 @@ $(function(){
                         if (ggg == "") {
                             ggg = "*";
                         }
-                        $(obj).attr("href","rent/screen/all?all=" + btw + "-" + keys + "-" + thiscity + "-" + ggg + "-" + iii);
+                        if (ffff == "") {
+                            ffff = "*";
+                        }
+                        if (gggg == "") {
+                            gggg = "*";
+                        }
+                        $(obj).attr("href","rent/screen/all?all=" + btw + "-" + keys + "-" + thiscity + "-" + ggg + "-" + iii + "-" + ffff + "-" + gggg + "&currentPage=1&sort=" + sort3);
                         return true;
                     }
                     $(function () {
@@ -783,34 +799,184 @@ $(function(){
                 </script>
 		    	<div class="item-wrap clearfix">
 		    		<div class="item-tit">户型：</div>
-                    <dl id="dl_rentType" class="item clearfix"><dt class="active"><a id="youtxlist_B03_18" href="http://www.youtx.com/shanghai/" data="" rel="nofollow">不限</a></dt><dd><label id="youtxlist_B03_19"><a href="http://www.youtx.com/shanghai/rctype1/" data="1"><i></i>一居</a></label></dd><dd><label id="youtxlist_B03_20"><a href="http://www.youtx.com/shanghai/rctype2/" data="2"><i></i>二居</a></label></dd><dd><label id="youtxlist_B03_21"><a href="http://www.youtx.com/shanghai/rctype3/" data="3"><i></i>三居</a></label></dd><dd><label id="youtxlist_B03_22"><a href="http://www.youtx.com/shanghai/rctype4/" data="4"><i></i>四居</a></label></dd><dd><label id="youtxlist_B03_23"><a href="http://www.youtx.com/shanghai/rctype5/" data="5"><i></i>四居以上</a></label></dd><dd><label id="youtxlist_B03_24"><a href="http://www.youtx.com/shanghai/rtype3/" data="3"><i></i>整套出租</a></label></dd><dd><label id="youtxlist_B03_25"><a href="http://www.youtx.com/shanghai/rtype1/" data="1"><i></i>单间出租</a></label></dd><dd><label id="youtxlist_B03_26"><a href="http://www.youtx.com/shanghai/rtype2/" data="2"><i></i>床位出租</a></label></dd><dd><label id="youtxlist_B03_27"><a href="http://www.youtx.com/shanghai/rtype4/" data="4"><i></i>沙发出租</a></label></dd></dl>
+                    <dl id="dl_rentType" class="item clearfix"><dt class="active" id="allRoom"><a id="youtxlist_B03_18" href="" onclick="roomnum(this)" data="" rel="nofollow" class="nolimit">不限</a></dt><dd><label id="youtxlist_B03_19"><a href="" onclick="roomnum(this)" data="1" id="r1"><i></i>一居</a></label></dd><dd><label id="youtxlist_B03_20"><a href="" onclick="roomnum(this)" data="2" id="r2"><i></i>二居</a></label></dd><dd><label id="youtxlist_B03_21"><a href="" onclick="roomnum(this)" data="3" id="r3"><i></i>三居</a></label></dd><dd><label id="youtxlist_B03_22"><a href="" onclick="roomnum(this)" data="4" id="r4"><i></i>四居</a></label></dd><dd><label id="youtxlist_B03_23"><a href="" onclick="roomnum(this)" data="5" id="r5"><i></i>四居以上</a></label></dd><dd><label id="youtxlist_B03_24"><a href="" onclick="roomtype(this)" data="整套出租" id="整套出租"><i></i>整套出租</a></label></dd><dd><label id="youtxlist_B03_25"><a href="" onclick="roomtype(this)" data="单间出租" id="单间出租"><i></i>单间出租</a></label></dd><dd><label id="youtxlist_B03_26"><a href="" onclick="roomtype(this)" data="床位出租" id="床位出租"><i></i>床位出租</a></label></dd><dd><label id="youtxlist_B03_27"><a href="" onclick="roomtype(this)" data="沙发出租" id="沙发出租"><i></i>沙发出租</a></label></dd></dl>
                 </div>
+                <#list curRo as ro >
+                    <input type="hidden" class="checkRo" value="${ro}"/>
+                </#list>
+                <#list curTy as ty >
+                    <input type="hidden" class="checkTy" value="${ty}"/>
+                </#list>
+                <script type="text/javascript">
+                    $(function () {
+                        if ($(".checkRo").val() != "*") {
+                            $(".checkRo").each(function () {
+                                $("#r" + $(this).val()).css("color", "#2b98dd");
+                                $("#r" + $(this).val()).find("i").addClass("checked");
+                                $("#r" + $(this).val()).addClass("curRoom");
+                            })
+                            if ($(".curRoom").val() != undefined) {
+                                $("#allRoom").removeClass("active");
+                            } else {
+                                $("#allRoom").addClass("active");
+                            }
+                        }
+                    })
+                    $(function () {
+                        if ($(".checkTy").val() != "*") {
+                            $(".checkTy").each(function () {
+                                $("#" + $(this).val()).css("color", "#2b98dd");
+                                $("#" + $(this).val()).find("i").addClass("checked");
+                                $("#" + $(this).val()).addClass("curType");
+                            })
+                            if ($(".curType").val() != undefined) {
+                                $("#allRoom").removeClass("active");
+                            } else {
+                                $("#allRoom").addClass("active");
+                            }
+                        }
+                    })
+                    function roomnum(obj) {
+                        var ddd = new Array();
+                        var bbb = new Array();
+                        var qqq = new Array();
+                        var eeee = new Array();
+
+                        var sort4 = $(".c2b98dd").attr("data");
+                        if ($(obj).hasClass("curRoom")) {
+                            $(obj).removeClass("curRoom");
+                        } else {
+                            $(obj).addClass("curRoom");
+                        }
+                        var key3 = $("#txtLocation").val();
+                        var city3 = $("#txtCity").val();
+                        var curprice4 = $(".curPrice").attr("data");
+                        $(".curFac").each(function () {
+                            ddd.push($(this).attr("data"));
+                        })
+                        $(".curPlace").each(function () {
+                            bbb.push($(this).attr("data"));
+                        })
+                        $(".curRoom").each(function () {
+                            qqq.push($(this).attr("data"));
+                        })
+                        $(".curType").each(function () {
+                            eeee.push($(this).attr("data"));
+                        })
+                        if(ddd == "") {
+                            ddd.push("*");
+                        }
+                        if (bbb == "") {
+                            bbb.push("*");
+                        }
+                        if (qqq == "") {
+                            qqq.push("*");
+                        }
+                        if (eeee == "") {
+                            eeee.push("*");
+                        }
+                        if ($(obj).hasClass("nolimit")) {
+                            qqq = [];
+                            qqq.push("*");
+                        }
+                        $(obj).attr("href","rent/screen/all?all=" + curprice4 + "-" + key3 + "-" + city3 + "-" + bbb + "-" + ddd + "-" + qqq + "-" + eeee + "&currentPage=1&sort=" + sort4);
+                        return true;
+                    }
+                    function roomtype(obj) {
+                        var aaaa = new Array();
+                        var bbbb = new Array();
+                        var cccc = new Array();
+                        var dddd = new Array();
+                        var sort5 = $(".c2b98dd").attr("data");
+                        if ($(obj).hasClass("curType")) {
+                            $(obj).removeClass("curType");
+                        } else {
+                            $(obj).addClass("curType");
+                        }
+                        var key4 = $("#txtLocation").val();
+                        var city4 = $("#txtCity").val();
+                        var curprice5 = $(".curPrice").attr("data");
+                        $(".curFac").each(function () {
+                            aaaa.push($(this).attr("data"));
+                        })
+                        $(".curPlace").each(function () {
+                            bbbb.push($(this).attr("data"));
+                        })
+                        $(".curRoom").each(function () {
+                            cccc.push($(this).attr("data"));
+                        })
+                        $(".curType").each(function () {
+                            dddd.push($(this).attr("data"));
+                        })
+                        if(aaaa == "") {
+                            aaaa.push("*");
+                        }
+                        if (bbbb == "") {
+                            bbbb.push("*");
+                        }
+                        if (cccc == "") {
+                            cccc.push("*");
+                        }
+                        if (dddd == "") {
+                            dddd.push("*");
+                        }
+
+                        $(obj).attr("href","rent/screen/all?all=" + curprice5 + "-" + key4 + "-" + city4 + "-" + bbbb + "-" + aaaa + "-" + cccc + "-" + dddd + "&currentPage=1&sort=" + sort5);
+                        return true;
+                    }
+                </script>
             <div id="div_HouseType" class="item-wrap clearfix">
                 <div class="item-tit">类型：</div>
-                <dl id="dl_HouseType" class="item clearfix"><dt class="active" id="allPlace"><a id="youtxlist_B03_28" href="http://www.youtx.com/shanghai/" data="" rel="nofollow">不限</a></dt><dd><label id="youtxlist_B03_29"><a href="" data="公寓" class="" onclick="place(this)" id="公寓"><i></i>公寓</a></label></dd><dd><label id="youtxlist_B03_30"><a href="" data="民宿" class="" onclick="place(this)" id="民宿"><i></i>民宿</a></label></dd><dd><label id="youtxlist_B03_31"><a href=""  onclick="place(this)" data="旅馆" id="旅馆"><i></i>旅馆</a></label></dd><dd><label id="youtxlist_B03_32"><a href="" onclick="place(this)" data="别墅" id="别墅"><i></i>别墅</a></label></dd><dd><label id="youtxlist_B03_34"><a href="" onclick="place(this)" data="活动场地"  id="活动场地"><i></i>活动场地</a></label></dd><dd><label id="youtxlist_B03_35"><a href="" onclick="place(this)" data="农家院" id="农家院"><i></i>农家院</a></label></dd><dd><label id="youtxlist_B03_36"><a href=""  onclick="place(this)" data="客栈" id="客栈"><i></i>客栈</a></label></dd><dd><label id="youtxlist_B03_37"><a href=""  onclick="place(this)" data="其它" id="其它"><i></i>其它</a></label></dd></dl>
+                <dl id="dl_HouseType" class="item clearfix"><dt class="active" id="allPlace"><a id="youtxlist_B03_28" href="" data="*" rel="nofollow" onclick="place(this)" class="nolimit">不限</a></dt><dd><label id="youtxlist_B03_29"><a href="" data="公寓" class="" onclick="place(this)" id="公寓"><i></i>公寓</a></label></dd><dd><label id="youtxlist_B03_30"><a href="" data="民宿" class="" onclick="place(this)" id="民宿"><i></i>民宿</a></label></dd><dd><label id="youtxlist_B03_31"><a href=""  onclick="place(this)" data="旅馆" id="旅馆"><i></i>旅馆</a></label></dd><dd><label id="youtxlist_B03_32"><a href="" onclick="place(this)" data="别墅" id="别墅"><i></i>别墅</a></label></dd><dd><label id="youtxlist_B03_34"><a href="" onclick="place(this)" data="活动场地"  id="活动场地"><i></i>活动场地</a></label></dd><dd><label id="youtxlist_B03_35"><a href="" onclick="place(this)" data="农家院" id="农家院"><i></i>农家院</a></label></dd><dd><label id="youtxlist_B03_36"><a href=""  onclick="place(this)" data="客栈" id="客栈"><i></i>客栈</a></label></dd><dd><label id="youtxlist_B03_37"><a href=""  onclick="place(this)" data="其它" id="其它"><i></i>其它</a></label></dd></dl>
             </div>
+
+            <#list curfaci as fa>
+                <input type="hidden" class="checkfac" value="${fa}"/>
+            </#list>
             <#list curplace as pla>
                 <input type="hidden" class="checkplace" value="${pla}"/>
             </#list>
 
             <script type="text/javascript">
                 $(function () {
-                    $(".checkplace").each(function () {
-                        $("#" + $(this).val()).css("color", "#2b98dd");
-                        $("#" + $(this).val()).find("i").addClass("checked");
-                        $("#" + $(this).val()).addClass("curPlace");
-                    })
-                    if ($(".curPlace").val() != undefined) {
-                        $("#allPlace").removeClass("active");
-                    } else {
-                        $("#allPlace").addClass("active");
+                    if ($(".checkfac").val() != "*") {
+                        $(".checkfac").each(function () {
+                            $("#" + $(this).val()).css("color", "#2b98dd");
+                            $("#" + $(this).val()).find("i").addClass("checked");
+                            $("#" + $(this).val()).addClass("curFac");
+                        })
+                        if ($(".curFac").val() != undefined) {
+                            $("#allFac").removeClass("active");
+                        } else {
+                            $("#allFac").addClass("active");
+                        }
                     }
-                })
+                    if($(".checkplace").val() != "*") {
+                        $(".checkplace").each(function () {
+                            $("#" + $(this).val()).css("color", "#2b98dd");
+                            $("#" + $(this).val()).find("i").addClass("checked");
+                            $("#" + $(this).val()).addClass("curPlace");
+                        })
+                        if ($(".curPlace").val() != undefined) {
+                            $("#allPlace").removeClass("active");
+                        } else {
+                            $("#allPlace").addClass("active");
+                        }
+                    }
+                });
+
 
                 function place(obj) {
                     var ppp = new Array();
                     var ooo = new Array();
-                    $(obj).addClass("curPlace");
+                    var hhhh = new Array();
+                    var iiii = new Array();
+                    var sort6 = $(".c2b98dd").attr("data");
+                    if ($(obj).hasClass("curPlace")) {
+                        $(obj).removeClass("curPlace");
+                    } else {
+                        $(obj).addClass("curPlace");
+                    }
                     var key1 = $("#txtLocation").val();
                     var city1 = $("#txtCity").val();
                     var curprice2 = $(".curPrice").attr("data");
@@ -820,10 +986,29 @@ $(function(){
                     $(".curPlace").each(function () {
                         ppp.push($(this).attr("data"));
                     })
+                    $(".curRoom").each(function () {
+                        hhhh.push($(this).attr("data"));
+                    })
+                    $(".curType").each(function () {
+                        iiii.push($(this).attr("data"));
+                    })
                     if(ooo == "") {
                         ooo.push("*");
                     }
-                    $(obj).attr("href","rent/screen/all?all=" + curprice2 + "-" + key1 + "-" + city1 + "-" + ppp + "-" + ooo);
+                    if (ppp == "") {
+                        ppp.push("*");
+                    }
+                    if (hhhh == "") {
+                        hhhh.push("*");
+                    }
+                    if (iiii == "") {
+                        iiii.push("*");
+                    }
+                    if ($(obj).hasClass("nolimit")) {
+                        ppp = [];
+                        ppp.push("*");
+                    }
+                    $(obj).attr("href","rent/screen/all?all=" + curprice2 + "-" + key1 + "-" + city1 + "-" + ppp + "-" + ooo + "-" + hhhh + "-" + iiii + "&currentPage=1&sort=" + sort6);
                     return true;
                 }
             </script>
@@ -832,7 +1017,7 @@ $(function(){
 
 		    	<div class="item-wrap clearfix peitao">
 		    		<div class="item-tit">配套：</div>
-                <dl id="dl_ConvenientFacilities" class="item clearfix"><dt class="active" id="allFac"><a id="youtxlist_B03_49" href="" data="" rel="nofollow" onclick="fac(this)">不限</a></dt><dd><label id="youtxlist_B03_50"><a href="" onclick="fac(this)" data="facwirednetwork" id="facwirednetwork"><i></i>宽带</a></label></dd><dd><label id="youtxlist_B03_51"><a href="" onclick="fac(this)" id="facwirelessnetwork" data="facwirelessnetwork"><i></i>无线宽带</a></label></dd><dd><label id="youtxlist_B03_52"><a href="" onclick="fac(this)" id="factv" data="factv"><i></i>有线电视</a></label></dd><dd><label id="youtxlist_B03_53"><a href="" onclick="fac(this)" id="facshower" data="facshower"><i></i>淋浴</a></label></dd><dd><label id="youtxlist_B03_54"><a href="" onclick="fac(this)" id="facaircon" data="facaircon"><i></i>空调</a></label></dd><dd><label id="youtxlist_B03_55"><a href="" onclick="fac(this)" id="facheating" data="facheating"><i></i>暖气</a></label></dd><dd><label id="youtxlist_B03_56"><a href="" onclick="fac(this)" id="fackitchen" data="fackitchen"><i></i>厨房</a></label></dd><dd><label id="youtxlist_B03_57"><a href="" onclick="fac(this)" id="fachotwater" data="fachotwater"><i></i>24小时热水</a></label></dd></dl>
+                <dl id="dl_ConvenientFacilities" class="item clearfix"><dt class="active" id="allFac"><a id="youtxlist_B03_49" href="" data="*" rel="nofollow" onclick="fac(this)" class="nolimit">不限</a></dt><dd><label id="youtxlist_B03_50"><a href="" onclick="fac(this)" data="facwirednetwork" id="facwirednetwork"><i></i>宽带</a></label></dd><dd><label id="youtxlist_B03_51"><a href="" onclick="fac(this)" id="facwirelessnetwork" data="facwirelessnetwork"><i></i>无线宽带</a></label></dd><dd><label id="youtxlist_B03_52"><a href="" onclick="fac(this)" id="factv" data="factv"><i></i>有线电视</a></label></dd><dd><label id="youtxlist_B03_53"><a href="" onclick="fac(this)" id="facshower" data="facshower"><i></i>淋浴</a></label></dd><dd><label id="youtxlist_B03_54"><a href="" onclick="fac(this)" id="facaircon" data="facaircon"><i></i>空调</a></label></dd><dd><label id="youtxlist_B03_55"><a href="" onclick="fac(this)" id="facheating" data="facheating"><i></i>暖气</a></label></dd><dd><label id="youtxlist_B03_56"><a href="" onclick="fac(this)" id="fackitchen" data="fackitchen"><i></i>厨房</a></label></dd><dd><label id="youtxlist_B03_57"><a href="" onclick="fac(this)" id="fachotwater" data="fachotwater"><i></i>24小时热水</a></label></dd></dl>
 
                     <dl class="more">
                         <dd>
@@ -855,26 +1040,19 @@ $(function(){
                         })();
                     </script>
 		    	</div>
-            <#list curfac as fa>
-                <input type="hidden" class="checkfac" value="${fa}"/>
-            </#list>
+
             <script type="text/javascript">
-                $(function () {
-                    $(".checkfac").each(function () {
-                        $("#" + $(this).val()).css("color", "#2b98dd");
-                        $("#" + $(this).val()).find("i").addClass("checked");
-                        $("#" + $(this).val()).addClass("curFac");
-                    })
-                    if ($(".curFac").val() != undefined) {
-                        $("#allFac").removeClass("active");
-                    } else {
-                        $("#allFac").addClass("active");
-                    }
-                });
                 function fac(obj) {
                     var fac = new Array();
                     var ttt = new Array();
-                    $(obj).addClass("curFac");
+                    var jjjj = new Array();
+                    var kkkk = new Array();
+                    var sort7 = $(".c2b98dd").attr("data");
+                    if ($(obj).hasClass("curFac")) {
+                        $(obj).removeClass("curFac");
+                    } else {
+                        $(obj).addClass("curFac");
+                    }
                     var key2 = $("#txtLocation").val();
                     var city2 = $("#txtCity").val();
                     var curprice3 = $(".curPrice").attr("data");
@@ -884,12 +1062,33 @@ $(function(){
                     $(".curFac").each(function () {
                         fac.push($(this).attr("data"));
                     })
+                    $(".curRoom").each(function () {
+                        jjjj.push($(this).attr("data"));
+                    })
+                    $(".curType").each(function () {
+                        kkkk.push($(this).attr("data"));
+                    })
                     if (ttt == "") {
                         ttt.push("*");
                     }
-                    $(obj).attr("href","rent/screen/all?all=" + curprice3 + "-" + key2 + "-" + city2 + "-" + ttt + "-" + fac);
+                    if (fac == "") {
+                        fac.push("*");
+                    }
+                    if (jjjj == "") {
+                        jjjj.push("*");
+                    }
+                    if (kkkk == "") {
+                        kkkk.push("*");
+                    }
+                    if ($(obj).hasClass("nolimit")) {
+                        fac = [];
+                        fac.push("*");
+                    }
+                    $(obj).attr("href","rent/screen/all?all=" + curprice3 + "-" + key2 + "-" + city2 + "-" + ttt + "-" + fac + "-" + jjjj + "-" + kkkk + "&currentPage=1&sort=" + sort7);
                     return true;
                 }
+
+
 
             </script>
 
@@ -947,7 +1146,7 @@ $(function(){
 
 <!--2014-11-17修改-结束-->
 
-                    <div id="results_count_top" class="result-count"><a href="http://www.youtx.com/" class="GrayFont">游天下短租房</a><span>&nbsp;&gt;&nbsp;</span><a href="http://www.youtx.com/shanghai/" class="BlueFont">上海短租房</a>&nbsp;-&nbsp;找到相关房源&nbsp;3543&nbsp;个</div>
+                    <div id="results_count_top" class="result-count"><a href="http://www.youtx.com/" class="GrayFont">游天下短租房</a><span>&nbsp;&gt;&nbsp;</span><a class="BlueFont">${selectedcity}短租房</a>&nbsp;-&nbsp;找到相关房源&nbsp;3543&nbsp;个</div>
                 </div>
 
 
@@ -958,8 +1157,53 @@ $(function(){
 
 
                 <div class="filterBox clearfix">
-                    <div id="div_SortBy" class="rankBox clearfix"><dl><dt>排序：</dt><dd><a id="youtxlist_B04_04" href="http://www.youtx.com/shanghai/" class="c2b98dd">默认</a></dd><dd><a id="youtxlist_B04_05" href="http://www.youtx.com/shanghai/sort4/" title="价格由低到高">价格<i class="arrowUp"></i></a></dd><dd><a id="youtxlist_B04_06" href="http://www.youtx.com/shanghai/sort10/" title="销量由高到低">销量</a></dd><dd><a id="youtxlist_B04_07" href="http://www.youtx.com/shanghai/sort13/" title="好评数由高到低">好评数</a></dd><dd><a id="youtxlist_B04_08" href="http://www.youtx.com/shanghai/sort3/" title="最新发布">最新</a></dd></dl></div>
+                    <div id="div_SortBy" class="rankBox clearfix"><dl><dt>排序：</dt><dd><a id="default" href="" onclick="sortit(this)" class="orderby"  data="default">默认</a></dd><dd><a id="rprice" class="orderby" href="" onclick="sortit(this)" title="价格由低到高" data="rprice" >价格↑</a></dd><dd><a id="rsale" class="orderby" href="" onclick="sortit(this)" title="销量由高到低" data="rsale">销量</a></dd><dd><a id="ropinion" class="orderby" href="" onclick="sortit(this)" title="好评数由高到低" data="ropinion">好评数</a></dd><dd><a id="rtime" class="orderby" href="" onclick="sortit(this)" title="最新发布" data="rtime">最新</a></dd></dl></div>
                 </div>
+                <input type="hidden" id="sortType" value="${orderby}"/>
+                <script type="text/javascript">
+                    $(function () {
+                        var sorted = $("#sortType").val();
+                        $("#" + sorted).addClass("c2b98dd");
+                        $("orderby:not(#" + sorted + ")").removeClass("c2b98dd");
+                    })
+                    function sortit(obj) {
+                        var so1 = new Array();
+                        var so2 = new Array();
+                        var so3 = new Array();
+                        var so4 = new Array();
+                        var sorttype = $(obj).attr("data");
+                        var key9 = $("#txtLocation").val();
+                        var city9 = $("#txtCity").val();
+                        var curprice9 = $(".curPrice").attr("data");
+                        $(".curPlace").each(function () {
+                            so1.push($(this).attr("data"));
+                        })
+                        $(".curFac").each(function () {
+                            so2.push($(this).attr("data"));
+                        })
+                        $(".curRoom").each(function () {
+                            so3.push($(this).attr("data"));
+                        })
+                        $(".curType").each(function () {
+                            so4.push($(this).attr("data"));
+                        })
+                        if (so1 == "") {
+                            so1.push("*");
+                        }
+                        if (so2 == "") {
+                            so2.push("*");
+                        }
+                        if (so3 == "") {
+                            so3.push("*");
+                        }
+                        if (so4 == "") {
+                            so4.push("*");
+                        }
+                        $(obj).attr("href","rent/screen/all?all=" + curprice9 + "-" + key9 + "-" + city9 + "-" + so1 + "-" + so2 + "-" + so3 + "-" + so4 + "&currentPage=1&sort=" + sorttype);
+                        return true;
+                    }
+                </script>
+
                 <!-- 排序 end -->
 
 
@@ -1003,7 +1247,7 @@ $(function(){
                             <#list roomList as room>
                             <li class="clearfix">
                                 <div class="house-img"><a id="youtxlist_B05_1" class="b_pic" href="http://www.youtx.com/room/311026/" target="_blank"><img src="${imagesPath}/3.jpg" width="300" height="200"><span class="pic-num">1</span></a><a id="youtxlist_B05_5" href="http://www.youtx.com/user/show/2505111/" target="_blank" class="pic-head"><img src="${base}/static/find_place/70x70.jpg" width="70" height="70"></a><p class="clearfix"></p></div>
-                                <div class="houseInfo clearfix"><div class="house-tit clearfix"><h3><a id="youtxlist_B05_2" href="http://www.youtx.com/room/311026/" target="_blank" title="${room[0].roomName}">${room[0].roomName}</a></h3><div class="house-price mt9"><div class="tag-sale"><a id="youtxlist_B05_3" href="http://www.youtx.com/shanghai/pid760/" target="_blank" class="btn-sale">优质房源推荐<i></i></a></div><span id="pricepre311026"><span class="ListDollar">￥</span><span class="housePrice" id="houseprice">${room[3].priceDay}</span></span><div class="mix12_5"><div class="discount"><div class="discount-price" style="text-align:right;">满7天<span><span class="ListDollar">￥</span>${room[3].priceWeek}/天</span></div><div class="discount-price" style="text-align:right;">满30天<span class="ListDollar">￥</span>${room[3].priceMonth}/天</div></div></div><div class="PriceBox" id="pricebox311026" style="width: 65px;"><div class="innerPBox"><div class="date_title"><ul class="clearfix"><li>周一</li></ul></div><div class="date_details" id="date_details311026"><div id="pricepage311026_1"><ul class="clearfix"><li><span class="PriceDate">06-04</span><span class="PriceNum"><span class="ListDollar">￥</span>${room[3].priceDay}</span></li></ul></div></div></div><div class="PBoxStra"></div></div></div></div><div class="houseInfo-left mt2"><p class="clearfix mt5" style="max-width:380px;overflow:hidden;">${room[1].resourceAddress}</p><p class="mt5">${room[4].situType}-${room[4].situRent}-${room[4].situRoomNum}居室-${room[4].situStandardPeople}人宜居-共${room[4].situOtherResource}套<span class="vslipt">|</span><span class="ff9913">1</span>人评价-近期预订<span class="ff9913">2</span>晚</p><p class="distance mt5">&nbsp;</p></div><div class="houseInfo-right mt9"></div><div class="clear"></div><div class="agentInfo mt16" style="margin-top:38px;"><p><a id="youtxlist_B05_6" href="http://www.youtx.com/user/show/2505111/" target="_blank">${room[2].userRealname}</a><em class="tel">400-8130-400 转 49136</em></p><p class="mt10 btm_p_ clearfix"></p></div></div></li>
+                                <div class="houseInfo clearfix"><div class="house-tit clearfix"><h3><a id="youtxlist_B05_2" href="http://www.youtx.com/room/311026/" target="_blank" title="${room[0].roomName}">${room[0].roomName}</a></h3><div class="house-price mt9"><div class="tag-sale"><a id="youtxlist_B05_3" href="http://www.youtx.com/shanghai/pid760/" target="_blank" class="btn-sale">优质房源推荐<i></i></a></div><span id="pricepre311026"><span class="ListDollar">￥</span><span class="housePrice" id="houseprice">${room[3].priceDay}</span></span><div class="mix12_5"><div class="discount"><div class="discount-price" style="text-align:right;">满7天<span><span class="ListDollar">￥</span>${room[3].priceWeek}/天</span></div><div class="discount-price" style="text-align:right;">满30天<span class="ListDollar">￥</span>${room[3].priceMonth}/天</div></div></div><div class="PriceBox" id="pricebox311026" style="width: 65px;"><div class="innerPBox"><div class="date_title"><ul class="clearfix"><li>周一</li></ul></div><div class="date_details" id="date_details311026"><div id="pricepage311026_1"><ul class="clearfix"><li><span class="PriceDate">06-04</span><span class="PriceNum"><span class="ListDollar">￥</span>${room[3].priceDay}</span></li></ul></div></div></div><div class="PBoxStra"></div></div></div></div><div class="houseInfo-left mt2"><p class="clearfix mt5" style="max-width:380px;overflow:hidden;">${room[1].resourceAddress}</p><p class="mt5">${room[4].situType}-${room[4].situRent}-${room[4].situRoomNum}居室-${room[4].situStandardPeople}人宜居-共${room[4].situOtherResource}套<span class="vslipt"><p class="distance mt5">&nbsp;</p></div><div class="houseInfo-right mt9"></div><div class="clear"></div><div class="agentInfo mt16" style="margin-top:38px;"><p><a id="youtxlist_B05_6" href="http://www.youtx.com/user/show/2505111/" target="_blank">${room[2].userRealname}</a><em class="tel">400-8130-400 转 49136</em></p><p class="mt10 btm_p_ clearfix"></p></div></div></li>
                             </#list>
                             </ul></div>
 
@@ -1038,13 +1282,74 @@ $(function(){
 
                 <div id="clearfix" class="pagebar clearfix">
                     <div class="pagebar-left">
-                        <p id="results_count_footer" class="PB5"><a id="youtxlist_B06_01" href="http://www.youtx.com/shanghai/" class="BlueFont">上海短租房</a>&nbsp;-&nbsp;找到相关房源&nbsp;<span class="c2b98dd">3543</span>&nbsp;个，每页&nbsp;<span class="c2b98dd">30</span>&nbsp;个结果</p>
+                        <p id="results_count_footer" class="PB5"><a id="youtxlist_B06_01" href="http://www.youtx.com/shanghai/" class="BlueFont">${selectedcity}短租房</a>&nbsp;-&nbsp;找到相关房源&nbsp;<span class="c2b98dd">${pageInfo[0] * 10}</span>&nbsp;个，每页&nbsp;<span class="c2b98dd">1</span>&nbsp;个结果</p>
                         <p><span class="c2b98dd">没有找到满意的房子？</span> <a href="http://www.youtx.com/profile/BookingTeam" class="btn_publish" target="_blank">我要发布求租</a></p>
                     </div>
                     <div id="div_Pager">
                         <div class="pagebar-right">
-                            <span class="prev1">&lt;</span><span class="cur">1</span><a href="http://www.youtx.com/shanghai/page2/">2</a><a href="http://www.youtx.com/shanghai/page3/">3</a><a href="http://www.youtx.com/shanghai/page4/">4</a><a href="http://www.youtx.com/shanghai/page5/">5</a><a href="http://www.youtx.com/shanghai/page6/">6</a><a href="http://www.youtx.com/shanghai/page7/">7</a><a href="http://www.youtx.com/shanghai/page8/">8</a><span class="points">...</span><a href="http://www.youtx.com/shanghai/page58/">58</a><a href="http://www.youtx.com/shanghai/page2/" class="next">&gt;</a>
+                            <#if pageInfo[1] == true>
+                                <a href="" onclick="changePage(this)" class="next">&lt;</a>
+                            <#else>
+                                <span class="prev1">&lt;</span>
+                            </#if>
+                            <#list 1..pageInfo[0] as i>
+                                <#if pageInfo[3] == i>
+                                    <span class="cur">${i}</span>
+                                <#else>
+                                    <a href="" onclick="changePage(this)">${i}</a>
+                                </#if>
+                            </#list>
+                            <#if pageInfo[2] == true>
+                                <a href="" class="next" onclick="changePage(this)">&gt;</a>
+                            <#else>
+                                <span class="prev1">&gt;</span>
+                            </#if>
                         </div>
+                        <script type="text/javascript">
+                            function changePage(obj) {
+                                var nnnn = new Array();
+                                var oooo = new Array();
+                                var pppp = new Array();
+                                var qqqq = new Array();
+                                var page1 = $(obj).text();
+                                var sort1 = $(".c2b98dd").attr("data");
+                                var key8 = $("#txtLocation").val();
+                                var city8 = $("#txtCity").val();
+                                var curprice8 = $(".curPrice").attr("data");
+                                $(".curPlace").each(function () {
+                                    nnnn.push($(this).attr("data"));
+                                })
+                                $(".curFac").each(function () {
+                                    oooo.push($(this).attr("data"));
+                                })
+                                $(".curRoom").each(function () {
+                                    pppp.push($(this).attr("data"));
+                                })
+                                $(".curType").each(function () {
+                                    qqqq.push($(this).attr("data"));
+                                })
+                                if (nnnn == "") {
+                                    nnnn.push("*");
+                                }
+                                if (oooo == "") {
+                                    oooo.push("*");
+                                }
+                                if (pppp == "") {
+                                    pppp.push("*");
+                                }
+                                if (qqqq == "") {
+                                    qqqq.push("*");
+                                }
+                                if (page1 == ">") {
+                                    page1 = parseInt($(".pagebar-right").find(".cur").text()) + 1;
+                                }
+                                if (page1 == "<") {
+                                    page1 = parseInt($(".pagebar-right").find(".cur").text()) - 1;
+                                }
+                                $(obj).attr("href","rent/screen/all?all=" + curprice8 + "-" + key8 + "-" + city8 + "-" + nnnn + "-" + oooo + "-" + pppp + "-" + qqqq + "&currentPage=" + page1 + "&sort=" + sort1);
+                                return true;
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
@@ -1279,6 +1584,9 @@ $(function(){
 //        goUrl();
             var kkk = new Array();
             var rrr = new Array();
+            var llll = new Array();
+            var mmmm = new Array();
+            var sort2 = $(".c2b98dd").attr("data");
             var key = $("#txtLocation").val();
             var city = $("#txtCity").val();
             var curprice1 = $(".curPrice").attr("data");
@@ -1288,13 +1596,25 @@ $(function(){
             $(".curFac").each(function () {
                 rrr.push($(this).attr("data"));
             })
+            $(".curRoom").each(function () {
+                llll.push($(this).attr("data"));
+            })
+            $(".curType").each(function () {
+                mmmm.push($(this).attr("data"));
+            })
             if (kkk == "") {
                 kkk.push("*");
             }
             if (rrr == "") {
                 rrr.push("*");
             }
-            $("#submit_location").attr("href","rent/screen/all?all=" + curprice1 + "-" + key + "-" + city + "-" + kkk + "-" + rrr);
+            if (llll == "") {
+                llll.push("*");
+            }
+            if (mmmm == "") {
+                mmmm.push("*");
+            }
+            $("#submit_location").attr("href","rent/screen/all?all=" + curprice1 + "-" + key + "-" + city + "-" + kkk + "-" + rrr + "-" + llll + "-" + mmmm + "&currentPage=1&sort=" + sort2);
             return true;
 
 
