@@ -103,7 +103,7 @@ public class Book {
         LodgerOrder lodgerOrder = new LodgerOrder ();
         lodgerOrder.setOrderNum ( roomMsg.orderNum () );
         lodgerOrder.setOrderTime ( new Date (  ) );
-        lodgerOrder.setOrderStatus ( "dfk" );
+        lodgerOrder.setOrderStatus ( "dqr" );
         lodgerOrder.setRoom ( schRoom );
         lodgerOrder.setSchedule ( schedule );
         lodgerOrder.setUser ( user );
