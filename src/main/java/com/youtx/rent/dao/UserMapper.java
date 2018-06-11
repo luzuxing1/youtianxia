@@ -4,6 +4,8 @@ import com.youtx.rent.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 
+import java.util.List;
+
 @MapperScan
 public interface UserMapper {
     int deleteByPrimaryKey(Integer userId);
@@ -31,4 +33,14 @@ public interface UserMapper {
      */
     User selectByPhone(String userPhone);
     void updateByPhone(@Param("userPassword") String userPassword,@Param("userPhone") String userPhone);
+    /**
+     * 查询所有用户
+     */
+    List<User> selectAllUsers(int currentPage);
+
+    /**
+     * 计算用户的当前数量
+     * @return
+     */
+    int selectCounts();
 }
