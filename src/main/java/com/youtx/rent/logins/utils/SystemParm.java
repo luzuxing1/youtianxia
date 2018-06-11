@@ -5,6 +5,7 @@ public class SystemParm {
     public final static  class Login{
 
         public static int CODE_SUCCESS= 0;
+        public static int ADMIN_CODE_SUCCESS= 20;
         public static String MSG_SUCCESS="登录成功";
 
         public static int CODE_UNKOWN_ACCOUNT= 1;

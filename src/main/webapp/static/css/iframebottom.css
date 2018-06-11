@@ -1,0 +1,21 @@
+*{margin: 0;top: 0;}
+li{list-style: none}
+a{text-decoration: none;color:#555;}
+input{outline: none;border: 0;}
+body{color:#555;font-size: 12px;font-family: "Microsoft YaHei","微软雅黑","SimSun","宋体"}
+.footer{width: 1190px;margin: auto;padding-top: 50px;border-top: 1px solid #eee;overflow: hidden;}
+.footer_list{padding: 0 100px 0 0;overflow: hidden;}
+.footer_item{width: 110px;font-size: 13px;float: left;margin-left: 100px;}
+.footer_item h3{font-size: 16px;font-weight: bolder;}
+.footer_item dd{padding-top: 10px;padding-left: 15px;position: relative;}
+.footer_item b{width: 5px;height: 5px;border-radius: 50%;background: #3a3a3a;font-weight: bolder;position: absolute;left: 0;top: 17px;}
+.footer_mobile{width: 150px;text-align: center;float: left;margin-left: 100px;}
+.footer_mobile img{width: 100px;height: 100px;margin: 30px auto auto auto;}
+.footer_mobile h2{font-size: 15px;padding-top: 5px;font-weight: normal;}
+.footer_data0{margin-top: 24px;border-top: 1px solid #eee;padding: 25px 0;text-align: center;}
+.icon_da0{width: 113px;height: 38px;margin: 0 5px;display: inline-block;border: 1px solid #eee ;background: url(../images/bgimg3.jpg) 0 0 no-repeat;}
+.icon_da2{background-position: 0 -150px;}
+.icon_da3{background-position: 0 -100px;}
+.icon_da4{background-position: 0 -50px;}
+.footer_data1{text-align: center;padding-bottom: 10px;}
+.footer_data1 em{margin: 0 5px;font-style: normal;}

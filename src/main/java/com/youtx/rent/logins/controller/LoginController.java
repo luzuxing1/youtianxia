@@ -2,7 +2,9 @@ package com.youtx.rent.logins.controller;
 
 import com.youtx.rent.entity.Room;
 import com.youtx.rent.entity.User;
+import com.youtx.rent.logins.Bean.PageBean;
 import com.youtx.rent.logins.result.JsonResult;
+import com.youtx.rent.logins.service.AddUservice;
 import com.youtx.rent.logins.service.LoginService;
 import com.youtx.rent.logins.service.RoomService;
 import com.youtx.rent.logins.utils.SystemParm;
@@ -26,6 +28,8 @@ public class LoginController {
     private LoginService loginService;
     @Autowired
     private RoomService roomService;
+    @Autowired
+    private AddUservice addUservice;
 
     @ResponseBody
     @RequestMapping("/login")
@@ -39,7 +43,11 @@ public class LoginController {
             try {
 //                System.out.println("------------");
                 user = loginService.login(phoneOrEmail,password,rememberMe);
-                jsonResult = SystemTool.formJsonResule(SystemParm.Login.CODE_SUCCESS,SystemParm.Login.MSG_SUCCESS);
+                if("admin".equals(user.getUserRole())){
+                    jsonResult = SystemTool.formJsonResule(SystemParm.Login.ADMIN_CODE_SUCCESS,SystemParm.Login.MSG_SUCCESS);
+                }else {
+                    jsonResult = SystemTool.formJsonResule(SystemParm.Login.CODE_SUCCESS,SystemParm.Login.MSG_SUCCESS);
+                }
             } catch (UnknownAccountException e) {
                 e.printStackTrace();
                 jsonResult = SystemTool.formJsonResule(SystemParm.Login.CODE_UNKOWN_ACCOUNT,SystemParm.Login.MSG_UNKOWN_ACCOUNT);
@@ -52,6 +60,7 @@ public class LoginController {
             jsonResult = SystemTool.formJsonResule(SystemParm.Login.SUCESS,SystemParm.Login.SUCESS_MSG);
         }
         SecurityUtils.getSubject().getSession().setAttribute("user",user);
+
         return jsonResult;
     }
     @RequestMapping("/lo")
@@ -76,6 +85,39 @@ public class LoginController {
     @RequestMapping("/updatepassword")
     public String updatepassword(){
         return "updatePassword";
+    }
+
+    @RequestMapping("/admin")
+    public String admin(Model model){
+        return "manage";
+    }
+    @RequestMapping("/userPage")
+    public String userPage(int  page,Model model){
+        String cPage = Integer.toString(page);
+        if(cPage == null || cPage.equals("")){
+            throw new IllegalArgumentException("必须传递页面数");
+        }
+        PageBean pageBean = loginService.findAllUsers(page);
+
+        List<User> userList = pageBean.getData();
+        int currentPage = loginService.findAllUsers(page).getCurrentPage();
+        model.addAttribute("userList",userList);
+        model.addAttribute("userPage",pageBean);
+        return "usermanage";
+    }
+    @RequestMapping("/addUser")
+    public String addUser(User user,Model model){
+        int addcount = addUservice.addUser(user);
+        System.out.println(addcount);
+        System.out.println(user.getUserRealname());
+        model.addAttribute("addcount",addcount);
+        addUservice.addUser(user);
+
+        return "redirect:/user/admin";
+    }
+    @RequestMapping("/add")
+    public String add(Model model){
+        return "add_user";
     }
 
 

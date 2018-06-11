@@ -342,6 +342,8 @@ body{ background:url("/profile/images/loginBg.jpg") no-repeat center 70px ;}
                 function (data) {
                     if(data.code == 0){
                         window.location.href = "${base}/user/los";
+                    }else if(data.code == 20){
+                        window.location.href = "${base}/user/admin";
                     }else {
                         alert(data.msg);
                     }

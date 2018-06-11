@@ -52,6 +52,7 @@ public class VodeController {
         SecurityUtils.getSubject().getSession().setAttribute("vcode",new String(codes));
         //将图片发送给浏览器
         try {
+            ImageIO.setUseCache(false);
             ImageIO.write(image, "png", response.getOutputStream());
             code = new String(codes);
         } catch (IOException e) {

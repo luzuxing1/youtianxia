@@ -2,6 +2,7 @@ package com.youtx.rent.logins.service;
 
 import com.youtx.rent.dao.UserMapper;
 import com.youtx.rent.entity.User;
+import com.youtx.rent.logins.Bean.PageBean;
 import com.youtx.rent.logins.utils.SystemTool;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -9,6 +10,8 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class LoginServiceImpl implements  LoginService{
@@ -32,5 +35,19 @@ public class LoginServiceImpl implements  LoginService{
         usernamePasswordToken.setRememberMe(rememberMe);
         subject.login(usernamePasswordToken);
         return user;
+    }
+
+    @Override
+    public PageBean findAllUsers(int  currentPage) {
+        int count = userMapper.selectCounts();
+        PageBean page = new PageBean();
+        int spage = (currentPage-1)*PageBean.PAGE_SIZE;
+        List<User> list = userMapper.selectAllUsers(spage);
+        //计算出页面的总数
+        int pageCount = count % PageBean.PAGE_SIZE == 0?count/PageBean.PAGE_SIZE:count/PageBean.PAGE_SIZE+1;
+        page.setTotalPages(pageCount);
+        page.setData(list);
+        page.setCurrentPage(currentPage);
+        return page;
     }
 }

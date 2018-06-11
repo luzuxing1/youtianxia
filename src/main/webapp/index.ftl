@@ -57,7 +57,7 @@
 </script>
 
 <div class="header clearfix">
-    <a id="youtx_C01_01" class="youtxLogo" href="${base/user/los}"><img src="${base}/static/index/youtxLogo.png" width="118" height="62" alt="游天下logo"></a>
+    <a id="youtx_C01_01" class="youtxLogo" href="${base}/user/los"><img src="${base}/static/index/youtxLogo.png" width="118" height="62" alt="游天下logo"></a>
     <ul class="headerNav clearfix" id="headerNav" style="width:580px;">
         <li class="active"><a id="youtx_C01_02" href="${base}/user/los">首页</a></li>
         <li><a id="youtx_C01_03" href="" target="_blank">周租月租</a></li>
@@ -156,7 +156,7 @@
             </dl>
         </li>
         <li class="dropDownPhone">
-            <a href="http://www.youtx.com/#" class="dropDownTrigger"></a>
+            <a href="" class="dropDownTrigger"></a>
             <div class="TopMobCon">
                 <dl>
                     <dt>扫描二维码安装游天下客户端</dt>

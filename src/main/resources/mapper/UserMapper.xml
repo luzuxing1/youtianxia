@@ -10,10 +10,11 @@
     <result column="user_headimg" jdbcType="VARCHAR" property="userHeadimg" />
     <result column="user_pid" jdbcType="VARCHAR" property="userPid" />
     <result column="user_realname" jdbcType="VARCHAR" property="userRealname" />
+    <result column="user_role" jdbcType="VARCHAR" property="userRole" />
   </resultMap>
   <sql id="Base_Column_List">
     user_id, user_phone, user_password, user_email, user_nickname, user_headimg, user_pid, 
-    user_realname
+    user_realname,user_role
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -21,6 +22,17 @@
     from ytx_user
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectAllUsers"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_user limit #{currentPage},3;
+  </select>
+
+  <select id="selectCounts"  resultType="java.lang.Integer" >
+    SELECT COUNT(1) from ytx_user;
+  </select>
+
   <select id="selectByPhone"  resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -74,6 +86,9 @@
       <if test="userRealname != null">
         user_realname,
       </if>
+      <if test="userRole != null">
+        user_role,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -99,6 +114,9 @@
       </if>
       <if test="userRealname != null">
         #{userRealname,jdbcType=VARCHAR},
+      </if>
+      <if test="userRole != null">
+        #{userRole,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>

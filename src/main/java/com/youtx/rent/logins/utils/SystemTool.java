@@ -11,10 +11,15 @@ public class SystemTool {
             jsonResult.setMsg(msg);
         return jsonResult;
     }
+
+    /**
+     * MD5加密方法,盐是密码
+     * @param password
+     * @param salt
+     * @return
+     */
     public static String script(String password,String salt){
         return new SimpleHash("MD5",password,salt,5).toHex();
 
     }
-
-
 }
