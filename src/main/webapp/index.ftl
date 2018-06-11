@@ -784,24 +784,24 @@ document.documentElement.scrollTop;
                 <div class="hotAreaTxt"><span class="c_city2">三亚</span><em></em></div>
             </li>
             <li class="noMR">
-                <a id="youtx_C03_01" onclick="sss_3()"  target="_blank" href="">
+                <a id="youtx_C03_03"  target="_blank" onclick="sss_3()" href="">
                     <img src="${base}/static/index/380x260c(2).jpg" width="380" height="260" alt="热门好去处房源">
                     <div class="shadow"></div>
                 </a><span class="hotAreaBg"></span>
                 <div class="hotAreaTxt"><span class="c_city3">杭州</span><em></em></div>
             </li>
-            <li><a id="youtx_C03_01" onclick="sss_4()"  target="_blank" href="">
+            <li><a id="youtx_C03_04" onclick="sss_4()"  target="_blank" href="">
                 <img src="${base}/static/index/380x260c(3).jpg" width="380" height="260" alt="热门好去处房源">
                 <div class="shadow"></div></a><span class="hotAreaBg"></span>
                 <div class="hotAreaTxt"><span class="c_city4">成都</span><em></em></div>
              </li>
-            <li><a id="youtx_C03_01" onclick="sss_5()"  target="_blank" href="">
+            <li><a id="youtx_C03_05" onclick="sss_5()"  target="_blank" href="">
                 <img src="${base}/static/index/380x260c(4).jpg" width="380" height="260" alt="热门好去处房源">
                 <div class="shadow" style="display: none;"></div></a>
                 <span class="hotAreaBg"></span>
                 <div class="hotAreaTxt"><span class="c_city5">北京</span><em></em></div>
             </li>
-            <li class="noMR"><a id="youtx_C03_01" onclick="sss_6()"  target="_blank" href="">
+            <li class="noMR"><a id="youtx_C03_06" target="_blank" onclick="sss_6()"   href="">
                 <img src="${base}/static/index/380x260c(5).jpg" width="380" height="260" alt="热门好去处房源"><div class="shadow"></div></a><span class="hotAreaBg"></span>
                 <div class="hotAreaTxt"><span class="c_city6">广州</span><em></em></div>
             </li>
@@ -816,27 +816,26 @@ document.documentElement.scrollTop;
     var city_5 = $(".c_city5").text();
     var city_6 = $(".c_city6").text();
     function sss_1() {
-        var citys = $("#txtCity").val();
+
         $("#youtx_C03_01").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+city_1+"-*-*-*-*&currentPage=1&sort=default");
     };
     function sss_2() {
-        var citys = $("#txtCity").val();
         $("#youtx_C03_02").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+city_2+"-*-*-*-*&currentPage=1&sort=default");
     };
     function sss_3() {
-        var citys = $("#txtCity").val();
+
         $("#youtx_C03_03").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+city_3+"-*-*-*-*&currentPage=1&sort=default");
     };
     function sss_4() {
-        var citys = $("#txtCity").val();
+
         $("#youtx_C03_04").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+city_4+"-*-*-*-*&currentPage=1&sort=default");
     };
     function sss_5() {
-        var citys = $("#txtCity").val();
+
         $("#youtx_C03_05").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+city_5+"-*-*-*-*&currentPage=1&sort=default");
     };
     function sss_6() {
-        var citys = $("#txtCity").val();
+
         $("#youtx_C03_06").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+city_6+"-*-*-*-*&currentPage=1&sort=default");
     };
 </script>
