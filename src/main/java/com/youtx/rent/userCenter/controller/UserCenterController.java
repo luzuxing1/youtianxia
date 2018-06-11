@@ -37,17 +37,19 @@ public class UserCenterController {
         int drz = lodgerOrderImpl.CountStatusOrder(userId, "drz");
         int dqr = lodgerOrderImpl.CountStatusOrder(userId, "dqr");
         int dpj = lodgerOrderImpl.CountStatusOrder(userId, "dpj");
+        int ysc = lodgerOrderImpl.CountStatusOrder(userId, "ysc");
         model.addAttribute("dfk",dfk);
         model.addAttribute("dqr",dqr);
         model.addAttribute("drz",drz);
         model.addAttribute("dpj",dpj);
+        model.addAttribute("ysc",ysc);
         List<LodgerOrder> lodgerOrderList = lodgerOrderImpl.findLodgerOrder(userId,status,paycode,time,num);
 
 
 
         for (LodgerOrder lodgerOrder : lodgerOrderList) {
 //            System.out.println( "-------SchedulePrice"+lodgerOrder.getSchedule().getSchedulePrice());
-            System.out.println(lodgerOrder.getOrderStatus());
+            System.out.println(lodgerOrder.getPayTime()+"----------------");
 //            System.out.println(lodgerOrder.getRoom().getPictureList().size());
 //            System.out.println(lodgerOrder.getRoom().getRoomResource().getResourceAddress());
         }
@@ -57,6 +59,31 @@ public class UserCenterController {
 //        System.out.println(lodgerOrderList.size());
         return "room_manageOrder";
     }
+
+
+    @RequestMapping("/jumpOrderRecycling")
+    public String userCenter3(HttpSession session, Model model,String status,String paycode,String time,String num){
+
+        User user = (User) session.getAttribute("user");
+        Integer userId = user.getUserId();
+        int countAllOrder = lodgerOrderImpl.CountAllOrder(userId);
+
+        int ysc = lodgerOrderImpl.CountStatusOrder(userId, "ysc");
+
+        model.addAttribute("ysc",ysc);
+
+        List<LodgerOrder> lodgerOrderList = lodgerOrderImpl.findLodgerOrder(userId,status,paycode,time,num);
+
+
+        model.addAttribute("countAllOrder",countAllOrder);
+        model.addAttribute("lodgerOrderList",lodgerOrderList);
+//        System.out.println(lodgerOrderList.size());
+        return "orderRecycling";
+    }
+
+
+
+
     @RequestMapping("/cancelOrder")
     public String cancelOrder(Integer lodgerOrderId,String beginTime,String endTime,Integer roomId){
 //        LodgerOrder lodgerOrder = lodgerOrderImpl.findById(lodgerOrderId);

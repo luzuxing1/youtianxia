@@ -259,7 +259,7 @@
                             <img src="${base}/static/room_manageOrder/OrderSanJiao.gif"></span> </li>
                 </ul>
                 <ul class="Recycle">
-                    <li class="RecycleOrder"><a href="${base}/userCenter/jumpOrderRecycling?num=3&status=ysc">订单回收站</a>
+                    <li class="RecycleOrder"><a href="${base}/userCenter/jumpLodgerPage?num=2">返回我的订单</a>
                         <div class="NewIco">
                             <img src="${base}/static/room_manageOrder/NewIco726.png"></div>
                     </li>
@@ -279,7 +279,7 @@
                 <a href="${base}/userCenter/jumpLodgerPage?num=3&status=dfk" class="LinkA">待付款(<span>${dfk}</span>)</a>
                 <a href="${base}/userCenter/jumpLodgerPage?num=3&status=dqr" class="LinkA">待确认(<span>${dqr}</span>)</a>
                 <a href="${base}/userCenter/jumpLodgerPage?num=3&status=drz" class="LinkA">待入住(<span>${drz}</span>)</a>
-                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=ysc" class="LinkA">已删除(<span>${ysc}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=dpj" class="LinkA">待评价(<span>${dpj}</span>)</a>
 
                 <div class="TravelTSeacher">
                     <input class="TravelTSeacherText" style="color: #666; float:left;*margin-top:4px;" id="TravelTSeacherText" value="请输入订单号" type="text">
@@ -456,7 +456,7 @@
                 </tbody></table>
                 <div class="NewTravelTable" id="tr87348647">
                     <#list lodgerOrderList as orderlist>
-                        <#if orderlist.orderStatus != "ysc">
+                        <#if orderlist.orderStatus == "ysc">
                         <table>
                         <tbody>
                         <tr>
@@ -537,14 +537,9 @@
                                 </p>
                             </td>
                             <td class="eachzhuangtai" style="text-align: center;" width="130">
-                                <#if orderlist.orderStatus == "dfk">
-                                    <span id="daojishi" class="spanTime" lltime2="${orderlist.payTime?string('yyyy-MM-dd HH:mm:ss')}" lltime="10" pid="${orderlist.lodgerOrderId}" oid="752544">
-                                <#else >
-                                    <span id="daojishi" class="spanTime" lltime="" pid="${orderlist.lodgerOrderId}" oid="752544">
-                                </#if>
-
-                                </span><br>
                                 <span class="NewTravelYellowbg">等待接受</span><br>
+
+                                <#--<span class="spanTime" lltime="60" pid="87348647" oid="752544"></span><br>-->
                                 <span id="zhuangtai" style="display: none">${orderlist.orderStatus}</span>
                             </td>
                             <td style="text-align: center; vertical-align: middle;" width="90">
@@ -554,10 +549,6 @@
                                 </div>
                                 <div class="caozuo">
                                     <a target="_self" href="${base}/userCenter/deleteOrder?lodgerOrderId=${orderlist.lodgerOrderId}">
-                                        <span id="caozuo3">立即支付</span></a>
-                                </div>
-                                <div class="caozuo">
-                                    <a target="_self" lid="${orderlist.lodgerOrderId}" href="${base}/userCenter/deleteOrder?lodgerOrderId=${orderlist.lodgerOrderId}">
                                         <span id="caozuo2">删除订单</span></a>
                                 </div>
                                 &nbsp;
@@ -572,42 +563,17 @@
                 <script type="text/javascript">
                     $(function () {
                         $(".eachzhuangtai").each(function () {
-                            $(this).find(".spanTime").removeClass();
                             if ($(this).find("#zhuangtai").text() == "yqx"){
                                 $(this).find(".NewTravelYellowbg").css("display","none");
                                 $(this).find("#zhuangtai").css("display","block");
                                 $(this).find(".spanTime").css("display","block");
                                 $(this).find(".spanTime").removeClass();
-                                $(this).find("#zhuangtai").text("已取消").addClass("NewTravelRedbg");
-                                if($(this).find("#zhuangtai").text()=="已取消"){
-                                    $(this).find("#zhuangtai").css("display","");
-                                }
+                                $(this).find("#zhuangtai").text("已删除").addClass("NewTravelRedbg");
+
                                 $(this).next().find("#caozuo1").css("display","none");
-                                $(this).next().find("#caozuo3").css("display","none");
 
-                            }else if($(this).find("#zhuangtai").text() == "dfk"){
-                                $(this).find(".NewTravelYellowbg").css("display","none");
-                                $(this).find("#zhuangtai").css("display","block");
-                                $(this).find(".spanTime").css("display","block");
-                                $(this).find("#daojishi").addClass("spanTime");
-//                                $(this).find(".spanTime").removeClass();
-                                $(this).find("#zhuangtai").text("等待付款").addClass("NewTravelRedbg");
-                                if($(this).find("#zhuangtai").text()=="等待付款"){
-                                    $(this).find("#zhuangtai").css("display","");
-                                }
-                                $(this).next().find("#caozuo1").css("display","none");
+                            }else {
                                 $(this).next().find("#caozuo2").css("display","none");
-                                var payTime = $(this).parent().find("#daojishi").attr("lltime2");
-                                var time = new Date(payTime).getTime();
-                                var currentTime = new Date().getTime();
-                                var t1 = time - currentTime;
-//                                alert(t1/1000);
-                                $(this).parent().find("#daojishi").attr("lltime",(t1/1000));
-
-
-                            } else {
-                                $(this).next().find("#caozuo2").css("display","none");
-                                $(this).next().find("#caozuo3").css("display","none");
                             }
                         })
 
@@ -872,7 +838,7 @@
                             $("#pop2").click();
                         } else {
                             var parent = $("#orderCan").parent().parent();
-                            parent.html("<p><a class='Unl' href='javascript:void(0)' pid='" + pc + "'>删除111</a></p></p>");
+                            parent.html("<p><a class='Unl' href='javascript:void(0)' pid='" + pc + "'>删除</a></p></p>");
                             parent.prev().html("<span class='NewTravelRedbg'> 租客取消</span>");
                             var htmls = parent.prev().prev();
                             htmls.children().last().hide();
@@ -1047,8 +1013,6 @@
                 var leftsecond = $(this).attr("lltime");
                 var oid = $(this).attr("oid");
                 var pid = $(this).attr("pid");
-
-//                alert(pid);
                 leftsecond = parseInt(leftsecond);
                 setInterval(TimeOut, 1000); ///360不支持异步,就把异步去掉了,换成现在的方法
                 function TimeOut() {
@@ -1065,18 +1029,10 @@
                         }
                     } else {
                         $time.parent().html("<span class=\"NewTravelRedbg\">过期</span>");
-                        $(".eachzhuangtai").each(function (){
-//                            if($(this).find("#zhuangtai").text() == "过期"){
-                            if($(this).find(".NewTravelRedbg").text() == "过期"){
-                                $(this).next().find("#caozuo1").css("display","none");
-                                $(this).next().find("#caozuo2").css("display","block");
-                                $(this).next().find("#caozuo3").css("display","none");
-                            }
-                        })
-//                        $("#tr" + pid + " table tr td:last-child").width("90");
-//                        $("#tr" + pid + " table tr td:last-child").css("text-align", "center");
-//                        $("#tr" + pid + " table tr td:last-child").css("vertical-align", "middle");
-//                        $("#tr" + pid + " table tr td:last-child").html("<a class='Unl' id='delete" + oid + "' pid='" + pid + "' href='javascript:void(0)'>删除</a>");
+                        $("#tr" + pid + " table tr td:last-child").width("90");
+                        $("#tr" + pid + " table tr td:last-child").css("text-align", "center");
+                        $("#tr" + pid + " table tr td:last-child").css("vertical-align", "middle");
+                        $("#tr" + pid + " table tr td:last-child").html("<a class='Unl' id='delete" + oid + "' pid='" + pid + "' href='javascript:void(0)'>删除</a>");
                     }
                 }
             }); // end 倒计时
