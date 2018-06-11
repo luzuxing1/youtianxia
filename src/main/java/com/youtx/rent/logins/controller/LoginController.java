@@ -26,9 +26,9 @@ public class LoginController {
     public Object login(String phoneOrEmail,String password, Boolean rememberMe,String vcode){
         User user = null;
         JsonResult jsonResult =null;
-//        System.out.println("vcode:"+vcode);
+        System.out.println("vcode:"+vcode);
         String code = (String) SecurityUtils.getSubject().getSession().getAttribute("vcode");
-//        System.out.println("code:"+code);
+        System.out.println("code:"+code);
         if(vcode.equalsIgnoreCase(code)){
             try {
 //                System.out.println("------------");

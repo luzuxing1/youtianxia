@@ -36,7 +36,7 @@ public interface LodgerOrderMapper {
     List<LodgerOrder> selectByOrderNumAndRoomId(@Param("roomId") Integer roomId,@Param("orderNum") String orderNum);
     LodgerOrder selectByScheduleIdAndRoomId(@Param("roomId") Integer roomId,@Param("scheduleId") Integer scheduleId);
 
-    LodgerOrder selectByordernum(Integer orderNum);
-    void updateByorderNum(@Param ( "payTime" )Date payTime ,@Param("orderNum") Integer orderNum);
+    LodgerOrder selectByOrderId(Integer lodgerOrderId);
+    void updateByOrderId(@Param ( "payTime" )Date payTime ,@Param("orderNum") Integer lodgerOrderId);
 
 }

@@ -67,11 +67,11 @@
     where user_id = #{userId} AND schedule_id = #{scheduleId}
   </select>
 
-  <select id="selectByordernum"  resultMap="BaseResultMap">
+  <select id="selectByOrderId"  resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from ytx_lodger_order
-    where order_num = #{orderNum}
+    where lodger_order_id = #{lodgerOrderId,jdbcType=INTEGER}
   </select>
 
 
@@ -234,10 +234,10 @@
     where lodger_order_id = #{lodgerOrderId,jdbcType=INTEGER}
   </update>
 
-  <update id="updateByorderNum">
+  <update id="updateByOrderId">
     update ytx_lodger_order
     set
     pay_time = #{payTime}
-    where order_num = #{orderNum}
+    where lodger_order_id = #{lodgerOrderId,jdbcType=INTEGER}
   </update>
 </mapper>

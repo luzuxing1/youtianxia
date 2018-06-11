@@ -3,6 +3,7 @@ package com.youtx.rent.placeOrder.service;
 import com.youtx.rent.dao.*;
 import com.youtx.rent.entity.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.text.ParseException;
@@ -12,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@Transactional
 public class RoomMsg {
     @Resource
     private PictureMapper pictureMapper;
