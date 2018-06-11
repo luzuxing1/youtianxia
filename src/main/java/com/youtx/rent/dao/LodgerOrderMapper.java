@@ -37,6 +37,6 @@ public interface LodgerOrderMapper {
     LodgerOrder selectByScheduleIdAndRoomId(@Param("roomId") Integer roomId,@Param("scheduleId") Integer scheduleId);
 
     LodgerOrder selectByOrderId(Integer lodgerOrderId);
-    void updateByOrderId(@Param ( "payTime" )Date payTime ,@Param("orderNum") Integer lodgerOrderId);
+    void updateByOrderId(@Param ( "payTime" )Date payTime ,@Param("lodgerOrderId") Integer lodgerOrderId);
 
 }

@@ -2,6 +2,7 @@ package com.youtx.rent.userCenter.controller;
 
 import com.youtx.rent.entity.LodgerOrder;
 import com.youtx.rent.entity.User;
+import com.youtx.rent.placeOrder.service.OrdersService;
 import com.youtx.rent.placeOrder.service.RoomMsg;
 import com.youtx.rent.userCenter.service.LodgerOrders;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -22,7 +24,8 @@ public class LandlordOrderController {
 
     @Resource
     private RoomMsg roomMsg;
-
+    @Resource
+    private OrdersService ordersService;
 
     @RequestMapping("/jumpLandlordOrder")
     public String userCenter2(HttpSession session, Model model,String status,String paycode,String time,String num){
@@ -35,6 +38,7 @@ public class LandlordOrderController {
         Integer drz = 0;
         Integer dqr = 0;
         Integer dpj = 0;
+        Integer ysc = 0;
         List<LodgerOrder> landlordOrderList = new ArrayList<>();
         for (Integer roomId : roomIds) {
             count += lodgerOrdersImpl.CountAllOrderByRoomId(roomId);
@@ -43,6 +47,7 @@ public class LandlordOrderController {
             drz += lodgerOrdersImpl.CountStatusOrderByRoomId(roomId, "drz");
             dqr += lodgerOrdersImpl.CountStatusOrderByRoomId(roomId, "dqr");
             dpj += lodgerOrdersImpl.CountStatusOrderByRoomId(roomId, "dpj");
+            ysc += lodgerOrdersImpl.CountStatusOrderByRoomId(roomId, "ysc");
             List<LodgerOrder> list1 = lodgerOrdersImpl.findLodgerOrderByRoomId(roomId, status, paycode, time, num);
             for (LodgerOrder order : list1) {
                 landlordOrderList.add(order);
@@ -53,6 +58,7 @@ public class LandlordOrderController {
         model.addAttribute("dqr",dqr);
         model.addAttribute("drz",drz);
         model.addAttribute("dpj",dpj);
+        model.addAttribute("ysc",ysc);
         for (LodgerOrder lodgerOrder : landlordOrderList) {
 //            System.out.println( "-------SchedulePrice"+lodgerOrder.getSchedule().getSchedulePrice());
             System.out.println(lodgerOrder.getOrderStatus());
@@ -76,4 +82,14 @@ public class LandlordOrderController {
         lodgerOrdersImpl.updateStatusById(lodgerOrderId,"ysc");
         return "redirect:/landlordOrder/jumpLandlordOrder";
     }
+    @RequestMapping("/ensureLandlordOrder")
+    public String ensureOrder(Integer lodgerOrderId){
+        lodgerOrdersImpl.updateStatusById(lodgerOrderId,"dfk");
+        Date date = new Date();
+        long time = date.getTime()+60*60*1000;
+        date = new Date(time);
+        ordersService.updatePayTime(date,lodgerOrderId);
+        return "redirect:/landlordOrder/jumpLandlordOrder";
+    }
+
 }
