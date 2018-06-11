@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -46,6 +47,9 @@ public class DetailServiceImpl implements DetailService {
     @Resource
     private RequireMapper requireDAO;
 
+    @Resource
+    private PointMapper pointDAO;
+
     @Override
     public Object[] getAllInfoByRoomId(Integer roomId) {
         Room room = roomDAO.selectByPrimaryKey(roomId);
@@ -56,7 +60,7 @@ public class DetailServiceImpl implements DetailService {
         List<String> pictures = pictureDAO.selectByRoomId(roomId);
         Price price = priceDAO.selectByRoomId(roomId);
         List<LodgerOpinion> lodgerOpinions = lodgerOpinionDAO.selectByRoomId(roomId);
-        Map<LodgerOpinion,LandlordReply> opinions = new HashMap<>();
+        Map<LodgerOpinion,LandlordReply> opinions = new LinkedHashMap<>();
         for (LodgerOpinion lodgerOpinion : lodgerOpinions) {
             LandlordReply landlordReply = landlordReplyDAO.selectByOpinionId(lodgerOpinion.getLodgerOpinionId());
             opinions.put(lodgerOpinion, landlordReply);
@@ -76,4 +80,11 @@ public class DetailServiceImpl implements DetailService {
         infos[9] = require;
         return infos;
     }
+
+    @Override
+    public Integer getPointCount(Integer roomId) {
+        int pointCount = pointDAO.selectCountByRoomId(roomId);
+        return pointCount;
+    }
+
 }

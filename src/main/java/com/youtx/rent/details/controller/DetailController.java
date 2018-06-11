@@ -22,6 +22,9 @@ public class DetailController {
     public String ToDetail(Model model, int roomId){
         Object[] infos = detailService.getAllInfoByRoomId(roomId);
         Map<TheFacility, String> facilityInfo = MatchFacility.matchIntoMap((Facility) infos[4]);
+        Integer pointCount = detailService.getPointCount(roomId);
+        System.out.println(pointCount);
+        model.addAttribute("pointCount", pointCount);
         model.addAttribute("detail", infos);
         model.addAttribute("facilityInfo", facilityInfo);
         return "place_info";

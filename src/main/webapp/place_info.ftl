@@ -691,201 +691,123 @@
 <div class="dsection-5">
 
     <div class="housetap clearfix">
-        <a href="javascript:void(0);" class="thishousetap active" id="youtxxq_B02_21" onclick="qiehuan3(&#39;youtxxq_B02_21&#39;,1)">本房间的评价（10）</a>
+        <a href="javascript:void(0);" class="thishousetap active" id="youtxxq_B02_21" onclick="qiehuan3(&#39;youtxxq_B02_21&#39;,1)">本房间的评价（${pointCount}）</a>
         <a href="javascript:void(0);" class="otherhousetap" id="youtxxq_B02_25" onclick="qiehuan3(&#39;youtxxq_B02_25&#39;,2)">房东其他房间的评价 <span id="othercomments_b">(74)</span></a>
     </div>
     
     <div id="commentzhengti">
         <h2 class="clearfix">
             <div class="leftstars">
-                <p>5.0<span>/5.0</span></p>
+                <p id="roomPoint">5.0<span>/5.0</span></p>
                 <div class="bigStars fiveStar"></div>
             </div>
             <ul class="righttags clearfix">
-                <li><span>符合描述</span><i>5.0</i></li>
-                <li><span>沟通愉悦</span><i>5.0</i></li>
-                <li><span>整洁程度</span><i>5.0</i></li>
-                <li><span>周边环境</span><i>5.0</i></li>
-                <li><span>入住顺畅</span><i>5.0</i></li>
-                <li><span>物有所值</span><i>5.0</i></li>
+                <li><span>符合描述</span><i id="pMatch">5.0</i></li>
+                <li><span>沟通愉悦</span><i id="pHappy">5.0</i></li>
+                <li><span>整洁程度</span><i id="pClean">5.0</i></li>
+                <li><span>周边环境</span><i id="pEnvironment">5.0</i></li>
+                <li><span>入住顺畅</span><i id="pLive">5.0</i></li>
+                <li><span>物有所值</span><i id="pWorth">5.0</i></li>
             </ul>
         </h2>
     </div>
+    <script type="text/javascript">
+        $(function () {
+            $(document).ready(function () {
+                var totalPoint = 0;
+                $(".perPoint").each(function () {
+                    totalPoint = totalPoint + parseInt($(this).val());
+                })
+                var avgPoint = parseInt(totalPoint / ${pointCount});
+                var avgStar = (5 - avgPoint) * (-23);
+                $("#roomPoint").text(avgPoint + ".0");
+                $("#roomPoint").append("<span>/5.0</span>");
+                $(".bigStars").css("background-position-x",avgStar);
+                var pointMatch = 0;
+                var pointHappy = 0;
+                var pointClean = 0;
+                var pointEnvironment = 0;
+                var pointLive = 0;
+                var pointWorth = 0;
+                var avgScore = 0;
+                $(".pointMatch").each(function () {
+                    pointMatch = pointMatch + parseFloat($(this).val());
+                    avgScore = pointMatch / ${pointCount};
+                    $("#pMatch").text(avgScore + ".0");
+                })
+                $(".pointHappy").each(function () {
+                    pointHappy = pointHappy + parseFloat($(this).val());
+                    avgScore = pointHappy / ${pointCount};
+                    $("#pHappy").text(avgScore + ".0");
+                })
+                $(".pointClean").each(function () {
+                    pointClean = pointClean + parseFloat($(this).val());
+                    avgScore = pointClean / ${pointCount};
+                    $("#pClean").text(avgScore + ".0");
+                })
+                $(".pointEnvironment").each(function () {
+                    pointEnvironment = pointEnvironment + parseFloat( $(this).val());
+                    avgScore = pointEnvironment / ${pointCount};
+                    $("#pEnvironment").text(avgScore + ".0");
+                })
+                $(".pointLive").each(function () {
+                    pointLive = pointLive + parseFloat($(this).val());
+                    avgScore = pointLive / ${pointCount};
+                    $("#pLive").text(avgScore + ".0");
+                })
+                $(".pointWorth").each(function () {
+                    pointWorth = pointWorth + parseFloat($(this).val());
+                    avgScore = pointWorth / ${pointCount};
+                    $("#pWorth").text(avgScore + ".0");
+                })
+            })
+        })
+    </script>
     
     <div class="thishouseshow" id="comment1">
         <div class="pagebox">
             <div class="evaluate" id="comment1_div">
                 <!--官方评价类型-->
                 
-                <div class="officialeva clearfix">
-                    <h6>
-                        <img src="${base}/static/place_info/ytxPic.jpg" alt="">
-                        <p>官方评价</p>
-                    </h6>
-                    <div class="evacontent">
-                        <div class="name">欧阳丹：追梦女孩:有梦,游天下</div>
-                        <!--2016.05.09修改2开始-->
-                        <div class="story">
-                            <span>TA的故事：</span><div id="divP" style="overflow: hidden; height: 74px;"><p style="TEXT-ALIGN: left"><font style="FONT-SIZE: 9pt" color="#333333" face="宋体">&nbsp;&nbsp;&nbsp; 欧阳丹，游天下短租网上海站“明星房东”。一个</font><font style="FONT-SIZE: 9pt" face="宋体">温文尔雅<font color="#333333">的90后女孩，却已在短租行业</font>经历了五载砥砺<font color="#333333">，凭着自己热情开朗的性格和细致入微的服务，她不仅赢得了租客的信任，也迎来了事业</font>的蒸蒸日上<font color="#333333">。</font>正如你所看<font color="#333333">到的这些房间，每一处细</font>节都折射出主人的细致入微<font color="#333333">，她所经营的mike168短租公寓成为租客心中一座温暖的客栈，留下了太多美好的回忆。</font></font></p>
-<p style="TEXT-ALIGN: left">&nbsp;</p>
-<p style="TEXT-ALIGN: left"><strong><font style="FONT-SIZE: 9pt" color="#333333" face="宋体">无心插柳一句话，创就mike168</font></strong></p>
-<p style="TEXT-ALIGN: left"><font face="宋体"><font color="#333333"><strong>&nbsp;&nbsp;&nbsp; </strong><font style="FONT-SIZE: 9pt">毕业之初，欧阳丹先是做了中介，到处奔波，过着四处漂泊的生活。这些经历让本就恋家的她更加渴望一份安定，一个港湾。后来，在机缘巧合之下，朋友</font></font><font style="FONT-SIZE: 9pt">一句闲聊的话让<font color="#333333">她萌生了做短租的想法，最后也证</font>明，朋友无心插柳的话，让她的事业盛开了向阳之花。</font></font></p>
-<p style="TEXT-ALIGN: left"><font face="宋体">&nbsp;&nbsp;&nbsp; <font style="FONT-SIZE: 9pt">欧阳丹一直认为，酒店、宾馆不仅价<font color="#333333">格贵，更重要的是缺少人情味，布局千篇一律，租客身处这样的环境</font>，唤不起在这个城市的点点温暖。<font color="#333333">此时，如果有一个简单温馨的公寓，能给</font>人一个温馨如家的小窝，一定能引起租客们的内心共鸣。怀着这样美好的憧憬，她开启了自己的短租事业，精心地挑选每一件家具、每一套床上用品，甚至房间里每个小部件以及功能区的摆设都经过主人的细细思量。mike168的房间整洁而温馨，一尘不染，她像打理着自己的梦想一样，精心地打理着这个家。我能想象，在她每次迎来租客的时<font color="#333333">候，心里一定会有这样的声音：欢迎你们，来上海追梦！</font></font></font></p>
-<p style="TEXT-ALIGN: left">&nbsp;</p>
-<p style="TEXT-ALIGN: left"><strong><font style="FONT-SIZE: 9pt" color="#333333" face="宋体">“热情”“知己”“家”</font></strong></p>
-<p style="TEXT-ALIGN: left"><font face="宋体"><font color="#333333"><strong>&nbsp;&nbsp;&nbsp; </strong><font style="FONT-SIZE: 9pt">欧阳丹所经营的mike168短租公寓位于静安区江宁路上，距离7号线长寿路站步行10分</font></font><font style="FONT-SIZE: 9pt">钟以内，到静安寺、人民广场、南京路也都是10分钟以内的车程，而上海名刹“玉佛寺”步行便能到达，交通十分便利。</font></font></p>
-<p style="TEXT-ALIGN: left"><font face="宋体">&nbsp;&nbsp;&nbsp; <font style="FONT-SIZE: 9pt" color="#333333">她自己也住着其中一间公寓，与租客同住一个屋檐下，闲时陪租客聊天，热</font><font style="FONT-SIZE: 9pt">情耐心地为<font color="#333333">租客讲解出行游玩路线</font>，待他们如好友一般。<font color="#333333">这时候的</font>她，不仅仅是这个公寓的主人，更是租客在这个城市的一个知己。“热情细心、服务<font color="#333333">周到、开朗爱笑……”租客的评论</font>中满满的都是这些字眼。只要<font color="#333333">是邂逅过mike168短租公寓的租客，都会给她投去一个满意的目光。而她也笑着说，“就是希望能够通过热心细致、以诚待人的服务让租客在旅途中感受到家的舒适和温暖”。</font></font></font></p>
-<p style="TEXT-ALIGN: left">&nbsp;</p>
-<p style="TEXT-ALIGN: left"><strong><font style="FONT-SIZE: 9pt" color="#333333" face="宋体">追梦路上，学无止境 </font></strong></p>
-<p style="TEXT-ALIGN: left"><font face="宋体"><font color="#333333"><strong>&nbsp;&nbsp;&nbsp; </strong><font style="FONT-SIZE: 9pt">拥有细致周到服务和多年努力拼搏的欧阳丹把</font><font style="FONT-SIZE: 9pt">mike168</font><font style="FONT-SIZE: 9pt">短租公寓经营得风生水起。在游天下短租网的平台上，她的公寓几乎每天都有预订，但她并不满足于此，她希望能在国内其他旅游城市也开起mike168短租公寓，让游</font></font><font style="FONT-SIZE: 9pt">客们在旅行的途中都能找到家<font color="#333333">。</font></font></font></p>
-<p style="TEXT-ALIGN: left"><font face="宋体"><font color="#333333">&nbsp;&nbsp;&nbsp; <font style="FONT-SIZE: 9pt">欧阳丹说：“在年轻的时候，我甘愿吃苦受累，只希望通过自己的激情和努力实现自身价值。”她是一个上进的女孩，在平时的生活中，除了积极运动，她还会抽空到各地旅游，一边旅游一边学习各个城市做短租房的成功经验。前段时间，为了能满足国外租客的需要，她自己报班学习外语，不仅使自己的英语水平提高了一个等级，也让自己的短租事业提升了一个高度。<br></font></font></font></p>
-<p style="TEXT-ALIGN: left"><strong><font style="FONT-SIZE: 9pt" color="#333333" face="宋体"></font></strong>&nbsp;</p>
-<p style="TEXT-ALIGN: left"><strong><font style="FONT-SIZE: 9pt" color="#333333" face="宋体">携手游天下，房暖租客心</font></strong></p>
-<p style="TEXT-ALIGN: left"><font face="宋体"><font color="#333333"><strong>&nbsp;&nbsp;&nbsp; </strong><font style="FONT-SIZE: 9pt">言语之间，欧阳丹对游天下赞不绝口</font></font><font style="FONT-SIZE: 9pt">，她把自己事业成功的祝酒词也分给了游<font color="#333333">天下。在她看来，游天下给予了她很多帮助，而</font>且容易操作，<font color="#333333">安全则更有保障，她从游天下接到了很多的订单和好评。</font></font></font></p>
-<p style="TEXT-ALIGN: left"><font face="宋体"><font color="#333333">&nbsp;&nbsp;&nbsp; <font style="FONT-SIZE: 9pt">和游天下并肩携手，不断努力，给租客最好的住宿体验，也实现自己的价值！这就是欧阳丹一直以来坚持的原则，也是她继续努力的方向。她并没有说太多动人的故事，只是不停地强调，她希望尽自己的一份力，为每一位租客提供一个家，让租客的上海之旅没有任何遗憾。短租于她，不仅是事业，更是梦想！</font></font></font></p></div>
-                            <a href="http://www.youtx.com/star/98/" class="searchmore" id="showdivstroy">查看更多</a>
-                        </div>
-                        <!--2016.05.09修改2结束-->
-                        <div class="photos">
-                            <span>TA的照片：</span>
-                            <!--2016.05.11-第2处修改开始   新增加-->
-                            <!--展开-收起图片-->
-                            <p class="openImg" style="display: none;">展开</p>
-                            <p class="closeImg">收起</p>
-                            <!--2016.05.11-第2处修改开始   新增加-->
-                            <ul class="clearfix">
-                                
-                                <li><a href="javascript:;" class="">
-                                    <img src="${base}/static/place_info/80x60c.jpg" width="80" height="60" alt=""></a></li>
-                                
-                                <li><a href="javascript:;" class="active">
-                                    <img src="${base}/static/place_info/80x60c(1).jpg" width="80" height="60" alt=""></a></li>
-                                
-                                <li><a href="javascript:;" class="active">
-                                    <img src="${base}/static/place_info/80x60c(2).jpg" width="80" height="60" alt=""></a></li>
-                                
-                                <li><a href="javascript:;" class="active">
-                                    <img src="${base}/static/place_info/80x60c(3).jpg" width="80" height="60" alt=""></a></li>
-                                
-                                <li><a href="javascript:;" class="active">
-                                    <img src="${base}/static/place_info/80x60c(4).jpg" width="80" height="60" alt=""></a></li>
-                                
-                            </ul>
-                            <!--显示的大图-->
-                            <div class="recombigshow" style="display: none;"><img src="${base}/static/place_info/480x360c.jpg"></div>
-                        </div>
-                    </div>
-                </div>
+
                 
                 <!--租客评价-->
-                
+
+                <#list detail[7].keySet() as opinions>
                 <div class="perhouserecom clearfix">
                     <h6>
-                        <a href="http://www.youtx.com/user/show/1143883" target="_blank">
-                            <img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a>
-                        <p>
-                            <a href="http://www.youtx.com/user/show/1143883" target="_blank">
-                                田余</a>
-                        </p>
-                    </h6>
-                    <div class="evacontent">
-                        <div class="recom clearfix">
-                            <!--2016.05.09修改4开始-->
-                            
-                            <div class="stars se-two-five"></div>
-                            <!--2016.05.09修改4结束-->
-                            
-                            <p><span></span><i>推荐</i></p>
-                        </div>
-                        <div class="text">房间超级棒，比图片好很多，房东说现在很多都已经重新装修过了</div>
-                        <!--评价图片-->
-                        
-                        <div class="photosbox">
-                            <p class="moreImg" style="display: none;">展开</p>
-                            <p class="deImg">收起</p>
-                            <ul class="photos clearfix" id="photos_365584">
-                                
-                                <li>
-                                    <img src="${base}/static/place_info/60x40c.jpg" width="60" height="40"></li>
-                                
-                            </ul>
-                        </div>
-                        <!--显示的大图-->
-                        <div class="recombigshow" style="display: none;">
-                        </div>
-                        
-                        <div class="duration">2018.01.31</div>
-                        <!--房东的回复-->
-                        
-                    </div>
-                </div>
-                
-                <div class="perhouserecom clearfix">
-                    <h6>
-                        <a href="http://www.youtx.com/user/show/2563243" target="_blank">
-                            <img src="${base}/static/place_info/68x68.jpg" width="80" height="80" alt=""></a>
-                        <p>
-                            <a href="http://www.youtx.com/user/show/2563243" target="_blank">
-                                三月君</a>
-                        </p>
-                    </h6>
-                    <div class="evacontent">
-                        <div class="recom clearfix">
-                            <!--2016.05.09修改4开始-->
-                            
-                            <div class="stars se-two-five"></div>
-                            <!--2016.05.09修改4结束-->
-                            
-                            <p><span></span><i>推荐</i></p>
-                        </div>
-                        <div class="text"><p>入住的非常满意！下次来上海还会选择这里！房东欧阳姐姐人超好，有问必答，还给安排了带沙发床的房间。房子位置非常棒！地铁站步行5分钟就到！楼下就是公交。附近有商场，菜场和超市。房间有wifi,电视机还可以做饭吃！</p><p>推荐来上海玩的朋友入住</p></div>
-                        <!--评价图片-->
-                        
-                        <div class="photosbox">
-                            <p class="moreImg" style="display: none;">展开</p>
-                            <p class="deImg">收起</p>
-                            <ul class="photos clearfix" id="photos_362777">
-                                
-                                <li>
-                                    <img src="${base}/static/place_info/60x40c(1).jpg" width="60" height="40"></li>
-                                
-                                <li>
-                                    <img src="${base}/static/place_info/60x40c(2).jpg" width="60" height="40"></li>
-                                
-                                <li>
-                                    <img src="${base}/static/place_info/60x40c(3).jpg" width="60" height="40"></li>
-                                
-                            </ul>
-                        </div>
-                        <!--显示的大图-->
-                        <div class="recombigshow" style="display: none;">
-                        </div>
-                        
-                        <div class="duration">2017.10.16</div>
-                        <!--房东的回复-->
-                        
-                    </div>
-                </div>
-                
-                <div class="perhouserecom clearfix">
-                    <h6>
-                        <a href="http://www.youtx.com/user/show/20978" target="_blank">
+                        <a  target="_blank">
                             <img src="${base}/static/place_info/68x68.png" width="80" height="80" alt=""></a>
                         <p>
-                            <a href="http://www.youtx.com/user/show/20978" target="_blank">
-                                李定定</a>
+                            <a  target="_blank">
+                                ${opinions.lodgerUser.userRealname}</a>
                         </p>
                     </h6>
                     <div class="evacontent">
                         <div class="recom clearfix">
                             <!--2016.05.09修改4开始-->
                             
-                            <div class="stars se-two-five"></div>
+                            <div class="stars se-two-five" id="pointTest${opinions.lodgerOpinionId}"></div>
                             <!--2016.05.09修改4结束-->
-                            
+                            <input type="hidden" id="point${opinions.lodgerOpinionId}" class="perPoint" value="3"/>
+                            <input type="hidden" class="pointMatch" value="${opinions.points.pointMatch}"/>
+                            <input type="hidden" class="pointHappy" value="${opinions.points.pointHappy}"/>
+                            <input type="hidden" class="pointEnvironment" value="${opinions.points.pointEnvironment}"/>
+                            <input type="hidden" class="pointLive" value="${opinions.points.pointLive}"/>
+                            <input type="hidden" class="pointClean" value="${opinions.points.pointClean}"/>
+                            <input type="hidden" class="pointWorth" value="${opinions.points.pointWorth}"/>
                             <p><span></span><i>推荐</i></p>
+                            <script type="text/javascript">
+                                $(function () {
+                                    var thePonints = parseFloat(parseInt(${opinions.points.pointAll}) / 5);
+                                    var newPoint = -((1 - thePonints) * 100);
+                                    $("#pointTest" + ${opinions.lodgerOpinionId}).css("background-position-x", newPoint + "px")
+                                    $("#point" + ${opinions.lodgerOpinionId}).val(${opinions.points.pointAll});
+                                })
+                            </script>
+
                         </div>
-                        <div class="text">美女房东很热情，交通方便，周围购物中心啊，餐馆啊，便利店啊很齐全，房间干净整洁</div>
+                        <div class="text">${opinions.opinionContent}</div>
                         <!--评价图片-->
                         
                         <div class="photosbox">
@@ -899,310 +821,23 @@
                         <div class="recombigshow" style="display: none;">
                         </div>
                         
-                        <div class="duration">2016.05.03</div>
+                        <div class="duration">${opinions.opinionDate?string("yyyy-MM-dd")}</div>
                         <!--房东的回复-->
-                        
+                        <#if detail[7].get(opinions) != null>
                         <div class="reply clearfix">
                             <div class="left">
                                 <img src="${base}/static/place_info/68x68(1).jpg" alt="">
                             </div>
                             <div class="right">
                                 <h4>房东的回复：</h4>
-                                <div>感谢一如既往的支持，入住满意就好</div>
-                                <div class="duration">2016.05.03</div>
+                                <div>${detail[7].get(opinions).replyContent}</div>
+                                <div class="duration">${opinions.opinionDate?string("yyyy-MM-dd")}</div>
                             </div>
                         </div>
-                        
+                        </#if>
                     </div>
                 </div>
-                
-                <div class="perhouserecom clearfix">
-                    <h6>
-                        <a href="http://www.youtx.com/user/show/2142379" target="_blank">
-                            <img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a>
-                        <p>
-                            <a href="http://www.youtx.com/user/show/2142379" target="_blank">
-                                杨晶晶</a>
-                        </p>
-                    </h6>
-                    <div class="evacontent">
-                        <div class="recom clearfix">
-                            <!--2016.05.09修改4开始-->
-                            
-                            <div class="stars se-two-five"></div>
-                            <!--2016.05.09修改4结束-->
-                            
-                            <p><span></span><i>推荐</i></p>
-                        </div>
-                        <div class="text">房东欧阳很不错,公寓也很整洁,地理位置好,生活交通都很方便。</div>
-                        <!--评价图片-->
-                        
-                        <div class="photosbox">
-                            <p class="moreImg" style="display: none;">展开</p>
-                            <p class="deImg">收起</p>
-                            <ul class="photos clearfix" id="photos_328085">
-                                
-                            </ul>
-                        </div>
-                        <!--显示的大图-->
-                        <div class="recombigshow" style="display: none;">
-                        </div>
-                        
-                        <div class="duration">2015.10.30</div>
-                        <!--房东的回复-->
-                        
-                    </div>
-                </div>
-                
-                <div class="perhouserecom clearfix">
-                    <h6>
-                        <a href="http://www.youtx.com/user/show/2411282" target="_blank">
-                            <img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a>
-                        <p>
-                            <a href="http://www.youtx.com/user/show/2411282" target="_blank">
-                                徐先生</a>
-                        </p>
-                    </h6>
-                    <div class="evacontent">
-                        <div class="recom clearfix">
-                            <!--2016.05.09修改4开始-->
-                            
-                            <div class="stars se-two-five"></div>
-                            <!--2016.05.09修改4结束-->
-                            
-                            <p><span></span><i>推荐</i></p>
-                        </div>
-                        <div class="text">欧阳房东人很好，很认真，有求必须，房间也不错，周围交通很便利，很安全，隔壁就是她的办公室，白天出门办事很放心</div>
-                        <!--评价图片-->
-                        
-                        <div class="photosbox">
-                            <p class="moreImg" style="display: none;">展开</p>
-                            <p class="deImg">收起</p>
-                            <ul class="photos clearfix" id="photos_326363">
-                                
-                            </ul>
-                        </div>
-                        <!--显示的大图-->
-                        <div class="recombigshow" style="display: none;">
-                        </div>
-                        
-                        <div class="duration">2015.10.15</div>
-                        <!--房东的回复-->
-                        
-                    </div>
-                </div>
-                
-                <div class="perhouserecom clearfix">
-                    <h6>
-                        <a href="http://www.youtx.com/user/show/2424619" target="_blank">
-                            <img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a>
-                        <p>
-                            <a href="http://www.youtx.com/user/show/2424619" target="_blank">
-                                张蝶</a>
-                        </p>
-                    </h6>
-                    <div class="evacontent">
-                        <div class="recom clearfix">
-                            <!--2016.05.09修改4开始-->
-                            
-                            <div class="stars se-two-three"></div>
-                            <!--2016.05.09修改4结束-->
-                            
-                            
-                        </div>
-                        <div class="text">还可以</div>
-                        <!--评价图片-->
-                        
-                        <div class="photosbox">
-                            <p class="moreImg" style="display: none;">展开</p>
-                            <p class="deImg">收起</p>
-                            <ul class="photos clearfix" id="photos_319123">
-                                
-                            </ul>
-                        </div>
-                        <!--显示的大图-->
-                        <div class="recombigshow" style="display: none;">
-                        </div>
-                        
-                        <div class="duration">2015.08.24</div>
-                        <!--房东的回复-->
-                        
-                    </div>
-                </div>
-                
-                <div class="perhouserecom clearfix">
-                    <h6>
-                        <a href="http://www.youtx.com/user/show/2109305" target="_blank">
-                            <img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a>
-                        <p>
-                            <a href="http://www.youtx.com/user/show/2109305" target="_blank">
-                                吴敏</a>
-                        </p>
-                    </h6>
-                    <div class="evacontent">
-                        <div class="recom clearfix">
-                            <!--2016.05.09修改4开始-->
-                            
-                            <div class="stars se-two-five"></div>
-                            <!--2016.05.09修改4结束-->
-                            
-                            <p><span></span><i>推荐</i></p>
-                        </div>
-                        <div class="text"><p>真的是非常满意的一次住宿体验～～  欧阳房东，热情貌美～～～ 协调入住事宜也很愉快～因为提前了一天，也及时得作出了调整，非常感谢～～～ 业务熟练，认真细心！ </p><p>关于房间嘛～ 完全就跟网站上贴得一模一样，非常有家得感觉，收拾得很干净，很温馨。正好父母过来，做了一顿美餐，比出去吃饭幸福多了～～～</p><p>房间的地理位置极佳，附近就是长寿路地铁站，公交车也很方便～ 300米内就有巴黎春天，长寿公园，各种吃的逛的，老爸老妈还经常饭后过去蹓跶、广场舞神马的，他们很满意。500米内就有一个较大的菜市场，长期居家租住也很合适！</p><p>而且正好赶上房东活动了，十一期间入住，价钱也十分优惠！</p><p>总之，各种满意，以后有相应需求会首先考虑这里～～ </p><p>可惜，忘了拍照了。。。。。。</p></div>
-                        <!--评价图片-->
-                        
-                        <div class="photosbox">
-                            <p class="moreImg" style="display: none;">展开</p>
-                            <p class="deImg">收起</p>
-                            <ul class="photos clearfix" id="photos_271431">
-                                
-                            </ul>
-                        </div>
-                        <!--显示的大图-->
-                        <div class="recombigshow" style="display: none;">
-                        </div>
-                        
-                        <div class="duration">2014.10.08</div>
-                        <!--房东的回复-->
-                        
-                    </div>
-                </div>
-                
-                <div class="perhouserecom clearfix">
-                    <h6>
-                        <a href="http://www.youtx.com/user/show/2109022" target="_blank">
-                            <img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a>
-                        <p>
-                            <a href="http://www.youtx.com/user/show/2109022" target="_blank">
-                                陈婉欣</a>
-                        </p>
-                    </h6>
-                    <div class="evacontent">
-                        <div class="recom clearfix">
-                            <!--2016.05.09修改4开始-->
-                            
-                            <div class="stars se-two-five"></div>
-                            <!--2016.05.09修改4结束-->
-                            
-                            <p><span></span><i>推荐</i></p>
-                        </div>
-                        <div class="text">这位房东很值得推荐，真实的入住房型比照片上更好，因为朋友从四川过来，吃不惯上海的菜觉得偏甜，所以她想自己做饭才选择了找短租公寓，得知情况后房东给我们提供了整套的厨具，并且满足我们提出的各种要求，非常耐心的给我们指路线，也让我提早check in，朋友说这是一次很棒的体验，下次来上海还是会找你。</div>
-                        <!--评价图片-->
-                        
-                        <div class="photosbox">
-                            <p class="moreImg" style="display: none;">展开</p>
-                            <p class="deImg">收起</p>
-                            <ul class="photos clearfix" id="photos_266244">
-                                
-                            </ul>
-                        </div>
-                        <!--显示的大图-->
-                        <div class="recombigshow" style="display: none;">
-                        </div>
-                        
-                        <div class="duration">2014.09.17</div>
-                        <!--房东的回复-->
-                        
-                        <div class="reply clearfix">
-                            <div class="left">
-                                <img src="${base}/static/place_info/68x68(1).jpg" alt="">
-                            </div>
-                            <div class="right">
-                                <h4>房东的回复：</h4>
-                                <div>评价好高，么么哒，谢谢亲</div>
-                                <div class="duration">2014.09.17</div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-                <div class="perhouserecom clearfix">
-                    <h6>
-                        <a href="http://www.youtx.com/user/show/2104976" target="_blank">
-                            <img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a>
-                        <p>
-                            <a href="http://www.youtx.com/user/show/2104976" target="_blank">
-                                曾丽</a>
-                        </p>
-                    </h6>
-                    <div class="evacontent">
-                        <div class="recom clearfix">
-                            <!--2016.05.09修改4开始-->
-                            
-                            <div class="stars se-two-five"></div>
-                            <!--2016.05.09修改4结束-->
-                            
-                            <p><span></span><i>推荐</i></p>
-                        </div>
-                        <div class="text">一次说走就走的旅行，碰到欧阳，很好很照顾我的房东，她公寓很干净整洁温馨，让我感觉没有离开家，交通位置也很好，附近超市菜场商场地铁公交什么都有。很喜欢她，下次我一定还来。</div>
-                        <!--评价图片-->
-                        
-                        <div class="photosbox">
-                            <p class="moreImg" style="display: none;">展开</p>
-                            <p class="deImg">收起</p>
-                            <ul class="photos clearfix" id="photos_263754">
-                                
-                            </ul>
-                        </div>
-                        <!--显示的大图-->
-                        <div class="recombigshow" style="display: none;">
-                        </div>
-                        
-                        <div class="duration">2014.09.08</div>
-                        <!--房东的回复-->
-                        
-                    </div>
-                </div>
-                
-                <div class="perhouserecom clearfix">
-                    <h6>
-                        <a href="http://www.youtx.com/user/show/2103793" target="_blank">
-                            <img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a>
-                        <p>
-                            <a href="http://www.youtx.com/user/show/2103793" target="_blank">
-                                张刚</a>
-                        </p>
-                    </h6>
-                    <div class="evacontent">
-                        <div class="recom clearfix">
-                            <!--2016.05.09修改4开始-->
-                            
-                            <div class="stars se-two-five"></div>
-                            <!--2016.05.09修改4结束-->
-                            
-                            <p><span></span><i>推荐</i></p>
-                        </div>
-                        <div class="text"><p>1、房间比图片更加漂亮直观，卫生也很干净，比酒店大了好多倍，适合长住</p><p>2、周边环境位置都非常不错；</p><p>3、房东非常照顾晚到下楼接待，需要什么立马就拿过来了；</p><p>4、有厨房厨具餐具提供，一次性用品没有放在房间，但是入住的时候房东特意问了，需要的话她才放在房间，以免浪费，这点我非常欣赏。</p><p>以后来上海肯定选欧阳家了！特别自在，像家一样的温馨，特别好沟通。</p></div>
-                        <!--评价图片-->
-                        
-                        <div class="photosbox">
-                            <p class="moreImg" style="display: none;">展开</p>
-                            <p class="deImg">收起</p>
-                            <ul class="photos clearfix" id="photos_262063">
-                                
-                            </ul>
-                        </div>
-                        <!--显示的大图-->
-                        <div class="recombigshow" style="display: none;">
-                        </div>
-                        
-                        <div class="duration">2014.09.01</div>
-                        <!--房东的回复-->
-                        
-                        <div class="reply clearfix">
-                            <div class="left">
-                                <img src="${base}/static/place_info/68x68(1).jpg" alt="">
-                            </div>
-                            <div class="right">
-                                <h4>房东的回复：</h4>
-                                <div>这里永远都是你的家～下回长期出差再来好好感受体验下</div>
-                                <div class="duration">2014.09.01</div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
+                </#list>
                 
             </div>
 

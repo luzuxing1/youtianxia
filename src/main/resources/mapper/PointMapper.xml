@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youtx.rent.dao.PointMapper">
+  <resultMap id="BaseResultMap" type="com.youtx.rent.entity.Point">
+    <id column="point_id" jdbcType="INTEGER" property="pointId" />
+    <result column="point_match" jdbcType="VARCHAR" property="pointMatch" />
+    <result column="point_happy" jdbcType="VARCHAR" property="pointHappy" />
+    <result column="point_environment" jdbcType="VARCHAR" property="pointEnvironment" />
+    <result column="point_live" jdbcType="VARCHAR" property="pointLive" />
+    <result column="point_worth" jdbcType="VARCHAR" property="pointWorth" />
+    <result column="point_clean" jdbcType="VARCHAR" property="pointClean" />
+    <result column="point_all" jdbcType="VARCHAR" property="pointAll" />
+    <result column="room_id" jdbcType="INTEGER" property="roomId" />
+    <result column="opinion_id" jdbcType="INTEGER" property="opinionId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    point_id, point_match, point_happy, point_environment, point_live, point_worth, point_clean, point_all,
+    room_id, opinion_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ytx_point
+    where point_id = #{pointId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByOpinionId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_point
+    where opinion_id = #{opinionId}
+  </select>
+  <select id="selectCountByRoomId" resultType="java.lang.Integer">
+    select count(1)
+    from ytx_point
+    where room_id = #{roomId}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ytx_point
+    where point_id = #{pointId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.youtx.rent.entity.Point">
+    insert into ytx_point (point_id, point_match, point_happy, 
+      point_environment, point_live, point_worth, 
+      point_all, room_id, opinion_id
+      )
+    values (#{pointId,jdbcType=INTEGER}, #{pointMatch,jdbcType=VARCHAR}, #{pointHappy,jdbcType=VARCHAR}, 
+      #{pointEnvironment,jdbcType=VARCHAR}, #{pointLive,jdbcType=VARCHAR}, #{pointWorth,jdbcType=VARCHAR}, 
+      #{pointAll,jdbcType=VARCHAR}, #{roomId,jdbcType=INTEGER}, #{opinionId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.youtx.rent.entity.Point">
+    insert into ytx_point
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pointId != null">
+        point_id,
+      </if>
+      <if test="pointMatch != null">
+        point_match,
+      </if>
+      <if test="pointHappy != null">
+        point_happy,
+      </if>
+      <if test="pointEnvironment != null">
+        point_environment,
+      </if>
+      <if test="pointLive != null">
+        point_live,
+      </if>
+      <if test="pointWorth != null">
+        point_worth,
+      </if>
+      <if test="pointAll != null">
+        point_all,
+      </if>
+      <if test="roomId != null">
+        room_id,
+      </if>
+      <if test="opinionId != null">
+        opinion_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pointId != null">
+        #{pointId,jdbcType=INTEGER},
+      </if>
+      <if test="pointMatch != null">
+        #{pointMatch,jdbcType=VARCHAR},
+      </if>
+      <if test="pointHappy != null">
+        #{pointHappy,jdbcType=VARCHAR},
+      </if>
+      <if test="pointEnvironment != null">
+        #{pointEnvironment,jdbcType=VARCHAR},
+      </if>
+      <if test="pointLive != null">
+        #{pointLive,jdbcType=VARCHAR},
+      </if>
+      <if test="pointWorth != null">
+        #{pointWorth,jdbcType=VARCHAR},
+      </if>
+      <if test="pointAll != null">
+        #{pointAll,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null">
+        #{roomId,jdbcType=INTEGER},
+      </if>
+      <if test="opinionId != null">
+        #{opinionId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.youtx.rent.entity.Point">
+    update ytx_point
+    <set>
+      <if test="pointMatch != null">
+        point_match = #{pointMatch,jdbcType=VARCHAR},
+      </if>
+      <if test="pointHappy != null">
+        point_happy = #{pointHappy,jdbcType=VARCHAR},
+      </if>
+      <if test="pointEnvironment != null">
+        point_environment = #{pointEnvironment,jdbcType=VARCHAR},
+      </if>
+      <if test="pointLive != null">
+        point_live = #{pointLive,jdbcType=VARCHAR},
+      </if>
+      <if test="pointWorth != null">
+        point_worth = #{pointWorth,jdbcType=VARCHAR},
+      </if>
+      <if test="pointAll != null">
+        point_all = #{pointAll,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null">
+        room_id = #{roomId,jdbcType=INTEGER},
+      </if>
+      <if test="opinionId != null">
+        opinion_id = #{opinionId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where point_id = #{pointId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.youtx.rent.entity.Point">
+    update ytx_point
+    set point_match = #{pointMatch,jdbcType=VARCHAR},
+      point_happy = #{pointHappy,jdbcType=VARCHAR},
+      point_environment = #{pointEnvironment,jdbcType=VARCHAR},
+      point_live = #{pointLive,jdbcType=VARCHAR},
+      point_worth = #{pointWorth,jdbcType=VARCHAR},
+      point_all = #{pointAll,jdbcType=VARCHAR},
+      room_id = #{roomId,jdbcType=INTEGER},
+      opinion_id = #{opinionId,jdbcType=INTEGER}
+    where point_id = #{pointId,jdbcType=INTEGER}
+  </update>
+</mapper>

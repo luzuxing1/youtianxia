@@ -4,12 +4,14 @@
   <resultMap id="BaseResultMap" type="com.youtx.rent.entity.LodgerOpinion">
     <id column="lodger_opinion_id" jdbcType="INTEGER" property="lodgerOpinionId" />
     <result column="opinion_content" jdbcType="VARCHAR" property="opinionContent" />
+    <result column="opinion_date" javaType="DATE" property="opinionDate" />
     <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
     <association property="lodgerUser" column="lodger_id" select="com.youtx.rent.dao.UserMapper.selectByPrimaryKey" />
     <association property="landlordUser" column="landlord_id" select="com.youtx.rent.dao.UserMapper.selectByPrimaryKey" />
+    <collection property="points" column="lodger_opinion_id" select="com.youtx.rent.dao.PointMapper.selectByOpinionId" />
   </resultMap>
   <sql id="Base_Column_List">
-    lodger_opinion_id, opinion_content, room_id, lodger_id, landlord_id
+    lodger_opinion_id, opinion_content, room_id, lodger_id, landlord_id, opinion_date
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -21,7 +23,7 @@
     select
     <include refid="Base_Column_List" />
     from ytx_lodger_opinion
-    where room_id = #{roomId}
+    where room_id = #{roomId} order by opinion_date
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ytx_lodger_opinion

@@ -1,5 +1,8 @@
 package com.youtx.rent.entity;
 
+import java.util.Date;
+import java.util.List;
+
 public class LodgerOpinion {
     private Integer lodgerOpinionId;
 
@@ -10,6 +13,10 @@ public class LodgerOpinion {
     private User lodgerUser;
 
     private User landlordUser;
+
+    private Date opinionDate;
+
+    private Point points;
 
     public Integer getLodgerOpinionId() {
         return lodgerOpinionId;
@@ -48,6 +55,24 @@ public class LodgerOpinion {
     }
 
     public void setLandlordUser(User landlordUser) {
+
         this.landlordUser = landlordUser;
+    }
+
+    public Date getOpinionDate() {
+        return opinionDate;
+    }
+
+    public void setOpinionDate(Date opinionDate) {
+
+        this.opinionDate = opinionDate;
+    }
+
+    public Point getPoints() {
+        return points;
+    }
+
+    public void setPoints(Point points) {
+        this.points = points;
     }
 }
