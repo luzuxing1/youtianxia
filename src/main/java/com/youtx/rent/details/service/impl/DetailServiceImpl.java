@@ -3,6 +3,7 @@ package com.youtx.rent.details.service.impl;
 import com.youtx.rent.dao.*;
 import com.youtx.rent.details.service.DetailService;
 import com.youtx.rent.entity.*;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -85,6 +86,14 @@ public class DetailServiceImpl implements DetailService {
     public Integer getPointCount(Integer roomId) {
         int pointCount = pointDAO.selectCountByRoomId(roomId);
         return pointCount;
+    }
+
+    @Override
+    public List<LodgerOpinion> getLandlordAllRoom(Integer userId) {
+        List<LodgerOpinion> allOpinions = lodgerOpinionDAO.selectByLandlordId(userId);
+        System.out.println(userId);
+        System.out.println(allOpinions);
+        return allOpinions;
     }
 
 }

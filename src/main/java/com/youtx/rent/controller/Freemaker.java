@@ -8,6 +8,6 @@ public class Freemaker {
 
     @RequestMapping("/test")
     public String test(){
-        return "place_info";
+        return "find_place";
     }
 }

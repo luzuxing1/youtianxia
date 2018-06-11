@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0033)http://www.youtx.com/room/144142/ -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><img src="${base}/static/place_info/default.ashx" width="0" height="0"><script src="${base}/static/place_info/push.js.下载"></script><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><img src="${base}/static/place_info/default.ashx" width="0" height="0"><script src="${base}/static/place_info/push.js"></script><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>
 	${detail[0].roomName}_${detail[0].roomCity}短租房_游天下
 </title>
 <#assign base=request.contextPath />
     <base id="base" href="${base}">
-    <img src="${base}/static/place_info/countpv" width="0" height="0"><script type="text/javascript" async="" src="${base}/static/place_info/load.min.js.下载"></script><script id="jquery" src="${base}/static/place_info/jquery-1.7.1.min.js.下载" language="javascript" type="text/javascript"></script>
-    <script src="${base}/static/place_info/jQuery.cookie.js.下载" language="javascript" type="text/javascript"></script>
+    <img src="${base}/static/place_info/countpv" width="0" height="0"><script type="text/javascript" async="" src="${base}/static/place_info/load.min.js"></script><script id="jquery" src="${base}/static/place_info/jquery-1.7.1.min.js" language="javascript" type="text/javascript"></script>
+    <script src="${base}/static/place_info/jQuery.cookie.js" language="javascript" type="text/javascript"></script>
     <link href="${base}/static/place_info/youtxpublic2016.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="${base}/static/place_info/youtxindex2016.css">
     <!--[if IE 6]>
 <script type="text/javascript" src="http://js.youtx.com/publish/scripts/LoadPNG.js?v=201301071302"></script>
@@ -23,17 +23,17 @@
 
     </script>
     
-    <script src="${base}/static/place_info/uaredirect.js.下载" type="text/javascript"></script>
+    <script src="${base}/static/place_info/uaredirect.js" type="text/javascript"></script>
 
     <script type="text/javascript">        uaredirect("http://m.youtx.com/waproom/144142/")</script>
     <link href="${base}/static/place_info/youtx-details2016.css" rel="stylesheet" type="text/css">
     
-    <script type="text/javascript" src="${base}/static/place_info/jquery.ui.datepicker-zh.min.js.下载"></script>
+    <script type="text/javascript" src="${base}/static/place_info/jquery.ui.datepicker-zh.min.js"></script>
     
-    <script type="text/javascript" src="${base}/static/place_info/jquery-ui-1.8.14.custom.min.js.下载"></script>
-    <script type="text/javascript" src="${base}/static/place_info/dateFormat.js.下载"></script>
-    <script type="text/javascript" language="javascript" src="${base}/static/place_info/Youtx.Utility.js.下载"></script>
-    <script type="text/javascript" src="${base}/static/place_info/Youtx.Verification.js.下载"></script>
+    <script type="text/javascript" src="${base}/static/place_info/jquery-ui-1.8.14.custom.min.js"></script>
+    <script type="text/javascript" src="${base}/static/place_info/dateFormat.js"></script>
+    <script type="text/javascript" language="javascript" src="${base}/static/place_info/Youtx.Utility.js"></script>
+    <script type="text/javascript" src="${base}/static/place_info/Youtx.Verification.js"></script>
     <script type="text/javascript">
         var HostUrl = 'http://www.youtx.com';
         var HostUrl_En = 'http://en.youtx.com';
@@ -692,7 +692,7 @@
 
     <div class="housetap clearfix">
         <a href="javascript:void(0);" class="thishousetap active" id="youtxxq_B02_21" onclick="qiehuan3(&#39;youtxxq_B02_21&#39;,1)">本房间的评价（${pointCount}）</a>
-        <a href="javascript:void(0);" class="otherhousetap" id="youtxxq_B02_25" onclick="qiehuan3(&#39;youtxxq_B02_25&#39;,2)">房东其他房间的评价 <span id="othercomments_b">(74)</span></a>
+        <a href="javascript:void(0);" class="otherhousetap" id="youtxxq_B02_25" onclick="qiehuan3(&#39;youtxxq_B02_25&#39;,2)">房东其他房间的评价 <span id="othercomments_b">( ${allOpinions.size()} )</span></a>
     </div>
     
     <div id="commentzhengti">
@@ -846,7 +846,11 @@
     
     <div class="otherhouseshow" id="anthercomment1" style="display: none;">
         <div class="pagebox">
-            <div class="evaluate" id="anthercomment1_div"><div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '2581052'="" target="_blank"><img src="${base}/static/place_info/68x68(2).jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/2581052" target="_blank" title="jDEjDE">jDEj...</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-five"></div></div><div class="text">很好的房东，很为住客考虑</div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://www.youtx.com/room/4941" target="_blank"><img src="${base}/static/place_info/120x90c.jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://www.youtx.com/room/4941" target="_blank">七号线酒店公寓 高层电梯房35平米</a></p><span>￥348/起</span></div><div class="pos">上海静安区圣天地酒店式公寓 近玉佛寺 巴黎春天 普陀区</div><div class="details">整套出租   1居    宜住2人   共2套</div></div></div></div></div></div><div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '2551456'="" target="_blank"><img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/2551456" target="_blank" title="cheungmargaret">cheu...</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-four"></div></div><div class="text"><p>房间干净整洁，2个人入住算比较宽廠，有电磁炉和微波炉方便实用。最初一周3个人入住，美女房东欧阳还提供床褥，真是贴心周到。房东还向我们介绍周边的环境，很温馨。我们提前数天退房的，美女欧阳还帮我们免了近一月的水电费，谢谢。</p><p>距13号地铁步行只需3- 5分钟，去南京路、淮海路和静安寺等，都只需２０分钟左右，交通非常方便。下次回上海仍会选择入住。</p></div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://www.youtx.com/room/4945" target="_blank"><img src="${base}/static/place_info/120x90c(1).jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://www.youtx.com/room/4945" target="_blank">15分钟直达人民广场外滩，温馨一室户</a></p><span>￥348/起</span></div><div class="pos">上海静安区圣天地酒店式公寓  长寿公园 7号线地铁 普陀区</div><div class="details">整套出租   1居    宜住2人   共5套</div></div></div></div></div></div><div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '2524037'="" target="_blank"><img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/2524037" target="_blank">王世红</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-five"></div></div><div class="text">房间很不错价格实惠，比图片展示更为温馨。欧阳是个不错的小姑娘，任何事情都会帮你解决，并且不厌其烦，下次还会选择这里入住</div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://www.youtx.com/room/6149" target="_blank"><img src="${base}/static/place_info/120x90c(2).jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://www.youtx.com/room/6149" target="_blank">7号线长寿路站静安寺商圈公寓</a></p><span>￥348/起</span></div><div class="pos">上海静安区普陀区 长寿路 中山公园 静安寺 南京西路 近长征医院</div><div class="details">整套出租   1居    宜住3人   共2套</div></div></div></div></div></div><div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '2506527'="" target="_blank"><img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/2506527" target="_blank">贺峻</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-five"></div></div><div class="text">美女房东人很好，很和善，很抱歉中午过来打搅了房东吃饭。位置很方便，交通便利，吃的方便。楼下还有保安，刷卡进楼，很安全。房间也不错。</div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://www.youtx.com/room/4945" target="_blank"><img src="${base}/static/place_info/120x90c(1).jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://www.youtx.com/room/4945" target="_blank">15分钟直达人民广场外滩，温馨一室户</a></p><span>￥348/起</span></div><div class="pos">上海静安区圣天地酒店式公寓  长寿公园 7号线地铁 普陀区</div><div class="details">整套出租   1居    宜住2人   共5套</div></div></div></div></div></div><div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '2495299'="" target="_blank"><img src="${base}/static/place_info/68x68(3).jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/2495299" target="_blank" title="我不逗比我傻">我不逗比...</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-five"></div></div><div class="text">房主很好！房子非常赞！因为我们飞机是晚上12点到的 房主很耐心的给我们说钥匙和住宅位置 换房间的时候也很耐心！超赞的服务！强力推荐！并且这里离地铁13非常近 交通方便！图片是外面的景色</div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://www.youtx.com/room/5490" target="_blank"><img src="${base}/static/place_info/120x90c(3).jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://www.youtx.com/room/5490" target="_blank">上海静安浪漫风情公寓</a></p><span>￥348/起</span></div><div class="pos">上海静安区普陀区 玉佛寺 陕西北路 豫园 人民广场 外滩</div><div class="details">整套出租   1居    宜住2人   共2套</div></div></div></div></div></div><div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '539362'="" target="_blank"><img src="${base}/static/place_info/68x68(4).jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/539362" target="_blank" title="aschina buyer">asch...</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-five"></div></div><div class="text">这次和朋友放暑假一起来上海玩，又选择此处，房东说今年新开通了地铁13号线江宁路站，比以前更加方便，我们出门基本就是地铁，因为就在大楼50米处，这次只短短的呆了两天，房间特别紧张预订的时候本来都没有房间，因为房东还记得我，所以特意帮我留了两间房，真棒，房东还是一如既往的热情，强烈推荐</div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://www.youtx.com/room/5490" target="_blank"><img src="${base}/static/place_info/120x90c(3).jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://www.youtx.com/room/5490" target="_blank">上海静安浪漫风情公寓</a></p><span>￥348/起</span></div><div class="pos">上海静安区普陀区 玉佛寺 陕西北路 豫园 人民广场 外滩</div><div class="details">整套出租   1居    宜住2人   共2套</div></div></div></div></div></div><div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '539362'="" target="_blank"><img src="${base}/static/place_info/68x68(4).jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/539362" target="_blank" title="aschina buyer">asch...</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-five"></div></div><div class="text">这次和朋友放暑假一起来上海玩，又选择此处，房东说今年新开通了地铁13号线江宁路站，比以前更加方便，我们出门基本就是地铁，因为就在大楼50米处，这次只短短的呆了两天，房间特别紧张预订的时候本来都没有房间，因为房东还记得我，所以特意帮我留了两间房，真棒，房东还是一如既往的热情，强烈推荐</div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://www.youtx.com/room/5490" target="_blank"><img src="${base}/static/place_info/120x90c(3).jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://www.youtx.com/room/5490" target="_blank">上海静安浪漫风情公寓</a></p><span>￥348/起</span></div><div class="pos">上海静安区普陀区 玉佛寺 陕西北路 豫园 人民广场 外滩</div><div class="details">整套出租   1居    宜住2人   共2套</div></div></div></div></div></div><div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '2492714'="" target="_blank"><img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/2492714" target="_blank">彭廷芳</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-five"></div></div><div class="text">房东人真不错，房子干净卫生，餐具厨房用品比我想象丰富多样化～附近地铁100米，电影院超市啥的</div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://www.youtx.com/room/4945" target="_blank"><img src="${base}/static/place_info/120x90c(1).jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://www.youtx.com/room/4945" target="_blank">15分钟直达人民广场外滩，温馨一室户</a></p><span>￥348/起</span></div><div class="pos">上海静安区圣天地酒店式公寓  长寿公园 7号线地铁 普陀区</div><div class="details">整套出租   1居    宜住2人   共5套</div></div></div></div></div></div><div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '2101946'="" target="_blank"><img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/2101946" target="_blank">马悦</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-five"></div></div><div class="text">终于知道有个好房东是什么样了，旅行路线，下楼接行李，各种好。当然最好的是房间，虽然和图片不是完全一模一样，但只是家具款式不完全一样，实际房间可比图片美丽温馨。棒棒哒，下次还来住</div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://www.youtx.com/room/6149" target="_blank"><img src="${base}/static/place_info/120x90c(2).jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://www.youtx.com/room/6149" target="_blank">7号线长寿路站静安寺商圈公寓</a></p><span>￥348/起</span></div><div class="pos">上海静安区普陀区 长寿路 中山公园 静安寺 南京西路 近长征医院</div><div class="details">整套出租   1居    宜住3人   共2套</div></div></div></div></div></div><div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '2101948'="" target="_blank"><img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/2101948" target="_blank">江冬梅</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-five"></div></div><div class="text">房间很有家的感觉，很温馨，打扫也非常干净，连厨房这种最不容易清洁的地方也一点油烟没有。麻雀虽小，五脏俱全。欧阳房东也易沟通乐于助人，下次还会来的</div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://www.youtx.com/room/6222" target="_blank"><img src="${base}/static/place_info/120x90c(4).jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://www.youtx.com/room/6222" target="_blank">7号线长寿路站商业区温馨酒店式公寓</a></p><span>￥348/起</span></div><div class="pos">上海静安区普陀区 7号线长寿路站 中山公园 人民广场 外滩</div><div class="details">整套出租   1居    宜住3人   共2套</div></div></div></div></div></div></div>
+            <div class="evaluate" id="anthercomment1_div">
+                <#list allOpinions as allOp>
+                <div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '2101948'="" target="_blank"><img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/2101948" target="_blank">${allOp.lodgerUser.userRealname}</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-five"></div></div><div class="text">${allOp.opinionContent}</div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://localhost:8080/rent/detail/show?roomId=${allOp.room.roomId}" target="_blank"><img src="${base}/static/place_info/120x90c(4).jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://localhost:8080/rent/detail/show?roomId=${allOp.room.roomId}" target="_blank">${allOp.room.roomName}</a></p><span>￥${allOp.room.roomPrice}/起</span></div><div class="pos">${allOp.room.roomResource.resourceAddress}</div><div class="details">${allOp.room.roomResource.resourceSign}</div></div></div></div></div></div>
+                </#list>
+            </div>
         </div>
     </div>
     <!--div_Pager-->
@@ -856,26 +860,6 @@
 <a href="http://www.youtx.com/room/144142/#" class="active">1</a>
 </div>
         <!--2012-1-18评论"解释"切换-结束-->
-        <div id="anthercomment_page" class="pagego" style="display: none">
-<a href="http://www.youtx.com/room/144142/#" class="active">1</a>
-
-<a href="javascript:void(0);" onclick="loadother(2)">2</a>
-
-<a href="javascript:void(0);" onclick="loadother(3)">3</a>
-
-<a href="javascript:void(0);" onclick="loadother(4)">4</a>
-
-<a href="javascript:void(0);" onclick="loadother(5)">5</a>
-
-<a href="javascript:void(0);" onclick="loadother(6)">6</a>
-
-<a href="javascript:void(0);" onclick="loadother(7)">7</a>
-
-<a href="javascript:void(0);" onclick="loadother(8)">8</a>
-
-
-<span class="end" onclick="loadother(2)"></span>
-</div>
     </div>
 </div>
 
@@ -887,24 +871,24 @@
                             <!--单间出租-->
                             <ul class="single">
                                 <li class="singletwo active"><span></span>
-                                    <p>整套出租</p>
+                                    <p>${detail[3].situType}</p>
                                 </li>
                                 
                             </ul>
                             <!--4居-->
                             <div class="sec">
                                 <span></span>
-                                <p>1居</p>
+                                <p>${detail[3].situRoomNum}居</p>
                             </div>
                             <!--宜住4人-->
                             <div class="third">
                                 <span></span>
-                                <p>宜住2人</p>
+                                <p>宜住${detail[3].situStandardPeople}人</p>
                             </div>
                             <!--1套-->
                             <div class="fourth">
                                 <span></span>
-                                <p>2套</p>
+                                <p>${detail[3].situOtherResource}套</p>
                             </div>
                         </div>
                         <!--右侧1 end-->
@@ -1012,11 +996,10 @@
         
         <!--今晚特价 start-->
         
-        <p><span id="PriceNum_Value"><em>￥</em>330</span><i>日均</i></p>
+        <p><span id="PriceNum_Value"><em>￥</em>${detail[6].priceDay}</span><i>日均</i></p>
 
         
     </div>
-    
 
     <div class="date">
         <div class="calendarall clearfix">
@@ -1768,18 +1751,18 @@
         <!--底部轮播图end-->
         <!--全部排期开始-->
         <!--全部排期结束-->
-        <script type="text/javascript" src="${base}/static/place_info/IndexJs2014.js.下载"></script>
-        <script src="${base}/static/place_info/Activities.js.下载" type="text/javascript"></script>
+        <script type="text/javascript" src="${base}/static/place_info/IndexJs2014.js"></script>
+        <script src="${base}/static/place_info/Activities.js" type="text/javascript"></script>
 
 
-        <script src="${base}/static/place_info/UserAttention.js.下载" type="text/javascript"></script>
-        <script type="text/javascript" src="${base}/static/place_info/Login_Cookie2014.js.下载"></script>
-        <script src="${base}/static/place_info/Youtx_WebIM_HTML.js.下载" type="text/javascript"></script><script src="${base}/static/place_info/youtx_mi_query.js.下载" type="text/javascript"></script><script src="${base}/static/place_info/WebIM.js.下载" type="text/javascript"></script><script src="${base}/static/place_info/WebIM.Query.js.下载" type="text/javascript"></script>
-        <script type="text/javascript" src="${base}/static/place_info/youtx-details2016.js.下载"></script>
+        <script src="${base}/static/place_info/UserAttention.js" type="text/javascript"></script>
+        <script type="text/javascript" src="${base}/static/place_info/Login_Cookie2014.js"></script>
+        <script src="${base}/static/place_info/Youtx_WebIM_HTML.js" type="text/javascript"></script><script src="${base}/static/place_info/youtx_mi_query.js" type="text/javascript"></script><script src="${base}/static/place_info/WebIM.js" type="text/javascript"></script><script src="${base}/static/place_info/WebIM.Query.js" type="text/javascript"></script>
+        <script type="text/javascript" src="${base}/static/place_info/youtx-details2016.js"></script>
 
-        <script src="${base}/static/place_info/baidu-head.js.下载" type="text/javascript"></script>
+        <script src="${base}/static/place_info/baidu-head.js" type="text/javascript"></script>
         <!--页面点击click-->
-        <script type="text/javascript" src="${base}/static/place_info/click2011.js.下载"></script>
+        <script type="text/javascript" src="${base}/static/place_info/click2011.js"></script>
         <script type="text/javascript">        Clickstat.eventAdd(window, 'load', function (e) { Clickstat.batchEvent('youtxxq_', ''); });</script>
         <script>
             (function () {
@@ -1930,9 +1913,9 @@
             </div>
         </div>
         <!--右边悬浮框suspension end-->
-        <script type="text/javascript" src="${base}/static/place_info/default_login2016.js.下载"></script>
+        <script type="text/javascript" src="${base}/static/place_info/default_login2016.js"></script>
 
-        <script type="text/javascript" charset="utf-8" src="${base}/static/place_info/youtxindex2016.js.下载"></script>
+        <script type="text/javascript" charset="utf-8" src="${base}/static/place_info/youtxindex2016.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function () {

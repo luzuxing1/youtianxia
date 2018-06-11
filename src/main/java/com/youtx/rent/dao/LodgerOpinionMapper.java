@@ -19,4 +19,6 @@ public interface LodgerOpinionMapper {
     int updateByPrimaryKey(LodgerOpinion record);
 
     List<LodgerOpinion> selectByRoomId(Integer roomId);
+
+    List<LodgerOpinion> selectByLandlordId(Integer landlordId);
 }
