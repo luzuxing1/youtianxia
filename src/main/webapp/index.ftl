@@ -57,19 +57,19 @@
 </script>
 
 <div class="header clearfix">
-    <a id="youtx_C01_01" class="youtxLogo" href="http://www.youtx.com/"><img src="${base}/static/index/youtxLogo.png" width="118" height="62" alt="游天下logo"></a>
+    <a id="youtx_C01_01" class="youtxLogo" href="${base/user/los}"><img src="${base}/static/index/youtxLogo.png" width="118" height="62" alt="游天下logo"></a>
     <ul class="headerNav clearfix" id="headerNav" style="width:580px;">
-        <li class="active"><a id="youtx_C01_02" href="http://www.youtx.com/" target="_blank">首页</a></li>
-        <li><a id="youtx_C01_03" href="http://www.youtx.com/midlong/" target="_blank">周租月租</a></li>
-        <li><a id="youtx_C01_15" href="http://www.youtx.com/list/htype2/" target="_blank">聚会别墅</a></li>
+        <li class="active"><a id="youtx_C01_02" href="${base}/user/los">首页</a></li>
+        <li><a id="youtx_C01_03" href="" target="_blank">周租月租</a></li>
+        <li><a id="youtx_C01_15" href="" target="_blank">聚会别墅</a></li>
         <!--<li><a id="youtx_C01_04" href="http://zu.fang.com/" target="_blank">长租房</a></li>-->
-        <li><a id="youtx_C01_05" href="http://mall.youtx.com/" target="_blank">品牌店铺</a></li>
-        <li class="NavDownLi"><a id="youtx_C01_06" href="http://guide.youtx.com/" target="_blank" class="NavDownTrigger">目的地专家</a>
+        <li><a id="youtx_C01_05" href="" target="_blank">品牌店铺</a></li>
+        <li class="NavDownLi"><a id="youtx_C01_06" href="" target="_blank" class="NavDownTrigger">目的地专家</a>
             <dl class="NavMenu">
-                <dd><a href="http://ask.youtx.com/" target="_blank">问答</a></dd>
-                <dd><a href="http://guidebook.youtx.com/" target="_blank">攻略</a></dd>
+                <dd><a href="" target="_blank">问答</a></dd>
+                <dd><a href="" target="_blank">攻略</a></dd>
                 <!--<dd><a href="http://activity.youtx.com/" target="_blank">结伴</a></dd>-->
-                <dd><a href="http://www.youtx.com/jingdian/" target="_blank">景点</a></dd>
+                <dd><a href="" target="_blank">景点</a></dd>
             </dl>
         </li>
 
@@ -557,19 +557,19 @@
                 <li>7人</li>
             </ul>
         </div>-->
-        <div id="youtx_C02_04" style="float:left"><input class="searchBtn" type="button" value="搜 索" id="submit_location" name="submit_location" style="cursor: pointer"></div>
+        <div id="youtx_C02_04" style="float:left">
+            <a class="searchBtn" id="submit_location" onclick="ss_1()" href="" name="submit_location">搜 索</a>
+        </div>
+
+ <script type="text/javascript">
+     function ss_1() {
+         var citys = $("#txtCity").val();
+         //alert(citys);
+          $("#submit_location").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+citys+"-*-*-*-*&currentPage=1&sort=default");
+     };
+ </script>
 <script type="text/javascript">
-    $("#submit_location").click(function () {
-        //        if ($('#checkin').val() == "yy-mm-dd") {
-        //            $("#checkouttip").hide();
-        //            $("#checkintip").show();
-        //            return;
-        //        }
-        //        if ($('#checkout').val() == "yy-mm-dd") {
-        //            $("#checkintip").hide();
-        //            $("#checkouttip").show();
-        //            return;
-        //        }
+
 
         if (($('#checkin').val() != "yy-mm-dd") && ($('#checkout').val() != "yy-mm-dd")) {
             var begin = $("#checkin").val();
@@ -766,9 +766,137 @@ document.documentElement.scrollTop;
 <div class="conWrap">
     <div class="mainCon">
         <!--section1热门好去处-->
-<div class="wrap1"><div class="hotArea"><div class="conTit"><em class="line"></em><h2>热门好去处</h2><p>别人的城市是你眼中的风景</p></div><!--list房源--><ul class="hotAreaUl clearfix"><li><a id="youtx_C03_01" href="http://www.youtx.com/shanghai/" target="_blank"><img src="${base}/static/index/380x260c.jpg" width="380" height="260" alt="热门好去处房源"><div class="shadow"></div></a><span class="hotAreaBg"></span><div class="hotAreaTxt"><span>上海</span><em></em></div></li><li><a id="youtx_C03_02" href="http://www.youtx.com/sanya/" target="_blank"><img src="${base}/static/index/380x260c(1).jpg" width="380" height="260" alt="热门好去处房源"><div class="shadow"></div></a><span class="hotAreaBg"></span><div class="hotAreaTxt"><span>三亚</span><em></em></div></li><li class="noMR"><a id="youtx_C03_03" href="http://www.youtx.com/hangzhou/" target="_blank"><img src="${base}/static/index/380x260c(2).jpg" width="380" height="260" alt="热门好去处房源"><div class="shadow"></div></a><span class="hotAreaBg"></span><div class="hotAreaTxt"><span>杭州</span><em></em></div></li><li><a id="youtx_C03_04" href="http://www.youtx.com/chengdu/" target="_blank"><img src="${base}/static/index/380x260c(3).jpg" width="380" height="260" alt="热门好去处房源"><div class="shadow"></div></a><span class="hotAreaBg"></span><div class="hotAreaTxt"><span>成都</span><em></em></div></li><li><a id="youtx_C03_05" href="http://www.youtx.com/beijing/" target="_blank"><img src="${base}/static/index/380x260c(4).jpg" width="380" height="260" alt="热门好去处房源"><div class="shadow" style="display: none;"></div></a><span class="hotAreaBg"></span><div class="hotAreaTxt"><span>北京</span><em></em></div></li><li class="noMR"><a id="youtx_C03_06" href="http://www.youtx.com/guangzhou/" target="_blank"><img src="${base}/static/index/380x260c(5).jpg" width="380" height="260" alt="热门好去处房源"><div class="shadow"></div></a><span class="hotAreaBg"></span><div class="hotAreaTxt"><span>广州</span><em></em></div></li></ul></div></div>
+<div class="wrap1">
+    <div class="hotArea">
+        <div class="conTit"><em class="line"></em><h2>热门好去处</h2>
+            <p>别人的城市是你眼中的风景</p>
+        </div><!--list房源-->
+        <ul class="hotAreaUl clearfix">
+            <li><a id="youtx_C03_01" onclick="sss_1()"  target="_blank" href="">
+                <img src="${base}/static/index/380x260c.jpg" width="380" height="260" alt="热门好去处房源">
+                <div class="shadow"></div></a><span class="hotAreaBg"></span>
+                <div class="hotAreaTxt"><span class="c_city1">上海</span><em></em>
+                </div>
+            </li>
+            <li><a id="youtx_C03_02" target="_blank" onclick="sss_2()" href="">
+                <img src="${base}/static/index/380x260c(1).jpg" width="380" height="260" alt="热门好去处房源">
+                <div class="shadow"></div></a><span class="hotAreaBg"></span>
+                <div class="hotAreaTxt"><span class="c_city2">三亚</span><em></em></div>
+            </li>
+            <li class="noMR">
+                <a id="youtx_C03_03"  target="_blank" onclick="sss_3()" href="">
+                    <img src="${base}/static/index/380x260c(2).jpg" width="380" height="260" alt="热门好去处房源">
+                    <div class="shadow"></div>
+                </a><span class="hotAreaBg"></span>
+                <div class="hotAreaTxt"><span class="c_city3">杭州</span><em></em></div>
+            </li>
+            <li><a id="youtx_C03_04" onclick="sss_4()"  target="_blank" href="">
+                <img src="${base}/static/index/380x260c(3).jpg" width="380" height="260" alt="热门好去处房源">
+                <div class="shadow"></div></a><span class="hotAreaBg"></span>
+                <div class="hotAreaTxt"><span class="c_city4">成都</span><em></em></div>
+             </li>
+            <li><a id="youtx_C03_05" onclick="sss_5()"  target="_blank" href="">
+                <img src="${base}/static/index/380x260c(4).jpg" width="380" height="260" alt="热门好去处房源">
+                <div class="shadow" style="display: none;"></div></a>
+                <span class="hotAreaBg"></span>
+                <div class="hotAreaTxt"><span class="c_city5">北京</span><em></em></div>
+            </li>
+            <li class="noMR"><a id="youtx_C03_06" target="_blank" onclick="sss_6()"   href="">
+                <img src="${base}/static/index/380x260c(5).jpg" width="380" height="260" alt="热门好去处房源"><div class="shadow"></div></a><span class="hotAreaBg"></span>
+                <div class="hotAreaTxt"><span class="c_city6">广州</span><em></em></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var city_1 = $(".c_city1").text();
+    var city_2 = $(".c_city2").text();
+    var city_3 = $(".c_city3").text();
+    var city_4 = $(".c_city4").text();
+    var city_5 = $(".c_city5").text();
+    var city_6 = $(".c_city6").text();
+    function sss_1() {
+
+        $("#youtx_C03_01").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+city_1+"-*-*-*-*&currentPage=1&sort=default");
+    };
+    function sss_2() {
+        $("#youtx_C03_02").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+city_2+"-*-*-*-*&currentPage=1&sort=default");
+    };
+    function sss_3() {
+
+        $("#youtx_C03_03").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+city_3+"-*-*-*-*&currentPage=1&sort=default");
+    };
+    function sss_4() {
+
+        $("#youtx_C03_04").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+city_4+"-*-*-*-*&currentPage=1&sort=default");
+    };
+    function sss_5() {
+
+        $("#youtx_C03_05").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+city_5+"-*-*-*-*&currentPage=1&sort=default");
+    };
+    function sss_6() {
+
+        $("#youtx_C03_06").attr("href","${base}/screen/all?all=0,99999-请输入地址、商圈、地标、店铺名等-"+city_6+"-*-*-*-*&currentPage=1&sort=default");
+    };
+</script>
         <!--section2特色短租-->
-<div class="wrap1"><div class="shortRent"><div class="conTit"><em class="line"></em><h2>特色短租</h2><p>与你分享“家”的精彩</p></div><!--list特色房源--><div class="shortRentUl clearfix"><div class="focusPicture" id="focusPicture"><ul class="PictureUl" id="youtx_C04_01"><li style="display: none;"><a href="http://www.youtx.com/pcTopic/world-tachun/" target="_blank"><img src="${base}/static/index/004935285300.jpg" width="780" height="310"></a></li><li style="display: block;"><a href="http://www.youtx.com/pcTopic/festival-mother520/" target="_blank"><img src="${base}/static/index/007350680600.jpg" width="780" height="310"></a></li><li style="display: none;"><a href="http://www.youtx.com/pcTopic/world-zhmyou/" target="_blank"><img src="${base}/static/index/004514586100.jpg" width="780" height="310"></a></li><li style="display: none;"><a href="http://www.youtx.com/pcTopic/scene-jjy/" target="_blank"><img src="${base}/static/index/009125229100.jpg" width="780" height="310"></a></li><li style="display: none;"><a href="http://www.youtx.com/Topic/festival-guangzhouduanwujie2015-new/" target="_blank"><img src="${base}/static/index/008831055600.jpg" width="780" height="310"></a></li></ul><div class="PictureLis"><span class=""></span><span class="Cur"></span><span class=""></span><span class=""></span><span class=""></span></div></div><div class="sr_show fl mr0" id="youtx_C04_02"><div class="pic_tit"><a class="a_pic" href="http://www.youtx.com/room/93318/" target="_blank"><img src="${base}/static/index/006994963500.jpg" width="380" height="250" alt="特色房源图片"></a><p class="tit_txt">古色古香特色客栈</p></div><div class="show_info clearfix"><div class="fl"><p class="mb7"><a class="t16" href="http://www.youtx.com/room/93318/" target="_blank">都江堰青城山环山临水舒适大床住宿</a></p><p class="t14">成都</p></div><p class="fr price"><em class="em1">¥</em><em class="em2">120</em><em class="em3">/晚</em></p></div></div><div class="sr_show fl" id="youtx_C04_03"><div class="pic_tit"><a class="a_pic" href="http://www.youtx.com/room/314560/" target="_blank"><img src="${base}/static/index/009111426700.jpg" width="380" height="250" alt="特色房源图片"></a><p class="tit_txt">三山一湖  景色优美</p></div><div class="show_info clearfix"><div class="fl"><p class="mb7"><a class="t16" href="http://www.youtx.com/room/314560/" target="_blank">水上公园多人轰趴娱乐北欧独栋别墅</a></p><p class="t14">青岛</p></div><p class="fr price"><em class="em1">¥</em><em class="em2">1580</em><em class="em3">/晚</em></p></div></div><div class="sr_show fl" id="youtx_C04_04"><div class="pic_tit"><a class="a_pic" href="http://www.youtx.com/room/311026/" target="_blank"><img src="${base}/static/index/006918967600.jpg" width="380" height="250" alt="特色房源图片"></a><p class="tit_txt">精装欧式田园风格</p></div><div class="show_info clearfix"><div class="fl"><p class="mb7"><a class="t16" href="http://www.youtx.com/room/311026/" target="_blank">近地铁高档四星三房二厅厨卫套房</a></p><p class="t14">上海</p></div><p class="fr price"><em class="em1">¥</em><em class="em2">780</em><em class="em3">/晚</em></p></div></div><div class="sr_show fl mr0" id="youtx_C04_05"><div class="pic_tit"><a class="a_pic" href="http://www.youtx.com/room/302236/" target="_blank"><img src="${base}/static/index/009007681200.jpg" width="380" height="250" alt="特色房源图片"></a><p class="tit_txt">首都繁华商圈交通便利</p></div><div class="show_info clearfix"><div class="fl"><p class="mb7"><a class="t16" href="http://www.youtx.com/room/302236/" target="_blank">国贸CBD后现代工业风时尚大床房</a></p><p class="t14">北京</p></div><p class="fr price"><em class="em1">¥</em><em class="em2">368</em><em class="em3">/晚</em></p></div></div></div></div></div>
+<div class="wrap1">
+    <div class="shortRent">
+        <div class="conTit"><em class="line"></em><h2>特色短租</h2><p>与你分享“家”的精彩</p></div>
+        <!--list特色房源-->
+        <div class="shortRentUl clearfix" style="">
+            <div class="focusPicture" id="focusPicture" style="margin:auto;">
+            <ul class="PictureUl" id="youtx_C04_01">
+                <li style="display: none;">
+                    <a href="http://www.youtx.com/pcTopic/world-tachun/" target="_blank">
+                        <img src="${base}/static/index/004935285300.jpg" width="780" height="310"></a>
+                </li>
+                <li style="display: block;">
+                    <a href="http://www.youtx.com/pcTopic/festival-mother520/" target="_blank">
+                        <img src="${base}/static/index/007350680600.jpg" width="780" height="310"></a>
+                </li>
+                <li style="display: none;">
+                    <a href="http://www.youtx.com/pcTopic/world-zhmyou/" target="_blank">
+                        <img src="${base}/static/index/004514586100.jpg" width="780" height="310">
+                    </a>
+                </li>
+                <li style="display: none;">
+                    <a href="http://www.youtx.com/pcTopic/scene-jjy/" target="_blank">
+                        <img src="${base}/static/index/009125229100.jpg" width="780" height="310">
+                    </a>
+                </li>
+                <li style="display: none;">
+                    <a href="http://www.youtx.com/Topic/festival-guangzhouduanwujie2015-new/" target="_blank">
+                        <img src="${base}/static/index/008831055600.jpg" width="780" height="310">
+                    </a>
+                </li>
+            </ul>
+            <div class="PictureLis">
+                <span class=""></span>
+                <span class="Cur"></span>
+                <span class=""></span>
+                <span class=""></span>
+                <span class=""></span>
+            </div>
+        </div>
+        <#list roomsRandom as room>
+            <div class="sr_show fl mr0" id="youtx_C04_02" style="margin-left: 13px">
+                <div class="pic_tit"><a class="a_pic" href="" target="_blank" >
+                    <img src="${base}/static/index/006994963500.jpg" width="380" height="250" alt="特色房源图片">
+                </a><p class="tit_txt">${room.roomName}</p>
+                </div>
+                <div class="show_info clearfix">
+                    <div class="fl">
+                        <p class="mb7"><a class="t16" href="" target="_blank">${room.roomResource.resourceSign}</a>
+                        </p><p class="t14">${room.roomCity}</p>
+                    </div>
+                    <p class="fr price"><em class="em1">¥</em><em class="em2">${room.roomPrice}</em>
+                        <em class="em3">/晚</em></p>
+                </div>
+            </div>
+        </#list>
+    </div>
+</div>
 <!--目的地攻略-->
 <div class="desStrag_wrap"><div class="desStrag"><div class="conTit"><em class="line"></em><h2>目的地攻略</h2><div class="moreCon"><a id="youtx_C05_01" href="http://guide.youtx.com/" target="_blank" class="more">更多目的地攻略</a></div></div><!--点击小图对应的大图--><div class="desStragImg"><ul class="desStragUl" style="height: 408px;"><li style="display: none; opacity: 0.3;"><a id="youtx_C05_02" href="http://guidebook.youtx.com/Info/1337733/" target="_blank"><img src="${base}/static/index/003816641600.jpg" alt="目的地攻略图片"></a><span class="desBg"></span><div class="desImgTxt"><h2><a id="youtx_C05_03" href="http://guidebook.youtx.com/Info/1337733/" target="_blank">江南水乡之旅</a></h2><h3 class="clearfix"><span class="textEllipsis">嘉兴、西塘、上海、苏州</span> <a id="youtx_C05_04" href="http://guidebook.youtx.com/Info/1337733/" target="_blank" class="textEllipsis">by王静</a></h3><p>西塘的夜景很美，但早上也一定要早起，看看早晨的西塘，美得像明信片，DD说拍照不用怎么取景的，随手一拍就是一张很漂亮的画面</p></div></li><li style="opacity: 1; display: list-item;"><a id="youtx_C05_06" href="http://guidebook.youtx.com/Info/1284260/" target="_blank"><img src="${base}/static/index/003934301900.jpg" alt="目的地攻略图片"></a><span class="desBg"></span><div class="desImgTxt"><h2><a id="youtx_C05_07" href="http://guidebook.youtx.com/Info/1284260/" target="_blank">初游西藏—林芝日喀则</a></h2><h3 class="clearfix"><span class="textEllipsis">拉萨、林芝、日喀则、纳木错</span> <a id="youtx_C05_08" href="http://guidebook.youtx.com/Info/1284260/" target="_blank" class="textEllipsis">by欧阳</a></h3><p>这种天气竟然格桑花还开的如此灿烂，令人意想不到。寺庙里果然还有藏民同胞抱着刚刚出生的婴儿来还愿，那小婴儿的头发还是湿漉漉的。</p></div></li><li style="opacity: 0.3; display: none;"><a id="youtx_C05_10" href="http://guidebook.youtx.com/Info/1388441/" target="_blank"><img src="${base}/static/index/004005724200.jpg" alt="目的地攻略图片"></a><span class="desBg"></span><div class="desImgTxt"><h2><a id="youtx_C05_11" href="http://guidebook.youtx.com/Info/1388441/" target="_blank">德清县新市古镇</a></h2><h3 class="clearfix"><span class="textEllipsis">德清</span> <a id="youtx_C05_12" href="http://guidebook.youtx.com/Info/1388441/" target="_blank" class="textEllipsis">by江若兰</a></h3><p>从镇史馆到觉海寺，一路过桥走巷，移步易景。时而驻足廊下，时而漫步街巷，看白墙黑瓦深褐色木构件的古宅，不时地有茶糕香气飘入鼻中</p></div></li><li style="opacity: 0.3; display: none;"><a id="youtx_C05_14" href="http://guidebook.youtx.com/Info/1274173/" target="_blank"><img src="${base}/static/index/003856427300.jpg" alt="目的地攻略图片"></a><span class="desBg"></span><div class="desImgTxt"><h2><a id="youtx_C05_15" href="http://guidebook.youtx.com/Info/1274173/" target="_blank">端午重游武夷山</a></h2><h3 class="clearfix"><span class="textEllipsis">武夷山</span> <a id="youtx_C05_16" href="http://guidebook.youtx.com/Info/1274173/" target="_blank" class="textEllipsis">by小涛</a></h3><p>在流香涧和章堂涧，那一路的清净和美景，使人置身世外桃园、徜徉于茶园风光。茶树的清香与溪水的潺潺，使我们沉醉在武夷岩茶的滋润中。</p></div></li><li style="opacity: 0.3; display: none;"><a id="youtx_C05_18" href="http://guidebook.youtx.com/Info/1393487/" target="_blank"><img src="${base}/static/index/004046876700.jpg" alt="目的地攻略图片"></a><span class="desBg"></span><div class="desImgTxt"><h2><a id="youtx_C05_19" href="http://guidebook.youtx.com/Info/1393487/" target="_blank">走进广西巴马</a></h2><h3 class="clearfix"><span class="textEllipsis">百色，巴马</span> <a id="youtx_C05_20" href="http://guidebook.youtx.com/Info/1393487/" target="_blank" class="textEllipsis">by刘珍</a></h3><p>百魔洞是本次出游的主要目标，它吸引着众多“候鸟人”来这修身养命。这里养生资源有三要素：地磁、小分子团水、富含负氧离子的空气。</p></div></li></ul><div class="desSmallImg"><ul class="desSmallImgUl"><li><a id="youtx_C05_05" style="display: block;"><img src="${base}/static/index/50x50c.jpg" width="50" height="50" alt="小图"><span class="mask" style="display: block;"></span><span class="border" style="display: none;"><i></i></span></a></li><li><a id="youtx_C05_09" style="display: block;"><img src="${base}/static/index/50x50c(1).jpg" width="50" height="50" alt="小图"><span class="mask" style="display: none;"></span><span class="border" style="display: inline;"><i></i></span></a></li><li><a id="youtx_C05_13" style="display: block;"><img src="${base}/static/index/50x50c(2).jpg" width="50" height="50" alt="小图"><span class="mask" style="display: block;"></span><span class="border" style="display: none;"><i></i></span></a></li><li><a id="youtx_C05_17" style="display: block;"><img src="${base}/static/index/50x50c(3).jpg" width="50" height="50" alt="小图"><span class="mask" style="display: block;"></span><span class="border" style="display: none;"><i></i></span></a></li><li><a id="youtx_C05_21" style="display: block;"><img src="${base}/static/index/50x50c(4).jpg" width="50" height="50" alt="小图"><span class="mask" style="display: block;"></span><span class="border" style="display: none;"><i></i></span></a></li></ul></div></div></div></div>
 <!--房东故事-->

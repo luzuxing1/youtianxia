@@ -27,10 +27,17 @@
   </select>
 
   <select id="selectRoomId"  parameterType="java.lang.Integer" resultType="java.lang.Integer">
+  SELECT
+  room_id
+  FROM ytx_room
+  WHERE user_id = #{userId}
+</select>
+
+  <select id="selectRoomsRandom"  resultMap="BaseResultMap">
     SELECT
-    room_id
+    <include refid="Base_Column_List" />
     FROM ytx_room
-    WHERE user_id = #{userId}
+    ORDER  by  rand() limit 4
   </select>
 
 

@@ -1,8 +1,10 @@
 package com.youtx.rent.logins.controller;
 
+import com.youtx.rent.entity.Room;
 import com.youtx.rent.entity.User;
 import com.youtx.rent.logins.result.JsonResult;
 import com.youtx.rent.logins.service.LoginService;
+import com.youtx.rent.logins.service.RoomService;
 import com.youtx.rent.logins.utils.SystemParm;
 import com.youtx.rent.logins.utils.SystemTool;
 import org.apache.shiro.SecurityUtils;
@@ -10,8 +12,11 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 
 @Controller
@@ -19,7 +24,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoginController {
     @Autowired
     private LoginService loginService;
-
+    @Autowired
+    private RoomService roomService;
 
     @ResponseBody
     @RequestMapping("/login")
@@ -53,7 +59,9 @@ public class LoginController {
         return "login";
     }
     @RequestMapping("/los")
-    public String los(){
+    public String los(Model model){
+        List<Room> roomsRandom = roomService.findRoomsRandom();
+        model.addAttribute("roomsRandom",roomsRandom);
         return "index";
     }
     @RequestMapping("/lols")

@@ -115,7 +115,7 @@
 
 <div id="youtxlogin" class="header" style="display: none">
     <p class="logo">
-        <a href="http://www.youtx.com/" target="_blank">
+        <a href="${base}/user/los" target="_blank">
             <img src="${base}/static/login/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站" title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
     </p>
     <p class="btncz"><a id="A2" style="cursor:default;" target="_blank" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a></p>
@@ -168,7 +168,7 @@
 <!--头 未登录 start-->
 <div id="youtxloginw" class="header">
     <p class="logo">
-        <a href="http://www.youtx.com/" target="_blank">
+        <a href="${base}/user/los">
             <img src="${base}/static/login/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站" title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
     </p>
     <p class="btncz"><a id="A3" style="cursor:default;" target="_blank" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a></p>

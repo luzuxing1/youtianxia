@@ -825,8 +825,8 @@
 <ul class="NewSubNav">
     <li class=""><a href="http://www.youtx.com/home/dashboard/">账户首页</a></li>
     <li class=""><a href="http://www.youtx.com/User/MyMailBox/">收件箱</a></li>
-    <li class="NewSubNavCur"><a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx">我是房东</a></li>
-    <li class=""><a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx">我是租客</a></li>
+    <li class="NewSubNavCur"><a href="">我是房东</a></li>
+    <li class=""><a href="${base}/userCenter/jumpLodgerPage">我是租客</a></li>
     <li class=""><a href="http://www.youtx.com/user/remind">账户管理</a></li>
     <li class=""><a href="http://www.youtx.com/judges/">评价管理</a></li>
     <li class=""><a href="http://www.youtx.com/profile/cashaccount/">我的资产</a></li>
@@ -932,7 +932,7 @@
                         </th>
                         <th width="130" style="text-align: center;">
                             
-                            <div id="" class="m_m_t_l_btns m_m_t_l_01">
+                            <div id="checkintime" class="m_m_t_l_btns m_m_t_l_01">
                                 <div class="m_m_t_l_02" id="checkintime1">
                                     <span class="m_m_t_l_03">
                                         
@@ -993,7 +993,7 @@
                                     <div class="m_m_t_l_06">
                                         <a class="m_m_t_l_02" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx?SelectState=ss1&amp;category=0">待处理</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a class="m_m_t_l_02" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx?SelectState=ss2&amp;category=0">待付款</a></div>
+                                        <a class="m_m_t_l_02" href="${base}/landlordOrder/jumpLandlordOrder?num=3&status=dfk">待付款</a></div>
                                     <div class="m_m_t_l_06">
                                         <a class="m_m_t_l_02" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx?SelectState=ss4&amp;category=0">待入住</a></div>
                                     <div class="m_m_t_l_06">
@@ -1002,7 +1002,7 @@
                                     <div class="m_m_t_l_06">
                                         <a class="m_m_t_l_02" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx?SelectState=no8&amp;category=0">房东未评</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a class="m_m_t_l_02" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx?SelectState=ss5611&amp;category=0">取消</a></div>
+                                        <a class="m_m_t_l_02" href="${base}/landlordOrder/jumpLandlordOrder?num=3&status=yqx">取消</a></div>
                                     <div class="m_m_t_l_06">
                                         <a class="m_m_t_l_02" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx?SelectState=ss10&amp;category=0">过期</a></div>
                                     <div class="m_m_t_l_06">
@@ -1119,11 +1119,14 @@
                                 </td>
                                 <td style="text-align: center; vertical-align: middle;" width="90">
                                     <div class="caozuo">
-                                        <a target="_self" href="${base}/landlordOrder/cancelOrder?lodgerOrderId=${orderlist.lodgerOrderId}&roomId=${orderlist.room.roomId}&beginTime=${orderlist.schedule.liveStarttime?string('yyyy-MM-dd')}&endTime=${orderlist.schedule.liveEndtime?string('yyyy-MM-dd')}">
-                                            <span id="caozuo1">取消订单</span></a>
+                                        <a target="_self" href="${base}/landlordOrder/ensureLandlordOrder?lodgerOrderId=${orderlist.lodgerOrderId}">
+                                            <span id="caozuo1">确认接受</span></a><br>
+                                        <a target="_self" href="${base}/landlordOrder/cancelLandlordOrder?lodgerOrderId=${orderlist.lodgerOrderId}&roomId=${orderlist.room.roomId}&beginTime=${orderlist.schedule.liveStarttime?string('yyyy-MM-dd')}&endTime=${orderlist.schedule.liveEndtime?string('yyyy-MM-dd')}">
+                                        <span id="caozuo1">取消订单</span></a>
+
                                     </div>
                                     <div class="caozuo">
-                                        <a target="_self" href="${base}/landlordOrder/deleteOrder?lodgerOrderId=${orderlist.lodgerOrderId}">
+                                        <a target="_self" href="${base}/landlordOrder/deleteLandlordOrder?lodgerOrderId=${orderlist.lodgerOrderId}">
                                             <span id="caozuo2">删除订单</span></a>
                                     </div>
                                     &nbsp;
@@ -1144,10 +1147,22 @@
                                 $(this).find(".spanTime").css("display","block");
                                 $(this).find(".spanTime").removeClass();
                                 $(this).find("#zhuangtai").text("已取消").addClass("NewTravelRedbg");
-
+                                if($(this).find("#zhuangtai").text()=="已取消"){
+                                    $(this).find("#zhuangtai").css("display","");
+                                }
                                 $(this).next().find("#caozuo1").css("display","none");
 
-                            }else {
+                            }else if($(this).find("#zhuangtai").text() == "dfk"){
+                                $(this).find(".NewTravelYellowbg").css("display","none");
+                                $(this).find("#zhuangtai").css("display","block");
+                                $(this).find(".spanTime").css("display","block");
+                                $(this).find(".spanTime").removeClass();
+                                $(this).find("#zhuangtai").text("等待付款").addClass("NewTravelRedbg");
+                                if($(this).find("#zhuangtai").text()=="等待付款"){
+                                    $(this).find("#zhuangtai").css("display","");
+                                }
+                                $(this).next().find("#caozuo1").css("display","none");
+                            } else {
                                 $(this).next().find("#caozuo2").css("display","none");
                             }
                         })
