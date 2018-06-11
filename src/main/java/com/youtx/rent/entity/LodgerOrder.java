@@ -19,6 +19,16 @@ public class LodgerOrder {
 
     private Integer orderDay;
 
+    private Date payTime;
+
+    public Date getPayTime() {
+        return payTime;
+    }
+
+    public void setPayTime(Date payTime) {
+        this.payTime = payTime;
+    }
+
     public Integer getOrderDay() {
         return orderDay;
     }

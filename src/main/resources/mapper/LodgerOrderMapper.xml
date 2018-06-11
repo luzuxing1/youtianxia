@@ -11,6 +11,7 @@
     <result column="order_people_num" jdbcType="INTEGER" property="orderPeopleNum" />
     <result column="order_room_num" jdbcType="INTEGER" property="orderRoomNum" />
     <result column="order_day" jdbcType="INTEGER" property="orderDay" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
 
     <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
     <association property="schedule" column="schedule_id" select="com.youtx.rent.dao.ScheduleMapper.selectByPrimaryKey" />
@@ -18,7 +19,7 @@
   </resultMap>
   <sql id="Base_Column_List">
     lodger_order_id, order_num, order_time, order_status, order_reason, room_id, schedule_id, 
-    user_id,order_people_num,order_room_num,order_day
+    user_id,order_people_num,order_room_num,order_day,pay_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -66,6 +67,12 @@
     where user_id = #{userId} AND schedule_id = #{scheduleId}
   </select>
 
+  <select id="selectByordernum"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_lodger_order
+    where order_num = #{orderNum}
+  </select>
 
 
 
@@ -225,5 +232,12 @@
       schedule_id = #{scheduleId,jdbcType=INTEGER},
       user_id = #{userId,jdbcType=INTEGER}
     where lodger_order_id = #{lodgerOrderId,jdbcType=INTEGER}
+  </update>
+
+  <update id="updateByorderNum">
+    update ytx_lodger_order
+    set
+    pay_time = #{payTime}
+    where order_num = #{orderNum}
   </update>
 </mapper>

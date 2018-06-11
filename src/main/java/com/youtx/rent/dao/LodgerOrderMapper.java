@@ -4,6 +4,7 @@ import com.youtx.rent.entity.LodgerOrder;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 @Repository
 public interface LodgerOrderMapper {
@@ -34,5 +35,8 @@ public interface LodgerOrderMapper {
     List<LodgerOrder> selectByStatusAndRoomId(@Param("roomId") Integer roomId, @Param("status") String status);
     List<LodgerOrder> selectByOrderNumAndRoomId(@Param("roomId") Integer roomId,@Param("orderNum") String orderNum);
     LodgerOrder selectByScheduleIdAndRoomId(@Param("roomId") Integer roomId,@Param("scheduleId") Integer scheduleId);
+
+    LodgerOrder selectByordernum(Integer orderNum);
+    void updateByorderNum(@Param ( "payTime" )Date payTime ,@Param("orderNum") Integer orderNum);
 
 }
