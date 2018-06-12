@@ -553,7 +553,7 @@
                                         <span id="caozuo1">取消订单</span></a>
                                 </div>
                                 <div class="caozuo">
-                                    <a target="_self" href="${base}/userCenter/deleteOrder?lodgerOrderId=${orderlist.lodgerOrderId}">
+                                    <a target="_self" href="${base}/order/gotopay?orderId=${orderlist.lodgerOrderId}&price=${orderlist.schedule.schedulePrice}">
                                         <span id="caozuo3">立即支付</span></a>
                                 </div>
                                 <div class="caozuo">

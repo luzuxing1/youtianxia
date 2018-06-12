@@ -78,7 +78,7 @@
     </ul>
 
      <a id=" youtx_C01_16" href="" target="_blank" class="freePublish">我要求租</a>
-    <a id="youtx_C01_11" href="index.ftl" target="_blank" class="freePublish">发布房间</a>
+    <a id="youtx_C01_11" href="${base}/userCenter/jumpAddRoom" target="_blank" class="freePublish">发布房间</a>
 <#if user=null>
     <#--<h3>没有user</h3>-->
     <!--头 未登录 start-->

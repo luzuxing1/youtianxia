@@ -27,6 +27,11 @@ public class UserCenterController {
         return "person_center";
     }
 
+    @RequestMapping("/jumpAddRoom")
+    public String userCenter3(){
+        return "publish_house_1";
+    }
+
     @RequestMapping("/jumpLodgerPage")
     public String userCenter2(HttpSession session, Model model,String status,String paycode,String time,String num,Integer current){
         if (current==null){
@@ -112,4 +117,7 @@ public class UserCenterController {
 //        lodgerOrderImpl.deleteOrderById(lodgerOrderId);
         return "redirect:/userCenter/jumpLodgerPage";
     }
+
+
+
 }

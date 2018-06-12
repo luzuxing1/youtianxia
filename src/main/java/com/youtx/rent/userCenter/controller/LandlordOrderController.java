@@ -59,10 +59,19 @@ public class LandlordOrderController {
                 landlordOrderList2.add(order);
             }
         }
+        PageBean orderPage = new PageBean();
+        orderPage.setCount(count-ysc);
+        orderPage.setCurrent(current);
+        orderPage.setSize(3);
+        int totalPages = orderPage.getTotalPages();
         for (Integer i=(current-1)*3;i<current*3;i++){
-
+            if (i==landlordOrderList2.size()){
+                break;
+            }
             landlordOrderList.add(landlordOrderList2.get(i));
         }
+
+
 
         model.addAttribute("count",count);
         model.addAttribute("dfk",dfk);
@@ -70,11 +79,7 @@ public class LandlordOrderController {
         model.addAttribute("drz",drz);
         model.addAttribute("dpj",dpj);
         model.addAttribute("ysc",ysc);
-        PageBean orderPage = new PageBean();
-        orderPage.setCount(count-ysc);
-        orderPage.setCurrent(current);
-        orderPage.setSize(3);
-        int totalPages = orderPage.getTotalPages();
+
         for (LodgerOrder lodgerOrder : landlordOrderList) {
 //            System.out.println( "-------SchedulePrice"+lodgerOrder.getSchedule().getSchedulePrice());
             System.out.println(lodgerOrder.getOrderStatus());

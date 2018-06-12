@@ -75,17 +75,17 @@
 <!-- ClickTale end of Top part -->
 <div id="youtxlogin1" class="header" style="">
     <p class="logo">
-        <a href="http://www.youtx.com/" id="youtx_01" target="_blank"><img src="${base}/static/personCenter/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站" title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
+        <a href="" id="youtx_01" target="_blank"><img src="${base}/static/personCenter/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站" title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
     </p>
     <!--2013-5-3修改-->
     <p class="btncz"><a id="A2" style="cursor:default;" target="_blank" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a></p>
     <ul class="HeadLandlord">
-        <li class="HeadLandlordNew"><a id="MallShopNum" target="_blank" href="http://www.youtx.com/mallshop/mallabout/">我要开店</a></li>
-        <li><a target="_blank" href="http://www.youtx.com/room/new/">我要出租</a></li>
-        <li><a target="_blank" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx">订单管理</a></li>
-        <li><a target="_blank" href="http://www.youtx.com/publish/DateMnage/">排期管理</a></li>
-        <li><a target="_blank" href="http://www.youtx.com/User/Myroom/">房源管理</a></li>
-        <li style="border:none;"><a target="_blank" href="http://bang.youtx.com/DateManage/DateManage.aspx">我的短租帮</a></li>
+        <li class="HeadLandlordNew"><a id="MallShopNum" target="_blank" href="">我要开店</a></li>
+        <li><a target="_blank" href="${base}/userCenter/jumpAddRoom">我要出租</a></li>
+        <li><a target="_blank" href="">订单管理</a></li>
+        <li><a target="_blank" href="">排期管理</a></li>
+        <li><a target="_blank" href="">房源管理</a></li>
+        <li style="border:none;"><a target="_blank" href="">我的短租帮</a></li>
     </ul>
     <!--2013-5-3修改-结束-->
     <ul class="subnav">
@@ -152,12 +152,12 @@
     <!--2013-5-3修改-->
     <p class="btncz"><a id="A3" style="cursor:default;" target="_blank" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a></p>
     <ul class="HeadLandlord">
-        <li class="HeadLandlordNew"><a target="_blank" href="http://www.youtx.com/mallshop/mallabout/">我要开店</a></li>
-        <li><a target="_blank" href="http://www.youtx.com/room/new/">我要出租</a></li>
-        <li><a target="_blank" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx">订单管理</a></li>
-        <li><a target="_blank" href="http://www.youtx.com/publish/DateMnage/">排期管理</a></li>
-        <li><a target="_blank" href="http://www.youtx.com/User/Myroom/">房源管理</a></li>
-        <li style="border:none;"><a target="_blank" href="http://bang.youtx.com/DateManage/DateManage.aspx">我的短租帮</a></li>
+        <li class="HeadLandlordNew"><a target="_blank" href="">我要开店</a></li>
+        <li><a target="_blank" href="">我要出租</a></li>
+        <li><a target="_blank" href="">订单管理</a></li>
+        <li><a target="_blank" href="">排期管理</a></li>
+        <li><a target="_blank" href="">房源管理</a></li>
+        <li style="border:none;"><a target="_blank" href="">我的短租帮</a></li>
     </ul>
     <!--2013-5-3修改-结束-->
     <ul class="subnav">
@@ -228,7 +228,7 @@
     </li><li class="" style="position:relative;z-index:2"><a href="">我的资产</a>
        
     </li>
-    <li class=""><a href="http://www.youtx.com/profile/user/ask/MyAsk.aspx">我是专家</a></li>
+    <li class=""><a href="">我是专家</a></li>
 </ul>
 <p class="warnning_info">亲爱的房东您好，游天下短租网提醒您，为谨防网络诈骗，请勿要相信除平台规定外的下单及支付方式，如有疑问，请致电：4006300088！</p>
 
@@ -248,16 +248,16 @@
                   <div class="pm_shadow_inner l"> </div>
                   <div class="pm_shadow_inner t"> </div>
                   <div class="pm_shadow_inner b"> </div>
-                          <a title="查看资料" href="http://www.youtx.com/user/show/2600363/">
-                              <img width="209" height="209"  src="${imagesPath}/3.jpg" alt=" 卢祖兴">
+                          <a title="查看资料" href="">
+                              <img width="209" height="209"  src="${imagesPath}/3.jpg" alt="">
                           </a>
                 </div>
               </div>
             </div>
           </div>
           <div class="EditInfor">
-            <p><a href="http://www.youtx.com/Basic/">编辑资料</a></p>
-            <p class="EditInfor_name"><a title="查看资料" href="http://www.youtx.com/user/show/2600363/">${user.userRealname}</a></p>
+            <p><a href="">编辑资料</a></p>
+            <p class="EditInfor_name"><a title="查看资料" href="">${user.userRealname}</a></p>
           </div>
           <div class="NewsAut">
             <ul style="display:none;">
