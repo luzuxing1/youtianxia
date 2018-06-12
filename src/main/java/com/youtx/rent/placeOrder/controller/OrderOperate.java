@@ -3,6 +3,7 @@ package com.youtx.rent.placeOrder.controller;
 import com.youtx.rent.entity.LodgerOrder;
 import com.youtx.rent.placeOrder.service.OrdersService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,5 +24,12 @@ public class OrderOperate {
             return order.getPayTime ();
         }
         return null;
+    }
+
+    @RequestMapping("/gotopay")
+    public String gotopay(Model model,Integer orderId,String price){
+        model.addAttribute ("orderId",orderId);
+        model.addAttribute ( "price", price );
+        return "pay_money";
     }
 }
