@@ -43,4 +43,10 @@ public interface UserMapper {
      * @return
      */
     int selectCounts();
+
+    /**
+     * 查询所有用户,用户添加房间时选择存在的用户
+     * @return
+     */
+    List<User> selectUsers();
 }

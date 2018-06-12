@@ -89,7 +89,7 @@ public class LoginController {
 
     @RequestMapping("/admin")
     public String admin(Model model){
-        return "manage";
+        return "manage/manage";
     }
 
     @RequestMapping("/userPage")
@@ -103,7 +103,7 @@ public class LoginController {
         int currentPage = loginService.findAllUsers(page).getCurrentPage();
         model.addAttribute("userList",userList);
         model.addAttribute("userPage",pageBean);
-        return "usermanage";
+        return "manage/usermanage";
     }
     @RequestMapping("/addUser")
     public String addUser(User user,Model model){
@@ -118,14 +118,10 @@ public class LoginController {
     }
     @RequestMapping("/add")
     public String add(Model model){
-        return "add_user";
+        return "manage/add_user";
     }
 
-    @RequestMapping("/test")
-    public String test(Model model){
 
-        return "usermanage";
-    }
     @RequestMapping("/delete")
     public String delete(int id,int currentPage){
         System.out.println("id:"+id);

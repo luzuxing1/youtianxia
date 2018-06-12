@@ -29,6 +29,12 @@
     from ytx_user limit #{currentPage},#{pages};
   </select>
 
+  <select id="selectUsers"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_user
+  </select>
+
   <select id="selectCounts"  resultType="java.lang.Integer" >
     SELECT COUNT(1) from ytx_user;
   </select>
