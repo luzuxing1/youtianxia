@@ -20,4 +20,8 @@ public class OrdersService {
     public LodgerOrder findOrder(Integer orderId){
         return lodgerOrderMapper.selectByOrderId ( orderId );
     }
+
+    public void updateStatusByOrderNum(String status,String orderNum){
+        lodgerOrderMapper.updateStatusByOrderNum ( status,orderNum );
+    }
 }

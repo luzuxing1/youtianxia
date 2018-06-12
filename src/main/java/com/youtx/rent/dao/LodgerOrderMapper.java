@@ -39,4 +39,5 @@ public interface LodgerOrderMapper {
     LodgerOrder selectByOrderId(Integer lodgerOrderId);
     void updateByOrderId(@Param ( "payTime" )Date payTime ,@Param("lodgerOrderId") Integer lodgerOrderId);
 
+    void updateStatusByOrderNum(@Param("orderStatus") String orderStatus,@Param("orderNum") String orderNum);
 }
