@@ -881,7 +881,7 @@ document.documentElement.scrollTop;
         </div>
         <#list roomsRandom as room>
             <div class="sr_show fl mr0" id="youtx_C04_02" style="margin-left: 13px">
-                <div class="pic_tit"><a class="a_pic" href="" target="_blank" >
+                <div class="pic_tit"><a class="a_pic" href="${base}/detail/show?roomId=${room.roomId}" target="_blank" >
                     <img src="${base}/static/index/006994963500.jpg" width="380" height="250" alt="特色房源图片">
                 </a><p class="tit_txt">${room.roomName}</p>
                 </div>
