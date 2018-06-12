@@ -15,9 +15,9 @@ public interface LodgerOrderMapper {
     int insertSelective(LodgerOrder record);
 
     LodgerOrder selectByPrimaryKey(Integer lodgerOrderId);
-    List<LodgerOrder> selectByUserId(Integer userId);
-    List<LodgerOrder> selectByStatus(@Param("userId") Integer userId, @Param("status") String status);
-    List<LodgerOrder> selectByOrderNum(@Param("userId") Integer userId,@Param("orderNum") String orderNum);
+    List<LodgerOrder> selectByUserId(@Param("userId") Integer userId,@Param("start") Integer start,@Param("length") Integer length);
+    List<LodgerOrder> selectByStatus(@Param("userId") Integer userId, @Param("status") String status,@Param("start") Integer start,@Param("length") Integer length);
+    List<LodgerOrder> selectByOrderNum(@Param("userId") Integer userId,@Param("orderNum") String orderNum,@Param("start") Integer start,@Param("length") Integer length);
     LodgerOrder selectByScheduleId(@Param("userId") Integer userId,@Param("scheduleId") Integer scheduleId);
 
 
@@ -31,7 +31,7 @@ public interface LodgerOrderMapper {
 
     Integer CountAllOrderByRoomId(Integer roomId);
     Integer CountStatusOrderByRoomId(@Param("roomId") Integer roomId,@Param("status") String orderStatus);
-    List<LodgerOrder> selectByRoomId(Integer roomId);
+    List<LodgerOrder> selectByRoomId(@Param("roomId") Integer roomId);
     List<LodgerOrder> selectByStatusAndRoomId(@Param("roomId") Integer roomId, @Param("status") String status);
     List<LodgerOrder> selectByOrderNumAndRoomId(@Param("roomId") Integer roomId,@Param("orderNum") String orderNum);
     LodgerOrder selectByScheduleIdAndRoomId(@Param("roomId") Integer roomId,@Param("scheduleId") Integer scheduleId);

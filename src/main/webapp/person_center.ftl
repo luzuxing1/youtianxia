@@ -222,7 +222,7 @@
     <li class="NewSubNavCur"><a href="">账户首页</a></li>
     <li class=""><a href=""> 收件箱 </a></li>
     <li class=""><a href="${base}/landlordOrder/jumpLandlordOrder">我是房东</a></li>
-    <li class=""><a href="${base}/userCenter/jumpLodgerPage">我是租客</a></li>
+    <li class=""><a href="${base}/userCenter/jumpLodgerPage?current=1">我是租客</a></li>
     <li class=""><a href="">账户管理</a></li>
     <li class=""><a href="">评价管理</a>
     </li><li class="" style="position:relative;z-index:2"><a href="">我的资产</a>

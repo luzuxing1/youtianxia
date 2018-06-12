@@ -1112,6 +1112,11 @@
                                     </p>
                                 </td>
                                 <td class="eachzhuangtai" style="text-align: center;" width="130">
+                                    <#--<#if orderlist.orderStatus == "dfk">-->
+                                    <#--<span id="daojishi" class="spanTime" lltime2="${orderlist.payTime?string('yyyy-MM-dd HH:mm:ss')}" lltime="10" pid="${orderlist.lodgerOrderId}" oid="752544">-->
+                                    <#--<#else >-->
+                                    <#--<span id="daojishi" class="spanTime" lltime="" pid="${orderlist.lodgerOrderId}" oid="752544">-->
+                                    <#--</#if>-->
                                     <span class="NewTravelYellowbg">等待接受</span><br>
 
                                 <#--<span class="spanTime" lltime="60" pid="87348647" oid="752544"></span><br>-->
@@ -1141,6 +1146,7 @@
                 <script type="text/javascript">
                     $(function () {
                         $(".eachzhuangtai").each(function () {
+                            $(this).find(".spanTime").removeClass();
                             if ($(this).find("#zhuangtai").text() == "yqx"){
                                 $(this).find(".NewTravelYellowbg").css("display","none");
                                 $(this).find("#zhuangtai").css("display","block");
@@ -1156,12 +1162,13 @@
                                 $(this).find(".NewTravelYellowbg").css("display","none");
                                 $(this).find("#zhuangtai").css("display","block");
                                 $(this).find(".spanTime").css("display","block");
-                                $(this).find(".spanTime").removeClass();
                                 $(this).find("#zhuangtai").text("等待付款").addClass("NewTravelRedbg");
                                 if($(this).find("#zhuangtai").text()=="等待付款"){
                                     $(this).find("#zhuangtai").css("display","");
                                 }
                                 $(this).next().find("#caozuo1").css("display","none");
+
+
                             } else {
                                 $(this).next().find("#caozuo2").css("display","none");
                             }
@@ -1173,12 +1180,27 @@
             </div>
             <div class="clearfix HistoryOrder" style="display:none;" id="HistoryOrder">
              	<div class="more_msg" id="historyMsg">默认显示近期订单，<a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx?category=1">查看历史订单</a></div>
-            </div>                       
-            <div class="travel_ls_page">                
+            </div>
+            <div class="travel_ls_page">
                 <div class="page" style="float: right;">
-                    
-        <span class="page_sele">1</span>
-    
+                <#if orderPage.current==1>
+                    <a class="page_sele">《</a>
+                <#else >
+                    <a href="${base}/landlordOrder/jumpLandlordOrder?current=${orderPage.current-1}" class="page_sele">《</a>
+                </#if>
+                <#list 1..totalPages as i>
+                    <#if i==orderPage.current>
+                        <a href="" class="page_sele">${i}</a>
+                    <#else >
+                        <a href="${base}/landlordOrder/jumpLandlordOrder?current=${i}" class="page_sele">${i}</a>
+                    </#if>
+                </#list>
+                <#if orderPage.current==totalPages>
+                    <a class="page_sele">》</a>
+                <#else >
+                    <a href="${base}/landlordOrder/jumpLandlordOrder?current=${orderPage.current+1}" class="page_sele">》</a>
+                </#if>
+                <#--<span class="page_sele">1</span>-->
                 </div>
             </div>
         </div>

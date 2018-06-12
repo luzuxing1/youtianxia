@@ -24,11 +24,11 @@ public class LodgerOrderImpl implements LodgerOrders{
     private RoomMapper roomDAO;
 
     @Override
-    public List<LodgerOrder> findLodgerOrder(int userId,String status,String paycode,String time,String num) {
+    public List<LodgerOrder> findLodgerOrder(int userId,String status,String paycode,String time,String num,Integer start,Integer length) {
         if ("2" .equals(num)){
-            return lodgerOrderDAO.selectByUserId(userId);
+            return lodgerOrderDAO.selectByUserId(userId,start,length);
         }else if ("3" .equals(num) ){
-            return lodgerOrderDAO.selectByStatus(userId,status);
+            return lodgerOrderDAO.selectByStatus(userId,status,start,length);
         }else if ("0" .equals(num)){
             if ("请输入订单号".equals(paycode)){
                 List<LodgerOrder> list = new ArrayList<>();
@@ -38,14 +38,15 @@ public class LodgerOrderImpl implements LodgerOrders{
                 }
                 return list;
             }
-            return lodgerOrderDAO.selectByOrderNum(userId,paycode);
+            return lodgerOrderDAO.selectByOrderNum(userId,paycode,start,length);
         }else if("1" .equals(num)){
-            return lodgerOrderDAO.selectByOrderNum(userId,paycode);
+            return lodgerOrderDAO.selectByOrderNum(userId,paycode,start,length);
         }else {
-            return lodgerOrderDAO.selectByUserId(userId);
+            return lodgerOrderDAO.selectByUserId(userId,start,length);
         }
 
     }
+
 
 
 

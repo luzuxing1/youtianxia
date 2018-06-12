@@ -40,17 +40,19 @@
     where user_id = #{userId} AND order_status = #{status}
   </select>
 
-  <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByUserId"  resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from ytx_lodger_order
-    where user_id = #{userId}
+    where user_id = #{userId} AND order_status !='ysc'
+    limit #{start},#{length}
   </select>
   <select id="selectByOrderNum"  resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from ytx_lodger_order
-    where user_id = #{userId} AND order_num = #{orderNum}
+    where user_id = #{userId} AND order_num = #{orderNum} AND order_status !='ysc'
+    limit #{start},#{length}
   </select>
 
   <select id="selectByStatus"  resultMap="BaseResultMap">
@@ -58,13 +60,15 @@
   <include refid="Base_Column_List" />
   from ytx_lodger_order
   where user_id = #{userId} AND order_status = #{status}
-</select>
+  limit #{start},#{length}
+  </select>
 
   <select id="selectByScheduleId"  resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from ytx_lodger_order
     where user_id = #{userId} AND schedule_id = #{scheduleId}
+
   </select>
 
   <select id="selectByOrderId"  resultMap="BaseResultMap">
@@ -92,14 +96,16 @@
     select
     <include refid="Base_Column_List" />
     from ytx_lodger_order
-    where room_id = #{roomId}
+    where room_id = #{roomId} AND order_status !='ysc'
+
   </select>
 
   <select id="selectByOrderNumAndRoomId"  resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from ytx_lodger_order
-    where room_id = #{roomId} AND order_num = #{orderNum}
+    where room_id = #{roomId} AND order_num = #{orderNum} AND order_status !='ysc'
+
   </select>
 
   <select id="selectByStatusAndRoomId"  resultMap="BaseResultMap">
@@ -107,6 +113,7 @@
     <include refid="Base_Column_List" />
     from ytx_lodger_order
     where room_id = #{roomId} AND order_status = #{status}
+
   </select>
 
   <select id="selectByScheduleIdAndRoomId"  resultMap="BaseResultMap">

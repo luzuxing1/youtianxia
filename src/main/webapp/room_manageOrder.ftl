@@ -275,11 +275,11 @@
             <!--2012-7-20修改-结束-->
             <div class="TravelTs" id="accountPrompt">
 
-                <a href="${base}/userCenter/jumpLodgerPage?num=2" style="padding-left:0px;" class="LinkA">所有订单(<span>${countAllOrder}</span>)</a>
-                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=dfk" class="LinkA">待付款(<span>${dfk}</span>)</a>
-                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=dqr" class="LinkA">待确认(<span>${dqr}</span>)</a>
-                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=drz" class="LinkA">待入住(<span>${drz}</span>)</a>
-                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=ysc" class="LinkA">已删除(<span>${ysc}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?num=2&current=1" style="padding-left:0px;" class="LinkA">所有订单(<span>${countAllOrder}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=dfk&current=1" class="LinkA">待付款(<span>${dfk}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=dqr&current=1" class="LinkA">待确认(<span>${dqr}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=drz&current=1" class="LinkA">待入住(<span>${drz}</span>)</a>
+                <a href="${base}/userCenter/jumpLodgerPage?num=3&status=ysc&current=1" class="LinkA">已删除(<span>${ysc}</span>)</a>
 
                 <div class="TravelTSeacher">
                     <input class="TravelTSeacherText" style="color: #666; float:left;*margin-top:4px;" id="TravelTSeacherText" value="请输入订单号" type="text">
@@ -354,15 +354,15 @@
                                 <div class="m_m_t_l_05" style="position: absolute; left: -1px; z-index: 9; border: 1px solid rgb(195, 195, 195);
                                     background: none repeat scroll 0% 0% rgb(255, 255, 255); top: 23px; display: none;" id="checkintime2">
                                     <div class="m_m_t_l_06">
-                                        <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?category=0" class="m_m_t_l_02">入住时间</a></div>
+                                        <a href="">入住时间</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectTime=week&amp;category=0" class="m_m_t_l_02">本周</a></div>
+                                        <a href="" class="m_m_t_l_02">本周</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectTime=month&amp;category=0" class="m_m_t_l_02">本月</a></div>
+                                        <a href="" class="m_m_t_l_02">本月</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectTime=month3&amp;category=0" class="m_m_t_l_02">最近三个月</a></div>
+                                        <a href="" class="m_m_t_l_02">最近三个月</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectTime=earlier&amp;category=0" class="m_m_t_l_02">更早</a></div>
+                                        <a href="" class="m_m_t_l_02">更早</a></div>
                                 </div>
                                 <script language="javascript" type="text/javascript">
                                     $(function () {
@@ -395,35 +395,35 @@
                                 <div style="position: absolute; top: 22px; left: -1px; z-index: 9; border: 1px solid #C3C3C3;
                                     background: none repeat scroll 0% 0% rgb(255, 255, 255); display: none;" class="m_m_t_l_05">
                                     <div class="m_m_t_l_06">
-                                        <a id="all" href="${base}/userCenter/jumpLodgerPage?num=2">所有订单</a></div>
+                                        <a id="all" href="${base}/userCenter/jumpLodgerPage?num=2&current=1">所有订单</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="ss1" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=ss1&amp;category=0">待处理</a></div>
+                                        <a id="ss1" href="">待处理</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="ss2" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=ss2&amp;category=0">待付款</a></div>
+                                        <a id="ss2" href="">待付款</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="ss4" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=ss4&amp;category=0">待入住</a></div>
+                                        <a id="ss4" href="">待入住</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="ss44" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=ss44&amp;category=0">入住中</a></div>
+                                        <a id="ss44" href="">入住中</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="A12" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=ss444&amp;category=0">已退房</a></div>
+                                        <a id="A12" href="">已退房</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="ss48" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=ss48&amp;category=0">租客未评</a></div>
+                                        <a id="ss48" href="">租客未评</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="ss10" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=ss5611&amp;category=0">取消</a></div>
+                                        <a id="ss10" href="">取消</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="ss10" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=ss10&amp;category=0">过期</a></div>
+                                        <a id="ss10" href="">过期</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="ss3" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=3&amp;category=0">拒绝</a></div>
+                                        <a id="ss3" href="">拒绝</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="ss79" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=ss79&amp;category=0">租客已评</a></div>
+                                        <a id="ss79" href="">租客已评</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="A7" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=9&amp;category=0">双方已互评</a></div>
+                                        <a id="A7" href="">双方已互评</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="A8" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=5&amp;category=0">租客取消</a></div>
+                                        <a id="A8" href="">租客取消</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="A9" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=6&amp;category=0">房东取消</a></div>
+                                        <a id="A9" href="">房东取消</a></div>
                                     <div class="m_m_t_l_06">
-                                        <a id="A11" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx?SelectState=12&amp;category=0">系统拒绝</a></div>
+                                        <a id="A11" href="">系统拒绝</a></div>
 
                                 </div>
                             </div>
@@ -620,9 +620,24 @@
 
             <div class="travel_ls_page">
                 <div class="page" style="float: right;">
-
-        <span class="page_sele">1</span>
-
+                    <#if orderPage.current==1>
+                            <a class="page_sele">《</a>
+                        <#else >
+                            <a href="${base}/userCenter/jumpLodgerPage?current=${orderPage.current-1}" class="page_sele">《</a>
+                    </#if>
+                    <#list 1..totalPages as i>
+                        <#if i==orderPage.current>
+                            <a href="" class="page_sele">${i}</a>
+                        <#else >
+                            <a href="${base}/userCenter/jumpLodgerPage?current=${i}" class="page_sele">${i}</a>
+                        </#if>
+                    </#list>
+                    <#if orderPage.current==totalPages>
+                        <a class="page_sele">》</a>
+                    <#else >
+                        <a href="${base}/userCenter/jumpLodgerPage?current=${orderPage.current+1}" class="page_sele">》</a>
+                    </#if>
+                    <#--<span class="page_sele">1</span>-->
                 </div>
             </div>
 

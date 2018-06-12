@@ -5,7 +5,7 @@ import com.youtx.rent.entity.LodgerOrder;
 import java.util.List;
 
 public interface LodgerOrders {
-    List<LodgerOrder> findLodgerOrder(int userId,String status,String paycode,String time,String num);
+    List<LodgerOrder> findLodgerOrder(int userId,String status,String paycode,String time,String num,Integer start,Integer length);
     int CountAllOrder(Integer userId);
     int CountStatusOrder(Integer userId,String orderStatus);
     LodgerOrder findById(Integer lodgerOrderId);

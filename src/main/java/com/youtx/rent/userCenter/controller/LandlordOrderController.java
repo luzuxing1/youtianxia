@@ -1,6 +1,7 @@
 package com.youtx.rent.userCenter.controller;
 
 import com.youtx.rent.entity.LodgerOrder;
+import com.youtx.rent.entity.PageBean;
 import com.youtx.rent.entity.User;
 import com.youtx.rent.placeOrder.service.OrdersService;
 import com.youtx.rent.placeOrder.service.RoomMsg;
@@ -28,8 +29,12 @@ public class LandlordOrderController {
     private OrdersService ordersService;
 
     @RequestMapping("/jumpLandlordOrder")
-    public String userCenter2(HttpSession session, Model model,String status,String paycode,String time,String num){
-
+    public String userCenter2(HttpSession session, Model model,String status,String paycode,String time,String num,Integer current){
+        if (current==null){
+            current = 1;
+        }
+        Integer start = (current-1)*3;
+        Integer length = 3;
         User user = (User) session.getAttribute("user");
         Integer userId = user.getUserId();
         List<Integer> roomIds = lodgerOrdersImpl.findRoomId(userId);
@@ -40,6 +45,7 @@ public class LandlordOrderController {
         Integer dpj = 0;
         Integer ysc = 0;
         List<LodgerOrder> landlordOrderList = new ArrayList<>();
+        List<LodgerOrder> landlordOrderList2 = new ArrayList<>();
         for (Integer roomId : roomIds) {
             count += lodgerOrdersImpl.CountAllOrderByRoomId(roomId);
             Integer roomId1 = lodgerOrdersImpl.CountStatusOrderByRoomId(roomId, "dfk");
@@ -50,22 +56,33 @@ public class LandlordOrderController {
             ysc += lodgerOrdersImpl.CountStatusOrderByRoomId(roomId, "ysc");
             List<LodgerOrder> list1 = lodgerOrdersImpl.findLodgerOrderByRoomId(roomId, status, paycode, time, num);
             for (LodgerOrder order : list1) {
-                landlordOrderList.add(order);
+                landlordOrderList2.add(order);
             }
         }
+        for (Integer i=(current-1)*3;i<current*3;i++){
+
+            landlordOrderList.add(landlordOrderList2.get(i));
+        }
+
         model.addAttribute("count",count);
         model.addAttribute("dfk",dfk);
         model.addAttribute("dqr",dqr);
         model.addAttribute("drz",drz);
         model.addAttribute("dpj",dpj);
         model.addAttribute("ysc",ysc);
+        PageBean orderPage = new PageBean();
+        orderPage.setCount(count-ysc);
+        orderPage.setCurrent(current);
+        orderPage.setSize(3);
+        int totalPages = orderPage.getTotalPages();
         for (LodgerOrder lodgerOrder : landlordOrderList) {
 //            System.out.println( "-------SchedulePrice"+lodgerOrder.getSchedule().getSchedulePrice());
             System.out.println(lodgerOrder.getOrderStatus());
 //            System.out.println(lodgerOrder.getRoom().getPictureList().size());
 //            System.out.println(lodgerOrder.getRoom().getRoomResource().getResourceAddress());
         }
-
+        model.addAttribute("orderPage",orderPage);
+        model.addAttribute("totalPages",totalPages);
         model.addAttribute("landlordOrderList",landlordOrderList);
 //        System.out.println(lodgerOrderList.size());
         return "room_master_manageOrder";
