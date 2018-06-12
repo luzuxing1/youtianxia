@@ -36,7 +36,7 @@
 		<div class="content">
 			<ul class="nav">
 				<li><img src="${base}/static/images/user.png"><a href="${base}/user/userPage?page=1" target="data">用户管理</a></li>
-				<li><img src="${base}/static/images/hotel.png"><a href="" target="data">酒店管理</a></li>
+				<li><img src="${base}/static/images/hotel.png"><a href="${base}/rooms/roomPage?page=1" target="data">房间管理</a></li>
 				<li><img src="${base}/static/images/coll.png"><a href="" target="data">酒店详情管理</a></li>
 				<li><img src="${base}/static/images/home.png"><a href="" target="data">场地管理</a></li>
 				<li><img src="${base}/static/images/meal.png"><a href="" target="data">套餐管理</a></li>

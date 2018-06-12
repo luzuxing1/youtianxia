@@ -10,7 +10,7 @@
 </style>
 </head>
 <body>
-	<form action="${base}/user/addUser" method="post" onsubmit="return validateForm()" >
+	<form action="${base}/user/addUser?page=${userPage.currentPage}" method="post" onsubmit="return validateForm()" >
 		<table width="50%">
 			<tr>
 				<td class="ri">手机号：</td>

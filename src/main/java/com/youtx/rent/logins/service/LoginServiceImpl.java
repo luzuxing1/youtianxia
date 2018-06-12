@@ -26,7 +26,6 @@ public class LoginServiceImpl implements  LoginService{
             user = userMapper.checkPhoneAndEmail(phoneOrEmail);
             if(null != user ){
                 pwd= SystemTool.script(password,password);
-//                System.out.println(pwd+":LoginServiceImpl");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -42,7 +41,7 @@ public class LoginServiceImpl implements  LoginService{
         int count = userMapper.selectCounts();
         PageBean page = new PageBean();
         int spage = (currentPage-1)*PageBean.PAGE_SIZE;
-        List<User> list = userMapper.selectAllUsers(spage);
+        List<User> list = userMapper.selectAllUsers(spage,PageBean.PAGE_SIZE);
         //计算出页面的总数
         int pageCount = count % PageBean.PAGE_SIZE == 0?count/PageBean.PAGE_SIZE:count/PageBean.PAGE_SIZE+1;
         page.setTotalPages(pageCount);
@@ -50,4 +49,21 @@ public class LoginServiceImpl implements  LoginService{
         page.setCurrentPage(currentPage);
         return page;
     }
+
+    @Override
+    public PageBean finalls() {
+        int count = userMapper.selectCounts();
+        PageBean page = new PageBean();
+        //计算出页面的总数
+        int pageCount = count % PageBean.PAGE_SIZE == 0?count/PageBean.PAGE_SIZE:count/PageBean.PAGE_SIZE+1;
+        page.setTotalPages(pageCount);
+        return page;
+    }
+
+    @Override
+    public void delete(int id) {
+        userMapper.deleteByPrimaryKey(id);
+    }
+
+
 }

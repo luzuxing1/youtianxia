@@ -36,7 +36,7 @@ public interface UserMapper {
     /**
      * 查询所有用户
      */
-    List<User> selectAllUsers(int currentPage);
+    List<User> selectAllUsers(@Param("currentPage") int currentPage, @Param("pages") int pages );
 
     /**
      * 计算用户的当前数量

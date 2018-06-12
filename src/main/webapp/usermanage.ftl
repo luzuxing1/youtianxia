@@ -16,7 +16,7 @@
 	.table{margin-top:10px;font-size:14px;text-align:center;}
 	.page_link{display:inline-block;width:20px;height:20px;background:#f1f1f1;color:#ff5384;line-height:20px;text-align:center;}
 	.page_link_select{display:inline-block;width:20px;height:20px;background:#ff5384;color:#f1f1f1;line-height:20px;text-align:center;}
-	.page{position:absolute;top:220px;right:15px;}
+	.page{position:absolute;top:350px;right:15px;}
 	.table-bordered>tbody>tr>td{vertical-align:middle;}
 	.table-bordered>thead>tr>th{text-align:center;}
 </style>
@@ -73,7 +73,7 @@
 			<tr>
 				<td>${us.userId}</td>
 				<td>
-					<img style="width:30px;height:30px" src="${base}/static/${us.userHeadimg}">
+					<img style="width:30px;height:30px" src="${us.userHeadimg}">
 				</td>
 				<td>${us.userPhone}</td>
 				<td>${us.userPassword}</td>
@@ -82,8 +82,7 @@
 				<td>${us.userRealname}</td>
 				<td>${us.userRole}</td>
 				<td>
-					<a href="${base}/searchus?us_id=${us.us_id }">修改</a>
-					<a href="javascript:if(confirm('确认删除？'))location.href='deleteus.do?us_id=${us.us_id }&currentPage=${usPage.currentPage}'">删除</a>
+					<a href="javascript:if(confirm('确认删除？'))location.href='${base}/user/delete?id=${us.userId }&currentPage=${userPage.currentPage}'">删除</a>
 				</td>
 			</tr>
 		</#list>

@@ -91,6 +91,7 @@ public class LoginController {
     public String admin(Model model){
         return "manage";
     }
+
     @RequestMapping("/userPage")
     public String userPage(int  page,Model model){
         String cPage = Integer.toString(page);
@@ -98,7 +99,6 @@ public class LoginController {
             throw new IllegalArgumentException("必须传递页面数");
         }
         PageBean pageBean = loginService.findAllUsers(page);
-
         List<User> userList = pageBean.getData();
         int currentPage = loginService.findAllUsers(page).getCurrentPage();
         model.addAttribute("userList",userList);
@@ -108,17 +108,29 @@ public class LoginController {
     @RequestMapping("/addUser")
     public String addUser(User user,Model model){
         int addcount = addUservice.addUser(user);
-        System.out.println(addcount);
         System.out.println(user.getUserRealname());
         model.addAttribute("addcount",addcount);
         addUservice.addUser(user);
-
-        return "redirect:/user/admin";
+        PageBean finallPage = loginService.finalls();
+        int totalPages = finallPage.getTotalPages();
+        System.out.println("totalPages"+totalPages);
+        return "redirect:/user/userPage?page="+totalPages;
     }
     @RequestMapping("/add")
     public String add(Model model){
         return "add_user";
     }
 
+    @RequestMapping("/test")
+    public String test(Model model){
 
+        return "usermanage";
+    }
+    @RequestMapping("/delete")
+    public String delete(int id,int currentPage){
+        System.out.println("id:"+id);
+        System.out.println("currentPage:"+currentPage);
+        loginService.delete(id);
+        return "redirect:/user/userPage?page="+currentPage;
+    }
 }

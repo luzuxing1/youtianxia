@@ -40,6 +40,16 @@
     ORDER  by  rand() limit 4
   </select>
 
+  <select id="selectAllRooms"  resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM ytx_room
+    limit #{currentPage},#{pages};
+  </select>
+
+  <select id="selectRoomCounts"  resultType="java.lang.Integer" >
+    SELECT COUNT(1) from ytx_room;
+  </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ytx_room
