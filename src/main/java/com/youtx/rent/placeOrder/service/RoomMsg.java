@@ -11,10 +11,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Service
 @Transactional
 public class RoomMsg {
+    Random random = new Random ();
     @Resource
     private PictureMapper pictureMapper;
     @Resource
@@ -107,9 +109,7 @@ public class RoomMsg {
     }
 
     public String orderNum(){
-        Date date = new Date ();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyMMddHHmmss");
-        String dateString = formatter.format(date);
+        String dateString = random.nextInt(100000000) + "";
         return  dateString;
     }
 
