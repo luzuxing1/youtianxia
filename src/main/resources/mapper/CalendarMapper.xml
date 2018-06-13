@@ -23,6 +23,12 @@
     from ytx_calendar
     where room_id = #{roomId}
   </select>
+  <select id="selectByDateRange" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ytx_calendar
+    where calendar_date between #{startDate} and #{endDate}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ytx_calendar
     where calendar_id = #{calendarId,jdbcType=INTEGER}

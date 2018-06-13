@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +21,6 @@ public class Book {
 
     @RequestMapping("/present")
     public String present(String houseid, String livenum, String begintime, String endtime, String rooms, Model model){
-        houseid = "1";
         RoomSituation roomInfo = roomMsg.findRoomInfo ( Integer.parseInt ( houseid ) );
         RoomResource roomMsgAdress = roomMsg.findAdress ( Integer.parseInt ( houseid ) );
         List<String> pics = roomMsg.findPics ( Integer.parseInt ( houseid ) );
@@ -54,6 +54,17 @@ public class Book {
     public List<Calendar> calPrice(String begintime, String endtime,String roomid){
         List<Calendar> calendars = roomMsg.selectPriceByDate ( begintime, endtime ,Integer.parseInt ( roomid ));
         return calendars;
+    }
+
+    @RequestMapping("/curPrice")
+    @ResponseBody
+    public Integer currPrice(String begintime, String endtime,String roomid){
+        List<Calendar> calendars = roomMsg.selectPriceByDate ( begintime, endtime ,Integer.parseInt ( roomid ));
+        int allPrice = 0;
+        for (Calendar calendar : calendars) {
+            allPrice += calendar.getCalendarPrice();
+        }
+        return allPrice;
     }
 
     @RequestMapping("/isbook")
