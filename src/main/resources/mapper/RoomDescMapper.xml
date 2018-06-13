@@ -41,7 +41,7 @@
     values (#{descId,jdbcType=INTEGER}, #{descTitle,jdbcType=VARCHAR}, #{descRemark,jdbcType=VARCHAR}, 
       #{descIntroduce,jdbcType=VARCHAR}, #{descTraffic,jdbcType=VARCHAR}, #{descLife,jdbcType=VARCHAR}, 
       #{descView,jdbcType=VARCHAR}, #{descOther,jdbcType=VARCHAR}, #{descTag,jdbcType=VARCHAR}, 
-      #{roomId,jdbcType=INTEGER})
+      #{room.roomId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.RoomDesc">
     insert into ytx_room_desc
