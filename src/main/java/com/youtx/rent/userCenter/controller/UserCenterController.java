@@ -1,13 +1,12 @@
 package com.youtx.rent.userCenter.controller;
 
-import com.youtx.rent.entity.LodgerOrder;
-import com.youtx.rent.entity.PageBean;
-import com.youtx.rent.entity.User;
+import com.youtx.rent.entity.*;
 import com.youtx.rent.placeOrder.service.RoomMsg;
 import com.youtx.rent.userCenter.service.LodgerOrders;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -25,11 +24,6 @@ public class UserCenterController {
     @RequestMapping("/jumpPage")
     public String userCenter(){
         return "person_center";
-    }
-
-    @RequestMapping("/jumpAddRoom")
-    public String userCenter3(){
-        return "publish_house_1";
     }
 
     @RequestMapping("/jumpLodgerPage")
@@ -118,6 +112,29 @@ public class UserCenterController {
         return "redirect:/userCenter/jumpLodgerPage";
     }
 
-
-
+    //跳转发布房源第一页
+    @RequestMapping("/jumpAddRoom")
+    public String userCenter3(){
+        return "publish_house_1";
+    }
+    //添加发布 房源第一页内容
+    @RequestMapping("/addRoomInfo1")
+    @ResponseBody
+    public Object addRoomInfo1(HttpSession session,String roomCity,RoomResource roomResource,Room room) {
+        User user = (User) session.getAttribute("user");
+        room.setRoomState("1");
+        room.setUser(user);
+//        roomMsg.saveRoom(room);
+//        Integer roomId = room.getRoomId();
+        String city = roomCity;
+        System.out.println(city);
+//        String resourceAddress = Country+Province+City+District+ProjName+ChangeHouseInfo1;
+//        System.out.println("-------"+roomResource.getResourceAddress());
+//        RoomResource roomResource = new RoomResource();
+//        roomResource.setResourceAddress(resourceAddress);
+//        roomResource.setResourceSign(resourceSign);
+        roomResource.setRoom(room);
+//        roomMsg.saveRoomResours(roomResource);
+        return null;
+    }
 }

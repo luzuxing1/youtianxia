@@ -117,7 +117,6 @@
     <!--头 未登录 end-->
 <#else>
     <#--<h3>有user对象</h3>--><!--头 已登录 start-->
-
     <ul class="headerLogin clearfix" style="" id="youtxlogin2">
         <li class="dropDownLi">
             <a href="${base}/userCenter/jumpPage" target="_blank" class="dropDownTrigger" id="NameA">Hi,<span id="liname">${user.userNickname}</span></a>
