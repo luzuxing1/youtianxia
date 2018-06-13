@@ -120,21 +120,21 @@ public class UserCenterController {
     //添加发布 房源第一页内容
     @RequestMapping("/addRoomInfo1")
     @ResponseBody
-    public Object addRoomInfo1(HttpSession session,String roomCity,RoomResource roomResource,Room room) {
+    public Object addRoomInfo1(HttpSession session,RoomResource roomResource,Room room) {
         User user = (User) session.getAttribute("user");
         room.setRoomState("1");
         room.setUser(user);
-//        roomMsg.saveRoom(room);
-//        Integer roomId = room.getRoomId();
-        String city = roomCity;
-        System.out.println(city);
+        roomMsg.saveRoom(room);
+        Integer roomId = room.getRoomId();
+//        String city = roomCity;
+//        System.out.println(city);
 //        String resourceAddress = Country+Province+City+District+ProjName+ChangeHouseInfo1;
 //        System.out.println("-------"+roomResource.getResourceAddress());
 //        RoomResource roomResource = new RoomResource();
 //        roomResource.setResourceAddress(resourceAddress);
 //        roomResource.setResourceSign(resourceSign);
         roomResource.setRoom(room);
-//        roomMsg.saveRoomResours(roomResource);
-        return null;
+        roomMsg.saveRoomResours(roomResource);
+        return roomId;
     }
 }
