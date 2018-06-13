@@ -147,8 +147,8 @@
                         setPrices.length = 0;
                     //将设置的价格添加到数组中
                     setPrices[0] = getControl("dayPrice1").value;
-                    setPrices[1] = getControl("weekPrice1").value*7;
-                    setPrices[2] = getControl("monthPrice1").value*30;
+                    setPrices[1] = getControl("weekPrice1").value;
+                    setPrices[2] = getControl("monthPrice1").value;
                     setPrices[3] = getControl("weekenPrice1").value;
                     setPrices[4] = getControl("qingjieAccount").value;
                     setPrices[5] = getControl("kerenAccount").value;
@@ -727,31 +727,31 @@
                     if (document.getElementById("accept").checked) { IsForeigner = 1; }
                     if (document.getElementById("refuse").checked) { IsForeigner = 0; }
                 }
-                $.post("/publish/Ajax/HousePriceEnAction.aspx", {
+                $.post("${base}/fourthPage/price", {
                     tuoGuan: tuoguanFlag,
-                    HouseId: houseId1,
+                    roomId: "2",
                     Flag: flag1,
                     SelRMB: currencyName,////////////////////////
-                    DayPrice: setPrices[0],
-                    WeekPrice: setPrices[1],
-                    MonthPrice: setPrices[2],
-                    WeekendPrice: setPrices[3],
-                    CleanAccount: setPrices[4],
-                    ClientAccount: setPrices[5],
-                    YajinAccount: setPrices[6],
-                    cancelDay: cancelDay,
+                    priceDay: setPrices[0],
+                    priceWeek: setPrices[1],
+                    priceMonth: setPrices[2],
+                    priceWeekend: setPrices[3],
+                    priceClean: setPrices[4],
+                    pricePerExtra: setPrices[5],
+                    priceDeposit: setPrices[6],
+                    ruleBeforeLive: cancelDay,
                    // StayRoomNum: $("#selPeopleNum option:selected").val(),
-                    TicketOrNot: radioval,
-                    TransPolicy: policy,
+                    priceInvoice: radioval,
+                    ruleType: policy,
                     dingJing: dingJinAccount,
-                    HouseRule:escape($("#HouseControlContent").val()),
-                    LiveMinDayNum: $("#selDayMinNum option:selected").val(),
+                    reqRule:$("#HouseControlContent").val(),
+                    reqDays: $("#selDayMinNum option:selected").val(),
                     LiveMaxDayNum: $("#selDayMaxNum option:selected").val(),
-                     LiveInHouseTime: $("#selRuZhuTime option:selected").val(),
-                    LiveInHouseTimeOut: $("#selRuZhuTimeafter option:selected").val(),
-                    LiveOutHouseTime: $("#selTuiFangTime").val(),
+                    reqStartTime: $("#selRuZhuTime option:selected").val(),
+                    reqEndTime: $("#selRuZhuTimeafter option:selected").val(),
+                    reqCheckTime: $("#selTuiFangTime").val(),
                     NewDate: date,
-                    IsForeigner:IsForeigner
+                    reqForeign:IsForeigner
                 }, function (data1) {
                     if (data1 == "2") {
                         //$("#RoomNextBtnNext").css("background", "url('http://js.youtx.com/images/PaymentBtn2.gif') repeat scroll 0 35px");
@@ -759,14 +759,14 @@
                         isture = true;
                         //保存成功跳转到下一步(支付设置页面)
                         clickFlag = 0;
-                        window.location = "/room/newfiveplan/" + houseId1;
+                        window.location = "${base}/pay";
                     } else if (data1 == "1") {
                         //保存成功 弹出滤镜//保存成功
                         //$("#btnSave").css("background", "url('http://js.youtx.com/images/PaymentBtn2.gif') repeat scroll 0 35px");
                         saveDateSpecials();
                         isture = true;
                         clickFlag = 0;
-                        window.location = "/room/newcomplete/" + houseId1;
+                        window.location = "${base}/pay";
                     } else {
                         alert("保存失败！");
                         clickFlag = 0;
@@ -2119,7 +2119,7 @@
         </div>
         <div class="RoomNextBtn" id="RoomNextBtn">
             <span id="RoomNextBtnPrev"><a href="http://www.youtx.com/room/newthreeplan/324548">&lt;&lt; 上一步</a></span>
-            <input id="RoomNextBtnNext" style="height:35px;width:117px;" class="RoomNextBtnNext" type="button" value="下一步">
+            <input id="RoomNextBtnNext" style="height:35px;width:117px;" class="RoomNextBtnNext" type="button" value="下一步"">
         </div>
         <div id="submit_buttonNew" class="submit_buttonNew" style="display: none;">
             <input id="btnSave" type="button" value="保 存">

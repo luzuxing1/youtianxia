@@ -8,12 +8,13 @@
     <result column="price_month" jdbcType="INTEGER" property="priceMonth" />
     <result column="price_weekend" jdbcType="INTEGER" property="priceWeekend" />
     <result column="price_clean" jdbcType="INTEGER" property="priceClean" />
+    <result column="price_per_extra" javaType="INTEGER" property="pricePerExtra" />
     <result column="price_deposit" jdbcType="INTEGER" property="priceDeposit" />
     <result column="price_invoice" jdbcType="INTEGER" property="priceInvoice" />
     <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
-    price_id, price_day, price_week, price_month, price_weekend, price_clean, price_deposit, 
+    price_id, price_day, price_week, price_month, price_weekend, price_clean, price_per_extra, price_deposit,
     price_invoice, room_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -39,7 +40,7 @@
       )
     values (#{priceId,jdbcType=INTEGER}, #{priceDay,jdbcType=INTEGER}, #{priceWeek,jdbcType=INTEGER}, 
       #{priceMonth,jdbcType=INTEGER}, #{priceWeekend,jdbcType=INTEGER}, #{priceClean,jdbcType=INTEGER}, 
-      #{priceDeposit,jdbcType=INTEGER}, #{priceInvoice,jdbcType=INTEGER}, #{roomId,jdbcType=INTEGER}
+      #{priceDeposit,jdbcType=INTEGER}, #{priceInvoice,jdbcType=INTEGER}, #{room.roomId,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.Price">

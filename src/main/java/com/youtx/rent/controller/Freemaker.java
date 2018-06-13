@@ -8,6 +8,16 @@ public class Freemaker {
 
     @RequestMapping("/test")
     public String test(){
-        return "payments";
+        return "index";
+    }
+
+    @RequestMapping("/order")
+    public String ttt(){
+        return "publish_house_4";
+    }
+
+    @RequestMapping("/pay")
+    public String afaf(){
+        return "publish_house_5";
     }
 }
