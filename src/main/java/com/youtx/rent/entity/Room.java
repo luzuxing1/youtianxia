@@ -18,6 +18,16 @@ public class Room {
 
     private Date roomTime;
 
+    private String roomState;
+
+    public String getRoomState() {
+        return roomState;
+    }
+
+    public void setRoomState(String roomState) {
+        this.roomState = roomState;
+    }
+
     private User user;
 
     private List<String> pictureList;

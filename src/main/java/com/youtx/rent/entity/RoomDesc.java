@@ -100,4 +100,20 @@ public class RoomDesc {
     public void setRoom(Room room) {
         this.room = room;
     }
+
+    @Override
+    public String toString() {
+        return "RoomDesc{" +
+                "descId=" + descId +
+                ", descTitle='" + descTitle + '\'' +
+                ", descRemark='" + descRemark + '\'' +
+                ", descIntroduce='" + descIntroduce + '\'' +
+                ", descTraffic='" + descTraffic + '\'' +
+                ", descLife='" + descLife + '\'' +
+                ", descView='" + descView + '\'' +
+                ", descOther='" + descOther + '\'' +
+                ", descTag='" + descTag + '\'' +
+                ", room=" + room +
+                '}';
+    }
 }

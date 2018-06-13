@@ -11,7 +11,8 @@
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
         <!-- 需要更改jdbcUrl的数据库名 -->
-        <property name="jdbcUrl" value="jdbc:mysql://118.31.63.199:3306/ytx?useUnicode=true&amp;characterEncoding=gbk&amp;autoReconnect=true"/>
+        <property name="jdbcUrl" value="jdbc:mysql://118.31.63.199:3306/ytx?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true"/>
+
         <!-- 需要更改数据库登录名 -->
         <property name="user" value="root"/>
         <!-- 需要更改数据库登录登录密码 -->

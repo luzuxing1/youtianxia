@@ -28,11 +28,11 @@
     delete from ytx_room_resource
     where resource_id = #{resourceId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.youtx.rent.entity.RoomResource">
+  <insert id="insert" parameterType="com.youtx.rent.entity.RoomResource" useGeneratedKeys="true" keyProperty="resourceId">
     insert into ytx_room_resource (resource_id, resource_address, resource_sign, 
       room_id)
     values (#{resourceId,jdbcType=INTEGER}, #{resourceAddress,jdbcType=VARCHAR}, #{resourceSign,jdbcType=VARCHAR}, 
-      #{roomId,jdbcType=INTEGER})
+      #{room.roomId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.RoomResource">
     insert into ytx_room_resource

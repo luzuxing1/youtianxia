@@ -52,7 +52,7 @@
       #{situFloor,jdbcType=VARCHAR}, #{situRoomNum,jdbcType=INTEGER}, #{situBedNum,jdbcType=INTEGER}, 
       #{situBedType,jdbcType=VARCHAR}, #{situStandardPeople,jdbcType=INTEGER}, #{situExtraPeople,jdbcType=INTEGER}, 
       #{situRoomArea,jdbcType=INTEGER}, #{situToiletNum,jdbcType=INTEGER}, #{situToiletType,jdbcType=VARCHAR}, 
-      #{situMaster,jdbcType=VARCHAR}, #{situOtherResource,jdbcType=INTEGER}, #{roomId,jdbcType=INTEGER}
+      #{situMaster,jdbcType=VARCHAR}, #{situOtherResource,jdbcType=INTEGER}, #{room.roomId,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.RoomSituation">

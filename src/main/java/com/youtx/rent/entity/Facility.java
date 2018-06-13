@@ -340,4 +340,44 @@ public class Facility {
     public void setRoom(Room room) {
         this.room = room;
     }
+
+    @Override
+    public String toString() {
+        return "Facility{" +
+                "facId=" + facId +
+                ", facBath='" + facBath + '\'' +
+                ", facSlippers='" + facSlippers + '\'' +
+                ", facHotwater='" + facHotwater + '\'' +
+                ", facBathtub='" + facBathtub + '\'' +
+                ", facShower='" + facShower + '\'' +
+                ", facTv='" + facTv + '\'' +
+                ", facFridge='" + facFridge + '\'' +
+                ", facComputer='" + facComputer + '\'' +
+                ", facWasher='" + facWasher + '\'' +
+                ", facAirCon='" + facAirCon + '\'' +
+                ", facHeating='" + facHeating + '\'' +
+                ", facWiredNetwork='" + facWiredNetwork + '\'' +
+                ", facWirelessNetwork='" + facWirelessNetwork + '\'' +
+                ", facWater='" + facWater + '\'' +
+                ", facElevator='" + facElevator + '\'' +
+                ", facBarrier='" + facBarrier + '\'' +
+                ", facSecurity='" + facSecurity + '\'' +
+                ", facMahjong='" + facMahjong + '\'' +
+                ", facPark='" + facPark + '\'' +
+                ", facDoor='" + facDoor + '\'' +
+                ", facFit='" + facFit + '\'' +
+                ", facSwim='" + facSwim + '\'' +
+                ", facShuttle='" + facShuttle + '\'' +
+                ", facBreakfast='" + facBreakfast + '\'' +
+                ", facFamily='" + facFamily + '\'' +
+                ", facParty='" + facParty + '\'' +
+                ", facKitchen='" + facKitchen + '\'' +
+                ", facPet='" + facPet + '\'' +
+                ", facLuggage='" + facLuggage + '\'' +
+                ", facExtraBed='" + facExtraBed + '\'' +
+                ", facProxy='" + facProxy + '\'' +
+                ", facSmoke='" + facSmoke + '\'' +
+                ", room=" + room +
+                '}';
+    }
 }

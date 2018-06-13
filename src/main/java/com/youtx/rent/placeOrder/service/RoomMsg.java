@@ -22,6 +22,8 @@ public class RoomMsg {
     @Resource
     private RoomResourceMapper roomResourceMapper;
     @Resource
+    private RoomMapper roomMapper;
+    @Resource
     private RoomSituationMapper roomSituationMapper;
     @Resource
     private CalendarMapper calendarMapper;
@@ -138,5 +140,12 @@ public class RoomMsg {
 
     public void saveLivePerson(LivePerson livePerson){
         livePersonMapper.insert ( livePerson );
+    }
+
+    public void saveRoom(Room room){
+        roomMapper.insert(room);
+    }
+    public void saveRoomResours(RoomResource roomResource){
+        roomResourceMapper.insert(roomResource);
     }
 }
