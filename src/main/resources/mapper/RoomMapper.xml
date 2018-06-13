@@ -9,6 +9,8 @@
     <result column="room_sale" jdbcType="INTEGER" property="roomSale" />
     <result column="room_opinion_num" jdbcType="INTEGER" property="roomOpinionNum" />
     <result column="room_time" jdbcType="DATE" property="roomTime" />
+    <result column="room_state" jdbcType="VARCHAR" property="roomState"/>
+
     <association property="roomResource" column="room_id" select="com.youtx.rent.dao.RoomResourceMapper.selectByRoomId"/>
     <association property="user" column="user_id" select="com.youtx.rent.dao.UserMapper.selectByPrimaryKey" />
     <!--<association property="schedule" column="room_id" select="com.youtx.rent.dao.ScheduleMapper.selectByRoomId"/>-->
@@ -17,7 +19,7 @@
   </resultMap>
   <sql id="Base_Column_List">
     room_id, room_city, room_name, room_price, room_sale, room_opinion_num, room_time, 
-    user_id
+    user_id,room_state
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -55,13 +57,13 @@
     delete from ytx_room
     where room_id = #{roomId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.youtx.rent.entity.Room">
+  <insert id="insert" parameterType="com.youtx.rent.entity.Room" useGeneratedKeys="true" keyProperty="roomId">
     insert into ytx_room (room_id, room_city, room_name, 
       room_price, room_sale, room_opinion_num, 
-      room_time, user_id)
+      room_time, user_id,room_state)
     values (#{roomId,jdbcType=INTEGER}, #{roomCity,jdbcType=VARCHAR}, #{roomName,jdbcType=VARCHAR}, 
-      #{roomPrice,jdbcType=INTEGER}, #{roomSale,jdbcType=INTEGER}, #{roomOpinionNum,jdbcType=INTEGER}, 
-      #{roomTime,jdbcType=DATE}, #{userId,jdbcType=INTEGER})
+      #{roomPrice,jdbcType=INTEGER}, #{roomSale,jdbcType=INTEGER}, #{roomOpinionNum,jdbcType=INTEGER},
+      #{roomTime,jdbcType=DATE}, #{user.userId,jdbcType=INTEGER},#{roomState,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.Room">
     insert into ytx_room
@@ -90,6 +92,9 @@
       <if test="userId != null">
         user_id,
       </if>
+      <if test="userState != null">
+        user_state,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="roomId != null">
@@ -115,6 +120,9 @@
       </if>
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="roomState != null">
+        #{roomState,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
