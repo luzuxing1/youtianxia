@@ -26,7 +26,7 @@
 </style>
 </head>
 <body>
-		<a href="add_hotel.jsp" class="add">添加房间</a>
+		<a href="${base}/rooms/add" class="add">添加房间</a>
 	<script type="text/javascript">
 		function search(){
 			var a = document.getElementById("s_num");
@@ -72,8 +72,9 @@
             <th>功能</th>
 		</tr>
 		</thead>
-	<#setting date_format="yyyy-MM-dd">
 		<tbody>
+		<#setting datetime_format ="yyyy-MM-dd">
+
 			<#list roomList as room>
 				<tr>
 					<td>${room.roomId}</td>
@@ -83,7 +84,7 @@
 					<td>${room.roomSale}</td>
 					<td>${room.roomOpinionNum}</td>
 					<td>
-					${room.roomTime?date}</td>
+					${room.roomTime?datetime}</td>
 					<td>${room.user.userRealname}</td>
 					<td>
 						<a href="javascript:if(confirm('确认删除？'))location.href='${base}/rooms/delete?id=${room.roomerId }&currentPage=${roomerPage.currentPage}'">删除</a>

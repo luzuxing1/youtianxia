@@ -84,7 +84,7 @@
       #{facBreakfast,jdbcType=VARCHAR}, #{facFamily,jdbcType=VARCHAR}, #{facParty,jdbcType=VARCHAR}, 
       #{facKitchen,jdbcType=VARCHAR}, #{facPet,jdbcType=VARCHAR}, #{facLuggage,jdbcType=VARCHAR}, 
       #{facExtraBed,jdbcType=VARCHAR}, #{facProxy,jdbcType=VARCHAR}, #{facSmoke,jdbcType=VARCHAR}, 
-      #{roomId,jdbcType=INTEGER})
+      #{room.roomId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.Facility">
     insert into ytx_facility

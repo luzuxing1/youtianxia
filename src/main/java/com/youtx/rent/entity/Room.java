@@ -34,6 +34,16 @@ public class Room {
     private RoomResource roomResource;
     private Schedule schedule;
 
+    private int UserId;
+
+    public int getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(int userId) {
+        UserId = userId;
+    }
+
     public List<String> getPictureList() {
         return pictureList;
     }

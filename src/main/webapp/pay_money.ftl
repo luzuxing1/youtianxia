@@ -200,7 +200,7 @@
                         <p>
                             您需要支付订金:<span class="Color_red">￥ ${price}</span></p>
                         <ul>
-                            <input id="orderId" type="hidden" value="${orderId}">
+                            <input id="orderId" type="hidden" va>
                             <li>订单总额：<span class="Color_red">￥ ${price}</span></li>
                             <li>支付订金：<span class="Color_red">￥ ${price}</span><span><a class="calculate" href="javascript:void(0)">如何计算?</a></span></li>
                             <li>线下支付：<span class="Color_red">￥ 0</span><span class="Color_grey">(剩余费用)</span>+<span class="Color_red">￥ 200</span><span class="Color_grey">(押金)</span></li>
@@ -672,7 +672,7 @@
                             </tbody></table>
                             
                             <p style="text-align: center">
-                                <input type="button" class="OrderCoBtn_new" onclick="payClick()" id="p4_book_it_button" name="book_it_button" value="确认付款" style="margin: 10px 0 0 10px;">
+                                <input type="button" class="OrderCoBtn_new" onclick="gotopay()" id="p4_book_it_button" name="book_it_button" value="确认付款" style="margin: 10px 0 0 10px;">
                             </p>
                         </div>
                         
@@ -2636,6 +2636,9 @@ function payCashClick() {
         //未勾选则跳转到第三方平台支付（当前页面选择的）
         payClick();
     }
+}
+function gotopay() {
+    window.open("${base}/payment/test?orderId=${orderId}&prices=${price}");
 }
 ///网银、银联在线、支付宝、财付通等确认支付按钮和信用卡支付的下一步按钮的单击事件
 function payClick() {

@@ -150,4 +150,25 @@ public class RoomSituation {
     public void setRoom(Room room) {
         this.room = room;
     }
+
+    @Override
+    public String toString() {
+        return "RoomSituation{" +
+                "situId=" + situId +
+                ", situType='" + situType + '\'' +
+                ", situRent='" + situRent + '\'' +
+                ", situFloor='" + situFloor + '\'' +
+                ", situRoomNum=" + situRoomNum +
+                ", situBedNum=" + situBedNum +
+                ", situBedType='" + situBedType + '\'' +
+                ", situStandardPeople=" + situStandardPeople +
+                ", situExtraPeople=" + situExtraPeople +
+                ", situRoomArea=" + situRoomArea +
+                ", situToiletNum=" + situToiletNum +
+                ", situToiletType='" + situToiletType + '\'' +
+                ", situMaster='" + situMaster + '\'' +
+                ", situOtherResource=" + situOtherResource +
+                ", room=" + room +
+                '}';
+    }
 }

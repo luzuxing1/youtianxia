@@ -4,6 +4,7 @@ import com.youtx.rent.entity.Calendar;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 @Repository
 public interface CalendarMapper {
@@ -24,4 +25,6 @@ public interface CalendarMapper {
     void updateByDate(@Param ( "calendarRoom" )String calendarRoom,@Param ( "begintime" )String begintime,@Param ( "endtime" )String endtime, @Param ( "roomid" )Integer roomid);
 
     List<Calendar> selectByRoomId(Integer roomId);
+
+    List<Calendar> selectByDateRange(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
 }

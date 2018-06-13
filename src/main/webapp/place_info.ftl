@@ -27,8 +27,8 @@
 
     <script type="text/javascript">        uaredirect("http://m.youtx.com/waproom/144142/")</script>
     <link href="${base}/static/place_info/youtx-details2016.css" rel="stylesheet" type="text/css">
-    
-    <script type="text/javascript" src="${base}/static/place_info/jquery.ui.datepicker-zh.min.js"></script>
+
+
     
     <script type="text/javascript" src="${base}/static/place_info/jquery-ui-1.8.14.custom.min.js"></script>
     <script type="text/javascript" src="${base}/static/place_info/dateFormat.js"></script>
@@ -952,7 +952,7 @@
 <div class="Scheduling-box" style="width: 1519px; height: 759px;">
 </div>
 <form id="dingfang" method="get" action="${base}/book/present">
-    <input type="hidden" name="houseid" value="144142">
+    <input type="hidden" name="houseid" value="${detail[0].roomId}">
     <input type="hidden" id="df_livenum" name="livenum" value="1">
     <input type="hidden" id="df_begintime" name="begintime" value="2018-06-05">
     <input type="hidden" id="df_endtime" name="endtime" value="2018-06-21">
@@ -990,7 +990,7 @@
 </div>
 <!--排期日历弹窗部分end-->
 <!--价格预定部分-->
-<div class="part-two">
+<div class="part-two" style="height:280px;">
     
     <div class="price">
         
@@ -1000,125 +1000,102 @@
 
         
     </div>
-
+    <#list detail[8] as calendar>
+        <input type="hidden" class="ordered" value="${calendar.calendarDate?string("yyyy-MM-dd")}-${calendar.calendarRoom}" />
+    </#list>
     <div class="date">
         <div class="calendarall clearfix">
-            <div class="calendar" id="youtxxq_B02_12">
-                <!--引入日历开始-->
-                <div id="abcde" class="clearfix">
-                    <span class="onespan">入住</span><p class="onep">
-                        <input id="testttt" type="text" value="yy-mm-dd" readonly="readonly">
-                    </p>
-                    <div id="diyige" style="position: absolute; z-index: 99; left: 0px; top: 37px; display: none;">
-                        <div type="text" id="datepicker"><div class="ui-NewDatebox" style="display: block;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev ui-corner-all ui-state-disabled" type="beginSection" onclick="left_clickNew(this)" ;="" title=""><span class="ui-icon ui-icon-circle-triangle-w"></span></a><a class="ui-datepicker-next ui-corner-all" type="beginSection" onclick="right_clickNew(this);" title=""><span class="ui-icon ui-icon-circle-triangle-e"></span></a><div class="ui-datepicker-title"><span class="ui-datepicker-year">2018</span>年&nbsp;<span class="ui-datepicker-month">6月</span></div></div><table class="ui-datepicker-calendar" cellpadding="0" cellspacing="0" border="0"><tbody><tr class="ThDate"><th class="ui-datepicker-week-end"><span title="星期日">日</span></th><th><span title="星期一">一</span></th><th><span title="星期二">二</span></th><th><span title="星期三">三</span></th><th><span title="星期四">四</span></th><th><span title="星期五">五</span></th><th class="ui-datepicker-week-end"><span title="星期六">六</span></th></tr><tr> <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td> <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td> <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td> <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td> <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td> <td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default" style="cursor:default">1</span></td> <td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default" style="cursor:default">2</span></td> <td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default" style="cursor:default">3</span></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">4</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">5</a> <div class="ui-Date-pop" style="display: none;"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">6</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">7</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">8</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">9</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">10</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">11</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">12</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">13</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">14</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">15</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">16</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">17</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">18</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">19</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">20</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">21</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">22</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">23</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">24</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">25</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">26</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">27</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">28</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">29</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="beginSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">30</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td></tr></tbody></table><div class="ClearDate clearfix"><span class="FL" style="cursor: pointer;color: #929292;" onclick="cleardateNew()">清除日期</span></div></div></div>
-                    </div>
-                </div>
-                <!--引入日历结束-->
-            </div>
-            <div class="calendar2" id="youtxxq_B02_13">
-                <!--引入日历开始-->
-                <div id="edcba" class="clearfix">
-                    <span class="onespan">退房</span><p class="onep">
-                        <input id="testt" type="text" value="yy-mm-dd" readonly="readonly">
-                    </p>
-                    <div id="dierge" style="position: absolute; z-index: 99; left: 0px; top: 37px; display: none;">
-                        <div type="text" id="datepick"><div class="ui-NewDatebox" style="display: block;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev ui-corner-all ui-state-disabled" type="endSection" onclick="left_clickNew(this)" ;="" title=""><span class="ui-icon ui-icon-circle-triangle-w"></span></a><a class="ui-datepicker-next ui-corner-all" type="endSection" onclick="right_clickNew(this);" title=""><span class="ui-icon ui-icon-circle-triangle-e"></span></a><div class="ui-datepicker-title"><span class="ui-datepicker-year">2018</span>年&nbsp;<span class="ui-datepicker-month">6月</span></div></div><table class="ui-datepicker-calendar" cellpadding="0" cellspacing="0" border="0"><tbody><tr class="ThDate"><th class="ui-datepicker-week-end"><span title="星期日">日</span></th><th><span title="星期一">一</span></th><th><span title="星期二">二</span></th><th><span title="星期三">三</span></th><th><span title="星期四">四</span></th><th><span title="星期五">五</span></th><th class="ui-datepicker-week-end"><span title="星期六">六</span></th></tr><tr> <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td> <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td> <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td> <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td> <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td> <td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default" style="cursor:default">1</span></td> <td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default" style="cursor:default">2</span></td> <td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default" style="cursor:default">3</span></td> <td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default" style="cursor:default">4</span></td> <td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default" style="cursor:default">5</span></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">6</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">7</a> <div class="ui-Date-pop" style="display: none;"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">8</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">9</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">10</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">11</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">12</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">13</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">14</a> <div class="ui-Date-pop" style="display: none;"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">15</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">16</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">17</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">18</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">19</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">20</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">21</a> <div class="ui-Date-pop" style="display: none;"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">22</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">23</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">24</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">25</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">26</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">27</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">28</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">29</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td><td class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"><div class="DateActive" onmouseout="HidePrice(this)"> <a class="ui-state-default" data="2018-6" type="endSection" href="javascript:void(0)" onclick="SelectDate(this)" onmouseover="ShowPrice(this)">30</a> <div class="ui-Date-pop" style="display:none"> <span class="ui-stra"></span><span class="ui-Price">￥348</span> </div></div></td></tr></tbody></table><div class="ClearDate clearfix"><span class="FL" style="cursor: pointer;color: #929292;" onclick="cleardateNew()">清除日期</span></div></div></div>
-                    </div>
-                </div>
-                <!--引入日历结束-->
-            </div>
+            <span style="vertical-align: middle;margin-left: 5px">入住时间</span><input type="text" readonly  id="startDate" style="border:1px solid slategrey;font-size: 14px;width: 90px;margin-left: 10px"/>
+
+            <span style="vertical-align: middle;margin-left: 10px">离开时间</span><input type="text" readonly  id="endDate" style="border:1px solid slategrey;font-size: 14px;width: 90px;margin-left: 10px" onchange="noOrder()"/>
+            <input type="hidden" />
+            <script type="text/javascript">
+                $(function () {
+                    var tempA = $("#startDate").val();
+                    var tempB = $("#endDate").val();
+                    $(".ui-datepicker-append").css("display","none");
+                    $("#ui-datepicker-div").on('DOMNodeInserted',function(){
+                        var curA = $("#startDate").val();
+                        var curB = $("#endDate").val();
+                        if (curA != tempA || curB != tempB) {
+                            tempA = curA;
+                            tempB = curB;
+                            $("#df_begintime").val(tempA);
+                            $("#df_endtime").val(tempB);
+                            $.get("${base}/detail/judge",{"startDate":tempA,"endDate":tempB},function (date) {
+                                if (date == true) {
+                                    $("#goorder").removeClass("clickbutton");
+                                    $("#goorder").addClass("clickbutton2");
+                                    $("#goorder").attr("data", "no");
+                                    $("#goorder").val("该时间段已有其他客人入住");
+                                } else {
+                                    $.get("${base}/book/curPrice", {"begintime":tempA, "endtime":tempB, "roomid":${detail[0].roomId}}, function (data) {
+                                        var hausenum = $("#roomnumber").val().replace("套", "");
+                                        $("#goorder").val("立即预订(￥" + (hausenum * data) + ")");
+                                    })
+                                    $("#goorder").removeClass("clickbutton2");
+                                    $("#goorder").addClass("clickbutton");
+                                    $("#goorder").val("立即预订");
+                                    $("#goorder").attr("data", "yes");
+                                }
+                            })
+                        }
+                        $(".ui-datepicker-append").css("display","none");
+                        $(".ui-state-default").attr("title",${detail[6].priceDay});
+                        $(".ui-state-default").attr("onclick","hadOrder(this);");
+                        $(".ordered").each(function () {
+                            var getmo = $(".ui-datepicker-month").text().split("");
+                            var orderDate = $(this).val().split("-");
+                            if (parseInt(orderDate[1]) == getmo[0]) {
+                                $(".ui-state-default").each(function () {
+                                    if ($(this).text() == orderDate[2] && !$(this).parent().hasClass("ui-state-disabled") && orderDate[3] == "yz") {
+                                        $(this).text("已定");
+                                    }
+                                })
+                            }
+                        })
+                    })
+                })
+                function hadOrder(obj) {
+                    if($(obj).text() == "已定") {
+                        alert("该房间已被预订")
+                        return false;
+                    }
+                }
+            </script>
+            <script type="text/javascript" src="${base}/js/moment.min.js"></script>
+            <script type="text/javascript" src="${base}/js/stay.js"></script>
+            <script type="text/javascript" src="${base}/js/jquery.ui.js"></script>
+
         </div>
         <div class="numberall clearfix" id="roomsandguest">
-            <div class="number" id="youtxxq_B02_15">
-                <b>1套</b><em></em>
-                <ul class="number-all" style="display: none;" id="roomnum_menutext">
-                    
-                    <li value="1">1套</li>
-                    
-                    <li value="2">2套</li>
-                    
-                </ul>
-            </div>
-            <div class="personnumber" id="youtxxq_B02_14">
-                <b>1人</b><em></em>
-                <ul class="personnumber-all" style="display: none; overflow-y: scroll;" id="number_of_guests">
-                    
-                    <li class="active" value="1">1人</li>
-                    
-                    <li class="" value="2">2人</li>
-                    
-                    <li class="" value="3">3人</li>
-                    
-                    <li class="" value="4">4人</li>
-                    
-                    <li class="" value="5">5人</li>
-                    
-                    <li class="" value="6">6人</li>
-                    
-                    <li class="" value="7">7人</li>
-                    
-                    <li class="" value="8">8人</li>
-                    
-                    <li class="" value="9">9人</li>
-                    
-                    <li class="" value="10">10人</li>
-                    
-                    <li class="" value="11">11人</li>
-                    
-                    <li class="" value="12">12人</li>
-                    
-                    <li class="" value="13">13人</li>
-                    
-                    <li class="" value="14">14人</li>
-                    
-                    <li class="" value="15">15人</li>
-                    
-                    <li class="" value="16">16人</li>
-                    
-                    <li class="" value="17">17人</li>
-                    
-                    <li class="" value="18">18人</li>
-                    
-                    <li class="" value="19">19人</li>
-                    
-                    <li class="" value="20">20人</li>
-                    
-                    <li class="" value="21">21人</li>
-                    
-                    <li class="" value="22">22人</li>
-                    
-                    <li class="" value="23">23人</li>
-                    
-                    <li class="" value="24">24人</li>
-                    
-                    <li class="" value="25">25人</li>
-                    
-                    <li class="" value="26">26人</li>
-                    
-                    <li class="" value="27">27人</li>
-                    
-                    <li class="" value="28">28人</li>
-                    
-                    <li class="" value="29">29人</li>
-                    
-                    <li class="" value="30">30人</li>
-                    
-                </ul>
-            </div>
+                <select id="roomnumber" style="width: 75px;height: 37px;font-size: 16px;padding-left: 15px;margin-left: 5px">
+                    <#list 1..detail[3].situOtherResource as i>
+                        <option value="${i}">${i}套</option>
+                    </#list>
+                </select>
+
+                <select id="peoplenumber" style="width: 75px;height: 37px;font-size: 16px;padding-left: 15px;margin-left: 30px">
+                <#list 1..detail[3].situStandardPeople as i>
+                    <option value="${i}">${i}人</option>
+                </#list>
+                </select>
+
         </div>
 
     </div>
     <ul class="detailslists">
-        
         <!--促销优惠需要走异步-->
         <div id="divCuXiaoPrice"><!--促销活动/今晚特价优质房源推荐9折（03.03-05.31）-->
 <!--(weekprice1 <= (tongWeekPrice * TypeParse.ToDecimal(0.7)) || monthprice1 <= TypeParse.ToDecimal(tongMonthPrice * TypeParse.ToDecimal(0.7)))-->
 
-<li>长租优惠：满7天&nbsp;<span>￥330</span> /天&nbsp;&nbsp;满30天&nbsp;<span>￥260</span>/天</li>
+<li>长租优惠：满7天&nbsp;<span>￥${detail[6].priceWeek}</span> /天&nbsp;&nbsp;满30天&nbsp;<span>￥${detail[6].priceWeek}</span>/天</li>
 
 <!--促销活动/今晚特价 end--></div>
         <!--促销优惠需要走异步end-->
-        <li id="Li_CleanPrice" style="display: none"></li>
+        <#if detail[6].priceClean != "">
+            <li id="Li_CleanPrice" style="display: block">清洁费&nbsp;<span>￥${detail[6].priceClean}</span></li>
+        </#if>
         <li id="Li_IncreasePrice" style="display: none"></li>
         <li id="Li_FuWuPrice" style="display: none"></li>
     </ul>
@@ -1138,450 +1115,26 @@
     
     <!--默认情况下 立即预订显示  其他两个隐藏        -->
     <div id="ScheTxtBoxBut">
-        <input type="submit" value="立即预订 （总计：¥5280）" onclick="HAHAHAClick();" id="youtxxq_B02_16" class="clickbutton">
+        <input type="submit" value="立即预订" onclick="orderIt();" id="goorder" class="clickbutton">
+        <script type="text/javascript">
+            function orderIt() {
+                if ($("#goorder").attr("data") != "no") {
+                    $("#df_begintime").val($("#startDate").val());
+                    $("#df_endtime").val($("#endDate").val());
+                    $("#rooms").val($("#roomnumber").val());
+                    $("#df_livenum").val($("#peoplenumber").val());
+                    $("#dingfang").submit();
+                }
+            }
+        </script>
         <!--置灰按钮 clickbutton2-->
         <!--闪订按钮 clickbutton3-->
     </div>
     <!--5天排期-->
-    <ul class="schedule clearfix" id="paiqi_5days"><li><span>今天</span><p>￥348</p></li><li><span>5日</span><p>￥348</p></li><li><span>6日</span><p>￥348</p></li><li><span>7日</span><p>￥348</p></li><li><span>8日</span><p>￥348</p></li><li class="last" id="youtxxq_B02_17">全部<br>排期</li></ul>
     <!--5天排期end-->
 </div>
 <!--价格预定部分end-->
-<script language="javascript" type="text/javascript">
 
-    var livemanum = Number("1");
-    var roomnum = 1; var huobi1 = "";
-    var huil = parseFloat("6.89");
-    var re_guest = Number("1");
-    var bokurl = '/payment/Booking/BookingNew.aspx';
-    var isjisuan = 0;
-    var houseUseID = '7302';
-    var loginUseID = '2600363';
-    var Type6ManDayss = "0";
-    var actionbegin;
-    var actionend;
-    var huobi1;
-    if ("CNY" == "USD")
-    { huobi1 = "$"; } else
-    { huobi1 = "￥"; }
-    $(document).ready(function () {
-        getRili();  //排期
-        if ($("#testt").val() != "yy-mm-dd" && $("#testttt").val() != "yy-mm-dd") { AjaxJiSuan(); }
-    });
-
-    //xg2015-01-29Begin
-    //$(".ADorderWz").live("click", function () {
-    //    if ($(".ADorderBox").css("display") == 'block') {
-    //        $(".ADorderBox").hide();
-    //    } else {
-    //        $(".ADorderBox").show();
-    //    }
-    //    return false;
-    //});
-    //$(document).bind("click", function (e) {
-    //    var target = $(e.target);
-    //    if (target.closest(".ADorderBox").length == 0) {
-    //        $(".ADorderBox").hide();
-    //    }
-    //});
-    //xg2015-01-29End
-
-    /*日历左右*/
-    function left_click() {
-        var month = $('#selectMonth').val();
-        if (month != 1) {
-            $('#selectMonth').val(month - 1);
-        }
-        else {
-            $('#selectMonth').val(12);
-        }
-        $("#youtxxq_B02_11").html($("#selectMonth").find("option:selected").text());
-        getRili();
-    }
-    function right_click() {
-        var month = $('#selectMonth').val();
-        if (month != 12) {
-            $('#selectMonth').val(parseInt(month) + 1);
-        }
-        else {
-            $('#selectMonth').val(1);
-        }
-        $("#youtxxq_B02_11").html($("#selectMonth").find("option:selected").text());
-        getRili();
-    }
-    /*日历左右*/
-    function getRili() {
-        var month = $('#selectMonth').val();
-        var random = Math.random();
-        $.get("/publish/HouseFileEn/CalendarEn2014.aspx", { cal_month: month, houseid: '144142', v: random }, function (resault) {
-            $("#DTCalendar").html(resault);
-            if ($("#DTCalendar td[todayone='today_one']") != undefined) {
-                var sbstring = "";
-                var sbstyle = "";
-                var todaydate = "";
-                var manageprice5 = "";
-                var dttodaylist = $("#DTCalendar td[todayone='today_one']");
-                dttodaylist.each(function (i) {
-                    if (i < 5) {
-                        if (dttodaylist.eq(i).attr("class").indexOf('GreenBg') <= -1) {  //可定样式
-                            sbstyle = "class='dark'";
-                            manageprice5 = "无房";
-                        } else {
-                            if (dttodaylist.eq(i).attr("pricenew") != undefined) {
-                                manageprice5 = $(this).attr("pricenew");
-                            }
-                            sbstyle = "";
-                        }
-                        if (i == 0) {  //今天
-                            todaydate = "今天";
-                        } else {
-                            //todaydate = $(this).next("span[class='DateNum']").text() + "日";
-                            if (dttodaylist.eq(i).attr("datenew") != undefined) {
-                                todaydate = dttodaylist.eq(i).attr("datenew") + "日";
-                            }
-                        }
-                        sbstring += "<li " + sbstyle + "><span>" + todaydate + "</span><p>" + manageprice5 + "</p></li>";
-                    }
-                });
-                sbstring += "<li class='last' id='youtxxq_B02_17'>全部<br>排期</li>";
-                $("#paiqi_5days").html(sbstring);
-                var oBox = $('.Scheduling-box');
-                var oShowdiv = $('#DateBox');
-                var oShowcal = $('.Scheduling');
-                var clientW = $(window).width();
-                var clientH = $(window).height();
-                var oButton = $('#youtxxq_B02_17');
-                var oCloseButton = $('#closeScheduling');
-                oBox.css({ 'width': clientW + 'px', 'height': clientH + 'px' });
-                oButton.on('click', function () {
-                    oBox.show();
-                    oShowcal.show();
-                    oShowdiv.show();
-                    $('body').css('overflow', 'hidden');
-                    return false;
-                });
-                oCloseButton.on('click', function () {
-                    oBox.hide();
-                    oShowcal.hide();
-                    oShowdiv.hide();
-                    $('body').css('overflow', 'auto');
-                    return false;
-                });
-
-                //========================全部排期出来禁止页面滚动============================
-
-            }
-        });
-    }
-
-
-    var signcount = "";
-    function AjaxJiSuan() {
-      
-        if ($("#testttt").val() == "yy-mm-dd" || $("#testt").val() == "yy-mm-dd" || $("#testttt").val() == "NaN-NaN-NaN" || $("#testt").val() == "NaN-NaN-NaN") {
-            if (Number('44') == 44) {
-                ShowError("clickbutton", "必须选择入住日期与退房日期。", "立即预订");
-            } else {
-                ShowError("clickbutton2", "必须选择入住日期与退房日期。", "立即预订");
-            }
-        } else {
-            //最大接纳客人人数
-            if (livemanum <= Number('2') * roomnum) {
-                $("#errorshow").hide();
-                $("#df_begintime").val($("#testttt").val());//开始时间
-                $("#df_endtime").val($("#testt").val());//结束时间
-                $("#df_livenum").val(livemanum);//入住人数
-                $("#rooms").val(roomnum);//套数
-                actionbegin = $("#testttt").val();
-                actionend = $("#testt").val();
-                var random = Math.random();
-                $.getJSON("/publish/Ajax/HouseInfoAction.aspx", { CanLiveHouseid: '144142', starttime: actionbegin, endtime: actionend, guests: livemanum, Rooms: roomnum, v: random }, function (json) {
-
-                    if (json != null) {
-                        var result = $.trim(json.Result);
-                        if (result != "OK") {
-                            if (result == "NO") { ShowError("clickbutton2", "该时间段内已有客人入住", "去看看其它合适的房源"); $("#errorshow").siblings('li').text("").hide(); }
-                            if (result == "more") { if (Number('44') == 44) { ShowError("clickbutton", "最大接纳客人人数" + json.IncreaseNum.toString() + "人", "立即预订"); $("#errorshow").siblings('li').text("").hide(); } else { ShowError("clickbutton2", "最大接纳客人人数" + json.IncreaseNum.toString() + "人", "立即预订"); $("#errorshow").siblings('li').text("").hide(); } }
-                            if (result == "min") { if (Number('44') == 44) { ShowError("clickbutton", "该房间一次至少必须入住" + json.IncreaseNum.toString() + "天", "立即预订"); $("#errorshow").siblings('li').text("").hide(); } else { ShowError("clickbutton2", "该房间一次至少必须入住" + json.IncreaseNum.toString() + "天", "立即预订"); $("#errorshow").siblings('li').text("").hide(); } }
-                            if (result == "max") { if (Number('44') == 44) { ShowError("clickbutton", "该房间一次最多只能入住" + json.IncreaseNum.toString() + "天", "立即预订"); $("#errorshow").siblings('li').text("").hide(); } else { ShowError("clickbutton2", "该房间一次最多只能入住" + json.IncreaseNum.toString() + "天", "立即预订"); $("#errorshow").siblings('li').text("").hide(); } }
-                            if (result == "check") {
-                                ShowError("clickbutton2", "该时间段内已有客人入住", "去看看其它合适的房源"); $("#errorshow").siblings('li').text("").hide();
-                            }
-                            if (result == "roomnone") { if (Number('44') == 44) { ShowError("clickbutton", "抱歉，房间数不足，请重新选择", "立即预订"); $("#errorshow").siblings('li').text("").hide(); } else { ShowError("clickbutton2", "抱歉，房间数不足，请重新选择", "立即预订"); $("#errorshow").siblings('li').text("").hide(); } }
-
-                        } else {
-                            //生成价格明细信息 2015-01-20
-                            var checkDays = Number(DiffLong($("#testttt").val(), $("#testt").val()));
-                            //$("#AccountDBox_zhangdan").show();
-                            var otherpriceNumNew = 0;
-                            var signcount1 = 0;
-                            var signcount2 = 0;
-                            if (json.IncreasePrice != "0") {
-                                $("#Li_IncreasePrice").html("额外人员费用 <span>" + '￥' + json.IncreasePrice + "=" + '￥' + json.Increase + "*" + json.IncreaseNum + "位*" + checkDays + "天</span>");
-                                otherpriceNumNew += Number(json.IncreasePrice);
-                            } else {
-                                signcount1 = 1;;
-                            }
-                            if (json.ClearPrice != "0") {
-                                $("#Li_CleanPrice").html("清洁费 <span>" + '￥' + json.ClearPrice + "</span> ");
-                                otherpriceNumNew += Number(json.ClearPrice);
-                            } else {
-                                signcount2 = 1;
-                            }
-                            signcount = signcount1 + "|" + signcount2;
-                            //是否显示账单两字 
-
-                            //if (checkDays > 1) {
-                            //    $("#OrderRep_Detail").show();
-                            //} else {
-                            //    $("#OrderRep_Detail").hide();
-                            //}
-                            //if (checkDays > 10) {
-                            //    $("#X_Datepage_Page").show();
-                            //} else {
-                            //    $("#X_Datepage_Page").hide();
-                            //}
-
-                            //生成每天账单价格的信息
-                           
-                            //if (json.priceType1 != undefined && json.priceType1 != "") {
-                            //    if (Number(json.priceType1) == 4) {
-                            //        $("#BlueB_WM").html("<i class=\"BlueB\"></i>月价");
-                            //    } else {
-                            //        $("#BlueB_WM").html("<i class=\"BlueB\"></i>周价");
-                            //    }
-                            //}
-                            //if (json.priceType2 != undefined && json.priceType2 != "") {
-                            //    if (Number(json.priceType2) == 1) {
-                            //        $("#PinkB_Promtion").html("<i class=\"PinkB\"></i>特惠");
-                            //    } else if (Number(json.priceType2) == 2) {
-                            //        $("#PinkB_Promtion").html("<i class=\"PinkB\"></i>折扣");
-                            //    } else if (Number(json.priceType2) == 3) {
-                            //        $("#PinkB_Promtion").html("<i class=\"PinkB\"></i>立减");
-                            //    } else if (Number(json.priceType2) == 4) {
-                            //        $("#PinkB_Promtion").html("<i class=\"PinkB\"></i>满减");
-                            //    } else if (Number(json.priceType2) == 6) {
-                            //        $("#PinkB_Promtion").html("<i class=\"PinkB\"></i>满送");
-                            //    } else if (Number(json.priceType2) == 7) {
-                            //        $("#PinkB_Promtion").html("<i class=\"PinkB\"></i>返现");
-                            //    } else {
-                            //        $("#PinkB_Promtion").html("<i class=\"PinkB\"></i>活动价");
-                            //    }
-                            //}
-
-                            //var len = $("#UL_EveryDayPrice ul").length;
-                            //var i = 0;
-                            //$(".pageDown").click(function () {
-                            //    i++;
-                            //    if (i >= len) {
-                            //        i = len - 1;
-                            //    }
-                            //    //Style();
-                            //    $("#UL_EveryDayPrice ul:eq(" + i + ")").show().siblings().hide();
-                            //});
-                            //$(".pageUp").click(function () {
-                            //    i--;
-                            //    if (i <= 0) {
-                            //        i = 0;
-                            //    }
-                            //    // Style();
-                            //    $("#UL_EveryDayPrice ul:eq(" + i + ")").show().siblings().hide();
-                            //});
-                            //生成价格明细信息 2015-01-20
-                            //计算otherprice begin
-                            var otherprice = "";
-                            var otherpriceNum = 0;
-                            if (json.IncreasePrice != "0") {
-                                otherprice = "包括额外人员的费用" + '￥' + json.IncreasePrice + "<br />";
-                                otherpriceNum += json.IncreasePrice;
-                            }
-                            if (json.ClearPrice != "0") {
-                                otherprice += "包括清洁费" + '￥' + json.ClearPrice + "<br />";
-                                otherpriceNum += json.ClearPrice;
-                            }
-                            if (json.fuwufei != "0") {
-                                otherprice += "不包括youtx服务费" + '￥' + json.fuwufei;
-                            }
-                            //计算otherprice end
-                            if ($("#ScheTxtBoxBut input").val() == "去看看其它合适的房源" && $("#ScheTxtBoxBut input").length > 0) {
-                                if (Number('44') == 44) {
-                                    ShowBut("clickbutton", "", "立即预订");
-                                } else {
-                                    ShowBut("clickbutton2", "", "立即预订");
-                                }
-                            }
-                            if (houseUseID != loginUseID && Number('44') == 44) {
-                                if (json.IsShanDing == "1") {
-                                    ShowBut("clickbutton3", "", "闪订");
-                                    $("form[id='dingfang']").attr("action", "/payment/Booking/FlashBooking.aspx");
-                                } else if (json.IsShanDing == "0") {
-                                    ShowBut("clickbutton", "", "立即预订");
-                                    $("form[id='']").attr(bokurl);
-                                }
-                            } 
-                            var zhouyueprice = 0;
-                            var dayprice = '348';
-                            var istrue = false;  //是否有周月价
-                            if (Number(json.ZhouYuePrice) > 0 && Number(json.ZhouYuePrice) < Number(json.TotalPrice)) {
-                                istrue = true;
-                            }
-                            if (("" == "7" || "" == "2") && Number(json.RentDays) >= 7) {
-                                if (Number(Number(json.compareCuxiaoPrice) - Number(otherpriceNumNew)) > 0 && Number(json.TotalPrice) < Number(json.compareCuxiaoPrice)) {
-                                    istrue = true;
-                                }
-                            }
-                            //add 2015-05-05 jiangsha 取搜索时间的均价compareCuxiaoPrice
-                            if ($("#testt").val() != "yy-mm-dd" && $("#testttt").val() != "yy-mm-dd") {
-                                var totalprice = Number(Number(json.TotalPrice) - Number(otherpriceNumNew));
-                                if (istrue) {
-                                    totalprice = Number(Number(json.ZhouYuePrice) - Number(otherpriceNumNew));
-                                }
-                                var avgprice = Math.round(totalprice / Number(json.RentDays));
-                                var oldprice = "";
-                                
-                                oldprice = "348";
-                                
-                                if (oldprice <= 0) {
-                                    oldprice = "348";
-                                }
-
-                                //今晚特价strDayprice
-                                $("#PriceNum_Value").html('<em>￥</em>' + avgprice);
-                                $("#PriceNum_Value2").html('<i>￥</i><span>' + avgprice + '</span>日均');
-                                
-                            }
-                            //add 2015-05-05 jiangsha 取搜索时间的均价 end
-                        
-                            //ShowTotalPrice(signcount, json.TotalPrice, otherpriceNumNew); //展示总价
-                            ShowTotalPriceNew(signcount, json.TotalPrice, json.IsShanDing);
-                                
-                            // $("#ScheTxtBoxDL1").show();
-                            $("#ScheTxtBoxDL2").hide();
-                            $("#ScheTxtBoxDL3").hide();
-                        }
-                    }
-                });
-
-            } else {
-                var liveAll = Number("2") * roomnum;
-                if (Number('44') == 44) {
-                    ShowError("clickbutton", "最大接纳客人人数" + liveAll + "人", "立即预订");
-                    $("#errorshow").siblings('li').text("").hide();
-                } else {
-                    ShowError("clickbutton2", "最大接纳客人人数" + liveAll + "人", "立即预订");
-                    $("#errorshow").siblings('li').text("").hide();
-                }
-            }
-        }
-    }
-
-
-    function huodongdays(timebegin, timeend, istrue, rentday, jieshengprice) {
-     
-        $("#oldPrices").hide();
-        $("#haveRent").hide();
-        $("#haveRentMS").hide();
-     
-    }
-    function ShowError(butClass, errorText, butValue) {
-        $("#ScheTxtBoxDL1").show(); $("#ScheTxtBoxDL3").hide();
-        //   $("#ScheTxtBoxDL2").show().find("dd span").html(""+errorText+"");
-        // $("#ScheTxtBoxDL2").show().find("dd span").text(""+errorText+"");
-        //  $("#ScheTxtBoxDL2").show();
-        //  $("#ScheTxtBoxDL2").html("<li class=\"showmessage\" >" + errorText + "</li>");
-
-        $("#errorshow").html("" + errorText + "").show();
-          $("#errorshow").siblings('li').hide();
-        $("#ScheTxtBoxBut input").attr("class", "" + butClass + "").val("" + butValue + "");
-    }
-
-    function ShowBut(butClass, text, butValue) {
-        $("#ScheTxtBoxDL1").hide(); $("#ScheTxtBoxDL3").hide();
-        //  $("#ScheTxtBoxDL2").hide().find("li").html("" + text + "");
-        $("#ScheTxtBoxDL1").find('li id["#errorshow"]').html("" + text + "");
-        $("#ScheTxtBoxBut input").attr("class", "" + butClass + "").val("" + butValue + "");
-    }
-
-    function tijiaodingdan() {
-        var startdate = $("#testttt").val();
-        var enddate = $("#testt").val();
-        if (startdate == "yy-mm-dd" || enddate == "yy-mm-dd") {
-            // $("#ScheTxtBoxDL2").html("<li class=\"showmessage\" >入住日期和退房日期必须设置</li>");
-            // $("#ScheTxtBoxDL2").show();
-            $("#ScheTxtBoxDL1").show();
-            $("#errorshow").html("入住日期和退房日期必须设置").show();
-             $("#errorshow").siblings('li').hide();
-            $("#diyige").show();
-            return false;
-        }
-        // if ($("#ScheTxtBoxDL2").css("display") != "none")
-        //if ($("#ScheTxtBoxDL1").css("display") != "none")
-        //    return;
-        if ($("#ScheTxtBoxDL1").css("display") == "block" && $("#errorshow").css("display") != "none")
-            return;
-        $("#dingfang").submit();
-    }
-
-
-    function HAHAHAClick() {
-        if (houseUseID != loginUseID && Number('44') == 44) {
-            if (Number(isjisuan) == 1) {
-                if (Number($("#CountryID1").val()) > 0) {
-                    PostBookRequest();
-                }
-                else {
-                    $("#CountryErr").html("请选择国家").show(); $("#userName").blur(); $("#email").blur(); $("#demand").blur();
-                    if ($("#testttt").val() == "yy-mm-dd" || $("#testt").val() == "yy-mm-dd" || $("#testttt").val() == "NaN-NaN-NaN" || $("#testt").val() == "NaN-NaN-NaN") {
-                        $("#diyige").show();
-                    }
-                }
-            }
-            else { tijiaodingdan(); }
-        }
-
-    }
-
-    //显示总价
-    function ShowTotalPriceNew(signcount, TotalPrice, IsShanDing) {
-        if ($.trim(signcount) != "" && $.trim(signcount) != "|") {
-            if (signcount.indexOf('|') > -1) {
-                var signcountstr = signcount.split('|');
-                if (Number(signcountstr[0]) != 1) {
-                    $("#Li_IncreasePrice").show();
-                } else {
-                    $("#Li_IncreasePrice").hide();
-                }
-                if (Number(signcountstr[1]) != 1) {
-                    $("#Li_CleanPrice").show();
-                } else {
-                    $("#Li_CleanPrice").hide();
-                }
-                var butValue = "";
-                var butStyle = "";
-                if (Number('44') == 44) {
-                    if (IsShanDing == "1") {
-                        butValue = "闪订 （总计：" + '¥' + TotalPrice + "）";
-                        butStyle = "clickbutton3";
-                    } else if (IsShanDing == "0") {
-                        butValue = "立即预订 （总计：" + '¥' + TotalPrice + "）";
-                        butStyle = "clickbutton";
-                    }
-                } else {
-                    if (IsShanDing == "1") {
-                        butValue = "闪订 （总计：" + '¥' + TotalPrice + "）";
-                        butStyle = "clickbutton2";
-                    } else if (IsShanDing == "0") {
-                        butValue = "立即预订 （总计：" + '¥' + TotalPrice + "）";
-                        butStyle = "clickbutton2";
-                    }
-                }
-                //.attr("class", "" + butStyle + "")
-                $("#ScheTxtBoxBut input").val("" + butValue + "");
-            }
-        }
-    }
-
-</script>
 
                         <!--右侧2 排期，单个价格部分end-->
                         

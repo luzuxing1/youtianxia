@@ -202,6 +202,14 @@
   where lodger_order_id = #{lodgerOrderId}
 </update>
 
+  <update id="updateStatusByOrderNum">
+    update ytx_lodger_order
+    <set>
+      order_status = #{orderStatus}
+    </set>
+    where order_num = #{orderNum}
+  </update>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.youtx.rent.entity.LodgerOrder">
     update ytx_lodger_order
     <set>

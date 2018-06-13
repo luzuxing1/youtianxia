@@ -83,7 +83,7 @@
         }
 
         $(document).ready(function () {
-            var houseid = "324548";
+            var houseid = ${houseId};
             var idoSchedual = "DO";
 
             if ("" == "en-US") {
@@ -689,10 +689,10 @@
                             var wcType = ""; //卫生间类型
                             var ckRoomsTip = "";  //房间布局提示
                             if ($("#sBedRoomNum").val() == "0") {
-                                wcType = "0";
+                                wcType = null;
                             } else {
-                                if (document.getElementById("publicwc").checked) { wcType = "1"; }
-                                if (document.getElementById("privatewc").checked) { wcType = "2"; }
+                                if (document.getElementById("publicwc").checked) { wcType = "公共卫生间"; }
+                                if (document.getElementById("privatewc").checked) { wcType = "独立卫生间"; }
                             }
                             if (document.getElementById("CKRoomsTipInfo").checked) {
                                 ckRoomsTip = 1;
@@ -718,42 +718,52 @@
                                 });
                             }
                             //2013-01-23添加 begin
-                            var houseTypeValue = $.trim($("#houseType option:selected").val());
+                            var houseTypeValue = $.trim($("#houseType option:selected").text());
                             var houseTypeString = $.trim($("#houseTypeInput").val());
                             if (houseTypeValue == "19") {
                                 houseTypeValue = validateHouseType(houseTypeString);
                             }
                             //2013-01-23添加 end
-
-                            $.post("/publish/Ajax/DescriptionEnAction.aspx", {
+                            alert(ReturnCheck("ckbBathSupplies"));
+                            $.post("${base}/publish/houseDescribe", {
                                 houseid: houseid,
                                 numval: numval,
                                 idoSchedual: idoSchedual,
-                                housetype: houseTypeValue, //2013-01-23修改
+                                situType: houseTypeValue, //房屋类型
                                 //housetype: $.trim($("#houseType").val()),
-                                roomtype: $.trim($("#roomType").val()),
+                                situRent: $.trim($("#roomType option:selected").text()),
                                 live: $.trim(liveval),
-                                floor: $.trim($("#iFloor").val()),
-                                allFloor: $.trim($("#AllFloor").val()),
-                                sroomNum: $.trim($("#sroomNum").val()),
-                                sBedNum: $("#sBedNum").val(),
-                                sBedType: $("#sBedType").val(),
+                                situFloor: $.trim($("#iFloor").val())+"/"+$.trim($("#AllFloor").val()),
+                                //allFloor: $.trim($("#AllFloor").val()),
+                                situRoomNum: $.trim($("#sroomNum").val()),
+                                situBedNum: $("#sBedNum").val(),
+                                situBedType: $("#sBedType option:selected").text(),
                                 //sLiveManNum: $("#sLiveManNum").val(),
                                 //Add 2012-11-07
-                                sLiveManNum: $("#sLiveManNum").val(),  //标准可住人数
+                                situStandardPeople: $("#sLiveManNum").val(),  //标准可住人数
 
-                                sLiveManNumEwAdd: $("#sLiveManNumEwAdd").val(),  //额外可住人数
+                                situExtraPeople: $("#sLiveManNumEwAdd").val(),  //额外可住人数
 
                                 ZiDingYiHouseTypeStr: houseTypeString, //房东自定义房屋类型：2013-01-23添加
 
-                                txthouserarea: $("#txthouserarea1").val(),
+                                situRoomArea: $("#txthouserarea1").val(),
                                 HouseAreaType: $("#HouseAreaType").val(),
-                                sBedRoomNum: $("#sBedRoomNum").val(),
-                                wcType: wcType,
-                                rooms: $('#Rooms :selected').val(),
+                                situToiletNum: $("#sBedRoomNum").val(),
+                                situToiletType: wcType,
+                                situMaster: liveval,
+                                situOtherResource: $('#Rooms :selected').val(),
                                 ckRoomsTip: ckRoomsTip,
 
                                 LandlordTag: escape(taginf),
+
+                                descTitle: $.trim($("#txtHouseTitle1").val()),
+                                descRemark: $.trim($("#txtBak").val()),
+                                descIntroduce: $.trim(miaoshu.replace("如户型、面积、装修、家具家电、网络情况等", "")),
+                                descTraffic: $.trim($("#Traffic").val()),
+                                descLife: $.trim($("#arroundFacility").val()),
+                                descView: $.trim($("#attractions").val()),
+                                descOther: $.trim($("#other").val()),
+                                descTag: $("#txtTagInputNew").val(),
 
                                 txtHouseTitle: escape($.trim($("#txtHouseTitle1").val().replace("好的标题会让您的房屋成为一个亮点", ""))),
                                 txtBak: escape($.trim($("#txtBak").val().replace("辨别房间的参考信息，仅自己可见", ""))),
@@ -772,55 +782,55 @@
                                 enOtherDescription: escape($.trim($("#enOtherDescription").val())),
 
 
-                                ckbTv: ReturnCheck("ckbTv"),
-                                ckbHeating: ReturnCheck("ckbHeating"),
-                                ckbBreakfast: ReturnCheck("ckbBreakfast"),
+                                facTv: ReturnCheck("ckbTv"),
+                                facHeating: ReturnCheck("ckbHeating"),
+                                facBreakfast: ReturnCheck("ckbBreakfast"),
                                 //ckbCableTV: ReturnCheck("ckbCableTV"),
                                 // txtCableTVPrice: $.trim($("#txtCableTV").val()), ///////////////////////////
-                                ckbKitchen: ReturnCheck("ckbKitchen"),
+                                facKitchen: ReturnCheck("ckbKitchen"),
 
-                                ckbPool: ReturnCheck("ckbPool"),
-                                ckbIndoorFireplace: ReturnCheck("ckbIndoorFireplace"),
-                                ckbCanSmoking: ReturnCheck("ckbCanSmoking"),
-                                ckbGym: ReturnCheck("ckbGym"),
-                                ckbWasher: ReturnCheck("ckbWasher"),
+                                facSwim: ReturnCheck("ckbPool"),
+                                facFridge: ReturnCheck("ckbIndoorFireplace"),
+                                facSmoke: ReturnCheck("ckbCanSmoking"),
+                                facFit: ReturnCheck("ckbGym"),
+                                facWasher: ReturnCheck("ckbWasher"),
 
-                                ckbInternet: ReturnCheck("ckbInternet"),
+                                facWiredNetwork: ReturnCheck("ckbInternet"),
                                 txtInternetPrice: $.trim($("#txtInternet").val()), ///////////////////////////////////////
-                                ckbElevatorinBuilding: ReturnCheck("ckbElevatorinBuilding"),
-                                ckbAirCondtioning: ReturnCheck("ckbAirCondtioning"),
+                                facElevator: ReturnCheck("ckbElevatorinBuilding"),
+                                facAirCon: ReturnCheck("ckbAirCondtioning"),
 
-                                ckbWirelessInternet: ReturnCheck("ckbWirelessInternet"),
+                                facWirelessNetwork: ReturnCheck("ckbWirelessInternet"),
                                 txtWirelessInternetPrice: $.trim($("#txtWire").val()), ////////////////////////////////
                                 //Add 2013-01-16
-                                ckbMahjongDesk: ReturnCheck("ckbMahjongDesk"),
+                                facMahjong: ReturnCheck("ckbMahjongDesk"),
                                 txtMahjongDesk: $.trim($("#txtMahjongDesk").val()), ////////////////////////////////
 
-                                ckbHandicapAccessible: ReturnCheck("ckbHandicapAccessible"),
-                                ckbAllDayHotWater: ReturnCheck("ckbAllDayHotWater"),
-                                ckbSuitableForEvents: ReturnCheck("ckbSuitableForEvents"),
+                                facBarrier: ReturnCheck("ckbHandicapAccessible"),
+                                facHotwater: ReturnCheck("ckbAllDayHotWater"),
+                                facParty: ReturnCheck("ckbSuitableForEvents"),
                                 txtSuitableForEventsPrice: $.trim($("#txtEvents").val()), //////////////
                                 ddlSuitableForEventsType: $('#ddlSuitableForEventsType :selected').val(), //////////////
-                                ckbDoorman: ReturnCheck("ckbDoorman"),
-                                ckbCanShower: ReturnCheck("ckbCanShower"),
-                                ckbParkingIncluded: ReturnCheck("ckbParkingIncluded"),
+                                facSecurity: ReturnCheck("ckbDoorman"),
+                                facShower: ReturnCheck("ckbCanShower"),
+                                facPark: ReturnCheck("ckbParkingIncluded"),
                                 txtParkingIncludedPrice: $.trim($("#txtParking").val()), /////////////////////////
-                                ckbBuzzer: ReturnCheck("ckbBuzzer"),
-                                ckbHotTub: ReturnCheck("ckbHotTub"),
-                                ckbpet: ReturnCheck("ckbpet"),
+                                facDoor: ReturnCheck("ckbBuzzer"),
+                                facBathtub: ReturnCheck("ckbHotTub"),
+                                facPet: ReturnCheck("ckbpet"),
                                 //ckbSuperMarket: ReturnCheck("ckbSuperMarket"),
-                                ckbReceptionChild: ReturnCheck("ckbReceptionChild"),  //是否可接待家庭/孩子
+                                facFamily: ReturnCheck("ckbReceptionChild"),  //是否可接待家庭/孩子
                                 // ckbBank: ReturnCheck("ckbBank"),
                                 // ckbTableWare: ReturnCheck("ckbTableWare"),
                                 //add 20151215 新加设施
-                                ckbCanPickUp: ReturnCheck("ckbCanPickUp"),
-                                ckbLuggageDeposit: ReturnCheck("ckbLuggageDeposit"),
-                                ckbAddBed: ReturnCheck("ckbAddBed"),
-                                ckbTicketAgent: ReturnCheck("ckbTicketAgent"),
-                                ckbBathSupplies: ReturnCheck("ckbBathSupplies"),
-                                ckbSlipper: ReturnCheck("ckbSlipper"),
-                                ckbComputer: ReturnCheck("ckbComputer"),
-                                ckbWaterDispenser: ReturnCheck("ckbWaterDispenser"),
+                                facShuttle: ReturnCheck("ckbCanPickUp"),
+                                facLuggage: ReturnCheck("ckbLuggageDeposit"),
+                                facExtraBed: ReturnCheck("ckbAddBed"),
+                                facProxy: ReturnCheck("ckbTicketAgent"),
+                                facBath: ReturnCheck("ckbBathSupplies"),
+                                facSlippers: ReturnCheck("ckbSlipper"),
+                                facComputer: ReturnCheck("ckbComputer"),
+                                facWater: ReturnCheck("ckbWaterDispenser"),
                                 //add 20151215 新加收费项目
                                 txtCanpickUpPrice: $.trim($("#txtCanpickUpPrice").val()), //add 20151215 可以接送
                                 txtKitchenPrice: $.trim($("#txtKitchenPrice").val()), //add 20151215 可用厨房
@@ -975,7 +985,13 @@
                 }
             });
 
-            function ReturnCheck(idd) { return document.getElementById(idd).checked; }
+            function ReturnCheck(idd) {
+                var ischecked = document.getElementById(idd).checked;
+                if(ischecked == true){
+                    return 1;
+                }
+                return 0;
+            }
             //是否包含邮箱、qq、手机联系方式
             $("#writeEnglishDes").click(function () {
                 if ($("#tbEnglish").css("display") == "none") {
@@ -2195,36 +2211,36 @@
                     <td>
                         <select name="ctl00$ctl00$body$RoomBody$sBedRoomNum" id="sBedRoomNum">
 	<option value="0">无</option>
-	<option selected="selected" value="10">1 </option>
-	<option value="20">2 </option>
-	<option value="30">3 </option>
-	<option value="40">4 </option>
-	<option value="50">5 </option>
-	<option value="60">6 </option>
-	<option value="70">7 </option>
-	<option value="80">8 </option>
-	<option value="90">9 </option>
-	<option value="100">10 </option>
-	<option value="110">11 </option>
-	<option value="120">12 </option>
-	<option value="130">13 </option>
-	<option value="140">14 </option>
-	<option value="150">15 </option>
-	<option value="160">16 </option>
-	<option value="170">17 </option>
-	<option value="180">18 </option>
-	<option value="190">19 </option>
-	<option value="200">20 </option>
-	<option value="210">21 </option>
-	<option value="220">22 </option>
-	<option value="230">23 </option>
-	<option value="240">24 </option>
-	<option value="250">25 </option>
-	<option value="260">26 </option>
-	<option value="270">27 </option>
-	<option value="280">28 </option>
-	<option value="290">29 </option>
-	<option value="300">30+ </option>
+	<option selected="selected" value="1">1 </option>
+	<option value="2">2 </option>
+	<option value="3">3 </option>
+	<option value="4">4 </option>
+	<option value="5">5 </option>
+	<option value="6">6 </option>
+	<option value="7">7 </option>
+	<option value="8">8 </option>
+	<option value="9">9 </option>
+	<option value="10">10 </option>
+	<option value="11">11 </option>
+	<option value="12">12 </option>
+	<option value="13">13 </option>
+	<option value="14">14 </option>
+	<option value="15">15 </option>
+	<option value="16">16 </option>
+	<option value="17">17 </option>
+	<option value="18">18 </option>
+	<option value="19">19 </option>
+	<option value="20">20 </option>
+	<option value="21">21 </option>
+	<option value="22">22 </option>
+	<option value="23">23 </option>
+	<option value="24">24 </option>
+	<option value="25">25 </option>
+	<option value="26">26 </option>
+	<option value="27">27 </option>
+	<option value="28">28 </option>
+	<option value="29">29 </option>
+	<option value="30">30+ </option>
 </select>
                     </td>
                 </tr>
@@ -2249,9 +2265,9 @@
                     </td>
                     <td class="Roomradio">
                         <label>
-                            <input value="1" name="ctl00$ctl00$body$RoomBody$RadioLive" type="radio" id="RadioYLive" disabled="disabled">&nbsp;是</label>
+                            <input value="是" name="ctl00$ctl00$body$RoomBody$RadioLive" type="radio" id="RadioYLive" disabled="disabled">&nbsp;是</label>
                         <label>
-                            <input value="2" name="ctl00$ctl00$body$RoomBody$RadioLive" type="radio" id="RadioNLive" checked="checked" disabled="disabled">&nbsp;否</label>
+                            <input value="否" name="ctl00$ctl00$body$RoomBody$RadioLive" type="radio" id="RadioNLive" checked="checked" disabled="disabled">&nbsp;否</label>
                         <br>
                         <span id="SpanLive" class="SituationWarning" style="margin: 5px 0px 7px; padding-bottom: 3px;
                             display: none;">请选择是否与房东共住</span>
@@ -2616,7 +2632,7 @@
                         $("#txtTagInputNew").val("").css("color", "black");
                     }
                     else {
-                        $("#txtTagInputNew").val("标签");
+                        $("#txtTagInputNew").val("");
                     }
                     $(".RoomTag").mouseover(function () {
                         $(".TagInput").focus();

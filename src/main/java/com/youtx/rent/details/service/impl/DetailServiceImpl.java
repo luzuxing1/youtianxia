@@ -3,14 +3,14 @@ package com.youtx.rent.details.service.impl;
 import com.youtx.rent.dao.*;
 import com.youtx.rent.details.service.DetailService;
 import com.youtx.rent.entity.*;
+import com.youtx.rent.entity.Calendar;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 public class DetailServiceImpl implements DetailService {
@@ -91,9 +91,30 @@ public class DetailServiceImpl implements DetailService {
     @Override
     public List<LodgerOpinion> getLandlordAllRoom(Integer userId) {
         List<LodgerOpinion> allOpinions = lodgerOpinionDAO.selectByLandlordId(userId);
-        System.out.println(userId);
-        System.out.println(allOpinions);
         return allOpinions;
+    }
+
+    @Override
+    public Boolean getCalendarByRange(String startDate, String endDate) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Boolean byOrdered = false;
+        try {
+            Date newEndDate = dateFormat.parse(endDate);
+            java.util.Calendar calendar = java.util.Calendar.getInstance();
+            calendar.setTime(newEndDate);
+            calendar.add(java.util.Calendar.DATE, -1);
+            Date newStartDate = dateFormat.parse(startDate);
+            List<Calendar> calendars = calendarDAO.selectByDateRange(newStartDate, newEndDate);
+            for (Calendar theCalen : calendars) {
+                if (theCalen.getCalendarRoom() != null && theCalen.getCalendarRoom().equals("yz")) {
+                    byOrdered = true;
+                    return byOrdered;
+                }
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return byOrdered;
     }
 
 }

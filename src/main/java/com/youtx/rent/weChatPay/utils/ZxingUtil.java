@@ -33,7 +33,6 @@ public class ZxingUtil {
             height) {
         BufferedImage bufImg = null;
         Map<EncodeHintType, Object> hints = new HashMap<EncodeHintType, Object> ();
-        // ೰ਧᔿᲙᒵᕆ
         hints.put ( EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H );
         hints.put ( EncodeHintType.MARGIN, 10 );
         hints.put ( EncodeHintType.CHARACTER_SET, "UTF-8" );

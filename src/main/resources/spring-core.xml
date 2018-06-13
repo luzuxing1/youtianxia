@@ -68,19 +68,25 @@
     <bean name="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
         <!--指定登录界面，按实际更改路径，如  /login.jsp  -->
-        <property name="loginUrl" value=""/>
+        <property name="loginUrl" value="/user/los"/>
 
         <property name="filterChainDefinitions">
             <value>
                 <!--anon不需要登录，注意路径-->
-                <!-- /user/login=anon -->
-
+                 <!--/user/login=anon-->
+                <!--/user/login=anon-->
+                <!--/static/*=anon-->
+                <!--/css5/*=anon-->
+                <!--/dist/*=anon-->
+                <!--/image/*=anon-->
+                <!--/js/*=anon-->
+                <!--/js5/*=anon-->
                 <!--静态资源不拦截，注意路径-->
-                <!-- /css/**=anon -->
-
+                 <!--/**=anon-->
+                <!--/manage/*=authc-->
                 <!--authc需要登录才能访问-->
                 <!--user配合rememberMe使用有效，authc不能配合rememberMe使用-->
-                <!-- /**=user -->
+                 <!--/**=user-->
             </value>
         </property>
 

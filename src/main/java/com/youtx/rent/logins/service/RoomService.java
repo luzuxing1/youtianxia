@@ -29,4 +29,17 @@ public class RoomService {
         page.setCurrentPage(currentPage);
         return page;
     }
+
+    public int addRoom(Room room){
+        return roomMapper.insertSelective(room);
+    }
+
+    public PageBean froom() {
+        int count = roomMapper.selectRoomCounts();
+        PageBean page = new PageBean();
+        //计算出页面的总数
+        int pageCount = count % PageBean.PAGE_SIZE == 0?count/PageBean.PAGE_SIZE:count/PageBean.PAGE_SIZE+1;
+        page.setTotalPages(pageCount);
+        return page;
+    }
 }

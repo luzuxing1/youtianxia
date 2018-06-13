@@ -1,23 +1,30 @@
 package com.youtx.rent.weChatPay.controller;
 
+import com.youtx.rent.entity.LodgerOrder;
+import com.youtx.rent.placeOrder.service.OrdersService;
+import com.youtx.rent.userCenter.service.LodgerOrders;
 import com.youtx.rent.weChatPay.utils.XMLUtil;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.util.HashMap;
 import java.util.Map;
 
 @Controller
 public class ResultServlet {
+    @Resource
+    private LodgerOrders lodgerOrders;
+    @Resource
+    private OrdersService ordersService;
+
+
     private static Logger logger = Logger.getLogger(ResultServlet.class);
-    //模拟订单支付成功后处理
-    private static Map<String,Boolean> order = new HashMap<String,Boolean>();
     @RequestMapping("/payment/result")
     public void handle(HttpServletRequest req, HttpServletResponse resp) throws
             ServletException, IOException {
@@ -43,9 +50,9 @@ public class ResultServlet {
         String resXml = "";
         Map xmlParse = XMLUtil.doXMLParse ( sb.toString () );
         if(xmlParse.get ( "result_code" ).equals ( "SUCCESS" )){
-            order.put ( xmlParse.get ( "out_trade_no" ).toString (),true );
             resXml = "<xml>" + "<return_code><![CDATA[SUCCESS]]> </return_code>"
                     + "<return_msg><![CDATA[OK]]></return_msg>" + "</xml> ";
+            ordersService.updateStatusByOrderNum ( "drz" ,xmlParse.get ( "out_trade_no" ).toString ());
         }else {
             resXml = "<xml>" + "<return_code><![CDATA[FAIL]]></return_code>"
                     + "<return_msg><![CDATA[报文为空]]></return_msg>" + "</xml>";
@@ -55,14 +62,14 @@ public class ResultServlet {
         out.write(resXml.getBytes());
         out.flush();
         out.close();
-        logger.info ( "resule_code:"+ xmlParse.get ( "result_code" )+"~~~结束");
     }
 
     @RequestMapping("/payment/ifSuccess")
     @ResponseBody
-    public Boolean isSuccess(String id){
-        Boolean aBoolean = order.get ( id );
-        if(aBoolean == null ||aBoolean ==false){
+    public Boolean isSuccess(Integer id){
+        LodgerOrder order = lodgerOrders.findById ( id );
+        System.out.println ("status:"+order.getOrderStatus ());
+        if(order.getOrderStatus ().equals ("dfk")){
             return false;
         }
         return true;
