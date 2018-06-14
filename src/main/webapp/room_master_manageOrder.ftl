@@ -1203,7 +1203,7 @@
                 </#if>
                 <#list 1..totalPages as i>
                     <#if i==orderPage.current>
-                        <a href="" class="page_sele">${i}</a>
+                        <a  class="page_sele">${i}</a>
                     <#else >
                         <a href="${base}/landlordOrder/jumpLandlordOrder?current=${i}" class="page_sele">${i}</a>
                     </#if>
