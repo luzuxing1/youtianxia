@@ -7,8 +7,10 @@ import com.youtx.rent.logins.result.JsonResult;
 import com.youtx.rent.logins.service.AddUservice;
 import com.youtx.rent.logins.service.LoginService;
 import com.youtx.rent.logins.service.RoomService;
+import com.youtx.rent.logins.service.UserService;
 import com.youtx.rent.logins.utils.SystemParm;
 import com.youtx.rent.logins.utils.SystemTool;
+import com.youtx.rent.utils.Uploadutils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -16,9 +18,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.InputStream;
 import java.util.List;
+import java.util.UUID;
 
 
 @Controller
@@ -30,7 +37,8 @@ public class LoginController {
     private RoomService roomService;
     @Autowired
     private AddUservice addUservice;
-
+    @Autowired
+    private UserService userService;
     @ResponseBody
     @RequestMapping("/login")
     public Object login(String phoneOrEmail,String password, Boolean rememberMe,String vcode){
@@ -108,25 +116,61 @@ public class LoginController {
     @RequestMapping("/addUser")
     public String addUser(User user,Model model){
         int addcount = addUservice.addUser(user);
-        System.out.println(user.getUserRealname());
+       // System.out.println(user.getUserRealname());
         model.addAttribute("addcount",addcount);
         addUservice.addUser(user);
         PageBean finallPage = loginService.finalls();
         int totalPages = finallPage.getTotalPages();
-        System.out.println("totalPages"+totalPages);
+        //System.out.println("totalPages"+totalPages);
         return "redirect:/user/userPage?page="+totalPages;
     }
     @RequestMapping("/add")
     public String add(Model model){
         return "manage/add_user";
     }
-
-
     @RequestMapping("/delete")
     public String delete(int id,int currentPage){
-        System.out.println("id:"+id);
-        System.out.println("currentPage:"+currentPage);
         loginService.delete(id);
         return "redirect:/user/userPage?page="+currentPage;
+    }
+    @RequestMapping("/preupdate")
+    public String update(int userId,int currentPage){
+//        System.out.println("userId:"+userId);
+//        System.out.println("currentPage:"+currentPage);
+        User currentUser = userService.findById(userId);
+        SecurityUtils.getSubject().getSession().setAttribute("currentUser",currentUser);
+        SecurityUtils.getSubject().getSession().setAttribute("updatecurrentPage",currentPage);
+        return "manage/updateuser";
+    }
+    @RequestMapping("/updateuser")
+    public String updateUsers(User user,@RequestParam("file") MultipartFile file){
+      //  System.out.println("new:"+file.getOriginalFilename());
+ User currentUser = (User) SecurityUtils.getSubject().getSession().getAttribute("currentUser");
+        //System.out.println(currentUser.getUserHeadimg()+"old======");
+ try {
+            InputStream inputStream = file.getInputStream();
+//            System.out.println("Filename: " + file.getOriginalFilename());
+            if(!file.isEmpty()){
+                String fileName = UUID.randomUUID()+file.getOriginalFilename();
+                file.transferTo(new File("E:/temp/"+fileName));
+                user.setUserHeadimg(fileName);
+                Uploadutils.upload(fileName,inputStream);
+            }else {
+                user.setUserHeadimg(currentUser.getUserHeadimg());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(!currentUser.getUserPassword() .equals(user.getUserPassword()) ){
+//            System.out.println(currentUser.getUserPassword()+"--1");
+//            System.out.println(user.getUserPassword()+"--2");
+            String script = SystemTool.script(user.getUserPassword(), user.getUserPassword());
+            user.setUserPassword(script);
+        }
+        int  updatecurrentPage = (Integer) SecurityUtils.getSubject().getSession().getAttribute("updatecurrentPage");
+        userService.updtaeUser(user);
+        return "redirect:/user/userPage?page="+updatecurrentPage;
+
+
     }
 }

@@ -19,4 +19,6 @@ public interface PictureMapper {
     int updateByPrimaryKey(Picture record);
 
     List<String> selectByRoomId(Integer roomId);
+
+    List<Picture> selectById(int roomId);
 }

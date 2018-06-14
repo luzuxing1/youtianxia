@@ -11,6 +11,16 @@ public class Picture {
 
     private String picType;
 
+    private Integer roomId;
+
+    public Integer getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
+    }
+
     public Integer getPicId() {
         return picId;
     }

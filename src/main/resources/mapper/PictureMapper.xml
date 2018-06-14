@@ -6,6 +6,7 @@
     <result column="pic_name" jdbcType="VARCHAR" property="picName" />
     <result column="pic_desc" jdbcType="VARCHAR" property="picDesc" />
     <result column="pic_type" jdbcType="VARCHAR" property="picType" />
+    <result column="room_id" jdbcType="INTEGER" property="roomId" />
     <association property="room" column="room_id" select="com.youtx.rent.dao.RoomMapper.selectByPrimaryKey" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -21,6 +22,13 @@
   <select id="selectByRoomId" parameterType="java.lang.Integer" resultType="java.lang.String">
     select
     pic_name
+    from ytx_picture
+    where room_id = #{roomId}
+  </select>
+
+  <select id="selectById"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
     from ytx_picture
     where room_id = #{roomId}
   </select>

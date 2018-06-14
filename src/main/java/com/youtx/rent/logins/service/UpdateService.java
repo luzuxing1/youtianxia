@@ -1,6 +1,8 @@
 package com.youtx.rent.logins.service;
 
+import com.youtx.rent.dao.PictureMapper;
 import com.youtx.rent.dao.UserMapper;
+import com.youtx.rent.entity.Picture;
 import com.youtx.rent.entity.User;
 import com.youtx.rent.logins.result.JsonResult;
 import com.youtx.rent.logins.utils.SystemParm;
@@ -12,6 +14,9 @@ import org.springframework.stereotype.Service;
 public class UpdateService {
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private PictureMapper pictureMapper;
     public JsonResult update(String password,String phone){
         JsonResult jsonResult = new JsonResult();
         User user = userMapper.selectByPhone(phone);
@@ -27,4 +32,9 @@ public class UpdateService {
         }
         return jsonResult;
     }
+
+    public void addPic(Picture picture){
+        pictureMapper.insertSelective(picture);
+    }
+
 }

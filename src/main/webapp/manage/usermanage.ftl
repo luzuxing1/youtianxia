@@ -73,7 +73,7 @@
 			<tr>
 				<td>${us.userId}</td>
 				<td>
-					<img style="width:30px;height:30px" src="${us.userHeadimg}">
+					<img style="width:30px;height:30px" src="http://120.79.225.238/${us.userHeadimg}">
 				</td>
 				<td>${us.userPhone}</td>
 				<td>${us.userPassword}</td>
@@ -82,6 +82,7 @@
 				<td>${us.userRealname}</td>
 				<td>${us.userRole}</td>
 				<td>
+                    <a href="${base}/user/preupdate?userId=${us.userId }&currentPage=${userPage.currentPage}">修改</a>
 					<a href="javascript:if(confirm('确认删除？'))location.href='${base}/user/delete?id=${us.userId }&currentPage=${userPage.currentPage}'">删除</a>
 				</td>
 			</tr>

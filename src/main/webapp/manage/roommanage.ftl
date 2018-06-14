@@ -69,6 +69,7 @@
 			<th>房间可选数量</th>
 			<th>发布房间时间</th>
 			<th>用户</th>
+            <th>状态</th>
             <th>功能</th>
 		</tr>
 		</thead>
@@ -76,7 +77,7 @@
 		<#setting datetime_format ="yyyy-MM-dd">
 
 			<#list roomList as room>
-				<tr>
+				<tr class="each">
 					<td>${room.roomId}</td>
 					<td>${room.roomCity}</td>
 					<td>${room.roomName}</td>
@@ -86,8 +87,11 @@
 					<td>
 					${room.roomTime?datetime}</td>
 					<td>${room.user.userRealname}</td>
+                    <td class="roomState">${room.roomState}</td>
 					<td>
-						<a href="javascript:if(confirm('确认删除？'))location.href='${base}/rooms/delete?id=${room.roomerId }&currentPage=${roomerPage.currentPage}'">删除</a>
+						<input onclick="searchs(this)" class="check" type="button" value="审核">
+                        <a href="${base}/rooms/preupdate?roomId=${room.roomId }&currentPage=${roomPage.currentPage}">修改</a>
+						<#--<a href="javascript:if(confirm('确认删除？'))location.href='${base}/rooms/delete?id=${room.roomerId }&currentPage=${roomerPage.currentPage}'">删除</a>-->
 					</td>
 				</tr>
 			</#list>
@@ -95,6 +99,51 @@
 	</table>
 </body>
 <script type="text/javascript">
+		$(function () {
+			$(".each").each(function () {
+                var asd = $(this).find(".roomState").text();
+                var abc = $(this).find(".roomState");
+                if(asd == "0"){
+                    abc.text("未通过");
+                }else if(asd == "1"){
+                    abc.text("通过");
+				}
+            });
+        });
+        function searchs(obj) {
+            var sss = $(obj).parent().prev().text();
+            var id = $(obj).parent().prev().prev().prev().prev().prev().prev().prev().prev().prev().text();
+            var aaa = $(obj).parent().prev();
+//            var sss = $("#roomState").text();
+			if(sss == "未通过"){
+			    var roomSt = "1";
+			    $.post(
+			        	"${base}/rooms/updateState",
+						{"roomId":id,"roomState":roomSt},
+						function (data) {
+                            alert(data.code);
+							if(data.code == "0"){
+                                aaa.text("通过");
+							    window.location.href = "${base}/rooms/roomPage?page=${roomPage.currentPage}";
+							}
+                        }
+				);
+
+
+			}
+        }
+
+
+
+//	$("#check").click(function () {
+//        var sss = $("#roomState").text();
+////		alert(sss);
+//		if(sss == "0"){
+//            $("#roomState").text("1");
+//		}
+//    });
+
+
 	$(function(){
 		$(".hotellist").click(function(){
 			var srcimg = $(this).find("#imgnone").text();
