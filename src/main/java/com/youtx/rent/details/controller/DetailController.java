@@ -40,6 +40,7 @@ public class DetailController {
     @RequestMapping("/judge")
     public Object ordered(String startDate, String endDate){
         Boolean byOrder = detailService.getCalendarByRange(startDate, endDate);
+        System.out.println(byOrder);
         return byOrder;
     }
 }

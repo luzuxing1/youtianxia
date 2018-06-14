@@ -37,10 +37,10 @@ public class PublishController {
         roomSituation.setRoom ( room );
         desc.setRoom ( room );
         facility.setRoom ( room );
-//        int info = houseInfoService.saveHouseInfo ( roomSituation, desc, facility );
-//        if(info==1){
-//            return "3";
-//        }
+        int info = houseInfoService.saveHouseInfo ( roomSituation, desc, facility );
+        if(info==1){
+            return "3";
+        }
         return "0";
     }
 }

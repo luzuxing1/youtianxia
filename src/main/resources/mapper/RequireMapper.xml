@@ -37,7 +37,7 @@
       req_foreign, room_id)
     values (#{reqId,jdbcType=INTEGER}, #{reqRule,jdbcType=VARCHAR}, #{reqDays,jdbcType=INTEGER}, 
       #{reqStartTime,jdbcType=VARCHAR}, #{reqEndTime,jdbcType=VARCHAR}, #{reqCheckTime,jdbcType=VARCHAR}, 
-      #{reqForeign,jdbcType=VARCHAR}, #{roomId,jdbcType=INTEGER})
+      #{reqForeign,jdbcType=VARCHAR}, #{room.roomId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.Require">
     insert into ytx_require
