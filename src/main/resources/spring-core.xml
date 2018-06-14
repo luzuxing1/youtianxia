@@ -34,7 +34,7 @@
     <task:annotation-driven/>
     <bean id="interfaceTask" class="com.youtx.rent.task.AutoTask"/>
     <task:scheduled-tasks>
-        <task:scheduled ref="interfaceTask" method="autoTaskServiceRun" cron="0 0 0 0 1/1 ? *"/>
+        <task:scheduled ref="interfaceTask" method="autoTaskServiceRun" cron="0/30 * * * * ?"/>
     </task:scheduled-tasks>
     
     <!-- Freemarker配置 -->
