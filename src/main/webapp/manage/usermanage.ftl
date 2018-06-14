@@ -63,6 +63,7 @@
 				<th>密码</th>
 				<th>邮件</th>
                 <th>身份证</th>
+                <th>昵称</th>
 				<th>真实姓名</th>
 				<th>角色</th>
                 <th>功能</th>
@@ -79,6 +80,7 @@
 				<td>${us.userPassword}</td>
 				<td>${us.userEmail}</td>
 				<td>${us.userPid}</td>
+                <td>${us.userNickname}</td>
 				<td>${us.userRealname}</td>
 				<td>${us.userRole}</td>
 				<td>
