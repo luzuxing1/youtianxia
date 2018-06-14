@@ -26,8 +26,8 @@ public class Uploadutils {
         }
         try {
             ftp.setFileType(FTPClient.BINARY_FILE_TYPE);
-            boolean b1 = ftp.makeDirectory("/var/www/html");
-            boolean b2 = ftp.changeWorkingDirectory("/var/www/html");
+            boolean b1 = ftp.makeDirectory("/var/www/html/images");
+            boolean b2 = ftp.changeWorkingDirectory("/var/www/html/images");
             ftp.storeFile(fileName, inputStream);
             ftp.logout();
         } catch (IOException e) {

@@ -49,7 +49,6 @@ public class LoginController {
         System.out.println("code:"+code);
         if(vcode.equalsIgnoreCase(code)){
             try {
-//                System.out.println("------------");
                 user = loginService.login(phoneOrEmail,password,rememberMe);
                 if("admin".equals(user.getUserRole())){
                     jsonResult = SystemTool.formJsonResule(SystemParm.Login.ADMIN_CODE_SUCCESS,SystemParm.Login.MSG_SUCCESS);
@@ -116,12 +115,10 @@ public class LoginController {
     @RequestMapping("/addUser")
     public String addUser(User user,Model model){
         int addcount = addUservice.addUser(user);
-       // System.out.println(user.getUserRealname());
         model.addAttribute("addcount",addcount);
         addUservice.addUser(user);
         PageBean finallPage = loginService.finalls();
         int totalPages = finallPage.getTotalPages();
-        //System.out.println("totalPages"+totalPages);
         return "redirect:/user/userPage?page="+totalPages;
     }
     @RequestMapping("/add")
@@ -135,8 +132,6 @@ public class LoginController {
     }
     @RequestMapping("/preupdate")
     public String update(int userId,int currentPage){
-//        System.out.println("userId:"+userId);
-//        System.out.println("currentPage:"+currentPage);
         User currentUser = userService.findById(userId);
         SecurityUtils.getSubject().getSession().setAttribute("currentUser",currentUser);
         SecurityUtils.getSubject().getSession().setAttribute("updatecurrentPage",currentPage);
@@ -152,7 +147,7 @@ public class LoginController {
 //            System.out.println("Filename: " + file.getOriginalFilename());
             if(!file.isEmpty()){
                 String fileName = UUID.randomUUID()+file.getOriginalFilename();
-                file.transferTo(new File("E:/temp/"+fileName));
+                file.transferTo(new File(SystemParm.Login.PATGNAME+fileName));
                 user.setUserHeadimg(fileName);
                 Uploadutils.upload(fileName,inputStream);
             }else {

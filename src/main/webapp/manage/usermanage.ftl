@@ -73,7 +73,7 @@
 			<tr>
 				<td>${us.userId}</td>
 				<td>
-					<img style="width:30px;height:30px" src="http://120.79.225.238/${us.userHeadimg}">
+					<img style="width:30px;height:30px" src="${imagesPath}/${us.userHeadimg}">
 				</td>
 				<td>${us.userPhone}</td>
 				<td>${us.userPassword}</td>

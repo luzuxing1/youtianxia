@@ -846,10 +846,10 @@
       </li>
 
         <li>
-            <a target="_self" href="https://passport.youtx.com/user/login/" rel="nofollow" id="youtx_03" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;login&#39;});}">登录</a>
+            <a target="_self" href="${base}/user/lo">登录</a>
         </li>
         <li class="firstNew" id="youtx_02">
-            <a target="_self" id="reg" href="https://passport.youtx.com/user/regist/" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;register&#39;});}">注册</a>
+            <a target="_self" id="reg" href="${base}/reg/register">注册</a>
         </li>
 
     </ul>
@@ -1012,7 +1012,7 @@
                         <#list pictures as pic>
                             <div class="eee" style="float: left;margin-left: 15px;margin-top: 10px;width: 80px;height: 100px;color: #4AA400;background-color: #fff3cf">
                                 <div style="margin-left: 12px">
-                                <img style="width:50px;height:50px" src="http://120.79.225.238/${pic.picName}">
+                                <img style="width:50px;height:50px" src="${imagesPath}/${pic.picName}">
                                 </div>
                                 <div ><p style="size: 10px;">描述:${pic.picDesc}</p></div>
                                 <div ><p style="size: 10px">类型:${pic.picType}</p></div>

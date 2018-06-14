@@ -42,7 +42,7 @@
 
 			<tr>
 				<td class="ri">头像：</td>
-				<td class="cn"><img src="http://120.79.225.238/${currentUser.userHeadimg}" style="width:30px;height:30px;">
+				<td class="cn"><img src="${imagesPath}/${currentUser.userHeadimg}" style="width:30px;height:30px;">
 					<input type="file" name="file" value="${currentUser.userHeadimg }">
 				</td>
 			</tr>

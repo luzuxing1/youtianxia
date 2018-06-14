@@ -5,6 +5,7 @@ import com.youtx.rent.logins.result.JsonResult;
 import com.youtx.rent.logins.service.PictureService;
 import com.youtx.rent.logins.service.RoomService;
 import com.youtx.rent.logins.service.UpdateService;
+import com.youtx.rent.logins.utils.SystemParm;
 import com.youtx.rent.utils.Uploadutils;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,7 @@ public class PlaceController {
         try {
                 InputStream inputStream = file.getInputStream();
                 String fileName = UUID.randomUUID()+file.getOriginalFilename();
-                file.transferTo(new File("E:/temp/"+fileName));
+                file.transferTo(new File(SystemParm.Login.PATGNAME+fileName));
                 Uploadutils.upload(fileName,inputStream);
                 picture.setPicName(fileName);
                 updateService.addPic(picture);

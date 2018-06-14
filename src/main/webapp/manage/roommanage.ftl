@@ -104,9 +104,9 @@
                 var asd = $(this).find(".roomState").text();
                 var abc = $(this).find(".roomState");
                 if(asd == "0"){
-                    abc.text("未通过");
-                }else if(asd == "1"){
                     abc.text("通过");
+                }else if(asd == "1"){
+                    abc.text("未通过");
 				}
             });
         });
@@ -121,15 +121,24 @@
 			        	"${base}/rooms/updateState",
 						{"roomId":id,"roomState":roomSt},
 						function (data) {
-                            alert(data.code);
 							if(data.code == "0"){
                                 aaa.text("通过");
-							    window.location.href = "${base}/rooms/roomPage?page=${roomPage.currentPage}";
+							    <#--window.location.href = "${base}/rooms/roomPage?page=${roomPage.currentPage}";-->
 							}
                         }
 				);
-
-
+			}else if(sss == "通过"){
+                var roomss = "0";
+                $.post(
+                        "${base}/rooms/updateState",
+                        {"roomId":id,"roomState":roomss},
+                        function (data) {
+                            if(data.code == "0"){
+                                aaa.text("未通过");
+							<#--window.location.href = "${base}/rooms/roomPage?page=${roomPage.currentPage}";-->
+                            }
+                        }
+                );
 			}
         }
 
