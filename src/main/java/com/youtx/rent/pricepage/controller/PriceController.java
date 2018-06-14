@@ -24,7 +24,8 @@ public class PriceController {
         price.setRoom(room);
         rule.setRoom(room);
         require.setRoom(room);
-        priceAndRequireService.saveRoomInfo(price , rule, require);
+        room.setRoomPrice(price.getPriceDay());
+        priceAndRequireService.saveRoomInfo(price , rule, require, room);
         return 2;
     }
 
