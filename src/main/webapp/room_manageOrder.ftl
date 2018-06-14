@@ -217,7 +217,7 @@
     <div class="mycenter">
 
 <ul class="NewSubNav">
-    <li class="NewSubNavCur"><a href="">账户首页</a></li>
+    <li class="NewSubNavCur"><a href="${base}/userCenter/jumpPage">账户首页</a></li>
     <li class=""><a href=""> 收件箱 </a></li>
     <li class=""><a href="${base}/landlordOrder/jumpLandlordOrder">我是房东</a></li>
     <li class=""><a href="${base}/userCenter/jumpLodgerPage">我是租客</a></li>
@@ -603,6 +603,19 @@
                                 var t1 = time - currentTime;
 //                                alert(t1/1000);
                                 $(this).parent().find("#daojishi").attr("lltime",(t1/1000));
+
+
+                            } else if($(this).find("#zhuangtai").text() == "drz"){
+                                $(this).find(".NewTravelYellowbg").css("display","none");
+                                $(this).find("#zhuangtai").css("display","block");
+                                $(this).find(".spanTime").css("display","block");
+                                $(this).find(".spanTime").removeClass();
+                                $(this).find("#zhuangtai").text("等待入住").addClass("NewTravelRedbg");
+                                if($(this).find("#zhuangtai").text()=="等待入住"){
+                                    $(this).find("#zhuangtai").css("display","");
+                                }
+                                $(this).next().find("#caozuo1").css("display","none");
+                                $(this).next().find("#caozuo3").css("display","none");
 
 
                             } else {
