@@ -552,8 +552,19 @@
 </div>
 
 <script type="text/javascript">
+
     $("#checkPhone2").css("display","none");
     $("#checkPhone").click(function () {
+        var sphone = $("#CellphoneNumber").val();
+        if(sphone ==  ""){
+            alert("手机号不能为空");
+            return;
+        }
+        var sssss= $("#title").text();
+        if( sssss == "手机号码格式不正确"){
+            alert("手机号码格式不正确");
+            return;
+        }
         $("#checkPhone2").val(60);
         $("#checkPhone").css("display","none");
         $("#checkPhone2").css("display","block");
@@ -1099,14 +1110,79 @@
                 var codes =$("#check_codes").val();
                 if(codes != code){
                     $("#i_checkCodes").text("验证码不一致,请重新输入");
+                    return;
                 }else {
                     $("#i_checkCodes").text("");
                 }
             });
+
+
             $("#commit").click(function () {
+                var sphone = $("#CellphoneNumber").val();
+                if(sphone ==  ""){
+                    alert("手机号不能为空");
+                    return;
+                }
+                var sssss= $("#title").text();
+                if( sssss == "该账号已经被注册"){
+                    alert("该账号已经被注册");
+                    return;
+                }
+                if( sssss == "手机号码格式不正确"){
+                    alert("手机号码格式不正确");
+                    return;
+                }
+                var codes =$("#check_codes").val();
+                if(codes != code){
+                    alert("验证码不一致,请重新输入");
+                    return;
+                }
+                var sssa = $("#notice2").html();
+                if(sssa == "两次输入密码不一致"){
+                    alert("密码长度不符合");
+                    return;
+                }
+                if(sssa == "密码长度不符合"){
+                    alert("密码长度不符合");
+                    return;
+                }
+
+
+
+//                $("#notice2").html("手机格式有误");
+//
+//                $("#notice2").html("两次输入密码不一致");
+
+//                $("#notice2").html("密码长度不符合");
+
                 var userName = $("#user_last_name2").val();
                 var userPassword = $("#user_password2").val();
+                var usPassword = $("#user_password_confirmation2").val();
                 var phone = $("#CellphoneNumber").val();
+
+                if(userPassword == ""){
+                    alert("密码不能为空");
+                    return;
+                }
+                if(userPassword == "密码不能包含除字母数字外的其他字符"){
+                    alert("密码不能包含除字母数字外的其他字符");
+                    return;
+                }
+
+                var usernames = $("#user_last_name2").val();
+                if(usernames == ""){
+                    alert("用户名不能空");
+                    return;
+                }
+                if(userPassword != usPassword ){
+                    alert("两次密码不一致，请重新输入");
+                    return;
+                }
+                if(usPassword ==  "" ){
+                    alert("请确认密码");
+                    return;
+                }
+
                 $.post(
                         "${base}/reg/addUser",
                         {"userPhone":phone,"password":userPassword,"userRealname":userName},
