@@ -22,6 +22,8 @@ public interface RoomMapper {
 
     List<Integer> selectRoomId(Integer userId);
 
+    List<Integer> selectByState(Integer state);
+
     List<Room> selectRoomsRandom();
 
     /**

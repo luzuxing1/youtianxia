@@ -206,143 +206,79 @@
             <p style=" color:#000">境外手机号请联系客服，客服热线：400-630-0088（8：00-24:00），客服邮箱：service@youtx.com</p>
             <div class="item_listxt">
               <div class="input290">
-                <input type="text" id="forgot_emailOrPhone" value="已绑定的手机" class="input" style="height: 30px;border-color: #4c3000">
+                <input type="text" id="forgot_Phone" placeholder="已绑定的手机" class="input" style="height: 30px;border-color: #4c3000">
               </div>
                 <p class="item_listxt_error" id="ErrorMsg">请输入已验证的手机</p>
 
               <div class="Registration_btn">
                 <input name="" type="button" class="btn152" id="sendphone" value="确认发送" onclick="sendEmailNew()"style="background-color: #4c9300;color: #fff3cf">
-                <p id="sendErrorMsg" class="item_listxt_error" style="display:none">发送失败，请重新发送！</p>
+                <p id="sendErrorMsg" class="item_listxt_error" style="display:none"></p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!--表单js -->
-	     <script type="text/javascript">
-	         $(function () {
-	             $(".input").focus(function () {
-	                 $(this).addClass("color000");
-	                 if ($(this).val() == this.defaultValue) {
-	                     $(this).val("");
+        <script type="text/javascript">
 
-	                     $(this).siblings().attr("style", "display:none");
-	                 }
-	             }).blur(function () {
-	                 $(this).removeClass("color000");
-	                 if ($(this).val() == '') {
-	                     $(this).val(this.defaultValue);
-
-	                     $(this).siblings().attr("style", "display:inline");
-	                 }
-	             });
-                 var rquestVal = $.trim('') ;
-                 if(rquestVal.length>0){
-                    $("#forgot_emailOrPhone").val(rquestVal);
-                }
-
-                //yanzheng
-                $("#imgcode").bind("click", function () { VerificationCode(); });
-                $("#resh").bind("click", function () { VerificationCode(); });
-	         })
-
-            function VerificationCode() {
-                var r = Math.random();
-                var s = $("#imgcode").attr("src");
-                s = s.split('?')[0] + "?r=" + r + "&telOrEmail=" + $('#forgot_emailOrPhone').val();
-                $("#imgcode").attr("src", s);
-            }
-
-
-
-
-            function sendEmailNew() {
-//                $("#yanzhengmatanceng").css('display', 'none');
-                $("#sendErrorMsg").css('display', 'none');
-                $("#ErrorMsg").css('visibility', 'hidden');
-                var emailOrPhone = $.trim($("#forgot_emailOrPhone").val());
-                var regPhone = /^(((1[3-7]{1}[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-                var regV = new RegExp("^[\\A-Za-z0-9]{4}$");
-                if (emailOrPhone.length <= 0) {
+        $(function () {
+            $("#forgot_Phone").blur(function () {
+                var rPhone = /^(((1[3-7]{1}[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+//               var checkPhone = /^1[3578]\d{9}$/;
+                var sPhone = $.trim($("#forgot_Phone").val());
+//                alert(sPhone.length);
+                if (sPhone.length <= 0) {
                     $("#ErrorMsg").html('请填写注册手机');
                     $("#ErrorMsg").css('visibility', 'visible');
                     return;
+                }else {
+                    $("#ErrorMsg").html('');
                 }
-                VerificationCode();
-                $("#yanzhengmatanceng").css('display', 'block');
-                var userPhone = $("#forgot_emailOrPhone").val();
+                if (!rPhone.test(sPhone)) {
+                    $("#ErrorMsg").html('手机格式不正确');
+                    $("#ErrorMsg").css('visibility', 'visible');
+                    return;
+                }else {
+                    $("#ErrorMsg").html('');
+                }
+
+            });
+
+            $("#sendphone").click(function () {
+                var sPhone = $.trim($("#forgot_Phone").val());
+                var  sss = $("#ErrorMsg").html();
+                if(sss == "请输入已验证的手机"){
+                    alert(sss);
+                    return;
+                }
+                if(sss == "手机格式不正确"){
+                    alert("请输入手机格式不正确");
+                    return;
+                }
+                if(sss == "请填写注册手机"){
+                    alert(sss);
+                    return;
+                }
+
                 $.post(
                         "${base}/reg/checkPhone2",
-                        {"phone":userPhone},
+                        {"phone":sPhone},
                         function (data) {
 //                            alert(data.code);
                             if(data.code == "6"){
-//                                alert(data.msg);
-//                                alert("0");
                                 window.location.href="${base}/user/updatepassword";
                             }else if(data.code == "9"){
-                                alert("1");
+//                                alert("1");
                                 alert(data.msg);
                             }else {
-                                alert("2");
+//                                alert("2");
                                 alert(data.msg);
                             }
                         }
                 );
+            });
+        });
 
-            }
-            var isEmailOrPhone = "0";
-            function queDing() {
-//                $("#yanzhengmatanceng").css('display', 'none');
-                $("#sendErrorMsg").css('display', 'none');
-                $("#ErrorMsg").css('visibility', 'hidden');
-                var emailOrPhone = $.trim($("#forgot_emailOrPhone").val());
-                var regPhone = /^(((1[3-7]{1}[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-                var regV = new RegExp("^[\\A-Za-z0-9]{4}$");
-                if (emailOrPhone.length <= 0) {
-                    $("#ErrorMsg").html('请填写手机');
-                    $("#ErrorMsg").css('visibility', 'visible');
-                    return;
-                }
-                if (!regPhone.test(emailOrPhone)) {
-                    $("#ErrorMsg").html('手机格式不正确');
-                    $("#ErrorMsg").css('visibility', 'visible');
-                    return;
-                }
-                else if (regPhone.test(emailOrPhone)) {
-                    isEmailOrPhone = '2'; //手机
-                }
-
-            }
-            <#--function SendCode(Phone) {-->
-                <#--var userPhone = $("#").val();-->
-                <#--$.post(-->
-                        <#--"${base}/reg/checkPhone",-->
-                        <#--{ "Phone": Phone},-->
-                        <#--function (data) {-->
-                        <#--switch (data) {-->
-                            <#--case "verror":-->
-                                <#--$("#ErrorMsg").html('验证码错误');-->
-                                <#--$("#ErrorMsg").css('visibility', 'visible');-->
-                                <#--VerificationCode();-->
-                                <#--break;-->
-                            <#--case "sendMsgsuccess":-->
-                            <#--window.location.href = "/profile/Passport/EditPasswordByTel.aspx?Telphone=" + emailOrPhone;-->
-                            <#--break;-->
-                        <#--case "noexistphone":-->
-                            <#--$("#ErrorMsg").html('手机未注册或不存在！');-->
-                            <#--$("#ErrorMsg").css('visibility', 'visible');-->
-                            <#--break;-->
-                    <#--}-->
-                <#--})-->
-            <#--}-->
-             $(function () {
-
-
-             });
-         </script>
-      <!--表单js -end--> 
-      <!--2012-2-24注册end--> 
+        </script>
 
 
         <!--尾部2011-9-6修改 start-->

@@ -28,7 +28,9 @@
 <body>
 	<#if user = null>
 		<p>请登录,否则无访问权限</p>
-		<a href="${base}/user/lo">返回登录</a>
+		<a href="${base}/user/lo"  >返回登录</a>
+	<script type="text/javascript">
+	</script>
 	<#else >
     <div class="container">
         <div class="top">
@@ -41,10 +43,6 @@
             <ul class="nav">
                 <li><img src="${base}/static/images/user.png"><a href="${base}/user/userPage?page=1" target="data">用户管理</a></li>
                 <li><img src="${base}/static/images/hotel.png"><a href="${base}/rooms/roomPage?page=1" target="data">房间管理</a></li>
-                <li><img src="${base}/static/images/coll.png"><a href="" target="data">酒店详情管理</a></li>
-                <li><img src="${base}/static/images/home.png"><a href="" target="data">场地管理</a></li>
-                <li><img src="${base}/static/images/meal.png"><a href="" target="data">套餐管理</a></li>
-                <li><img src="${base}/static/images/buy.png"><a href="" target="data">购物车管理</a></li>
                 <li><img src="${base}/static/images/order.png"><a href="" target="data">订单管理</a></li>
             </ul>
             <iframe id="data" name="data" src="${base}/user/userPage?page=1" frameborder="no" border="0" scrolling=”no”></iframe>

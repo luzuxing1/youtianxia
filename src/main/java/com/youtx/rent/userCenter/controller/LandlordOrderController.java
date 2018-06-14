@@ -28,6 +28,12 @@ public class LandlordOrderController {
     @Resource
     private OrdersService ordersService;
 
+    @RequestMapping("/jumpRoomMaster")
+    public String jumpRoomMaster(){
+        return "room_master_manageRoom";
+    }
+
+
     @RequestMapping("/jumpLandlordOrder")
     public String userCenter2(HttpSession session, Model model,String status,String paycode,String time,String num,Integer current){
         if (current==null){

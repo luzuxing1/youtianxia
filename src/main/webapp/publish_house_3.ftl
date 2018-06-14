@@ -136,7 +136,28 @@
         }
     </style>
     <script src="${base}/static/publish_house_3/floating-gallery.js.下载" type="text/javascript"></script>
+
     <script type="text/javascript">
+
+
+              $("#iconimagetxt").click()function () {
+//                var ttt =$("#iconimagetxt").val($("#iconimage").val());
+                alert("11");
+            };
+
+    </script>
+    <script type="text/javascript">
+        function ss(){
+            var ttt =$("#iconimagetxt").val($("#iconimage").val());
+            var sss = $("#iconimage").val();
+            alert(sss);
+        };
+//            $("#iconimagetxt").click()function () {
+////                var ttt =$("#iconimagetxt").val($("#iconimage").val());
+//                alert("11");
+//            };
+//
+
         var saveFlag = 0;
         var clickFlag = 0;
         var img;
@@ -341,49 +362,59 @@
             $("#ShowSwf").prop("disabled", false);
         }
         //==========图片上传=============
+
+
         function UpLoadPicOneOrMore(url) {
-            dtime = new Date().getTime();
+
+            var ttt =$("#iconimagetxt").val($("#iconimage").val());
+            //var filepath = $("#iconimage").val();
+            var roomId = "1";
             if (url != "") {
                 // $("#imgpath").val(url);
-                $.get("/publish/Ajax/HouseInfoAction.aspx", { InsertPicstr: url, flagPic: "1", publishPic: "1", houseid: houseID, dtim: dtime }, function (date) {
-                    if (date != "0" && date != "null") {
-                        getPost = 1; $("#iconimagetxt").val("");
-                        if (oneormore == 1) {//单张上传
-                            if (navigator.userAgent.toLowerCase().indexOf("msie") > 0) {
-                                $("#iconimage").change(function () {
-                                    if (timeOut > 100) {
-                                        return false;
+                $.get(
+                        "${base}/places/imgupload",
+                        { "roomId": roomId,"filepath": ttt},
+                        function (date) {
+                            alert("111");
+                            alert(date.code);
+                            if (date.code == "0" ) {
+                                getPost = 1; $("#iconimagetxt").val("");
+                                if (oneormore == 1) {//单张上传
+                                    if (navigator.userAgent.toLowerCase().indexOf("msie") > 0) {
+                                        $("#iconimage").change(function () {
+                                            if (timeOut > 100) {
+                                                return false;
+                                            }
+                                            $("#postImg").submit();
+                                        });
+                                    } else {
+                                        $("#iconimage").val("");
                                     }
-                                    $("#postImg").submit();
-                                });
+                                }
+                                var datearr = date.split('|');
+                                if (Number(datearr[0]) > 0) {
+                                    if (Number($("#listCount").html()) >= 3) {
+                                        $("#upLoadError").hide();
+                                    }
+                                    $("#sehngyuCount").html(50 - Number($("#listCount").html()));
+                                    var addTime = new Date().toString("yyyy-MM-dd HH:mm:ss");
+                                    if ($(".imageBoxHighlighted")) {
+                                        $("#" + $(".imageBoxHighlighted").attr("id")).attr("class", "imageBox");
+                                    }
+                                    var appStr = "<div class='imageBox' id='imageBox" + datearr[0] + "' style='cursor:pointer' name=imageBox><div type='' forfor='imageBox" + count + "' picurl='" + url + "' pictitle='' timetime='" + addTime + "' picid='" + datearr[0] + "' class='imageBox_theImage'  style='background-image:url(" + datearr[1] + ")'></div><div class='imageBox_label'><p forfor='imageBox" + count + "' picurl='" + url + "' pictitle='' timetime='" + addTime + "' picid='" + datearr[0] + "'><input id='pTitle" + datearr[0] + "' type='text' value='请对照片进行描述' onfocus='javascript:inputpFocus(" + datearr[0] + ");' onblur='javascript:inputpBlur(" + datearr[0] + ")'/></p><select style='width:-moz-available;width: 134px;height: 23px;border-top-width: 1px;margin-top: 5px;' onchange='javascript:picsechange(" + datearr[0] + ",this)'><option value ='0'>请给照片分类</option><option value ='1'>卧室</option><option value ='2'>客厅</option><option value ='3'>厨房</option><option value ='4'>洗手间</option><option value ='5'>阳台</option><option value ='6'>休闲区</option><option value ='7'>小区图</option><option value ='8'>景观图</option></select><div id='warning" + datearr[0] + "' class='SituationWarning'>标题过长，最多50个汉字！</div><div onclick='javascript:delPic(" + datearr[0] + ");' class='RoomPicolse'><img src='http://js.youtx.com/images/RoomcolseBtn.gif'/></div></div></div>";
+                                    $("#GalleryContainer").append(appStr);
+                                    $("#warning" + datearr[0]).hide();
+                                    getPost = 0;
+                                    initGallery();
+                                }
                             } else {
-                                $("#iconimage").val("");
+                                $(".SituationWarning").text("上传失败！");
                             }
-                        }
-                        var datearr = date.split('|');
-                        if (Number(datearr[0]) > 0) {
-                            if (Number($("#listCount").html()) >= 3) {
-                                $("#upLoadError").hide();
-                            }
-                            $("#sehngyuCount").html(50 - Number($("#listCount").html()));
-                            var addTime = new Date().toString("yyyy-MM-dd HH:mm:ss");
-                            if ($(".imageBoxHighlighted")) {
-                                $("#" + $(".imageBoxHighlighted").attr("id")).attr("class", "imageBox");
-                            }
-                            var appStr = "<div class='imageBox' id='imageBox" + datearr[0] + "' style='cursor:pointer' name=imageBox><div type='' forfor='imageBox" + count + "' picurl='" + url + "' pictitle='' timetime='" + addTime + "' picid='" + datearr[0] + "' class='imageBox_theImage'  style='background-image:url(" + datearr[1] + ")'></div><div class='imageBox_label'><p forfor='imageBox" + count + "' picurl='" + url + "' pictitle='' timetime='" + addTime + "' picid='" + datearr[0] + "'><input id='pTitle" + datearr[0] + "' type='text' value='请对照片进行描述' onfocus='javascript:inputpFocus(" + datearr[0] + ");' onblur='javascript:inputpBlur(" + datearr[0] + ")'/></p><select style='width:-moz-available;width: 134px;height: 23px;border-top-width: 1px;margin-top: 5px;' onchange='javascript:picsechange(" + datearr[0] + ",this)'><option value ='0'>请给照片分类</option><option value ='1'>卧室</option><option value ='2'>客厅</option><option value ='3'>厨房</option><option value ='4'>洗手间</option><option value ='5'>阳台</option><option value ='6'>休闲区</option><option value ='7'>小区图</option><option value ='8'>景观图</option></select><div id='warning" + datearr[0] + "' class='SituationWarning'>标题过长，最多50个汉字！</div><div onclick='javascript:delPic(" + datearr[0] + ");' class='RoomPicolse'><img src='http://js.youtx.com/images/RoomcolseBtn.gif'/></div></div></div>";
-                            $("#GalleryContainer").append(appStr);
-                            $("#warning" + datearr[0]).hide();
-                            getPost = 0;
-                            initGallery();
-                        }
-                    } else {
-                        $(".SituationWarning").text("上传失败！");
-                    }
                 });
             }
             getPost = 0;
         }
-      
+
         //==========排序=============
         var nullpic = 0;
         actionAjxSort = function () {
@@ -503,7 +534,7 @@
 
         }
 
-      
+
         //========图片删除执行的函数=========
         function delPic(pId) {
             $(".RoomPicolse").css("cursor", "pointer");
@@ -538,8 +569,7 @@
             if (Number($("#sehngyuCount").html()) - Number(waitPicCount) >= 0) {
                 var radtime = new Date();
                 radtime = radtime.getTime();
-                var scriptURL = "http://imgku.youtx.com/upload/duanzu?city=&channel=duanzu.houseinfo&isflash=y&sid=" + radtime + "&backurl=";
-                setTimeout(function () {
+                var scriptURL = "{base}/places/imgupload?roomId=1&channel=" + sss ;
                     thisMovie("uploadfl").startFileUpload(scriptURL);
                 }, 1000)
             } else {
@@ -644,7 +674,7 @@
             $("#fullbg").css("display", "none");
             $("#dialog").css("display", "none");
         }
-       
+
     </script>
 
 
@@ -895,41 +925,54 @@
                         $("embed[type='application/x-shockwave-flash']").attr("id", "uploadfl").attr("name", "uploadfl");
                     }
                 });
-                var waitPicCount = 0;
-                function startUpload() {
-                    if (Number($("#sehngyuCount").html()) - Number(waitPicCount) >= 0) {
-                        var radtime = new Date();
-                        radtime = radtime.getTime();
-                        var scriptURL = "http://imgku.youtx.com/upload/duanzu?city=&channel=duanzu.houseinfo&isflash=y&sid=" + radtime + "&backurl=";
-                        setTimeout(function () {
-                            thisMovie("uploadfl").startFileUpload(scriptURL);
-                        }, 1000)
-                    } else {
-                        $("#divAlertTxt").html("共可上传50张照片<br>现超出" + (Number(waitPicCount) - Number($("#sehngyuCount").html())) + "张，请删除");
-                        $("#divNumAlert").show();
-                    }
-                }
-                function getFlieNum(num) { waitPicCount = num; }
-                function getURL(url, iserror, isover) {
-                    oneormore = 2;
-                    if (url != "-1" && url != "302" && url != -1 && url != 302 && url != "") {
-                        var imgar = url.split('|');
-                        if (imgar[0].indexOf(".") > 0) {
-                            var count = Number($("#listCount").html());
-                            $("#listCount").html(count + 1);
-                            UpLoadPicOneOrMore(imgar[0]);
-                        }
-                    }
-                }
-                function thisMovie(movieName) {
-                    var isIE = navigator.appName.indexOf("Microsoft") != -1;
-                    return document[movieName]; /*(!isIE) ? window[movieName] : */
-                }
+//                var waitPicCount = 0;
+//                function startUpload() {
+//                    if (Number($("#sehngyuCount").html()) - Number(waitPicCount) >= 0) {
+//                        var radtime = new Date();
+//                        radtime = radtime.getTime();
+//                        var ttt =$("#iconimagetxt").val($("#iconimage").val());
+//                        var sss = $("#iconimage").val();
+////                        var scriptURL = "{base}/places/imgupload?roomId=1&channel=duanzu.houseinfo&isflash=y&sid=" + radtime + "&backurl=";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//                        var scriptURL = "{base}/places/imgupload?roomId=1&channel=" + sss ;
+//                        setTimeout(function () {
+//                            thisMovie("uploadfl").startFileUpload(scriptURL);
+//                        }, 1000)
+//                    } else {
+//                        $("#divAlertTxt").html("共可上传50张照片<br>现超出" + (Number(waitPicCount) - Number($("#sehngyuCount").html())) + "张，请删除");
+//                        $("#divNumAlert").show();
+//                    }
+//                }
+//                function getFlieNum(num) { waitPicCount = num; }
+//                function getURL(url, iserror, isover) {
+//                    oneormore = 2;
+//                    if (url != "-1" && url != "302" && url != -1 && url != 302 && url != "") {
+//                        var imgar = url.split('|');
+//                        if (imgar[0].indexOf(".") > 0) {
+//                            var count = Number($("#listCount").html());
+//                            $("#listCount").html(count + 1);
+//                            UpLoadPicOneOrMore(imgar[0]);
+//                        }
+//                    }
+//                }
+//                function thisMovie(movieName) {
+//                    var isIE = navigator.appName.indexOf("Microsoft") != -1;
+//                    return document[movieName]; /*(!isIE) ? window[movieName] : */
+//                }
             </script>
         </div>
     </div>
-    <iframe name="hidden_frame" id="hidden_frame" style="display: none" src="${base}/static/publish_house_3/saved_resource.html"></iframe>
-    <form id="postImg" enctype="multipart/form-data" action="http://www.youtx.com/room/newthreeplan/324548" method="post" target="hidden_frame">
+    <#--<iframe name="hidden_frame" id="hidden_frame" style="display: none" src="${base}/static/publish_house_3/saved_resource.html"></iframe>-->
+    <#--<form id="postImg" enctype="multipart/form-data" action="http://www.youtx.com/room/newthreeplan/324548" method="post" target="hidden_frame">-->
     <input type="text" id="CloseTime" style="display: none;" value="">
     <div id="listCount" style="display: none;">
         0</div>
@@ -941,32 +984,76 @@
 <!--2012-8-6修改-结束-->
  
             <div class="RoomPhoto">
-                <p>
+                <#--<p>-->
                 <!--2012-8-21修改--><!--错误，多了一个class-->
-                    <input type="button" onclick="showBg(&#39;dialog&#39;,&#39;dialog_content&#39;);" id="ShowSwf" class="RoomPhotoBtn"></p>
+                    <#--<input type="button" onclick="showBg(&#39;dialog&#39;,&#39;dialog_content&#39;);" id="ShowSwf" class="RoomPhotoBtn"></p>-->
                 <!--2012-8-21修改-结束-->
-                <p>
-                    <strong>若批量上传功能无法使用，请使用 <a class="SingleUploadClick" href="javascript:void(0)">单张上传</a></strong></p>
-                <p class="SingleUpload" style="display: none;">
-                    <span class="photo_title">单张上传：</span>
+                <#--<p>-->
+                    <strong onclick="ss()">若批量上传功能无法使用，请使用 <a class="SingleUploadClick" href="javascript:void(0)">单张上传</a></strong></p>
                     <!--2012-8-21修改-->
-                   <!-- <input type="file" style="border: #7f9db9 1px solid; background: #ebebe4; height: 27px;
-                        vertical-align: middle; cursor: pointer;" size="50" id="iconimage" name="iconimage" />--> 
-                    <input type="file" class="iconimage" size="36" id="iconimage" name="iconimage" style="width: 300px;">
-                   
-                    <span class="iconimagetxt"><input class="iconimageInput" type="text" id="iconimagetxt" value=""><input class="iconimageButton" type="button" value="浏览..." id="dianjiceshi"></span>
+                    <form action="${base}/places/imgupload" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="roomId" value="${roomId}">
+                        <input type="file" style="border: #7f9db9 1px solid; background: #ebebe4; height: 27px;
+                                vertical-align: middle; cursor: pointer;" size="50"  name="files" />
+                        <input type="text"  name="picDesc" placeholder="图片详情" style="height: 26px;margin-left:5px;">
+                        <select name="picType"  style="width: 60px;height: 28px;" >
+                                <option   value="卧室"> 卧室 </option>
+                                <option  value="客厅"> 客厅 </option>
+                                <option  value="厨房"> 厨房 </option>
+                                <option  value="洗手间"> 洗手间 </option>
+                                <option  value="阳台"> 阳台 </option>
+                                <option  value="休闲区"> 休闲区 </option>
+                                <option  value="小区景"> 小区景 </option>
+                                <option  value="景观图"> 景观图 </option>
+                        </select>
+                        <input type="submit" value="确定上传" style="width: 80px;height: 27px;margin-top: 5px">
+                    </form>
+            <div >
+                        <#list pictures as pic>
+                            <div class="eee" style="float: left;margin-left: 15px;margin-top: 10px;width: 80px;height: 100px;color: #4AA400;background-color: #fff3cf">
+                                <div style="margin-left: 12px">
+                                <img style="width:50px;height:50px" src="http://120.79.225.238/${pic.picName}">
+                                </div>
+                                <div ><p style="size: 10px;">描述:${pic.picDesc}</p></div>
+                                <div ><p style="size: 10px">类型:${pic.picType}</p></div>
+                                <div style="margin-left: 15px">
+                                    <a style="color: #4fba92;font-size: 10px" href="javascript:if(confirm('确认删除？'))location.href='${base}/places/delete?id=${pic.picId }'">删除</a>
+                                </div>
+                            </div>
 
-                <!--2012-8-21修改-结束-->
-                </p>
-                <div class="c4_p_g_l_two" style="display: none">
-                    <p class="c4_p_g_l_two_red" id="c4_p_g_l_two_red" style="display: none">
-                        上传成功了！</p>
-                    <p class="c4_p_g_l_two_green" id="c4_p_g_l_two_green" style="font-size: 12px; font-weight: normal;
-                        display: none">
-                        正在上传照片...</p>
-                </div>
-                <div class="SituationWarning" id="upLoadError" style="display: none;">
-                    请至少上传3张照片</div>
+                        </#list>
+                    </div>
+
+                <script type="text/javascript">
+                    $(function(){
+                        $("#nextyibu").click(function () {
+                            var roomId = ${roomId};
+                            var aaa = ${pictures.size()};
+//                            alert(roomId);
+                            if(aaa < 3){
+                                alert("请至少上传3张照片");
+                            }else {
+                                window.location.href="${base}/places/placeFour/${roomId}";
+                            }
+
+                        });
+
+                    });
+
+
+
+
+
+                </script>
+                <#--<div class="c4_p_g_l_two" style="display: none">-->
+                    <#--<p class="c4_p_g_l_two_red" id="c4_p_g_l_two_red" style="display: none">-->
+                        <#--上传成功了！</p>-->
+                    <#--<p class="c4_p_g_l_two_green" id="c4_p_g_l_two_green" style="font-size: 12px; font-weight: normal;-->
+                        <#--display: none">-->
+                        <#--正在上传照片...</p>-->
+                <#--</div>-->
+                <#--<div class="SituationWarning" id="upLoadError" style="display: none;">-->
+                    <#--请至少上传3张照片</div>-->
             </div>
 <!--2012-8-6修改--> <!--修改类名-->
             <div class="RoomSimilar02">
@@ -989,27 +1076,25 @@
         <!--2012-8-21修改--><!--清除浮动-->
        <div class="CB"></div>
         <!--2012-8-21修改-结束-->
-        <div class="RoomPhotoPics">
-            <h2>
-                第一张照片是<span class="colorbd6600">标题图</span>，您可拖动对照片进行重新排序</h2>
-            <div id="content">
-                <div id="GalleryContainer">
-                    
-                </div>
-                <p id="debug" style="clear: both; word-wrap: break-word; overflow: hidden;">
-                </p>
-                <div id="insertionMarker">
-                    <img src="${base}/static/publish_house_3/marker_top.gif">
-                    <img src="${base}/static/publish_house_3/marker_middle.gif" id="insertionMarkerLine">
-                    <img src="${base}/static/publish_house_3/marker_bottom.gif">
-                </div>
-                <div id="dragDropContent">
-                </div>
-            </div>
+        <#--<div class="RoomPhotoPics">-->
+            <#--<h2>-->
+                <#--第一张照片是<span class="colorbd6600">标题图</span>，您可拖动对照片进行重新排序</h2>-->
+            <#--<div id="content">-->
+                <#--<div id="GalleryContainer">-->
+                    <#---->
+                <#--</div>-->
+                <#--<p id="debug" style="clear: both; word-wrap: break-word; overflow: hidden;">-->
+                <#--</p>-->
+                <#--<div id="insertionMarker">-->
+                    <#--<img src="${base}/static/publish_house_3/marker_top.gif">-->
+                    <#--<img src="${base}/static/publish_house_3/marker_middle.gif" id="insertionMarkerLine">-->
+                    <#--<img src="${base}/static/publish_house_3/marker_bottom.gif">-->
+                <#--</div>-->
+                <#--<div id="dragDropContent">-->
+                <#--</div>-->
+            <#--</div>-->
             <div class="RoomNextBtn">
-                
-                <span id="RoomNextBtnPrev"><a href="http://www.youtx.com/room/newtwoplan/324548">&lt;&lt; 上一步</a></span>
-                <input id="RoomNextBtnNext" class="RoomNextBtnNext" type="button" value="下一步">
+                <input id="nextyibu" class="RoomNextBtnNext" type="button" value="下一步">
             </div>
         </div>
     </div>

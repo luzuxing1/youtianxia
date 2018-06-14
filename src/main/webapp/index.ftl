@@ -83,7 +83,7 @@
     <#--<h3>没有user</h3>-->
     <!--头 未登录 start-->
     <ul class="headerLogin clearfix" id="youtxloginw">
-        <li class="dropDownLino"><a id="youtx_C01_07" href="https://passport.youtx.com/profile/passport/regist.aspx">注册就送100元</a>  </li>
+        <li class="dropDownLino"><a id="youtx_C01_07" href="">注册就送100元</a>  </li>
 
         <li class="dropDownLino" style="padding-right:15px;"><a id="youtx_C01_08" href="${base}/user/lo">登录</a></li>
 
@@ -128,9 +128,9 @@
             </dl>
         </li>
         <li class="dropDownLi">
-            <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" class="dropDownTrigger" id="MyZuKe">我是租客</a>
+            <a href="${base}/userCenter/jumpLodgerPage" class="dropDownTrigger" id="MyZuKe">我是租客</a>
             <dl class="TopullDown">
-                <dd><a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" target="_self" id="MyOrders"><span>我的订单</span></a></dd>
+                <dd><a href="${base}/userCenter/jumpLodgerPage" target="_self" id="MyOrders"><span>我的订单</span></a></dd>
                 <!--<dd><a href="/User/MyMailBox/" target="_self">消息</a></dd>-->
                 <dd><a href="http://www.youtx.com/payment/User/MyCollection/Collection.aspx" target="_self">收藏夹</a></dd>
             </dl>
@@ -138,11 +138,11 @@
         <li class="dropDownLi">
             <a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx" class="dropDownTrigger" id="MyFangDong">我是房东</a>
             <dl class="TopullDown">
-                <dd><a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx" id="Ordermanage"><span>订单管理</span></a></dd>
-                <dd><a href="http://www.youtx.com/mallshop/mallabout/">我要开店</a></dd>
-                <dd><a href="http://www.youtx.com/room/new/">发布房间</a></dd>
-                <dd><a href="http://www.youtx.com/publish/DateMnage/">排期管理</a></dd>
-                <dd><a href="http://www.youtx.com/User/Myroom/">房源管理</a></dd>
+                <dd><a href="${base}/landlordOrder/jumpLandlordOrder" id="Ordermanage"><span>订单管理</span></a></dd>
+                <dd><a href="">我要开店</a></dd>
+                <dd><a href="">发布房间</a></dd>
+                <dd><a href="">排期管理</a></dd>
+                <dd><a href="">房源管理</a></dd>
                 <!--<dd> <a href="http://bang.youtx.com/DateManage/DateManage.aspx">我的短租帮</a></dd>-->
             </dl>
         </li>
@@ -917,10 +917,10 @@ PS:客栈主人非常热爱厨艺和公益，如果你有书，敢爱，够真�
         <li class="warmLinkLi warmLkHelp">
             <h3 class="warmLkTit">帮助中心</h3>
             <ul class="warmLkTxt">
-                <li><a id="youtx_C07_02" href="http://www.youtx.com/help/Manage/" target="_blank">我是房东</a></li>
-                <li><a id="youtx_C07_03" href="http://www.youtx.com/help/serchroom/" target="_blank">我是租客</a></li>
-                <li><a id="youtx_C07_04" href="http://www.youtx.com/publish/StarUser/LandlordCruit.aspx" target="_blank">房东招募</a></li>
-                <li><a id="youtx_C07_05" href="http://www.youtx.com/Profile/cps/cpsapply.aspx" target="_blank">CPS加盟</a></li>
+                <li><a id="youtx_C07_02" href="${base}/landlordOrder/jumpLandlordOrder">我是房东</a></li>
+                <li><a id="youtx_C07_03" href="${base}/userCenter/jumpLodgerPage?current=1" target="_blank">我是租客</a></li>
+                <li><a id="youtx_C07_04" href="" target="_blank">房东招募</a></li>
+                <li><a id="youtx_C07_05" href="" target="_blank">CPS加盟</a></li>
             </ul>
         </li>
         <li class="warmLinkLi warmLkAboutUs">
