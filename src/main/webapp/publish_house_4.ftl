@@ -1422,58 +1422,74 @@
         <li style="border:none;"><a target="_blank" href="http://bang.youtx.com/DateManage/DateManage.aspx">我的短租帮</a></li>
     </ul>
     <!--2013-5-3修改-结束-->
-    <ul class="subnav">
-        <li><a target="_self" href="http://www.youtx.com/help/" rel="nofollow" id="youtx_05">帮助</a></li>
-<!--        <li class="PosRe"><a href="http://www.youtx.com/mo/" target="_blank"  rel="nofollow" id="youtx_04">手机游天下</a></li>-->
-        <li><a href="http://www.youtx.com/profile/BookingTeam" target="_blank">团队订房</a><img alt="新" src="${base}/static/publish_house_4/NewIco.gif" style="display:none;left:45px;" class="PosAb TN17"></li>
-        <!--<li><a href="http://guide.youtx.com/" target="_blank" >目的地专家</a>
-            <div class="HeaderTiShi"> 出行问答，游记攻略！<span>◆</span> <span class="HeaderTiShiImg">◆</span>
-                 <p><img alt="关" src="http://js.youtx.com/images/QuAnTiShiColse.gif" id="imgx" /></p>
-            </div>
-            <div class="HeaderTiShi02" style="display:none">
-            <div id="da">收到<a href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx" id="dacount">0</a>个新回答<a class="PL10" href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx?type=answer">查看</a></div>
-            <div id="wen">收到<a href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx?type=answer" id="wencount">0</a>个网友提问<a class="PL10" href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx">查看</a></div>
-            <span class="Headerbg01 Headerbg03">◆</span><span class="Headerbg02 Headerbg04">◆</span>
-                 <p><img src="http://js.youtx.com/images/HeadOutBox.gif"  class="HeadClose"></p>
-            </div>
-        </li>-->
-        <li><a target="_blank" href="http://bang.youtx.com/DateManage/DateManage.aspx">短租帮</a></li>
-        <li class="HeadLanguage"><a href="http://en.youtx.com/" target="_self">English</a></li>
-         <li class="ytxMob" id="mobYtx2">
-      	<a href="http://www.youtx.com/mo/" target="_blank" rel="nofollow" id="A4">手机游天下</a>
-        <div class="ytxMobCon" style="display:none">
-        	<span class="arrowGy">◆</span>
-            <span class="arrowWt">◆</span>
-            <dl>
-            	<dt>扫描二维码安装游天下客户端</dt>
-                <dd><a href="http://www.youtx.com/mo/" target="_blank"><img src="${base}/static/publish_house_4/youtxapp.png" width="120" height="120"></a></dd>
+<#if user!=null>
+    <ul class="headerLogin clearfix" style="" id="youtxlogin45684586">
+        <li class="dropDownLi has_msg">
+            <a href="${base}/userCenter/jumpPage" target="_blank" class="dropDownTrigger" id="NameA">${user.userNickname}<img
+                    src="${base}/static/find_place/yello_dotnew.png" alt="" class="yello_dot"></a>
+            <dl class="TopullDown">
+                <dd><a href="http://www.youtx.com/User/MyMailBox/" id="MsgNumA" target="_self"><span>消息</span> <span
+                        class="hp_ics">(2)</span></a></dd>
+                <dd><a href="http://www.youtx.com/User/MyWealth/" target="_self">我的积分</a></dd>
+                <dd><a href="http://www.youtx.com/user/remind" target="_self">账户管理</a></dd>
+                <dd><a href="${base}/user/lols" target="_self">退出</a></dd>
             </dl>
-            <dl>
-            	<dt><span class="ColorBlue">微信</span>扫描二维码使用游天下</dt>
-                <dd><img src="${base}/static/publish_house_4/ewmBNew.jpg" width="102" height="102"></dd>
-                <dd>微信公众号：游天下</dd>
-            </dl>
-            <dl style="border:none;">
-            	<dt>手机浏览器访问游天下</dt>
-                <dd style="margin-top:45px;"><a href="http://m.youtx.com/" target="_blank" class="mbUrl">m.YouTX.com</a></dd>
-            </dl>
-        </div>
-      </li>
 
-        <!--2013-5-3修改-->
-        <li class="first firstNew">
-              <span class="FirstSpan FirstSpan02"><a target="_self" href="http://www.youtx.com/home/dashboard/" rel="nofollow">Hi,<span id="liname">卢 祖兴</span></a><span class="JianTouIco"></span></span>
-              <div class="UlName UlName02">
-                   <div><a target="_self" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" rel="nofollow">已预订的房间</a><span id="RoomsNumSpan" class="font_red">(0)</span></div>
-                   <div><a target="_self" href="http://www.youtx.com/User/MyMailBox/" rel="nofollow">站内信</a><span id="MsgNumSpan" class="font_red">(0)</span></div>
-                   <div><a target="_self" href="http://www.youtx.com/profile/User/MailBox/SystemMail.aspx" rel="nofollow">系统通知</a><span id="SysMsgNumSpan" class="font_red">(2)</span></div>
-                   <div id="FavNumLi"><a target="_self" href="http://www.youtx.com/payment/User/MyCollection/Collection.aspx" title="查看我收藏的房间" rel="nofollow">收藏夹</a></div>
-                   <div style="border:none;"><a target="_self" href="http://www.youtx.com/user/logout/" rel="nofollow">退出</a></div>
-              </div>
         </li>
-        <!--<li class="UserName">Hi,<span id="liname">游天下账号</span></li>-->
-        <!--2013-5-3修改-结束-->    
+        <li class="dropDownLi">
+            <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" class="dropDownTrigger"
+               id="MyZuKe">我是租客</a>
+            <dl class="TopullDown">
+                <dd><a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" target="_self"
+                       id="MyOrders"><span>我的订单</span></a></dd>
+                <!--<dd><a href="/User/MyMailBox/" target="_self">消息</a></dd>-->
+                <dd><a href="http://www.youtx.com/payment/User/MyCollection/Collection.aspx" target="_self">收藏夹</a></dd>
+            </dl>
+        </li>
+        <li class="dropDownLi" style="border: 1px solid rgb(255, 255, 255);">
+            <a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx" class="dropDownTrigger"
+               id="MyFangDong" style="background-position: right 12px;">我是房东</a>
+            <dl class="TopullDown" style="display: none;">
+                <dd><a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx"
+                       id="Ordermanage"><span>我的订单</span></a></dd>
+                <dd><a href="http://www.youtx.com/mallshop/mallabout/">我要开店</a></dd>
+                <dd><a href="http://www.youtx.com/room/new/">发布房间</a></dd>
+                <dd><a href="http://www.youtx.com/publish/DateMnage/">排期管理</a></dd>
+                <dd><a href="http://www.youtx.com/User/Myroom/">房源管理</a></dd>
+                <!--<dd> <a href="http://bang.youtx.com/DateManage/DateManage.aspx">我的短租帮</a></dd>-->
+            </dl>
+        </li>
+        <li class="dropDownLi">
+            <a href="javascript:;" class="dropDownTrigger" id="LiHelp">帮助</a>
+            <dl class="TopullDown">
+                <dd><a href="http://www.youtx.com/help/Manage/">房东指南</a></dd>
+                <dd><a href="http://www.youtx.com/help/serchroom/">租客指南</a></dd>
+                <dd><a href="http://www.youtx.com/help/contact/">联系我们</a></dd>
+            </dl>
+        </li>
+        <li class="dropDownPhone">
+            <a href="http://www.youtx.com/shanghai/#" class="dropDownTrigger"></a>
+            <div class="TopMobCon">
+                <dl>
+                    <dt>扫描二维码安装游天下客户端</dt>
+                    <dd><a target="_blank" href="http://www.youtx.com/mo/"><img width="120" height="120"
+                                                                                src="${base}/static/find_place/youtxapp.png"></a>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><span class="colorLkBlue">微信</span>扫描二维码使用游天下</dt>
+                    <dd><img width="102" height="102" src="${base}/static/find_place/ewmBNew.jpg"></dd>
+                    <dd>微信号：游天下短租</dd>
+                </dl>
+                <dl style="border: none;">
+                    <dt>手机浏览器访问游天下</dt>
+                    <dd style="margin-top: 45px;"><a class="mbUrl" target="_blank" href="http://m.youtx.com/">m.YouTX.com</a>
+                    </dd>
+                </dl>
+            </div>
+        </li>
     </ul>
+</#if>
 </div>
 <!--头 已登录 end-->
 <!--头 未登录 start-->

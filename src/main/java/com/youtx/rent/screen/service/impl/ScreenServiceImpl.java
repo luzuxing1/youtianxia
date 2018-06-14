@@ -1,5 +1,6 @@
 package com.youtx.rent.screen.service.impl;
 
+import com.youtx.rent.dao.PictureMapper;
 import com.youtx.rent.dao.PriceMapper;
 import com.youtx.rent.dao.RoomSituationMapper;
 import com.youtx.rent.dao.UserMapper;
@@ -28,6 +29,9 @@ public class ScreenServiceImpl implements ScreenService {
 
     @Resource
     private RoomSituationMapper roomSituationDAO;
+
+    @Resource
+    private PictureMapper pictureDAO;
 
 
     @Override
@@ -129,7 +133,7 @@ public class ScreenServiceImpl implements ScreenService {
         List<Object[]> roomList = new ArrayList<>();
         for (SolrDocument document : list) {
             if (document.get("rcity").toString().equals(city)) {
-                Object[] obj = new Object[5];
+                Object[] obj = new Object[6];
                 Room room = new Room();
                 room.setRoomId(Integer.parseInt(document.get("rid").toString()));
                 room.setRoomName(document.get("rname").toString());
@@ -139,6 +143,7 @@ public class ScreenServiceImpl implements ScreenService {
                 room.setRoomOpinionNum(Integer.parseInt(document.get("ropinion").toString()));
                 User user = userDAO.selectByPrimaryKey(Integer.parseInt(document.get("ruser").toString()));
                 obj[0] = room;
+                List<String> pictures = pictureDAO.selectByRoomId(room.getRoomId());
                 RoomResource roomResource = new RoomResource();
                 roomResource.setRoom(room);
                 roomResource.setResourceAddress(document.get("readd").toString());
@@ -150,6 +155,7 @@ public class ScreenServiceImpl implements ScreenService {
                 obj[2] = user;
                 obj[3] = price;
                 obj[4] = roomSituation;
+                obj[5] = pictures.get(0);
                 roomList.add(obj);
             }
         }
@@ -158,4 +164,5 @@ public class ScreenServiceImpl implements ScreenService {
         objects[1] = roomList;
         return objects;
     }
+
 }

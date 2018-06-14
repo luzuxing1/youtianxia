@@ -255,29 +255,36 @@
     <a id="youtx_C01_11" href="http://www.youtx.com/room/new/" target="_blank" class="freePublish">发布房间</a>
         <!--头 已登录 start-->
 
-    <ul class="headerLogin clearfix" style="" id="youtxlogin">
+<#if user!=null>
+    <ul class="headerLogin clearfix" style="" id="youtxlogin35">
         <li class="dropDownLi has_msg">
-            <a href="http://www.youtx.com/home/dashboard/" target="_blank" class="dropDownTrigger" id="NameA">卢 祖兴<img src="${base}/static/place_info/yello_dotnew.png" alt="" class="yello_dot"></a>
+            <a href="${base}/userCenter/jumpPage" target="_blank" class="dropDownTrigger" id="NameA">${user.userNickname}<img
+                    src="${base}/static/find_place/yello_dotnew.png" alt="" class="yello_dot"></a>
             <dl class="TopullDown">
-                <dd><a href="http://www.youtx.com/User/MyMailBox/" id="MsgNumA" target="_self"><span>消息</span> <span class="hp_ics">(2)</span></a></dd>
+                <dd><a href="http://www.youtx.com/User/MyMailBox/" id="MsgNumA" target="_self"><span>消息</span> <span
+                        class="hp_ics">(2)</span></a></dd>
                 <dd><a href="http://www.youtx.com/User/MyWealth/" target="_self">我的积分</a></dd>
                 <dd><a href="http://www.youtx.com/user/remind" target="_self">账户管理</a></dd>
-                <dd><a href="http://www.youtx.com/user/logout/" target="_self">退出</a></dd>
+                <dd><a href="${base}/user/lols" target="_self">退出</a></dd>
             </dl>
 
         </li>
         <li class="dropDownLi">
-            <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" class="dropDownTrigger" id="MyZuKe">我是租客</a>
+            <a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" class="dropDownTrigger"
+               id="MyZuKe">我是租客</a>
             <dl class="TopullDown">
-                <dd><a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" target="_self" id="MyOrders"><span>我的订单</span></a></dd>
+                <dd><a href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" target="_self"
+                       id="MyOrders"><span>我的订单</span></a></dd>
                 <!--<dd><a href="/User/MyMailBox/" target="_self">消息</a></dd>-->
                 <dd><a href="http://www.youtx.com/payment/User/MyCollection/Collection.aspx" target="_self">收藏夹</a></dd>
             </dl>
         </li>
-        <li class="dropDownLi">
-            <a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx" class="dropDownTrigger" id="MyFangDong">我是房东</a>
-            <dl class="TopullDown">
-                <dd><a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx" id="Ordermanage"><span>我的订单</span></a></dd>
+        <li class="dropDownLi" style="border: 1px solid rgb(255, 255, 255);">
+            <a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx" class="dropDownTrigger"
+               id="MyFangDong" style="background-position: right 12px;">我是房东</a>
+            <dl class="TopullDown" style="display: none;">
+                <dd><a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx"
+                       id="Ordermanage"><span>我的订单</span></a></dd>
                 <dd><a href="http://www.youtx.com/mallshop/mallabout/">我要开店</a></dd>
                 <dd><a href="http://www.youtx.com/room/new/">发布房间</a></dd>
                 <dd><a href="http://www.youtx.com/publish/DateMnage/">排期管理</a></dd>
@@ -294,34 +301,41 @@
             </dl>
         </li>
         <li class="dropDownPhone">
-            <a href="http://www.youtx.com/room/144142/#" class="dropDownTrigger"></a>
+            <a href="http://www.youtx.com/shanghai/#" class="dropDownTrigger"></a>
             <div class="TopMobCon">
                 <dl>
                     <dt>扫描二维码安装游天下客户端</dt>
-                    <dd><a target="_blank" href="http://www.youtx.com/mo/"><img width="120" height="120" src="${base}/static/place_info/youtxapp.png"></a></dd>
+                    <dd><a target="_blank" href="http://www.youtx.com/mo/"><img width="120" height="120"
+                                                                                src="${base}/static/find_place/youtxapp.png"></a>
+                    </dd>
                 </dl>
                 <dl>
                     <dt><span class="colorLkBlue">微信</span>扫描二维码使用游天下</dt>
-                    <dd><img width="102" height="102" src="${base}/static/place_info/ewmBNew.jpg"></dd>
+                    <dd><img width="102" height="102" src="${base}/static/find_place/ewmBNew.jpg"></dd>
                     <dd>微信号：游天下短租</dd>
                 </dl>
                 <dl style="border: none;">
                     <dt>手机浏览器访问游天下</dt>
-                    <dd style="margin-top: 45px;"><a class="mbUrl" target="_blank" href="http://m.youtx.com/">m.YouTX.com</a></dd>
+                    <dd style="margin-top: 45px;"><a class="mbUrl" target="_blank" href="http://m.youtx.com/">m.YouTX.com</a>
+                    </dd>
                 </dl>
             </div>
         </li>
     </ul>
+<#else>
 
     <!--头 已登录 end-->
     
      <!--头 未登录 start-->
     <ul class="headerLogin clearfix" id="youtxloginw" style="display: none;">
-            <li class="dropDownLino"><a id="youtx_C01_07" href="https://passport.youtx.com/profile/passport/regist.aspx">注册就送100元</a>  </li>  
-            
-        <li class="dropDownLino" style="padding-right:15px;"><a id="youtx_C01_08" href="https://passport.youtx.com/profile/passport/Login.aspx">登录</a></li>
+        <li class="dropDownLino"><a id="youtx_C01_07" href="https://passport.youtx.com/profile/passport/regist.aspx">注册就送100元</a>
+        </li>
 
-       
+        <li class="dropDownLino" style="padding-right:15px;"><a id="youtx_C01_08"
+                                                                href="${base}/user/lo">登录</a>
+        </li>
+
+
         <li class="dropDownLi"><a id="youtx_C01_09" href="http://www.youtx.com/help/" class="dropDownTrigger">帮助</a>
             <dl class="TopullDown">
                 <dd><a href="http://www.youtx.com/help/Manage/">房东指南</a></dd>
@@ -330,24 +344,28 @@
             </dl>
         </li>
         <li class="dropDownPhone">
-            <a id="youtx_C01_10" href="http://www.youtx.com/room/144142/#" class="dropDownTrigger"></a>
+            <a id="youtx_C01_10" href="http://www.youtx.com/shanghai/#" class="dropDownTrigger"></a>
             <div class="TopMobCon">
                 <dl>
                     <dt>扫描二维码安装游天下客户端</dt>
-                    <dd><a target="_blank" href="http://www.youtx.com/mo/"><img width="120" height="120" src="${base}/static/place_info/youtxapp.png"></a></dd>
+                    <dd><a target="_blank" href="http://www.youtx.com/mo/"><img width="120" height="120"
+                                                                                src="${base}/static/find_place/youtxapp.png"></a>
+                    </dd>
                 </dl>
                 <dl>
                     <dt><span class="colorLkBlue">微信</span>扫描二维码使用游天下</dt>
-                    <dd><img width="102" height="102" src="${base}/static/place_info/ewmBNew.jpg"></dd>
+                    <dd><img width="102" height="102" src="${base}/static/find_place/ewmBNew.jpg"></dd>
                     <dd>微信号：游天下短租</dd>
                 </dl>
                 <dl style="border: none;">
                     <dt>手机浏览器访问游天下</dt>
-                    <dd style="margin-top: 45px;"><a class="mbUrl" target="_blank" href="http://m.youtx.com/">m.YouTX.com</a></dd>
+                    <dd style="margin-top: 45px;"><a class="mbUrl" target="_blank" href="http://m.youtx.com/">m.YouTX.com</a>
+                    </dd>
                 </dl>
             </div>
         </li>
     </ul>
+</#if>
     <!--头 未登录 end-->
 </div>
         
@@ -470,13 +488,10 @@
                                 <a href="javascript:;" class="dtop" id="youtxxq_B06_03"><span></span></a>
                                 <a href="javascript:;" class="dbottom" id="youtxxq_B06_04"><span></span></a>
                                 <ul>
-                                    
+                                    <#list detail[5] as picture>
                                     <li class="active"><span></span>
-
-
-
-                                        
-                                    <img src="${base}/static/place_info/140x88c.jpg" alt="" picdesc="" pictype=""></li>
+                                    <img src="${imagesPath}/${picture}" alt="" picdesc="" pictype=""></li>
+                                    </#list>
                                 </ul>
                             </div>
                         </div>

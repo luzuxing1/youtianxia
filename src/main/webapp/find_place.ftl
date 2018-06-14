@@ -420,19 +420,19 @@
     </ul>
 
     <a id=" youtx_C01_16" href="http://www.youtx.com/profile/BookingTeam" target="_blank" class="freePublish">我要求租</a>
-    <a id="youtx_C01_11" href="http://www.youtx.com/room/new/" target="_blank" class="freePublish">发布房间</a>
+    <a id="youtx_C01_11" href="${base}/userCenter/jumpAddRoom" target="_blank" class="freePublish">发布房间</a>
     <!--头 已登录 start-->
-
-    <ul class="headerLogin clearfix" style="" id="youtxlogin">
+<#if user!=null>
+    <ul class="headerLogin clearfix" style="" id="youtxlogin587">
         <li class="dropDownLi has_msg">
-            <a href="http://www.youtx.com/home/dashboard/" target="_blank" class="dropDownTrigger" id="NameA">卢 祖兴<img
+            <a href="${base}/userCenter/jumpPage" target="_blank" class="dropDownTrigger" id="NameA">${user.userNickname}<img
                     src="${base}/static/find_place/yello_dotnew.png" alt="" class="yello_dot"></a>
             <dl class="TopullDown">
                 <dd><a href="http://www.youtx.com/User/MyMailBox/" id="MsgNumA" target="_self"><span>消息</span> <span
                         class="hp_ics">(2)</span></a></dd>
                 <dd><a href="http://www.youtx.com/User/MyWealth/" target="_self">我的积分</a></dd>
                 <dd><a href="http://www.youtx.com/user/remind" target="_self">账户管理</a></dd>
-                <dd><a href="http://www.youtx.com/user/logout/" target="_self">退出</a></dd>
+                <dd><a href="${base}/user/lols" target="_self">退出</a></dd>
             </dl>
 
         </li>
@@ -489,7 +489,7 @@
             </div>
         </li>
     </ul>
-
+<#else>
     <!--头 已登录 end-->
 
     <!--头 未登录 start-->
@@ -498,7 +498,7 @@
         </li>
 
         <li class="dropDownLino" style="padding-right:15px;"><a id="youtx_C01_08"
-                                                                href="https://passport.youtx.com/profile/passport/Login.aspx">登录</a>
+                                                                href="${base}/user/lo">登录</a>
         </li>
 
 
@@ -531,6 +531,7 @@
             </div>
         </li>
     </ul>
+</#if>
     <!--头 未登录 end-->
 </div>
 <!--头部end-->
@@ -1727,7 +1728,7 @@
                             <li class="clearfix">
                                 <div class="house-img"><a id="youtxlist_B05_1" class="b_pic"
                                                           href="rent/detail/show?roomId=${room[0].roomId}"
-                                                          target="_blank"><img src="${imagesPath}/3.jpg" width="300"
+                                                          target="_blank"><img src="${imagesPath}/${room[5]}" width="300"
                                                                                height="200"><span
                                         class="pic-num">1</span></a><a id="youtxlist_B05_5"
                                                                        href="http://www.youtx.com/user/show/2505111/"

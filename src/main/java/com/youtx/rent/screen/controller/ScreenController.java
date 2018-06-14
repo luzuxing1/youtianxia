@@ -1,6 +1,7 @@
 package com.youtx.rent.screen.controller;
 
 import com.youtx.rent.entity.PageBean;
+import com.youtx.rent.entity.Room;
 import com.youtx.rent.screen.service.ScreenService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
