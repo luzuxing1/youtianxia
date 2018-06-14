@@ -23,6 +23,12 @@
     from ytx_calendar
     where room_id = #{roomId}
   </select>
+  <select id="selectDateByRoomId" resultType="java.util.Date">
+    select
+    calendar_date
+    from ytx_calendar
+    where room_id = #{roomId} ORDER BY calendar_date desc
+  </select>
   <select id="selectByDateRange" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -37,7 +43,7 @@
     insert into ytx_calendar (calendar_id, calendar_price, calendar_date, 
       calendar_room, room_id)
     values (#{calendarId,jdbcType=INTEGER}, #{calendarPrice,jdbcType=INTEGER}, #{calendarDate,jdbcType=DATE}, 
-      #{calendarRoom,jdbcType=VARCHAR}, #{roomId,jdbcType=INTEGER})
+      #{calendarRoom,jdbcType=VARCHAR}, #{room.roomId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.Calendar">
     insert into ytx_calendar
