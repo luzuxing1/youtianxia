@@ -13,6 +13,8 @@ public class Price {
 
     private Integer priceClean;
 
+    private Integer pricePerExtra;
+
     private Integer priceDeposit;
 
     private Integer priceInvoice;
@@ -89,5 +91,13 @@ public class Price {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public Integer getPricePerExtra() {
+        return pricePerExtra;
+    }
+
+    public void setPricePerExtra(Integer pricePerExtra) {
+        this.pricePerExtra = pricePerExtra;
     }
 }

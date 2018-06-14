@@ -1280,11 +1280,15 @@
                                                 请填写您的支付宝账户名，为了避免您无法收款，请认真核对是否有误！</div>
                                         </li>
                                         <li class="YanzhengButton">
-                                            <input type="button" value="立即验证" onclick="checkClick()">
-                                            <span>点击验证，系统会验证您填写的支付宝信息是否正确</span> <a class="myDivPopup"></a></li>
+                                            <input type="button" value="返回首页" onclick="goindex()">
+                                             <a class="myDivPopup"></a></li>
                                     </ul>
                                     <div class="lbytck tck_success_width" id="alertnextInfo" style="display: none;">
-                                        
+                                        <script type="text/javascript">
+                                            function goindex() {
+                                                window.location.href = "${base}/test";
+                                            }
+                                        </script>
                                         
                                         
                                     </div>

@@ -107,6 +107,8 @@ public class DetailServiceImpl implements DetailService {
             List<Calendar> calendars = calendarDAO.selectByDateRange(newStartDate, newEndDate);
             for (Calendar theCalen : calendars) {
                 if (theCalen.getCalendarRoom() != null && theCalen.getCalendarRoom().equals("yz")) {
+                    System.out.println(theCalen.getRoom().getRoomId());
+                    System.out.println(theCalen.getCalendarRoom());
                     byOrdered = true;
                     return byOrdered;
                 }

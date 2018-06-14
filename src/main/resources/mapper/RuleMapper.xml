@@ -27,7 +27,7 @@
       rule_before_live, rule_order_days, room_id
       )
     values (#{ruleId,jdbcType=INTEGER}, #{ruleType,jdbcType=VARCHAR}, #{rulePercent,jdbcType=VARCHAR}, 
-      #{ruleBeforeLive,jdbcType=INTEGER}, #{ruleOrderDays,jdbcType=INTEGER}, #{roomId,jdbcType=INTEGER}
+      #{ruleBeforeLive,jdbcType=INTEGER}, #{ruleOrderDays,jdbcType=INTEGER}, #{room.roomId,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.Rule">
