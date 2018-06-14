@@ -38,6 +38,8 @@ public class SystemParm {
 
         public static int SUCESS= 10;
         public static String SUCESS_MSG="验证码有误,请重新输入";
+
+        public static String UPLOAD_SUCESS_MSG="上传成功";
     }
 
 }

@@ -4,14 +4,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <#assign base=request.contextPath />
     <base id="base" href="${base}">
- 
+
     <meta http-equiv="Cache-Control" content="max-age=86400">
     <img src="${base}/static/updatePassword/countpv" width="0" height="0"><script type="text/javascript" async="" src="${base}/static/updatePassword/load.min.js.下载"></script><script src="${base}/static/updatePassword/jquery-1.6.2.min.js.下载" language="javascript" type="text/javascript"></script>
     <script src="${base}/static/updatePassword/jQuery.cookie.js.下载" language="javascript" type="text/javascript"></script>
-   
+
     <link href="${base}/static/updatePassword/public_PassPort.css" rel="Stylesheet" type="text/css">
-    
-    
+
+
     <script type="text/javascript" language="javascript">
       window.onerror = function () { return true; }
       var userid = '';
@@ -30,17 +30,17 @@
           });
       }
     </script>
-    
+
     <title>通过手机验证码修改密码-游天下</title>
     <link href="${base}/static/updatePassword/register.css" rel="stylesheet" type="text/css">
 
-    
+
 </head>
 <body>
-    
-    
+
+
     <div class="wrapper">
-        
+
         <!--头 已登录 start-->
 <script type="text/javascript">
     var HostUrl = 'http://www.youtx.com';
@@ -73,7 +73,7 @@
 <script type="text/javascript">
     function setLang(lang) { $.cookie('LN', lang, { expires: 7, path: '/' }); location.reload(); }
     </script>
-    
+
     <script type="text/javascript">
 
     var _dctc = _dctc || {};
@@ -197,20 +197,79 @@
     </ul>
 </div>
 
-    
+
 
     <!--2012-2-24注册-->
       <div class="Registration_main">
         <div class="Registration_left" style="background:url(/profile/images/Passport/RegistrationBg.gif) no-repeat 5px bottom;"></div>
         <div class="Registration_right">
-          
+
           <!--2012-11-14修改-->
           <span class="Registration_You_x">通过手机验证码修改密码</span>
           <!--2012-11-14修改-结束-->
           <div class="Registration_tab pt20">
             <div class="item_listxt ">
              <!--2012-12-12-->
-        <div class="X_itemPhone"><input name="" type="button" value="67秒后重发" id="CodeSend" disabled="disabled"><input name="" type="button" value="修改手机号码" onclick="javascript:location.href=${base}/user/phoneCheck;"><span class="PL15">验证码已发送到</span><span class="ColorPink">${userPhone}<input type="hidden" value="${userPhone}" id="forgot_emailOrPhone"><input type="hidden" value=""></span>
+                <script type="text/javascript">
+                    var s=60;
+                    function sss()
+                    {
+                        var btnReg = $("#CodeSends").val();
+                       // var btnReg=document.getElementById("btnReg");
+                        if(btnReg)
+                        {
+                            if(s<=0)
+                            {
+                                btnReg = $("#CodeSends").val("点击重新发送");
+                                clearInterval(id);
+                            }
+                            else
+                            {
+                                btnReg = $("#CodeSends").val(""+s+"秒后点击重新发送验证");
+                                s--;
+                            }
+                        }
+                    }
+                    var id = setInterval('sss()',1000);
+
+                    function ss() {
+                        var aaaa = $("#CodeSends").val();
+                        if(aaaa == "点击重新发送"){
+//                           alert("1");
+                            var sphone = ${userPhone};
+                            $.post(
+                                    "${base}/reg/checkPhone2",
+                                    {"phone":sphone},
+                                    function (data) {
+//                            alert(data.code);
+                                        if(data.code == "6"){
+                                            window.location.href="${base}/user/updatepassword";
+                                        }else if(data.code == "9"){
+//                                alert("1");
+                                            alert(data.msg);
+                                        }else {
+//                                alert("2");
+                                            alert(data.msg);
+                                        }
+                                    }
+                            );
+                        }
+
+
+                    }
+
+
+
+
+                </script>
+        <div class="X_itemPhone">
+            <input type="button" value="点击重新发送" style="margin-left: -10px" onclick="ss()" id="CodeSends" >
+
+                <span class="PL15">验证码已发送到</span>
+                <span class="ColorPink">${userPhone}
+                    <input type="hidden" value="${userPhone}" id="forgot_emailOrPhone">
+                    <a  href="${base}/user/phoneCheck" >修改手机号码</a>
+            <input type="hidden" value=""></span>
         <p class="X_itemPhone_no CL" style="margin:10px 0 0 0;display:none;">错误次数已达最大值，为保障账号安全，半小时内不能使用手机找回密码</p>
         <div class=" CB"></div>
         </div>
@@ -221,9 +280,6 @@
               </div>
               <p id="VtxtErrorMsgs" class="item_code" style="color: #00cc66;height: 14px"></p>
               <!--2014-4-4修改-->
-              <div class="TelVerify" style="display: block;">若90秒内收不到验证码，请点击
-                  <span class="VerifBtn"><input type="button" id="CodeSendByTel" value="67秒后获取语音验证码" disabled="disabled"></span>
-              </div>
               <!--2014-4-4修改-结束-->
               <div class="input_266">
               <p class="text">新登录密码</p>
@@ -269,50 +325,51 @@
                     $(this).hide();
                     $(this).siblings().focus()
                 });
+
+
                 //验证密码1
                 $("#psw01").blur(function () {
                     var psw01 = $.trim($("#psw01").val());
                     $("#pswError01").css('visibility', 'hidden');
                     if (GetStrLength(psw01) <= 5 || GetStrLength(psw01) >= 20) {
-                     
                         $("#pswError01").css('visibility', 'visible');
                         return;
                     }
                 });
-                //验证重复密码
+                //验证确认密码1
                 $("#psw02").blur(function () {
+                    var psw01 = $.trim($("#psw01").val());
                     var psw02 = $.trim($("#psw02").val());
-                    $("#pswError02").css('visibility', 'hidden');
-                    if (GetStrLength(psw02) <= 5 || GetStrLength(psw02) >= 20) {
+                    if (psw01 != psw02) {
+                        $("#pswError02").html('密码输入不一致！');
                         $("#pswError02").css('visibility', 'visible');
                         return;
+                    }else {
+                        $("#pswError02").html('');
                     }
                 });
-                //验证码验证 6/8 lxp
+                //验证码验证 6/14 lxp
                 $("#phonecode").blur(function () {
-                   var phonecodes = $("#phonecode").val();
+                    var phonecodes = $("#phonecode").val();
                     var checkMsgs = ${checkMsg};
-//                    alert(checkMsgs);
                     if(checkMsgs != phonecodes){
                         $("#VtxtErrorMsgs").text("验证码不一致，请重新输入");
                         return;
                     }else {
                         $("#VtxtErrorMsgs").text("");
+//                        alert($("#VtxtErrorMsgs").text());
                     }
                 });
                 $("#EditPsw").click(function () {
+                    var phonecodes = $("#phonecode").val();
+                    var checkMsgs = ${checkMsg};
+
                     $("#sendErrorMsg").css('display', 'none');
-                    $("#pswError02").html('密码输入格式错误');
-                    $("#pswError02").css('visibility', 'hidden');
                     $("#VtxtErrorMsg").css('visibility', 'hidden');
                     var psw01 = $.trim($("#psw01").val());
                     var psw02 = $.trim($("#psw02").val());
                     if (GetStrLength(psw01) <= 5 || GetStrLength(psw01) >= 21) {
                         $("#pswError01").css('visibility', 'visible');
-                        return;
-                    }
-                    if (GetStrLength(psw02) <= 5 || GetStrLength(psw02) >= 21) {
-                        $("#pswError02").css('visibility', 'visible');
                         return;
                     }
                     if (psw01 != psw02) {
@@ -352,7 +409,7 @@
                 return str.length;
             }
 
-            function CheckVtxtNum(str) { 
+            function CheckVtxtNum(str) {
                 var regv = /^\d{6}$/;
                 if (!regv.test(str)) {
                     return false;
@@ -362,7 +419,7 @@
                 }
             }
     </script>
-    
+
     <script type="text/javascript" language="javascript">
         var timeID;
         $(function () {
@@ -386,7 +443,7 @@
                 else if (regPhone.test(emailOrPhone)) {
                     isEmailOrPhone = '2'; //手机
                 }
-                $.post("/profile/Ajax/EditPwdPost.aspx", { "username": emailOrPhone, "isEmailOrPhone": isEmailOrPhone, "Vtxt": Vtxt, "istel": isTel, SendCodeMi: '3df776b6a3fdc6fb595e0ed89215ce90' }, function (data) {
+                $.post("/profile/Ajax/EditPwdPost.aspx", { "username": emailOrPhone, "isEmailOrPhone": isEmailOrPhone, "Vtxt": Vtxt, "istel": isTel, SendCodeMi: '3df776b6a3fdc6fb595e0ed89215ce60' }, function (data) {
                     if (data == "sendfive") {
                         $("#CodeSend").attr("disabled", "disabled");
                         $("#CodeSendByTel").attr("disabled", "disabled");
@@ -396,8 +453,8 @@
                         $(".X_itemPhone_no").show();
                     }
                     else {
-                        LeftTime(90, 'CodeSend');
-                        LeftTime1(90);
+                        LeftTime(60, 'CodeSend');
+                        LeftTime1(60);
                     }
                 })
             }
@@ -446,7 +503,7 @@
             if ($.cookie("sendcode") == "send") {
                 $("#CodeSend").attr("disabled", "disabled");
                 $("#CodeSendByTel").attr("disabled", "disabled");
-                $.getJSON("/profile/Ajax/AjaxSendCode.aspx", { "type": "VerifyTimesLeft", "Telephone": '17602172096', "AllTime": 90, "t": Math.random() }, function (data) {
+                $.getJSON("/profile/Ajax/AjaxSendCode.aspx", { "type": "VerifyTimesLeft", "Telephone": '17602172096', "AllTime": 60, "t": Math.random() }, function (data) {
                     if (data["result"] > 0) {
                         LeftTime(data["result"], 'CodeSend');
                         LeftTime1(data["result"]);
@@ -462,9 +519,9 @@
                 });
             }
             else {
-                LeftTime(90, 'CodeSend');
+                LeftTime(60, 'CodeSend');
                 $('.TelVerify').css('display', 'block');
-                LeftTime1(90);
+                LeftTime1(60);
                 $.cookie('sendcode', "send", { expires: 30, path: '/', domain: 'youtx.com' });
             }
         });
@@ -490,7 +547,7 @@
       <li><a href="http://www.youtx.com/feedback/" target="_blank" rel="nofollow" id="A1">意见反馈</a></li>
       <li class="footer_link_space">|</li>
       <li class="footer_link_grey footer_link_space" style="margin: 0;">客服热线：400-630-0088，客服邮箱：<span>service</span> <img src="${base}/static/updatePassword/at.jpg"> <span>youtx.com</span></li>
-    </ul>   
+    </ul>
     <ul class="footer_link02">
       <li class="FooterDesktop"><a href="http://www.youtx.com/downloadshortcut/" target="_blank" rel="nofollow">下载桌面游天下</a> | <a href="http://www.youtx.com/mo/" target="_blank" rel="nofollow">手机游天下</a> | <a href="http://www.youtx.com/zhuanti/duanzufang/" target="_blank" rel="nofollow">短租房推荐</a> | <a href="http://blog.youtx.com/" target="_blank" rel="nofollow">博客</a> | </li>
       <li class="footer_link_grey footer_link_space" style="margin-right: 0;">关注我们：</li>
@@ -513,7 +570,7 @@
 </script>
 <!--2013-6-26修改-结束-->
 
-        <!--尾部2011-9-6修改 end-->        
+        <!--尾部2011-9-6修改 end-->
     </div>
 
 

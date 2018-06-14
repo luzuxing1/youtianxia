@@ -17,4 +17,11 @@ public class UserService {
     }
 
     public User findById(int userId){return userMapper.selectByPrimaryKey(userId);}
+
+    public void updtaeUser(User user){
+
+
+        userMapper.updateByPrimaryKeySelective(user);
+    }
+
 }
