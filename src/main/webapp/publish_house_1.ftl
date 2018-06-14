@@ -708,7 +708,7 @@
                             if (document.getElementById("divCheckBox").checked) {
                                 if ($("#NoSearchAdr").css("display") == "none") {
 //                                    var dtime = new Date().getTime();
-                                    alert( $.trim($("#ddlCountry option:selected").text()));
+                                    alert( $("#ddlCountry option:selected").text());
                                     alert( $("#strProvince option:selected").val());
 //                                    alert( $("#strCity option:selected").val());
 //                                    alert( $("#strDistrict option:selected").val());
@@ -718,28 +718,18 @@
 //                                    alert( $("#hosting_email").val());
 //                                    alert( $("#otherContact").val());
 //                                    alert($("#ddlCountry option:selected").text()+$("#strProvince option:selected").val())
-
-//                                    var roomInfo = {
-//                                        Country: $("#ddlCountry option:selected").text(),
-//                                        Province:$("#strProvince option:selected").val(),
-//                                        City:$("#strCity option:selected").text(),
-//                                        District:$("#strDistrict option:selected").val(),
-//                                        ProjName:$("#AjaxProjName").val(),
-//                                        resourceAddress:(Country+Province+City+District+ProjName),
-//                                        ChangeHouseInfo1: $("#ChangeHouseInfo1").val(),
-//                                        LandMarks:$("#LandMarks").val(),
-//                                        hosting_email:$("#hosting_email").val(),
-//                                        otherContact:$("#otherContact").val()
-//                                    };
+                                    var resourceAddress = $("#ddlCountry option:selected").text()
+                                            +$("#strProvince option:selected").val()+$("#strCity option:selected").text()
+                                    +$("#strDistrict option:selected").val()+$("#AjaxProjName").val()+$("#ChangeHouseInfo1").val();
+                                    alert(resourceAddress);
                                     $.post("${base}/userCenter/addRoomInfo1", {
-//                                        roomInfoData:roomInfo
 //                                        Country: $.trim($("#ddlCountry option:selected").text()),
 //                                        Province:$.trim($("#strProvince option:selected").val()),
                                         roomCity:$("#strCity option:selected").text(),
 //                                        District:$.trim($("#strDistrict option:selected").val()),
 //                                        ProjName:$.trim($("#AjaxProjName").val()),
 //                                        ChangeHouseInfo1: $.trim($("#ChangeHouseInfo1").val()),
-                                        resourceAddress:"中华",
+                                        resourceAddress:resourceAddress,
                                         resourceSign:$("#LandMarks").val()
 //                                        hosting_email:$("#hosting_email").val(),
 //                                        otherContact:$("#otherContact").val()
@@ -1201,6 +1191,7 @@
 
 <div class="wrapper">
 
+<#if user!=null>
     <!--头 已登录 start-->
     <script type="text/javascript">
         var HostUrl = 'http://www.youtx.com';
@@ -1209,8 +1200,8 @@
         var lang = "en-US";
         $(function () {
             $(".HeadLanguage").click(function () {
-                $.cookie('LN', lang, {expires: 30, path: '/', domain: 'youtx.com'});
-                $.cookie('huobi', "USD", {expires: 30, path: '/', domain: 'youtx.com'});
+                $.cookie('LN', lang, { expires: 30, path: '/', domain: 'youtx.com' });
+                $.cookie('huobi', "USD", { expires: 30, path: '/', domain: 'youtx.com' });
                 location.href = HostUrl_En;
             });
         });
@@ -1232,20 +1223,12 @@
         });
         //140226end
     </script>
-    <script type="text/javascript" src="${base}/static/publish_house_1/Login_Cookie.js.下载"></script>
+    <script type="text/javascript" src="${base}/static/personCenter/Login_Cookie.js.下载"></script>
     <script type="text/javascript">
         //监控代码请勿删除
-        var _dctc = _dctc || {};
-        _dctc._account = _dctc._account || ['UA-25297079-1'];
-        _dctc.isNorth = _dctc.isNorth || 'Y';
-        _dctc.bid = '27';
-        (function () {
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.async = true;
-            script.src = 'http://js.soufunimg.com/count/load.min.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(script, s);
+        var _dctc = _dctc || {}; _dctc._account = _dctc._account || ['UA-25297079-1']; _dctc.isNorth = _dctc.isNorth || 'Y'; _dctc.bid = '27'; (function () {
+            var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true; script.src = 'http://js.soufunimg.com/count/load.min.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
         })();
         //监控代码结束
 
@@ -1255,87 +1238,68 @@
         var WRInitTime = (new Date()).getTime();
     </script>
     <!-- ClickTale end of Top part -->
-    <div id="youtxlogin" class="header" style="">
+    <div id="youtxlogin1" class="header" style="">
         <p class="logo">
-            <a href="http://www.youtx.com/" id="youtx_01" target="_blank"><img
-                    src="${base}/static/publish_house_1/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站"
-                    title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
+            <a href="" id="youtx_01" target="_blank"><img src="${base}/static/personCenter/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站" title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
         </p>
         <!--2013-5-3修改-->
-        <p class="btncz"><a id="A2" style="cursor:default;" target="_blank" rel="nofollow"
-                            onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a>
-        </p>
+        <p class="btncz"><a id="A2" style="cursor:default;" target="_blank" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a></p>
         <ul class="HeadLandlord">
-            <li class="HeadLandlordNew"><a id="MallShopNum" target="_blank"
-                                           href="http://www.youtx.com/mallshop/mallabout/">我要开店</a></li>
-            <li><a target="_blank" href="http://www.youtx.com/room/new/">我要出租</a></li>
-            <li><a target="_blank" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx">订单管理</a></li>
-            <li><a target="_blank" href="http://www.youtx.com/publish/DateMnage/">排期管理</a></li>
-            <li><a target="_blank" href="http://www.youtx.com/User/Myroom/">房源管理</a></li>
-            <li style="border:none;"><a target="_blank"
-                                        href="http://bang.youtx.com/DateManage/DateManage.aspx">我的短租帮</a></li>
+            <li class="HeadLandlordNew"><a id="MallShopNum" target="_blank" href="">我要开店</a></li>
+            <li><a target="_blank" href="${base}/userCenter/jumpAddRoom">我要出租</a></li>
+            <li><a target="_blank" href="">订单管理</a></li>
+            <li><a target="_blank" href="">排期管理</a></li>
+            <li><a target="_blank" href="">房源管理</a></li>
+            <li style="border:none;"><a target="_blank" href="">我的短租帮</a></li>
         </ul>
         <!--2013-5-3修改-结束-->
         <ul class="subnav">
             <li><a target="_self" href="http://www.youtx.com/help/" rel="nofollow" id="youtx_05">帮助</a></li>
             <!--        <li class="PosRe"><a href="http://www.youtx.com/mo/" target="_blank"  rel="nofollow" id="youtx_04">手机游天下</a></li>-->
-            <li><a href="http://www.youtx.com/profile/BookingTeam" target="_blank">团队订房</a><img alt="新"
-                                                                                                src="${base}/static/publish_house_1/NewIco.gif"
-                                                                                                style="display:none;left:45px;"
-                                                                                                class="PosAb TN17"></li>
+            <li><a href="http://www.youtx.com/profile/BookingTeam" target="_blank">团队订房</a><img alt="新" src="${base}/static/personCenter/NewIco.gif" style="display:none;left:45px;" class="PosAb TN17"></li>
             <!--<li><a href="http://guide.youtx.com/" target="_blank" >目的地专家</a>
-            <div class="HeaderTiShi"> 出行问答，游记攻略！<span>◆</span> <span class="HeaderTiShiImg">◆</span>
-                 <p><img alt="关" src="http://js.youtx.com/images/QuAnTiShiColse.gif" id="imgx" /></p>
-            </div>
-            <div class="HeaderTiShi02" style="display:none">
-            <div id="da">收到<a href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx" id="dacount">0</a>个新回答<a class="PL10" href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx?type=answer">查看</a></div>
-            <div id="wen">收到<a href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx?type=answer" id="wencount">0</a>个网友提问<a class="PL10" href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx">查看</a></div>
-            <span class="Headerbg01 Headerbg03">◆</span><span class="Headerbg02 Headerbg04">◆</span>
-                 <p><img src="http://js.youtx.com/images/HeadOutBox.gif"  class="HeadClose"></p>
-            </div>
-        </li>-->
+                <div class="HeaderTiShi"> 出行问答，游记攻略！<span>◆</span> <span class="HeaderTiShiImg">◆</span>
+                     <p><img alt="关" src="http://js.youtx.com/images/QuAnTiShiColse.gif" id="imgx" /></p>
+                </div>
+                <div class="HeaderTiShi02" style="display:none">
+                <div id="da">收到<a href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx" id="dacount">0</a>个新回答<a class="PL10" href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx?type=answer">查看</a></div>
+                <div id="wen">收到<a href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx?type=answer" id="wencount">0</a>个网友提问<a class="PL10" href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx">查看</a></div>
+                <span class="Headerbg01 Headerbg03">◆</span><span class="Headerbg02 Headerbg04">◆</span>
+                     <p><img src="http://js.youtx.com/images/HeadOutBox.gif"  class="HeadClose"></p>
+                </div>
+            </li>-->
             <li><a target="_blank" href="http://bang.youtx.com/DateManage/DateManage.aspx">短租帮</a></li>
             <li class="HeadLanguage"><a href="http://en.youtx.com/" target="_self">English</a></li>
             <li class="ytxMob" id="mobYtx2">
                 <a href="http://www.youtx.com/mo/" target="_blank" rel="nofollow" id="A4">手机游天下</a>
-                <div class="ytxMobCon" style="display:none">
+                <div class="ytxMobCon" style="">
                     <span class="arrowGy">◆</span>
                     <span class="arrowWt">◆</span>
                     <dl>
                         <dt>扫描二维码安装游天下客户端</dt>
-                        <dd><a href="http://www.youtx.com/mo/" target="_blank"><img
-                                src="${base}/static/publish_house_1/youtxapp.png" width="120" height="120"></a></dd>
+                        <dd><a href="http://www.youtx.com/mo/" target="_blank"><img src="${base}/static/personCenter/youtxapp.png" width="120" height="120"></a></dd>
                     </dl>
                     <dl>
                         <dt><span class="ColorBlue">微信</span>扫描二维码使用游天下</dt>
-                        <dd><img src="${base}/static/publish_house_1/ewmBNew.jpg" width="102" height="102"></dd>
+                        <dd><img src="${base}/static/personCenter/ewmBNew.jpg" width="102" height="102"></dd>
                         <dd>微信公众号：游天下</dd>
                     </dl>
                     <dl style="border:none;">
                         <dt>手机浏览器访问游天下</dt>
-                        <dd style="margin-top:45px;"><a href="http://m.youtx.com/" target="_blank" class="mbUrl">m.YouTX.com</a>
-                        </dd>
+                        <dd style="margin-top:45px;"><a href="http://m.youtx.com/" target="_blank" class="mbUrl">m.YouTX.com</a></dd>
                     </dl>
                 </div>
             </li>
 
             <!--2013-5-3修改-->
             <li class="first firstNew">
-                <span class="FirstSpan FirstSpan02"><a target="_self" href="http://www.youtx.com/home/dashboard/"
-                                                       rel="nofollow">Hi,<span id="liname">卢 祖兴</span></a><span
-                        class="JianTouIco"></span></span>
+                <span class="FirstSpan FirstSpan02"><a target="_self" href="http://www.youtx.com/home/dashboard/" rel="nofollow">Hi,<span id="liname">${user.userNickname}</span></a><span class="JianTouIco"></span></span>
                 <div class="UlName UlName02">
-                    <div><a target="_self" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx"
-                            rel="nofollow">已预订的房间</a><span id="RoomsNumSpan" class="font_red">(0)</span></div>
-                    <div><a target="_self" href="http://www.youtx.com/User/MyMailBox/" rel="nofollow">站内信</a><span
-                            id="MsgNumSpan" class="font_red">(0)</span></div>
-                    <div><a target="_self" href="http://www.youtx.com/profile/User/MailBox/SystemMail.aspx"
-                            rel="nofollow">系统通知</a><span id="SysMsgNumSpan" class="font_red">(1)</span></div>
-                    <div id="FavNumLi"><a target="_self"
-                                          href="http://www.youtx.com/payment/User/MyCollection/Collection.aspx"
-                                          title="查看我收藏的房间" rel="nofollow">收藏夹</a></div>
-                    <div style="border:none;"><a target="_self" href="http://www.youtx.com/user/logout/" rel="nofollow">退出</a>
-                    </div>
+                    <div><a target="_self" href="http://www.youtx.com/payment/User/TravelEn/TenantsOrderManageEn.aspx" rel="nofollow">已预订的房间</a><span id="RoomsNumSpan" class="font_red">(0)</span></div>
+                    <div><a target="_self" href="http://www.youtx.com/User/MyMailBox/" rel="nofollow">站内信</a><span id="MsgNumSpan" class="font_red">(0)</span></div>
+                    <div><a target="_self" href="http://www.youtx.com/profile/User/MailBox/SystemMail.aspx" rel="nofollow">系统通知</a><span id="SysMsgNumSpan" class="font_red">(2)</span></div>
+                    <div id="FavNumLi"><a target="_self" href="http://www.youtx.com/payment/User/MyCollection/Collection.aspx" title="查看我收藏的房间" rel="nofollow">收藏夹</a></div>
+                    <div style="border:none;"><a target="_self" href="http://www.youtx.com/user/logout/" rel="nofollow">退出</a></div>
                 </div>
             </li>
             <!--<li class="UserName">Hi,<span id="liname">游天下账号</span></li>-->
@@ -1343,33 +1307,27 @@
         </ul>
     </div>
     <!--头 已登录 end-->
+<#else >
     <!--头 未登录 start-->
     <div id="youtxloginw" class="header" style="display: none;">
         <p class="logo">
             <a href="http://www.youtx.com/" target="_blank" id="youtx_01">
-                <img src="${base}/static/publish_house_1/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站"
-                     title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
+                <img src="${base}/static/personCenter/logo.jpg" alt="游天下 搜房网旗下-专业短租房、日租房网站" title="游天下 搜房网旗下-专业短租房、日租房网站"></a>
         </p>
         <!--2013-5-3修改-->
-        <p class="btncz"><a id="A3" style="cursor:default;" target="_blank" rel="nofollow"
-                            onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a>
-        </p>
+        <p class="btncz"><a id="A3" style="cursor:default;" target="_blank" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a></p>
         <ul class="HeadLandlord">
-            <li class="HeadLandlordNew"><a target="_blank" href="http://www.youtx.com/mallshop/mallabout/">我要开店</a></li>
-            <li><a target="_blank" href="http://www.youtx.com/room/new/">我要出租</a></li>
-            <li><a target="_blank" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx">订单管理</a></li>
-            <li><a target="_blank" href="http://www.youtx.com/publish/DateMnage/">排期管理</a></li>
-            <li><a target="_blank" href="http://www.youtx.com/User/Myroom/">房源管理</a></li>
-            <li style="border:none;"><a target="_blank"
-                                        href="http://bang.youtx.com/DateManage/DateManage.aspx">我的短租帮</a></li>
+            <li class="HeadLandlordNew"><a target="_blank" href="">我要开店</a></li>
+            <li><a target="_blank" href="">我要出租</a></li>
+            <li><a target="_blank" href="">订单管理</a></li>
+            <li><a target="_blank" href="">排期管理</a></li>
+            <li><a target="_blank" href="">房源管理</a></li>
+            <li style="border:none;"><a target="_blank" href="">我的短租帮</a></li>
         </ul>
         <!--2013-5-3修改-结束-->
         <ul class="subnav">
             <li><a target="_self" href="http://www.youtx.com/help/" rel="nofollow" id="youtx_05">帮助</a></li>
-            <li><a href="http://www.youtx.com/profile/BookingTeam" target="_blank">团队订房</a><img alt="新"
-                                                                                                src="${base}/static/publish_house_1/NewIco.gif"
-                                                                                                style="display:none;left:45px;"
-                                                                                                class="PosAb TN17"></li>
+            <li><a href="http://www.youtx.com/profile/BookingTeam" target="_blank">团队订房</a><img alt="新" src="${base}/static/personCenter/NewIco.gif" style="display:none;left:45px;" class="PosAb TN17"></li>
             <li><a target="_blank" href="http://bang.youtx.com/">短租帮</a></li>
             <li class="HeadLanguage"><a target="_self" href="http://en.youtx.com/">English</a></li>
             <li class="ytxMob" id="mobYtx">
@@ -1380,34 +1338,31 @@
                     <span class="arrowWt">◆</span>
                     <dl>
                         <dt>扫描二维码安装游天下客户端</dt>
-                        <dd><a href="http://www.youtx.com/mo/" target="_blank"><img
-                                src="${base}/static/publish_house_1/youtxapp.png" width="120" height="120"></a></dd>
+                        <dd><a href="http://www.youtx.com/mo/" target="_blank"><img src="${base}/static/personCenter/youtxapp.png" width="120" height="120"></a></dd>
                     </dl>
                     <dl>
                         <dt><span class="ColorBlue">微信</span>扫描二维码使用游天下</dt>
-                        <dd><img src="${base}/static/publish_house_1/ewmBNew.jpg" width="102" height="102"></dd>
+                        <dd><img src="${base}/static/personCenter/ewmBNew.jpg" width="102" height="102"></dd>
                         <dd>微信公众号：游天下</dd>
                     </dl>
                     <dl style="border:none;">
                         <dt>手机浏览器访问游天下</dt>
-                        <dd style="margin-top:45px;"><a href="http://m.youtx.com/" target="_blank" class="mbUrl">m.YouTX.com</a>
-                        </dd>
+                        <dd style="margin-top:45px;"><a href="http://m.youtx.com/" target="_blank" class="mbUrl">m.YouTX.com</a></dd>
                     </dl>
                 </div>
             </li>
 
             <li>
-                <a target="_self" href="https://passport.youtx.com/user/login/" rel="nofollow" id="youtx_03"
-                   onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;login&#39;});}">登录</a>
+                <a target="_self" href="https://passport.youtx.com/user/login/" rel="nofollow" id="youtx_03" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;login&#39;});}">登录</a>
             </li>
             <li class="firstNew" id="youtx_02">
-                <a target="_self" id="reg" href="https://passport.youtx.com/user/regist/" rel="nofollow"
-                   onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;register&#39;});}">注册</a>
+                <a target="_self" id="reg" href="https://passport.youtx.com/user/regist/" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;register&#39;});}">注册</a>
             </li>
 
         </ul>
     </div>
     <!--头 未登录 end-->
+</#if>
     <script type="text/javascript">
         var _bdhm_top = 0;
         var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");

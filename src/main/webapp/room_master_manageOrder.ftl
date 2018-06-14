@@ -561,10 +561,10 @@
             <p class="btncz"><a id="A2" style="cursor:default;" target="_blank" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a></p>
             <ul class="HeadLandlord">
                 <li class="HeadLandlordNew"><a id="MallShopNum" target="_blank" href="http://www.youtx.com/mallshop/mallabout/">我要开店</a></li>
-                <li><a target="_blank" href="http://www.youtx.com/room/new/">我要出租</a></li>
-                <li><a target="_blank" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx">订单管理</a></li>
-                <li><a target="_blank" href="http://www.youtx.com/publish/DateMnage/">排期管理</a></li>
-                <li><a target="_blank" href="http://www.youtx.com/User/Myroom/">房源管理</a></li>
+                <li><a target="_blank" href="">我要出租</a></li>
+                <li><a target="_blank" href="">订单管理</a></li>
+                <li><a target="_blank" href="">排期管理</a></li>
+                <li><a target="_blank" href="">房源管理</a></li>
                 <li style="border:none;"><a target="_blank" href="http://bang.youtx.com/DateManage/DateManage.aspx">我的短租帮</a></li>
             </ul>
             <!--2013-5-3修改-结束-->
@@ -823,12 +823,12 @@
     <div class="mycenter">
         
 <ul class="NewSubNav">
-    <li class=""><a href="http://www.youtx.com/home/dashboard/">账户首页</a></li>
-    <li class=""><a href="http://www.youtx.com/User/MyMailBox/">收件箱</a></li>
-    <li class="NewSubNavCur"><a href="">我是房东</a></li>
+    <li class=""><a href="${base}/userCenter/jumpPage">账户首页</a></li>
+    <li class=""><a href="">收件箱</a></li>
+    <li class="NewSubNavCur"><a href="${base}/landlordOrder/jumpLandlordOrder">我是房东</a></li>
     <li class=""><a href="${base}/userCenter/jumpLodgerPage">我是租客</a></li>
-    <li class=""><a href="http://www.youtx.com/user/remind">账户管理</a></li>
-    <li class=""><a href="http://www.youtx.com/judges/">评价管理</a></li>
+    <li class=""><a href="">账户管理</a></li>
+    <li class=""><a href="">评价管理</a></li>
     <li class=""><a href="http://www.youtx.com/profile/cashaccount/">我的资产</a></li>
     <li class=" PosRe"><a href="http://www.youtx.com/profile/User/Ask/MyAsk.aspx">我是专家</a></li>
 </ul>
@@ -838,11 +838,11 @@
 
 
                  <ul class="mycenter_smalltitle mycenter_smalltitle2">
-                  <li class="active"><a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx">订单管理</a></li>
-                    <li class=""><a href="http://www.youtx.com/User/Myroom/">房源管理</a></li>
-                     <li class="" style="position:relative;z-index:10"><a href="http://www.youtx.com/publish/DateMnage/">排期管理</a></li>
+                  <li class="active"><a href="">订单管理</a></li>
+                    <li class=""><a href="${base}/landlordOrder/jumpRoomMaster">房源管理</a></li>
+                     <li class="" style="position:relative;z-index:10"><a href="">排期管理</a></li>
                        
-                    <li class="" style="position:relative;z-index:10"><a href="http://www.youtx.com/houseRank/">我的竞争力<img style="position: absolute; top: -9px; right: -9px;" src="${base}/static/room_master_manageOrder/new.gif" alt="新"></a></li>
+                    <li class="" style="position:relative;z-index:10"><a href="">我的竞争力<img style="position: absolute; top: -9px; right: -9px;" src="${base}/static/room_master_manageOrder/new.gif" alt="新"></a></li>
                       
                     <li class=""><a href="http://www.youtx.com/payment/User/Myroom/MyEarn.aspx">赚到的钱</a></li> 
                     <li class=""><a href="http://www.youtx.com/user/salespromotion/">促销推广</a></li>
@@ -1167,6 +1167,19 @@
                                     $(this).find("#zhuangtai").css("display","");
                                 }
                                 $(this).next().find("#caozuo1").css("display","none");
+
+
+                            }else if($(this).find("#zhuangtai").text() == "drz"){
+                                $(this).find(".NewTravelYellowbg").css("display","none");
+                                $(this).find("#zhuangtai").css("display","block");
+                                $(this).find(".spanTime").css("display","block");
+                                $(this).find(".spanTime").removeClass();
+                                $(this).find("#zhuangtai").text("等待入住").addClass("NewTravelRedbg");
+                                if($(this).find("#zhuangtai").text()=="等待入住"){
+                                    $(this).find("#zhuangtai").css("display","");
+                                }
+                                $(this).next().find("#caozuo1").css("display","none");
+                                $(this).next().find("#caozuo3").css("display","none");
 
 
                             } else {
