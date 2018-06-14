@@ -27,4 +27,14 @@ public class PriceController {
         priceAndRequireService.saveRoomInfo(price , rule, require);
         return 2;
     }
+
+    @RequestMapping("/pay")
+    public String goPageFive(){
+        return "publish_house_5";
+    }
+
+    @RequestMapping("/index")
+    public String goIndex(){
+        return "index";
+    }
 }

@@ -729,7 +729,7 @@
                 }
                 $.post("${base}/fourthPage/price", {
                     tuoGuan: tuoguanFlag,
-                    roomId: "2",
+                    roomId: ${roomId},
                     Flag: flag1,
                     SelRMB: currencyName,////////////////////////
                     priceDay: setPrices[0],
@@ -759,14 +759,14 @@
                         isture = true;
                         //保存成功跳转到下一步(支付设置页面)
                         clickFlag = 0;
-                        window.location = "${base}/pay";
+                        window.location = "${base}/fourthPage/pay";
                     } else if (data1 == "1") {
                         //保存成功 弹出滤镜//保存成功
                         //$("#btnSave").css("background", "url('http://js.youtx.com/images/PaymentBtn2.gif') repeat scroll 0 35px");
                         saveDateSpecials();
                         isture = true;
                         clickFlag = 0;
-                        window.location = "${base}/pay";
+                        window.location = "${base}/fourthPage/pay";
                     } else {
                         alert("保存失败！");
                         clickFlag = 0;

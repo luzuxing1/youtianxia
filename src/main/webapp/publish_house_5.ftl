@@ -1286,7 +1286,7 @@
                                     <div class="lbytck tck_success_width" id="alertnextInfo" style="display: none;">
                                         <script type="text/javascript">
                                             function goindex() {
-                                                window.location.href = "${base}/test";
+                                                window.location.href = "${base}/fourthPage/index";
                                             }
                                         </script>
                                         
