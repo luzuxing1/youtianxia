@@ -724,7 +724,7 @@
                                 houseTypeValue = validateHouseType(houseTypeString);
                             }
                             //2013-01-23添加 end
-                            alert(ReturnCheck("ckbBathSupplies"));
+                            //alert(ReturnCheck("ckbBathSupplies"));
                             $.post("${base}/publish/houseDescribe", {
                                 houseid: houseid,
                                 numval: numval,
@@ -843,7 +843,7 @@
                             }, function (data) {
                                 if (data == "3") {
                                     //alert("保存成功！");
-                                    window.location.href = "/room/newthreeplan/324548";
+                                    window.location.href = "${base}/places/placeThree/${houseId}";
                                 } else if (data == "5") {
                                     alert("房源标题输入含有敏感词，请重新输入！");
                                 } else {
