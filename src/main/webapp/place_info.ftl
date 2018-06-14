@@ -29,7 +29,7 @@
     <link href="${base}/static/place_info/youtx-details2016.css" rel="stylesheet" type="text/css">
 
 
-    
+
     <script type="text/javascript" src="${base}/static/place_info/jquery-ui-1.8.14.custom.min.js"></script>
     <script type="text/javascript" src="${base}/static/place_info/dateFormat.js"></script>
     <script type="text/javascript" language="javascript" src="${base}/static/place_info/Youtx.Utility.js"></script>
@@ -696,20 +696,22 @@
     </div>
     
     <div id="commentzhengti">
-        <h2 class="clearfix">
-            <div class="leftstars">
-                <p id="roomPoint">5.0<span>/5.0</span></p>
-                <div class="bigStars fiveStar"></div>
-            </div>
-            <ul class="righttags clearfix">
-                <li><span>符合描述</span><i id="pMatch">5.0</i></li>
-                <li><span>沟通愉悦</span><i id="pHappy">5.0</i></li>
-                <li><span>整洁程度</span><i id="pClean">5.0</i></li>
-                <li><span>周边环境</span><i id="pEnvironment">5.0</i></li>
-                <li><span>入住顺畅</span><i id="pLive">5.0</i></li>
-                <li><span>物有所值</span><i id="pWorth">5.0</i></li>
-            </ul>
-        </h2>
+        <#if (detail[7].size() > 0)>
+            <h2 class="clearfix">
+                <div class="leftstars">
+                    <p id="roomPoint">5.0<span>/5.0</span></p>
+                    <div class="bigStars fiveStar"></div>
+                </div>
+                <ul class="righttags clearfix">
+                    <li><span>符合描述</span><i id="pMatch">5.0</i></li>
+                    <li><span>沟通愉悦</span><i id="pHappy">5.0</i></li>
+                    <li><span>整洁程度</span><i id="pClean">5.0</i></li>
+                    <li><span>周边环境</span><i id="pEnvironment">5.0</i></li>
+                    <li><span>入住顺畅</span><i id="pLive">5.0</i></li>
+                    <li><span>物有所值</span><i id="pWorth">5.0</i></li>
+                </ul>
+            </h2>
+        </#if>
     </div>
     <script type="text/javascript">
         $(function () {
@@ -1007,7 +1009,7 @@
         <div class="calendarall clearfix">
             <span style="vertical-align: middle;margin-left: 5px">入住时间</span><input type="text" readonly  id="startDate" style="border:1px solid slategrey;font-size: 14px;width: 90px;margin-left: 10px"/>
 
-            <span style="vertical-align: middle;margin-left: 10px">离开时间</span><input type="text" readonly  id="endDate" style="border:1px solid slategrey;font-size: 14px;width: 90px;margin-left: 10px" onchange="noOrder()"/>
+            <span style="vertical-align: middle;margin-left: 10px">离开时间</span><input type="text" readonly  id="endDate" style="border:1px solid slategrey;font-size: 14px;width: 90px;margin-left: 10px"/>
             <input type="hidden" />
             <script type="text/javascript">
                 $(function () {
@@ -1151,11 +1153,11 @@
     <div class="houseowner clearfix">
         <div class="left" id="youtxxq_B02_07">
             <a href="http://www.youtx.com/user/show/7302/" target="_blank" title="欧阳丹">
-                <img src="${base}/static/place_info/100x100.jpg"></a>
+                <img src="http://120.79.225.238/${detail[0].user.userHeadimg}"></a>
         </div>
         <div class="right">
             <div class="se-one clearfix">
-                <span><a href="http://www.youtx.com/user/show/7302/" id="youtxxq_B02_08" title="欧阳丹">欧阳丹</a></span>
+                <span><a href="http://www.youtx.com/user/show/7302/" id="youtxxq_B02_08">${detail[0].user.userRealname}</a></span>
                 <div>
                        <i></i><em>747</em><p><b>芝麻信用分：747</b><a target="_blank" href="http://www.youtx.com/profile/Passport/ZhimaTrustNew.aspx" class="points-go">什么是芝麻信用？去看看自己的</a></p>
                    </div>
@@ -1168,7 +1170,7 @@
                 </a>
             </div>
             <div class="se-three">
-                <span><a id="youtxxq_B02_10" href="http://www.youtx.com/user/show/7302/#profilepingjia" target="_blank">84</a></span>人评价
+                <span><a id="youtxxq_B02_10" href="http://www.youtx.com/user/show/7302/#profilepingjia" target="_blank">${allOpinions.size()}</a></span>人评价
             </div>
             
             <div id="youtxxq_B02_48"><a href="javascript:void(0)" rel="nofollow" class="se-four clearfix" onclick="WebIM.JieMian.AddChatWin(7302,144142,&quot;&quot;,1,1,4654654)"><b></b><em>在线聊天</em></a></div>
