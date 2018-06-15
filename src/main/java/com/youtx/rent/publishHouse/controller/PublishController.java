@@ -30,6 +30,7 @@ public class PublishController {
     public String houseDescribe(Integer houseid, RoomSituation roomSituation, RoomDesc desc, Facility facility){
         Room room = new Room ();
         room.setRoomId ( houseid );
+        room.setRoomName (desc.getDescTitle ());
         String situFloor = roomSituation.getSituFloor ();
         if("/".equals (situFloor)){
             roomSituation.setSituFloor (null);
@@ -37,7 +38,7 @@ public class PublishController {
         roomSituation.setRoom ( room );
         desc.setRoom ( room );
         facility.setRoom ( room );
-        int info = houseInfoService.saveHouseInfo ( roomSituation, desc, facility );
+        int info = houseInfoService.saveHouseInfo ( room,roomSituation, desc, facility );
         if(info==1){
             return "3";
         }
