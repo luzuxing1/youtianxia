@@ -65,8 +65,8 @@
 			<th>城市</th>
             <th>房间的名字</th>
 			<th>价格</th>
+			<th>房间销售量</th>
 			<th>房间评论数</th>
-			<th>房间可选数量</th>
 			<th>发布房间时间</th>
 			<th>用户</th>
             <th>状态</th>
@@ -74,7 +74,7 @@
 		</tr>
 		</thead>
 		<tbody>
-		<#setting datetime_format ="yyyy-MM-dd">
+		<#setting datetime_format ="yyyy-MM-dd HH:mm:ss">
 
 			<#list roomList as room>
 				<tr class="each">
@@ -103,11 +103,16 @@
 			$(".each").each(function () {
                 var asd = $(this).find(".roomState").text();
                 var abc = $(this).find(".roomState");
+                var vals = $(this).find(".check").val();
+                var valee = $(this).find(".check");
                 if(asd == "0"){
                     abc.text("通过");
+                    valee.val("已审核");
+                    valee.css("background-color","green").css("color","white");
                 }else if(asd == "1"){
                     abc.text("未通过");
 				}
+
             });
         });
         function searchs(obj) {
@@ -115,31 +120,41 @@
             var id = $(obj).parent().prev().prev().prev().prev().prev().prev().prev().prev().prev().text();
             var aaa = $(obj).parent().prev();
 //            var sss = $("#roomState").text();
+
+			if(aaa.text() == "通过"){
+				alert("已经通过审核，请勿重复提交");
+			}
 			if(sss == "未通过"){
-			    var roomSt = "1";
+			    var roomSt = "0";
 			    $.post(
 			        	"${base}/rooms/updateState",
 						{"roomId":id,"roomState":roomSt},
 						function (data) {
 							if(data.code == "0"){
                                 aaa.text("通过");
+                                alert("已通过审核");
+                                $(obj).val("已审核");
+//                                $(obj).attr("disabled","disabled");
+                                $(obj).css("background-color","green").css("color","white");
 							    <#--window.location.href = "${base}/rooms/roomPage?page=${roomPage.currentPage}";-->
 							}
                         }
 				);
-			}else if(sss == "通过"){
-                var roomss = "0";
-                $.post(
-                        "${base}/rooms/updateState",
-                        {"roomId":id,"roomState":roomss},
-                        function (data) {
-                            if(data.code == "0"){
-                                aaa.text("未通过");
-							<#--window.location.href = "${base}/rooms/roomPage?page=${roomPage.currentPage}";-->
-                            }
-                        }
-                );
 			}
+
+			<#--else if(sss == "通过"){-->
+                <#--var roomss = "1";-->
+                <#--$.post(-->
+                        <#--"${base}/rooms/updateState",-->
+                        <#--{"roomId":id,"roomState":roomss},-->
+                        <#--function (data) {-->
+                            <#--if(data.code == "0"){-->
+                                <#--aaa.text("未通过");-->
+							<#--&lt;#&ndash;window.location.href = "${base}/rooms/roomPage?page=${roomPage.currentPage}";&ndash;&gt;-->
+                            <#--}-->
+                        <#--}-->
+                <#--);-->
+			<#--}-->
         }
 
 

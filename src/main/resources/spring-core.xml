@@ -79,14 +79,44 @@
     <bean name="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
         <!--指定登录界面，按实际更改路径，如  /login.jsp  -->
-        <property name="loginUrl" value="/user/los"/>
+        <property name="loginUrl" value="/user/lo"/>
 
         <property name="filterChainDefinitions">
             <value>
                 <!--anon不需要登录，注意路径-->
                  <!--/user/login=anon-->
                 <!--/user/login=anon-->
-                <!--/static/*=anon-->
+                /css/**=anon
+                /images/**=anon
+                /js/**=anon
+                /static/**=anon
+                <!--/**=anon-->
+                <!--/user/los=anon-->
+                /vcode/msg =anon
+
+                /book/present=authc
+                /book/order=authc
+                /manage/**=authc
+                /order/gotopay=authc
+                /fourthPage/pay=authc
+                /publish/toHouseDescribe=authc
+                /landlordOrder/jumpRoomMaster=authc
+                /places/placeThree=authc
+                /places/imgupload=authc
+                /places/delete=authc
+
+                <!-- 后台管理拦截-->
+                /user/admin=authc
+                /user/userPage=authc
+                /user/addUser=authc
+                /user/add=authc
+                /user/preupdate=authc
+                /rooms/roomPage=authc
+                /rooms/addRoom=authc
+                /rooms/add=authc
+                /rooms/preupdate=authc
+                /rooms/updateState=authc
+                /rooms/update=authc
                 <!--/css5/*=anon-->
                 <!--/dist/*=anon-->
                 <!--/image/*=anon-->
@@ -111,6 +141,6 @@
     <!--multipartResolver配置上传文件 整合spring-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="UTF-8"></property>
-        <property name="maxUploadSize" value="1024000"></property>
+        <property name="maxUploadSize" value="10240000"></property>
     </bean>
 </beans>

@@ -36,6 +36,8 @@ public class PlaceController {
     @RequestMapping("/placeThree/{roomId}")
     public String placethree(@PathVariable("roomId") int roomId){
         SecurityUtils.getSubject().getSession().setAttribute("roomId",roomId);
+        List<Picture> pictures = pictureService.selectById(roomId);
+        SecurityUtils.getSubject().getSession().setAttribute("pictures",pictures);
         return "publish_house_3";
     }
 
