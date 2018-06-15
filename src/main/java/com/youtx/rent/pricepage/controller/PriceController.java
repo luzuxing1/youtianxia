@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/fourthPage")
@@ -25,6 +26,9 @@ public class PriceController {
         rule.setRoom(room);
         require.setRoom(room);
         room.setRoomPrice(price.getPriceDay());
+        room.setRoomSale(0);
+        room.setRoomOpinionNum(0);
+        room.setRoomTime(new Date());
         priceAndRequireService.saveRoomInfo(price , rule, require, room);
         return 2;
     }

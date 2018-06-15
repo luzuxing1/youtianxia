@@ -118,6 +118,7 @@ public class ScreenServiceImpl implements ScreenService {
                 query.addSort(sort, SolrQuery.ORDER.desc);
             }
         }
+        params.append(" AND rstate:0");
         query.setStart(page.getStart());
         query.setRows(page.getSize());
         query.setQuery(params.toString());
