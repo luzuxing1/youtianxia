@@ -107,8 +107,6 @@ public class DetailServiceImpl implements DetailService {
             for (Calendar theCalen : calendars) {
                 System.out.println(theCalen.getCalendarRoom());
                 if (theCalen.getCalendarRoom() != null && theCalen.getCalendarRoom().equals("yz")) {
-                    System.out.println(theCalen.getRoom().getRoomId());
-                    System.out.println(theCalen.getCalendarRoom());
                     byOrdered = true;
                     return byOrdered;
                 }

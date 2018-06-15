@@ -1790,7 +1790,7 @@
                                     <div class="clear"></div>
                                     <div class="agentInfo mt16" style="margin-top:38px;"><p><a id="youtxlist_B05_6"
                                                                                                href="http://www.youtx.com/user/show/2505111/"
-                                                                                               target="_blank">${room[2].userRealname}</a><em
+                                                                                               target="_blank">${room[2].userNickname}</a><em
                                             class="tel">400-8130-400 转 49136</em></p>
                                         <p class="mt10 btm_p_ clearfix"></p></div>
                                 </div>

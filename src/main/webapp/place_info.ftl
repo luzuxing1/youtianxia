@@ -394,12 +394,12 @@
                     <li id="youtxxq_B04_1" class="">房屋描述</li>
                     <li id="youtxxq_B04_2" class="">位置地图</li>
                     <li id="youtxxq_B04_6" class="">预订必读</li>
-                    <li id="youtxxq_B04_3" class="">租客评价（10）</li>
+                    <li id="youtxxq_B04_3" class="">租客评价（${allOpinions.size()}）</li>
                 </ul>
                 
                 <!--今晚特价 start-->
                 
-                <p id="PriceNum_Value2"><i>￥</i><span>330</span>日均</p>
+                <p id="PriceNum_Value2"><i>￥</i><span>${detail[6].priceDay}</span>日均</p>
 
                 <!--FixedNavBtn_R-->
                 
@@ -436,7 +436,7 @@
                             <div class="sec-1 clearfix">
                                 <h2 title="${detail[0].roomName}">${detail[0].roomName}</h2>
                                 <div class="bigStars fiveStar"></div>
-                                <div class="judge">(<span>10</span>人评价)</div>
+                                <div class="judge">(<span>${allOpinions.size()}</span>人评价)</div>
 
                                 <a href="javascript:void(0)" class="collect" id="youtxxq_B02_04"><span></span><i>收藏</i></a>
                                 
@@ -478,10 +478,10 @@
                                 <li class="active">
                                     <div></div>
                                     <p>
-                                        <span id="pic_showinfo">16张</span><i>此房型有多套，实际入住可能略有不同</i>
+                                        <span id="pic_showinfo1">${detail[5].size()}张</span><i>此房型有多套，实际入住可能略有不同</i>
                                     </p>
                                     <b>
-                                        <img id="Pic_big" src="${base}/static/place_info/640x480c.jpg" alt=""></b></li>
+                                        <img id="Pic_big" src="${imagesPath}/${detail[5].get(0)}" alt="" style="width:640px;height: 480px"></b></li>
                             </ul>
                             <!--小图-->
                             <div class="dsmallpic">
@@ -797,7 +797,7 @@
                             <img src="${base}/static/place_info/68x68.png" width="80" height="80" alt=""></a>
                         <p>
                             <a  target="_blank">
-                                ${opinions.lodgerUser.userRealname}</a>
+                                ${opinions.lodgerUser.userNickname}</a>
                         </p>
                     </h6>
                     <div class="evacontent">
@@ -865,7 +865,7 @@
         <div class="pagebox">
             <div class="evaluate" id="anthercomment1_div">
                 <#list allOpinions as allOp>
-                <div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '2101948'="" target="_blank"><img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/2101948" target="_blank">${allOp.lodgerUser.userRealname}</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-five"></div></div><div class="text">${allOp.opinionContent}</div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://localhost:8080/rent/detail/show?roomId=${allOp.room.roomId}" target="_blank"><img src="${base}/static/place_info/120x90c(4).jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://localhost:8080/rent/detail/show?roomId=${allOp.room.roomId}" target="_blank">${allOp.room.roomName}</a></p><span>￥${allOp.room.roomPrice}/起</span></div><div class="pos">${allOp.room.roomResource.resourceAddress}</div><div class="details">${allOp.room.roomResource.resourceSign}</div></div></div></div></div></div>
+                <div class="perhouserecom clearfix"><h6> <a href="http://www.youtx.com/" user="" show="" '2101948'="" target="_blank"><img src="${base}/static/place_info/pic-68x68.jpg" width="80" height="80" alt=""></a><p><a href="http://www.youtx.com/user/show/2101948" target="_blank">${allOp.lodgerUser.userNickname}</a></p></h6><div class="evacontent"><div class="recom clearfix"><div class="stars se-two-five"></div></div><div class="text">${allOp.opinionContent}</div><div class="housing"><h3>评价相关房源</h3><div class="housingbox clearfix"><div class="left"><a href="http://localhost:8080/rent/detail/show?roomId=${allOp.room.roomId}" target="_blank"><img src="${base}/static/place_info/120x90c(4).jpg" width="120" height="90"></a></div><div class="right"><div class="title clearfix"><p><a href="http://localhost:8080/rent/detail/show?roomId=${allOp.room.roomId}" target="_blank">${allOp.room.roomName}</a></p><span>￥${allOp.room.roomPrice}/起</span></div><div class="pos">${allOp.room.roomResource.resourceAddress}</div><div class="details">${allOp.room.roomResource.resourceSign}</div></div></div></div></div></div>
                 </#list>
             </div>
         </div>
@@ -1168,11 +1168,11 @@
     <div class="houseowner clearfix">
         <div class="left" id="youtxxq_B02_07">
             <a href="http://www.youtx.com/user/show/7302/" target="_blank" title="欧阳丹">
-                <img src="http://120.79.225.238/${detail[0].user.userHeadimg}"></a>
+                <img src="${imagesPath}/${detail[0].user.userHeadimg}"></a>
         </div>
         <div class="right">
             <div class="se-one clearfix">
-                <span><a href="http://www.youtx.com/user/show/7302/" id="youtxxq_B02_08">${detail[0].user.userRealname}</a></span>
+                <span><a href="http://www.youtx.com/user/show/7302/" id="youtxxq_B02_08">${detail[0].user.userNickname}</a></span>
                 <div>
                        <i></i><em>747</em><p><b>芝麻信用分：747</b><a target="_blank" href="http://www.youtx.com/profile/Passport/ZhimaTrustNew.aspx" class="points-go">什么是芝麻信用？去看看自己的</a></p>
                    </div>
