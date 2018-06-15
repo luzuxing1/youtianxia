@@ -1596,7 +1596,7 @@
                     <!--2014-11-17修改-结束-->
 
                     <div id="results_count_top" class="result-count"><a href="http://www.youtx.com/" class="GrayFont">游天下短租房</a><span>&nbsp;&gt;&nbsp;</span><a
-                            class="BlueFont">${selectedcity}短租房</a>&nbsp;-&nbsp;找到相关房源&nbsp;3543&nbsp;个
+                            class="BlueFont">${selectedcity}短租房</a>&nbsp;-&nbsp;找到相关房源&nbsp;${roomList.size()}&nbsp;个
                     </div>
                 </div>
 
@@ -1733,7 +1733,7 @@
                                         class="pic-num">1</span></a><a id="youtxlist_B05_5"
                                                                        href="http://www.youtx.com/user/show/2505111/"
                                                                        target="_blank" class="pic-head"><img
-                                        src="${base}/static/find_place/70x70.jpg" width="70" height="70"></a>
+                                        src="${imagesPath}/${room[2].userHeadimg}" width="70" height="70"></a>
                                     <p class="clearfix"></p></div>
                                 <div class="houseInfo clearfix">
                                     <div class="house-tit clearfix"><h3><a id="youtxlist_B05_2"
@@ -1832,7 +1832,7 @@
                         <p id="results_count_footer" class="PB5"><a id="youtxlist_B06_01"
                                                                     href="http://www.youtx.com/shanghai/"
                                                                     class="BlueFont">${selectedcity}短租房</a>&nbsp;-&nbsp;找到相关房源&nbsp;<span
-                                class="c2b98dd">${pageInfo[0] * 10}</span>&nbsp;个，每页&nbsp;<span class="c2b98dd">1</span>&nbsp;个结果
+                                class="c2b98dd">${roomList.size()}</span>&nbsp;个，每页&nbsp;<span class="c2b98dd">1</span>&nbsp;个结果
                         </p>
                         <p><span class="c2b98dd">没有找到满意的房子？</span> <a href="http://www.youtx.com/profile/BookingTeam"
                                                                       class="btn_publish" target="_blank">我要发布求租</a></p>

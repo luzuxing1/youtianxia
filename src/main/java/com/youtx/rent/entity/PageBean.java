@@ -1,7 +1,7 @@
 package com.youtx.rent.entity;
 
 public class PageBean {
-    public static final int DEFAULT_SIZE = 1;
+    public static final int DEFAULT_SIZE = 5;
 
     private int current;
 

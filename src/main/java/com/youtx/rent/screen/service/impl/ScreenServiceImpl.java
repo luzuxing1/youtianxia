@@ -45,7 +45,7 @@ public class ScreenServiceImpl implements ScreenService {
         }
         StringBuilder params = new StringBuilder("");
         params.append("keys:" + key);
-        params.append(" AND rcity:" + city);
+        params.append(" AND rcity:" + city + "市");
         params.append(" AND rprice:[" + min + " TO " + max + "]");
 
         for (int i = 0; i <= rooms.length - 1; i++) {
@@ -103,7 +103,7 @@ public class ScreenServiceImpl implements ScreenService {
                 }
             }
         }
-
+        params.append(" AND rstate:0");
         for (String fac : facs) {
             if (!fac.equals("*")) {
                 params.append(" AND " + fac + ":1");
@@ -118,7 +118,6 @@ public class ScreenServiceImpl implements ScreenService {
                 query.addSort(sort, SolrQuery.ORDER.desc);
             }
         }
-        params.append(" AND rstate:0");
         query.setStart(page.getStart());
         query.setRows(page.getSize());
         query.setQuery(params.toString());
@@ -133,7 +132,7 @@ public class ScreenServiceImpl implements ScreenService {
         page.setCount((int) list.getNumFound());
         List<Object[]> roomList = new ArrayList<>();
         for (SolrDocument document : list) {
-            if (document.get("rcity").toString().equals(city)) {
+            if (document.get("rcity").toString().equals(city + "市")) {
                 Object[] obj = new Object[6];
                 Room room = new Room();
                 room.setRoomId(Integer.parseInt(document.get("rid").toString()));
