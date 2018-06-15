@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -45,6 +44,7 @@ public class Book {
         for (Calendar calendar : calendars) {
             price += calendar.getCalendarPrice ();
         }
+        price = Integer.parseInt (rooms)*price;
         model.addAttribute ( "price",price );
         return "submit_order";
     }
