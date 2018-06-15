@@ -33,8 +33,25 @@ public class Room {
     private List<String> pictureList;
     private RoomResource roomResource;
     private Schedule schedule;
-
+    private RoomDesc roomDesc;
+    private RoomSituation roomSituation;
     private int UserId;
+
+    public RoomSituation getRoomSituation() {
+        return roomSituation;
+    }
+
+    public void setRoomSituation(RoomSituation roomSituation) {
+        this.roomSituation = roomSituation;
+    }
+
+    public RoomDesc getRoomDesc() {
+        return roomDesc;
+    }
+
+    public void setRoomDesc(RoomDesc roomDesc) {
+        this.roomDesc = roomDesc;
+    }
 
     public int getUserId() {
         return UserId;

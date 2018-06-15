@@ -82,9 +82,9 @@
     <ul class="HeadLandlord">
         <li class="HeadLandlordNew"><a id="MallShopNum" target="_blank" href="">我要开店</a></li>
         <li><a target="_blank" href="${base}/userCenter/jumpAddRoom">我要出租</a></li>
-        <li><a target="_blank" href="">订单管理</a></li>
+        <li><a target="_blank" href="${base}/landlordOrder/jumpLandlordOrder">订单管理</a></li>
         <li><a target="_blank" href="">排期管理</a></li>
-        <li><a target="_blank" href="">房源管理</a></li>
+        <li><a target="_blank" href="${base}/landlordOrder/jumpRoomMaster">房源管理</a></li>
         <li style="border:none;"><a target="_blank" href="">我的短租帮</a></li>
     </ul>
     <!--2013-5-3修改-结束-->

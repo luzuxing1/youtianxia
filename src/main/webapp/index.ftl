@@ -136,7 +136,7 @@
             </dl>
         </li>
         <li class="dropDownLi">
-            <a href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx" class="dropDownTrigger" id="MyFangDong">我是房东</a>
+            <a href="${base}/landlordOrder/jumpLandlordOrder" class="dropDownTrigger" id="MyFangDong">我是房东</a>
             <dl class="TopullDown">
                 <dd><a href="${base}/landlordOrder/jumpLandlordOrder" id="Ordermanage"><span>订单管理</span></a></dd>
                 <dd><a href="">我要开店</a></dd>

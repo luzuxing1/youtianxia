@@ -19,6 +19,7 @@ public interface RoomMapper {
     int updateByPrimaryKeySelective(Room record);
 
     int updateByPrimaryKey(Room record);
+    List<Room> selectRoomByState(@Param("userId") Integer userId,@Param("start") Integer start ,@Param("length") Integer length);
 
     List<Integer> selectRoomId(Integer userId);
 

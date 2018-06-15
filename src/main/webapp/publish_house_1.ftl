@@ -708,8 +708,8 @@
                             if (document.getElementById("divCheckBox").checked) {
                                 if ($("#NoSearchAdr").css("display") == "none") {
 //                                    var dtime = new Date().getTime();
-                                    alert( $("#ddlCountry option:selected").text());
-                                    alert( $("#strProvince option:selected").val());
+//                                    alert( $("#ddlCountry option:selected").text());
+//                                    alert( $("#strProvince option:selected").val());
 //                                    alert( $("#strCity option:selected").val());
 //                                    alert( $("#strDistrict option:selected").val());
 //                                    alert( $("#AjaxProjName").val());
@@ -721,7 +721,7 @@
                                     var resourceAddress = $("#ddlCountry option:selected").text()
                                             +$("#strProvince option:selected").val()+$("#strCity option:selected").text()
                                     +$("#strDistrict option:selected").val()+$("#AjaxProjName").val()+$("#ChangeHouseInfo1").val();
-                                    alert(resourceAddress);
+//                                    alert(resourceAddress);
                                     $.post("${base}/userCenter/addRoomInfo1", {
 //                                        Country: $.trim($("#ddlCountry option:selected").text()),
 //                                        Province:$.trim($("#strProvince option:selected").val()),
@@ -762,7 +762,7 @@
 //                                        dtim: dtime
                                     }, function (data) {
                                         if (data  != null ) {
-                                            alert("保存成功！"+data);
+//                                            alert("保存成功！"+data);
                                             location.href = "${base}/publish/toHouseDescribe/" + data;
                                         }else{
                                             alert("没有返回");

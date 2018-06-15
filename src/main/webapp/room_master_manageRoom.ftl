@@ -254,11 +254,11 @@
             <!--2013-5-3修改-->
             <p class="btncz"><a id="A2" style="cursor:default;" target="_blank" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a></p>
             <ul class="HeadLandlord">
-                <li class="HeadLandlordNew"><a id="MallShopNum" target="_blank" href="http://www.youtx.com/mallshop/mallabout/">我要开店</a></li>
-                <li><a target="_blank" href="">我要出租</a></li>
+                <li class="HeadLandlordNew"><a id="MallShopNum" target="_blank" href="">我要开店</a></li>
+                <li><a target="_blank" href="${base}/userCenter/jumpAddRoom">我要出租</a></li>
                 <li><a target="_blank" href="">订单管理</a></li>
                 <li><a target="_blank" href="">排期管理</a></li>
-                <li><a target="_blank" href="">房源管理</a></li>
+                <li><a target="_blank" href="${base}/landlordOrder/jumpRoomMaster">房源管理</a></li>
                 <li style="border:none;"><a target="_blank" href="http://bang.youtx.com/DateManage/DateManage.aspx">我的短租帮</a></li>
             </ul>
             <!--2013-5-3修改-结束-->
@@ -326,11 +326,11 @@
             <!--2013-5-3修改-->
             <p class="btncz"><a id="A3" style="cursor:default;" target="_blank" rel="nofollow" onclick="if(_dctc.trackEvent){_dctc.trackEvent({c:&#39;index&#39;, a:&#39;publish&#39;});}">我是房东</a></p>
             <ul class="HeadLandlord">
-                <li class="HeadLandlordNew"><a target="_blank" href="http://www.youtx.com/mallshop/mallabout/">我要开店</a></li>
-                <li><a target="_blank" href="http://www.youtx.com/room/new/">我要出租</a></li>
-                <li><a target="_blank" href="http://www.youtx.com/payment/User/MyroomEn/OrderManageEn.aspx">订单管理</a></li>
-                <li><a target="_blank" href="http://www.youtx.com/publish/DateMnage/">排期管理</a></li>
-                <li><a target="_blank" href="http://www.youtx.com/User/Myroom/">房源管理</a></li>
+                <li class="HeadLandlordNew"><a target="_blank" href="">我要开店</a></li>
+                <li><a target="_blank" href="${base}/userCenter/jumpAddRoom">我要出租</a></li>
+                <li><a target="_blank" href="">订单管理</a></li>
+                <li><a target="_blank" href="">排期管理</a></li>
+                <li><a target="_blank" href="${base}/landlordOrder/jumpRoomMaster">房源管理</a></li>
                 <li style="border:none;"><a target="_blank" href="http://bang.youtx.com/DateManage/DateManage.aspx">我的短租帮</a></li>
             </ul>
             <!--2013-5-3修改-结束-->
@@ -492,8 +492,8 @@
                 </div>
 
                 <div class="mycenter_main_comment">
-                    
-                    <ul class="mc_m_c_alone">
+                    <#list rooms as room>
+                    <ul class="mc_m_c_alone" style="min-height: 200px;">
                         
                         <li class="clearfix" style="margin-top: 0pt; padding-top: 0pt; border-top: none;">
                             
@@ -501,15 +501,15 @@
                                     
                                         <a href="http://www.youtx.com/room/324548/" target="_blank">
                                             
-                                            <img width="134" height="86" alt="" src="${base}/static/room_master_manageRoom/134x86c.jpg">
+                                            <img width="134" height="86" alt="" src="${imagesPath}/${room.pictureList[0]}">
                                         </a>
                                         
                                         <p>
-                                            2018年6月4日发布
+                                            ${room.roomTime}发布
                                         </p>
                                         <p>
                                             房间编号：
-                                            324548
+                                            ${room.roomId}
                                         </p>
                                         
                                         <!--新加-->
@@ -522,13 +522,13 @@
                                 <div class="mc_m_c_alone_infr" style="position: relative;">
                                     <h3>
                                           
-                                          <a href="http://www.youtx.com/room/324548/" target="_blank">
-                                              测试专用！休憩偷闲的一缕安逸之处
+                                          <a href="" target="_blank">
+                                              ${room.roomName}
                                               
                                           </a>
                                           
                                           <span>
-                                              ￥50元/晚</span></h3>
+                                              ￥${room.roomPrice}元/晚</span></h3>
                                     
                                     <div class="mc_m_c_alone_actions mc_m_c_alone_actions2">
                                         
@@ -537,20 +537,20 @@
                                         <!--2012-8-20 添加详细地址和邮编end-->
                                         
                                         <p>
-                                            闵行区银都路3118弄银都7村201室，银都路
+                                            ${room.roomResource.resourceAddress}
                                         </p>
                                         <p>
                                               <span>
-                                                  
-                                                  *
+                                                  ${room.roomSituation.situType}
+
                                                   </span>
                                               
                                               <span>
-                                                  2室
-                                                  1卫，25平</span>
+                                                  ${room.roomSituation.situRoomNum}室
+                                                  ${room.roomSituation.situToiletNum}卫，${room.roomSituation.situRoomArea}平</span>
                                               
                                               <span>
-                                                  共1套</span>
+                                                  共${room.roomSituation.situOtherResource}套</span>
                                           </p>
                                         
                                     </div>
@@ -664,16 +664,32 @@
                             </li>
                             
                     </ul>
-                    
+                    </#list>
+                </div>
+                <div class="travel_ls_page">
+                    <div class="page" style="float: right;">
+                    <#if orderPage.current==1>
+                        <a class="page_sele">《</a>
+                    <#else >
+                        <a href="${base}/landlordOrder/jumpRoomMaster?current=${orderPage.current-1}" class="page_sele">《</a>
+                    </#if>
+                    <#list 1..totalPages as i>
+                        <#if i==orderPage.current>
+                            <a  class="page_sele">${i}</a>
+                        <#else >
+                            <a href="${base}/landlordOrder/jumpRoomMaster?current=${i}" class="page_sele">${i}</a>
+                        </#if>
+                    </#list>
+                    <#if orderPage.current==totalPages>
+                        <a class="page_sele">》</a>
+                    <#else >
+                        <a href="${base}/landlordOrder/jumpRoomMaster?current=${orderPage.current+1}" class="page_sele">》</a>
+                    </#if>
+                    <#--<span class="page_sele">1</span>-->
+                    </div>
                 </div>
             </div>
-            <div class="mycenter_page">
-                <div class="page" style="float: right;">
-                    
-        <span class="page_sele">1</span>
-    
-                </div>
-            </div>
+
         </div>
     </div>
     <script type="text/javascript">

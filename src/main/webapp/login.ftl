@@ -246,10 +246,10 @@ body{ background:url("/profile/images/loginBg.jpg") no-repeat center 70px ;}
                 <!--普通登录-->
                 <div id="Member">
                     <div class="logInAccount">
-                        <input class="logInInput" id="signin_email" type="text" placeholder="手机号" value="13260591359">
+                        <input class="logInInput" id="signin_email" type="text" placeholder="手机号" value="">
                     </div>
                     <div class="logInPwd PosRe">
-                        <input class="logInInput" type="password" id="signin_password" placeholder="密码" value="111111">
+                        <input class="logInInput" type="password" id="signin_password" placeholder="密码" value="">
                         <div class="logInPwdTip">
                             </div>
                     </div>

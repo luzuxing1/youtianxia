@@ -11,6 +11,8 @@
     <result column="room_time" jdbcType="DATE" property="roomTime" />
     <result column="room_state" jdbcType="VARCHAR" property="roomState"/>
 
+    <association property="roomSituation" column="room_id" select="com.youtx.rent.dao.RoomSituationMapper.selectByRoomId"/>
+    <association property="roomDesc" column="room_id" select="com.youtx.rent.dao.RoomDescMapper.selectByRoomId"/>
     <association property="roomResource" column="room_id" select="com.youtx.rent.dao.RoomResourceMapper.selectByRoomId"/>
     <association property="user" column="user_id" select="com.youtx.rent.dao.UserMapper.selectByPrimaryKey" />
     <!--<association property="schedule" column="room_id" select="com.youtx.rent.dao.ScheduleMapper.selectByRoomId"/>-->
@@ -56,6 +58,13 @@
     limit #{currentPage},#{pages};
   </select>
 
+  <select id="selectRoomByState" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM ytx_room
+    WHERE user_id = #{userId} AND room_state = '1'
+    limit #{start},#{length};
+  </select>
   <select id="selectRoomCounts"  resultType="java.lang.Integer" >
     SELECT COUNT(1) from ytx_room;
   </select>

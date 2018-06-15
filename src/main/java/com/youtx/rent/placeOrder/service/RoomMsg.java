@@ -45,6 +45,9 @@ public class RoomMsg {
     public RoomSituation findRoomInfo(Integer roomId){
         return roomSituationMapper.selectByRoomId ( roomId );
     }
+    public List<Room> findRoomByState(Integer userId,Integer start ,Integer length){
+        return roomMapper.selectRoomByState(userId,start,length);
+    }
     public String dateToWeek(String datetime){
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
         String[] weekDays = { "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六" };

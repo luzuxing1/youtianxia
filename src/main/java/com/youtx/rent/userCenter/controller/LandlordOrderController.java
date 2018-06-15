@@ -2,6 +2,7 @@ package com.youtx.rent.userCenter.controller;
 
 import com.youtx.rent.entity.LodgerOrder;
 import com.youtx.rent.entity.PageBean;
+import com.youtx.rent.entity.Room;
 import com.youtx.rent.entity.User;
 import com.youtx.rent.placeOrder.service.OrdersService;
 import com.youtx.rent.placeOrder.service.RoomMsg;
@@ -29,7 +30,24 @@ public class LandlordOrderController {
     private OrdersService ordersService;
 
     @RequestMapping("/jumpRoomMaster")
-    public String jumpRoomMaster(){
+    public String jumpRoomMaster(HttpSession session,Model model,Integer current){
+        if (current==null){
+            current = 1;
+        }
+        Integer start = (current-1)*3;
+        Integer length = 3;
+        User user = (User) session.getAttribute("user");
+        Integer userId = user.getUserId();
+        List<Room> rooms = roomMsg.findRoomByState(userId,start,length);
+
+        PageBean orderPage = new PageBean();
+        orderPage.setCount(rooms.size());
+        orderPage.setCurrent(current);
+        orderPage.setSize(length);
+        int totalPages = orderPage.getTotalPages();
+        model.addAttribute("orderPage",orderPage);
+        model.addAttribute("totalPages",totalPages);
+        model.addAttribute("rooms",rooms);
         return "room_master_manageRoom";
     }
 
