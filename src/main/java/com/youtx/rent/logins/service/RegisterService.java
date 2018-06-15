@@ -146,8 +146,9 @@ public class RegisterService {
         User user = userMapper.selectByPhone(userPhone);
         SimpleHash simpleHash = new SimpleHash("MD5", password,password,5);
         String pwd = simpleHash.toHex();
+        String userHeadimg= "5dbecb20-f9c5-4593-bdd5-4309eb30cc3512313.jpg";
         if(null == user){
-            userMapper.insertuser(userPhone,pwd,userRealname);
+            userMapper.insertuser(userPhone,pwd,userRealname,userHeadimg);
             return "sucess";
         }
         return "fail" ;

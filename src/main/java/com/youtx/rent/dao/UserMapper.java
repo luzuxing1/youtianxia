@@ -27,7 +27,7 @@ public interface UserMapper {
     /**
      * 添加注册方法userPhone,userPassword
      */
-    void insertuser(@Param("userPhone") String userPhone, @Param("userPassword") String userPassword,@Param("userRealname") String userRealname);
+    void insertuser(@Param("userPhone") String userPhone, @Param("userPassword") String userPassword,@Param("userRealname") String userRealname,@Param("userHeadimg") String userHeadimg);
     /**
      * 验证注册手机号是否存在
      */

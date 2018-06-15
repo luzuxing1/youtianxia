@@ -62,8 +62,8 @@
       #{userPid,jdbcType=VARCHAR}, #{userRealname,jdbcType=VARCHAR})
   </insert>
   <insert id="insertuser" parameterType="com.youtx.rent.entity.User">
-    insert into ytx_user (user_phone, user_password,user_nickname)
-    values (#{userPhone},#{userPassword},#{userRealname})
+    insert into ytx_user (user_phone, user_password,user_nickname,user_headimg)
+    values (#{userPhone},#{userPassword},#{userRealname},#{userHeadimg})
   </insert>
   <insert id="insertSelective" parameterType="com.youtx.rent.entity.User">
     insert into ytx_user
