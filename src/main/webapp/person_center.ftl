@@ -249,15 +249,15 @@
                   <div class="pm_shadow_inner t"> </div>
                   <div class="pm_shadow_inner b"> </div>
                           <a title="查看资料" href="">
-                              <img width="209" height="209"  src="${imagesPath}/3.jpg" alt="">
+                              <img width="209" height="209"  src="${imagesPath}/${user.userHeadimg}" alt="">
                           </a>
                 </div>
               </div>
             </div>
           </div>
           <div class="EditInfor">
-            <p><a href="">编辑资料</a></p>
-            <p class="EditInfor_name"><a title="查看资料" href="">${user.userRealname}</a></p>
+            <p><a href="${base}/userCenter/jumpHeadImg">编辑资料</a></p>
+            <p class="EditInfor_name"><a title="查看资料" href="">${user.userNickname}</a></p>
           </div>
           <div class="NewsAut">
             <ul style="display:none;">

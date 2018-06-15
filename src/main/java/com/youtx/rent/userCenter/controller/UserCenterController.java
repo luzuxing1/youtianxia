@@ -22,10 +22,16 @@ public class UserCenterController {
 
 
     @RequestMapping("/jumpPage")
-    public String userCenter(){
+    public String userCenter(HttpSession session,Model model){
+        User user = (User) session.getAttribute("user");
+        model.addAttribute("user",user);
         return "person_center";
     }
 
+    @RequestMapping("/jumpHeadImg")
+    public String jumpHeadImg(){
+        return "updateHeadImage";
+    }
     @RequestMapping("/jumpLodgerPage")
     public String userCenter2(HttpSession session, Model model,String status,String paycode,String time,String num,Integer current){
         if (current==null){
