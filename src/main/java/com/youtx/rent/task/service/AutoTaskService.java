@@ -80,7 +80,7 @@ public class AutoTaskService {
                     if(dates.size ()!=0){
                         if(dateToString(dates.get (0)).compareTo (dateToString(new Date ()))>=0){
                             Integer dayPrice = roomPrice.getPriceDay ();
-                            Integer weekPrice = roomPrice.getPriceWeek ();
+                            Integer weekPrice = roomPrice.getPriceWeekend ();
                             Date currentDate = dates.get (0);
                             while (dateToString(currentDate).compareTo (nextMonthend())<0){
                                 calendar = new com.youtx.rent.entity.Calendar ();
@@ -98,7 +98,7 @@ public class AutoTaskService {
                         }
                     }else {
                         Integer dayPrice = roomPrice.getPriceDay ();
-                        Integer weekPrice = roomPrice.getPriceWeek ();
+                        Integer weekPrice = roomPrice.getPriceWeekend ();
                         Date currentDate = stringToDate (dateToString (new Date ()));
                         while(dateToString (currentDate).compareTo (nextMonthend())<0){
                             calendar = new com.youtx.rent.entity.Calendar ();
