@@ -78,6 +78,13 @@ public class LoginController {
     public String los(Model model){
         List<Room> roomsRandom = roomService.findRoomsRandom();
         model.addAttribute("roomsRandom",roomsRandom);
+//        List<String> stringList = new ArrayList<>();
+//        for (Room room : roomsRandom) {
+//            List<String> picNames = roomService.findRoomsById(room.getRoomId());
+//            stringList.add(picNames.get(0));
+//        }
+//        model.addAttribute("stringList",stringList);
+
         return "index";
     }
     @RequestMapping("/lols")

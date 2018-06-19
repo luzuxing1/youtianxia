@@ -58,4 +58,7 @@ public class RoomService {
     public void updateState(Room room){
         roomMapper.updateByPrimaryKeySelective(room);
     }
+    public List<String> findRoomsById(int roomId){
+        return pictureMapper.selectByRoomId(roomId);
+    };
 }

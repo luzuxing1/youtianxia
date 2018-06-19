@@ -93,7 +93,7 @@
                 <!--/**=anon-->
                 <!--/user/los=anon-->
                 /vcode/msg =anon
-
+                /userCenter/jumpAddRoom=authc
                 /book/present=authc
                 /book/order=authc
                 /manage/**=authc
