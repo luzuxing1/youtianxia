@@ -95,7 +95,7 @@ public class DetailServiceImpl implements DetailService {
     }
 
     @Override
-    public Boolean getCalendarByRange(String startDate, String endDate) {
+    public Boolean getCalendarByRange(String startDate, String endDate, int roomId) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Boolean byOrdered = false;
         try {
@@ -103,7 +103,7 @@ public class DetailServiceImpl implements DetailService {
             java.util.Calendar calendar = java.util.Calendar.getInstance();
             calendar.setTime(newEndDate);
             calendar.add(java.util.Calendar.DATE, -1);
-            List<Calendar> calendars = calendarDAO.selectByDateRange(startDate, dateFormat.format(calendar.getTime()));
+            List<Calendar> calendars = calendarDAO.selectByDateRange(startDate, dateFormat.format(calendar.getTime()), roomId);
             for (Calendar theCalen : calendars) {
                 System.out.println(theCalen.getCalendarRoom());
                 if (theCalen.getCalendarRoom() != null && theCalen.getCalendarRoom().equals("yz")) {

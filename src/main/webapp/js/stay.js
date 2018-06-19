@@ -23,6 +23,9 @@
                 minDate : 0,
                 maxDate:180,
                 onSelect:function(dateText,inst){
+                    if (dateText == "NaN-NaN-NaN") {
+                        dateText = new Date();
+                    }
                     stay.end.datepicker('option', 'minDate', new Date(moment(dateText).add('days', 1)));
                     stay.end.datepicker('option', 'maxDate', new Date(moment(dateText).add('days', 180)));
                     var strDay =  stay.compare($(this));

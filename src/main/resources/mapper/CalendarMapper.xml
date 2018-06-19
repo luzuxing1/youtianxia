@@ -33,7 +33,7 @@
     select
     <include refid="Base_Column_List" />
     from ytx_calendar
-    where calendar_date between #{startDate} and #{endDate}
+    where room_id = #{roomId} and calendar_date between #{startDate} and #{endDate}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ytx_calendar

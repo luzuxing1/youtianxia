@@ -1030,6 +1030,12 @@
                 $(function () {
                     var tempA = $("#startDate").val();
                     var tempB = $("#endDate").val();
+                    $("#roomnumber").change(function () {
+                        $.get("${base}/book/curPrice", {"begintime":tempA, "endtime":tempB, "roomid":${detail[0].roomId}}, function (data) {
+                            var hausenum = $("#roomnumber").val().replace("套", "");
+                            $("#goorder").val("立即预订(￥" + (hausenum * data) + ")");
+                        })
+                    })
                     $(".ui-datepicker-append").css("display","none");
                     $("#ui-datepicker-div").on('DOMNodeInserted',function(){
                         var curA = $("#startDate").val();
@@ -1039,7 +1045,7 @@
                             tempB = curB;
                             $("#df_begintime").val(tempA);
                             $("#df_endtime").val(tempB);
-                            $.get("${base}/detail/judge",{"startDate":tempA,"endDate":tempB},function (date) {
+                            $.get("${base}/detail/judge",{"startDate":tempA,"endDate":tempB, "roomId":${detail[0].roomId}},function (date) {
                                 if (date == true) {
                                     $("#goorder").removeClass("clickbutton");
                                     $("#goorder").addClass("clickbutton2");

@@ -26,7 +26,7 @@ public interface CalendarMapper {
 
     List<Calendar> selectByRoomId(Integer roomId);
 
-    List<Calendar> selectByDateRange(@Param("startDate") String startDate, @Param("endDate") String endDate);
+    List<Calendar> selectByDateRange(@Param("startDate") String startDate, @Param("endDate") String endDate , @Param("roomId") Integer roomId);
 
     List<Date> selectDateByRoomId(Integer roomId);
 }

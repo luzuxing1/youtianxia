@@ -14,5 +14,5 @@ public interface DetailService {
 
     List<LodgerOpinion> getLandlordAllRoom(Integer userId);
 
-    Boolean getCalendarByRange(String startDate, String endDate);
+    Boolean getCalendarByRange(String startDate, String endDate , int roomId);
 }

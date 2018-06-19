@@ -38,9 +38,8 @@ public class DetailController {
 
     @ResponseBody
     @RequestMapping("/judge")
-    public Object ordered(String startDate, String endDate){
-        Boolean byOrder = detailService.getCalendarByRange(startDate, endDate);
-        System.out.println(byOrder);
+    public Object ordered(String startDate, String endDate, int roomId){
+        Boolean byOrder = detailService.getCalendarByRange(startDate, endDate, roomId);
         return byOrder;
     }
 }
